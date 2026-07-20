@@ -1,0 +1,1 @@
+"""Mentiscope FastAPI application package."""

@@ -1,0 +1,6 @@
+{
+  "name": "Mentiscope – Cognitive Assessment Capsule",
+  "description": "A premium, unified, AI-powered cognitive assessment system for educational and psychological evaluation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

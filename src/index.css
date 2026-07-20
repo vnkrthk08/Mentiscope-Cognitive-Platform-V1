@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Global dark mode styling overrides for standard elements */
+.dark {
+  background-color: #030712 !important; /* gray-950 */
+  color: #f3f4f6 !important; /* gray-100 */
+}
+
+/* When dark mode is active, map white/light elements to dark equivalents */
+.dark .bg-white {
+  background-color: #0f172a !important; /* slate-900 */
+  color: #f1f5f9 !important; /* slate-100 */
+}
+
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-blue-100 {
+  border-color: #334155 !important; /* slate-700 */
+}
+
+.dark .bg-slate-50,
+.dark .bg-slate-50\/60,
+.dark .bg-slate-50\/50 {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+/* Map text colors */
+.dark .text-slate-900 {
+  color: #ffffff !important; /* white */
+}
+
+.dark .text-slate-800 {
+  color: #f1f5f9 !important; /* slate-100 */
+}
+
+.dark .text-slate-700 {
+  color: #e2e8f0 !important; /* slate-200 */
+}
+
+.dark .text-slate-650,
+.dark .text-slate-600 {
+  color: #cbd5e1 !important; /* slate-300 */
+}
+
+.dark .text-slate-500 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+.dark .text-slate-400 {
+  color: #64748b !important; /* slate-500 */
+}
+
+/* Support input elements */
+.dark input, 
+.dark textarea, 
+.dark select {
+  background-color: #1e293b !important; /* slate-800 */
+  border-color: #334155 !important; /* slate-700 */
+  color: #f1f5f9 !important; /* slate-100 */
+}
+
+.dark input::placeholder, 
+.dark textarea::placeholder {
+  color: #64748b !important; /* slate-500 */
+}
+
+/* Targeted luxury hover transition utility */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -8px rgba(59, 130, 246, 0.08), 
+              0 0 0 1px rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.22) !important;
+}
+
+/* Dark mode subtle glow instead of shadow */
+.dark .hover-lift:hover {
+  box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.4), 
+              0 0 12px -2px rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.28) !important;
+}
