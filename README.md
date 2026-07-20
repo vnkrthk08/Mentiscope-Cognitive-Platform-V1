@@ -1,31 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Mentiscope Cognitive Assessment Platform
 
-# Run and deploy your AI Studio app
+Mentiscope is a modern, scientific cognitive assessment platform incubated at **NIRMAAN, IIT Madras**. This repository contains the full web platform integration including the **Processing Speed (Gs)** assessment module and backend API services.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/9b5bee05-8bce-4813-bf7a-da7deab36df8
+## 🚀 Getting Started
 
-## Run Locally
+Follow these steps to clone, set up, and run the project locally on any machine:
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-
-## Processing Speed module
-
-Run the module API separately during development:
-
+### 1. Clone the repository
 ```bash
-python -m pip install -r backend/requirements.txt
+git clone https://github.com/vnkrthk08/Mentiscope-Main-v1v.git
+cd Mentiscope-Main-v1v
+```
+
+### 2. Install & Start Frontend
+```bash
+npm install
+npm run dev
+```
+
+### 3. Install & Start Backend (in a separate terminal)
+```bash
+pip install -r backend/requirements.txt
 uvicorn backend.main:app --reload --port 8000
 ```
 
-The Vite dev server proxies `/api/modules/processing-speed` to port 8000. The module is registered as `processing-speed` and exposes `POST /start`, `POST /answer`, `POST /finish`, and `GET /result` beneath that prefix.
+---
+
+## 🛠️ Project Architecture
+
+- **Frontend**: React 19 + TypeScript + Vite + Tailwind CSS + Motion
+- **Backend API**: FastAPI (Python 3.13+) + SQLAlchemy + SQLite
+- **Proxy**: Vite dev server proxies `/api/modules/processing-speed` requests directly to `http://localhost:8000`.
+
+---
+
+## 🧠 Core Assessment Battery (7 Pillars)
+
+| ID | Module Name | Key Metrics Logged |
+|----|-------------|--------------------|
+| **M1** | Processing Speed | Choice reaction latency, keypress correctness, accuracy curve |
+| **M2** | Attention Control | Focus shift time, distractor omission/commission errors |
+| **M3** | Working Memory | Target matching correctness, response lag |
+| **M4** | Lexical Memory | Recall word recognition speed, association hits |
+| **M5** | Memory Span | Sequence recall length, forward/backward sequence checks |
+| **M6** | Fluid Intelligence | Pattern deduction response times, matrix accuracy |
+| **M7** | Cognitive Flexibility | Switch cost latency (task rule switching), target accuracy |
+
+---
+
+## 📧 Contact & Credentials
+- **Incubated at**: NIRMAAN, IIT Madras
+- **Email Contact**: assesmentcognitive@gmail.com
+- **Phone Contacts**: +91 9037188431 | +91 9947783548
