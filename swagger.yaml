@@ -1,0 +1,160 @@
+openapi: 3.0.0
+info:
+  title: Mentiscope Cognitive Platform API
+  description: API Documentation for the Mentiscope Live Integration service, including cognitive assessment, authentication, user, feature toggles, i18n, and analytics endpoints.
+  version: 1.0.0
+servers:
+  - url: http://localhost:5173/api/v1
+    description: V1 API Server
+paths:
+  /health/health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Successful response
+  /health/version:
+    get:
+      summary: Get application version
+      responses:
+        '200':
+          description: Successful response
+  /auth/student/register:
+    post:
+      summary: Student Registration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                name:
+                  type: string
+      responses:
+        '201':
+          description: User registered successfully
+  /auth/login:
+    post:
+      summary: Authentication login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                role:
+                  type: string
+                  enum: [student, intern, admin]
+      responses:
+        '200':
+          description: Successful login
+  /user/me:
+    get:
+      summary: Retrieve authenticated user profile
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update authenticated user profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+  /analytics/summary:
+    get:
+      summary: Retrieve aggregated usage statistics per module
+      responses:
+        '200':
+          description: Successful response
+  /analytics/user/{id}:
+    get:
+      summary: Retrieve performance history for a specific user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /feature/{userId}:
+    get:
+      summary: Get feature flags for a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /feature/{userId}/{featureName}:
+    post:
+      summary: Update feature flag for a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: featureName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                enabled:
+                  type: boolean
+      responses:
+        '200':
+          description: Successful response
+  /i18n/locale/{lang}:
+    get:
+      summary: Get translations for a specific language
+      parameters:
+        - name: lang
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /webhooks/event:
+    post:
+      summary: Receive external event webhook payload
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Webhook received successfully

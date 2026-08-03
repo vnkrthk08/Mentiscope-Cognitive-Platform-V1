@@ -55,3 +55,34 @@ class AnalyticsRecord(Base):
     session_id: Mapped[str] = mapped_column(ForeignKey("sessions.session_id"), unique=True)
     module_id: Mapped[str] = mapped_column(String(64), index=True)
     payload: Mapped[dict] = mapped_column(JSON, default=dict)
+
+
+class SavedAssessmentSession(Base):
+    __tablename__ = "saved_sessions"
+
+    session_id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    student_id: Mapped[str] = mapped_column(String(64), index=True)
+    payload: Mapped[dict] = mapped_column(JSON, default=dict)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class UserRecord(Base):
+    __tablename__ = "users"
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    email: Mapped[str] = mapped_column(String(128), unique=True, index=True)
+    name: Mapped[str] = mapped_column(String(128))
+    password_hash: Mapped[str | None] = mapped_column(String(256), nullable=True)
+    role: Mapped[str] = mapped_column(String(32), default="student")
+    age: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    gender: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    state: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    district: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    education: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    course: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    specialization: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    previous_exam_percentage: Mapped[float | None] = mapped_column(Float, nullable=True)
+    college_type: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+

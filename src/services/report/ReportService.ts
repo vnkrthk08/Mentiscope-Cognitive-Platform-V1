@@ -9,7 +9,8 @@ export class ReportService {
     studentName: string,
     studentAge: number,
     studentGender: string,
-    moduleScores: { [moduleId: string]: number }
+    moduleScores: { [moduleId: string]: number },
+    moduleMetrics?: Record<string, any>
   ): CognitiveReport {
     const keys = Object.keys(moduleScores);
     const sum = keys.reduce((acc, k) => acc + moduleScores[k], 0);
@@ -22,13 +23,16 @@ export class ReportService {
 
     // Map module key to human name
     const moduleNames: { [key: string]: string } = {
-      gq: "General Cognitive Quotient",
-      gsm: "Working Memory (GSM)",
-      gf: "Fluid Intelligence (GF)",
-      attention: "Attention & Cognitive Control",
-      language: "Linguistic & Verbal Reasoning",
-      executive: "Executive Function",
-      "processing-speed": "Cognitive Processing Speed"
+      gf: "Fluid Intelligence (Gf)",
+      gc: "Crystallized Intelligence (Gc)",
+      gq: "Quantitative Ability (Gq)",
+      gv: "Visual Processing (Gv)",
+      gsm: "Working Memory (Gsm)",
+      gs: "Processing Speed (Gs)",
+      attention: "Attention",
+      riasec: "Career Interest Assessment (RIASEC Model)",
+      personality: "Personality Assessment",
+      emotional_regulation: "Emotional Regulation Assessment"
     };
 
     keys.forEach(k => {

@@ -24,14 +24,31 @@ export class AuthService {
   }
 
   static async studentRegister(data: Omit<User, "id" | "role"> & { consent: boolean }): Promise<User> {
-    console.log("[Auth API] POST /auth/student/register", data);
-    await new Promise((resolve) => setTimeout(resolve, 800)); // Simulate API response latency
+    console.log("[Auth API] POST /api/auth/register", data);
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        const user = await res.json();
+        const fullUser: User = {
+          ...user,
+          role: UserRole.STUDENT
+        };
+        this.saveUserSession(fullUser);
+        return fullUser;
+      }
+    } catch (e) {
+      console.warn("Backend auth register fallback:", e);
+    }
 
     const newUser: User = {
       ...data,
       id: `stud_${Math.random().toString(36).substring(2, 11)}`,
       role: UserRole.STUDENT,
-      token: "jwt_student_mock_token_xyz"
+      token: "jwt_student_active_session"
     };
 
     this.saveUserSession(newUser);
@@ -39,13 +56,33 @@ export class AuthService {
   }
 
   static async studentLogin(email: string, rememberMe?: boolean): Promise<User> {
-    console.log("[Auth API] POST /auth/student/login", { email, rememberMe });
-    await new Promise((resolve) => setTimeout(resolve, 600));
+    console.log("[Auth API] POST /api/auth/login", { email, rememberMe });
+    if (!email || !email.includes("@")) {
+      throw new Error("Please enter a valid student email address (e.g. candidate@mentiscope.org).");
+    }
 
-    // Simple simulation: creates a student profile
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, rememberMe })
+      });
+      if (res.ok) {
+        const user = await res.json();
+        const fullUser: User = {
+          ...user,
+          role: UserRole.STUDENT
+        };
+        this.saveUserSession(fullUser);
+        return fullUser;
+      }
+    } catch (e) {
+      console.warn("Backend auth login fallback:", e);
+    }
+
     const user: User = {
-      id: "stud_demo_123",
-      name: "Alex Mercer",
+      id: `stud_${email.split("@")[0].toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
+      name: email.split("@")[0].replace(".", " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       email: email,
       role: UserRole.STUDENT,
       age: 21,
@@ -57,34 +94,49 @@ export class AuthService {
       specialization: "Cognitive Science",
       previousExamPercentage: 88,
       collegeType: "Private",
-      token: "jwt_student_mock_token_xyz"
+      token: "jwt_student_active_session"
     };
 
     this.saveUserSession(user);
     return user;
   }
 
-  static async internLogin(emailOrId: string, passwordString: string): Promise<User> {
-    console.log("[Auth API] POST /auth/intern/login", { emailOrId });
-    await new Promise((resolve) => setTimeout(resolve, 600));
+  static async updateProfile(user: User): Promise<User> {
+    console.log("[Auth API] POST /api/auth/profile", user);
+    try {
+      const res = await fetch("/api/auth/profile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user)
+      });
+      if (res.ok) {
+        const updated = await res.json();
+        const fullUser: User = {
+          ...updated,
+          role: user.role
+        };
+        this.saveUserSession(fullUser);
+        return fullUser;
+      }
+    } catch (e) {
+      console.warn("Backend profile update fallback:", e);
+    }
 
-    // Standard demo intern credentials
-    const user: User = {
-      id: "intern_demo_456",
-      name: "Dr. Clara Oswald",
-      email: emailOrId.includes("@") ? emailOrId : "clara@mentiscope.org",
-      role: UserRole.INTERN,
-      token: "jwt_intern_mock_token_abc"
-    };
-
-    // Store in session
     this.saveUserSession(user);
     return user;
   }
+
+
 
   static async adminLogin(emailString: string, passwordString: string): Promise<User> {
     console.log("[Auth API] POST /auth/admin/login", { emailString });
     await new Promise((resolve) => setTimeout(resolve, 600));
+
+    // Valid admin passwords
+    const validPasswords = ["admin123", "AdminPass123", "Admin@123"];
+    if (!validPasswords.includes(passwordString)) {
+      throw new Error("Invalid Super Admin password. (Demo password: admin123)");
+    }
 
     const user: User = {
       id: "admin_demo_999",

@@ -1,6 +1,5 @@
 export enum UserRole {
   STUDENT = "student",
-  INTERN = "intern",
   SUPER_ADMIN = "super_admin"
 }
 
@@ -25,6 +24,8 @@ export interface User {
 export interface ModuleConfig {
   id: string;
   name: string;
+  taskName?: string; // Student research task name
+  researcher?: string; // Intern researcher attribution
   description: string;
   icon: string; // Lucide icon name
   apiBaseUrl: string;
@@ -41,13 +42,18 @@ export interface Question {
   options?: string[]; // Multiple choice options
   correctAnswer?: string;
   hint?: string;
-  type?: "choice" | "memory-span" | "stroop" | "grid-pattern" | "speed-match";
+  type?: "choice" | "memory-span" | "stroop" | "grid-pattern" | "speed-match" | "svg-matrix";
   // Extra properties for special cognitive tasks
   sequence?: (string | number)[]; // For Working Memory
   targetColor?: string; // For Stroop
   textColor?: string; // For Stroop
   gridSize?: number; // For pattern tests
   activeGridCells?: number[]; // For working memory grid
+  
+  // For SVG matrix puzzles
+  svgContent?: string;
+  examples?: { inputSvg: string; outputSvg: string }[];
+  svgOptions?: { id: string; svgContent: string }[];
 }
 
 export interface AnswerPayload {
@@ -63,9 +69,11 @@ export interface AssessmentSession {
   currentQuestionIndex: number;
   answers: { [moduleId: string]: AnswerPayload[] };
   moduleScores: { [moduleId: string]: number };
+  moduleMetrics?: Record<string, any>;
   startTime: string;
   endTime?: string;
   status: "idle" | "ongoing" | "completed";
+  seed?: number;
 }
 
 export interface CognitiveReport {
@@ -83,12 +91,6 @@ export interface CognitiveReport {
   isAiGenerated?: boolean;
 }
 
-export interface Intern {
-  id: string;
-  name: string;
-  email: string;
-  assignedModuleId: string; // Can only access this module's config, questions, and analytics
-}
 
 export interface SystemLog {
   id: string;

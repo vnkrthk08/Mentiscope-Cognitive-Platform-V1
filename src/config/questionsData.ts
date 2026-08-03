@@ -99,48 +99,45 @@ export const QUESTIONS_DATA: { [moduleId: string]: Question[] } = {
   gf: [
     {
       id: "gf-1",
-      text: "Find the missing piece that completes the 3x3 matrix logic.",
-      story: "Raven's Progressive Matrix: Column-wise, shapes add together, overlapping lines disappear (XOR gate logic).",
-      options: ["Cross within a circle", "Square within a triangle", "Plain Circle", "Double crossed lines"],
-      correctAnswer: "Cross within a circle",
-      hint: "Superimpose column 1 onto column 2 and cancel out identical strokes.",
-      type: "choice"
+      text: "Identify the pattern rule to find the missing puzzle output.",
+      story: "Rule Family: SEQUENCE — Observe the 90° clockwise rotation of symbols.",
+      type: "svg-matrix",
+      svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="w-full h-auto bg-slate-950 rounded-xl p-2"><rect width="100%" height="100%" fill="#090d16" rx="12"/><circle cx="100" cy="100" r="45" fill="none" stroke="#3b82f6" stroke-width="4"/><polygon points="100,65 125,120 75,120" fill="#38bdf8"/></svg>`,
+      examples: [
+        {
+          inputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="50,20 75,75 25,75" fill="#3b82f6"/></svg>`,
+          outputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="75,50 20,75 20,25" fill="#3b82f6"/></svg>`
+        }
+      ],
+      svgOptions: [
+        { id: "opt-gf-1a", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="75,50 20,75 20,25" fill="#38bdf8"/></svg>` },
+        { id: "opt-gf-1b", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="50,80 75,25 25,25" fill="#a855f7"/></svg>` },
+        { id: "opt-gf-1c", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#14b8a6"/></svg>` },
+        { id: "opt-gf-1d", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><rect x="25" y="25" width="50" height="50" fill="#ef4444"/></svg>` }
+      ],
+      correctAnswer: "opt-gf-1a",
+      hint: "Look at the direction the primary vertex points after a 90° rotation."
     },
     {
       id: "gf-2",
-      text: "Choose the pair that shares the identical logical relation as: CRUCIBLE : METAL",
-      story: "Analogical Reasoning: Identify abstract structural relationships.",
-      options: ["Oven : Bread", "Forest : Tree", "Envelope : Letter", "Acre : Land"],
-      correctAnswer: "Oven : Bread",
-      hint: "A crucible is a vessel used to refine and transform metal; an oven is a container used to bake and transform bread.",
-      type: "choice"
-    },
-    {
-      id: "gf-3",
-      text: "A is the father of B. C is the daughter of B. D is the brother of C. What is the relation of A to D?",
-      story: "Relational Mapping: Construct a structural kinship chart.",
-      options: ["Grandfather", "Grandmother", "Father", "Uncle"],
-      correctAnswer: "Grandfather",
-      hint: "Since A is the father of B, and D is B's son, A is D's grandfather.",
-      type: "choice"
-    },
-    {
-      id: "gf-4",
-      text: "Look at the sequence: 2, 6, 12, 20, 30. What is the next number?",
-      story: "Numerical Induction: Infer the generative formula.",
-      options: ["40", "42", "44", "46"],
-      correctAnswer: "42",
-      hint: "Look at the differences: +4, +6, +8, +10. The next difference should be +12.",
-      type: "choice"
-    },
-    {
-      id: "gf-5",
-      text: "In a certain code, COGNITIVE is written as EQIPKVKXG. How is MENTISCOPE written?",
-      story: "Inductive Rule Discovery: Deduce the shift cipher code.",
-      options: ["OGPVKUEQRG", "OGPVISCORG", "NFOUJTDQPF", "PHOVKUEQRE"],
-      correctAnswer: "OGPVKUEQRG",
-      hint: "Each letter is shifted by +2 positions in the alphabet (C->E, O->Q, etc.).",
-      type: "choice"
+      text: "Deduce the color transformation rule across the series.",
+      story: "Rule Family: ATTRIBUTE — Attribute shift along the primary color spectrum.",
+      type: "svg-matrix",
+      svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="w-full h-auto bg-slate-950 rounded-xl p-2"><rect width="100%" height="100%" fill="#090d16" rx="12"/><circle cx="100" cy="100" r="50" fill="#a855f7"/></svg>`,
+      examples: [
+        {
+          inputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#3b82f6"/></svg>`,
+          outputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#a855f7"/></svg>`
+        }
+      ],
+      svgOptions: [
+        { id: "opt-gf-2a", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#ec4899"/></svg>` },
+        { id: "opt-gf-2b", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><rect x="25" y="25" width="50" height="50" fill="#a855f7"/></svg>` },
+        { id: "opt-gf-2c", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="50,20 80,80 20,80" fill="#3b82f6"/></svg>` },
+        { id: "opt-gf-2d", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#10b981"/></svg>` }
+      ],
+      correctAnswer: "opt-gf-2a",
+      hint: "Observe how Blue shifts to Purple, and Purple shifts to Magenta."
     }
   ],
   attention: [
@@ -298,6 +295,314 @@ export const QUESTIONS_DATA: { [moduleId: string]: Question[] } = {
       correctAnswer: "Check system logs to isolate the error root cause",
       hint: "Diagnostic visibility (logs) must precede destructive action (rebooting) or corrective work.",
       type: "choice"
+    }
+  ],
+  gv: [
+    {
+      id: "GV_MR_001",
+      subtest_id: "mental_rotation",
+      subtest_name: "Mental Rotation",
+      text: "Select the rotated copy of the figure on the left. Mirror images do not count.",
+      story: "Mental Rotation (SR): Recognise an object after 2D rotation while rejecting mirrored distractors.",
+      type: "gv-item",
+      primary_ability: "SR",
+      difficulty_level: 2,
+      stimulus: {
+        shape: { cells: [[0, 0], [0, 1], [0, 2], [0, 3], [1, 3], [2, 3]], notch: [2, 3], color: "#b45309" },
+        rotation: 0,
+        mirror: false
+      },
+      options: [
+        { option_id: "MR1_A", payload: { shape: { cells: [[0, 0], [0, 1], [0, 2], [0, 3], [1, 3], [2, 3]], color: "#b45309" }, rotation: 90, mirror: true } },
+        { option_id: "MR1_B", payload: { shape: { cells: [[0, 0], [0, 1], [0, 2], [0, 3], [1, 3], [2, 3]], color: "#b45309" }, rotation: 180, mirror: false } },
+        { option_id: "MR1_C", payload: { shape: { cells: [[0, 0], [0, 1], [0, 2], [0, 3], [1, 3], [2, 3]], color: "#b45309" }, rotation: 270, mirror: true } },
+        { option_id: "MR1_D", payload: { shape: { cells: [[0, 0], [0, 1], [0, 2], [0, 3], [1, 3], [2, 3]], color: "#b45309" }, rotation: 0, mirror: true } }
+      ],
+      correctAnswer: "MR1_B",
+      hint: "Check the direction of the L-shape extension after a 180° rotation without flipping."
+    },
+    {
+      id: "GV_MR_002",
+      subtest_id: "mental_rotation",
+      subtest_name: "Mental Rotation",
+      text: "Select the rotated copy of the figure on the left.",
+      story: "Mental Rotation (SR): Observe spatial orientation shifts.",
+      type: "gv-item",
+      primary_ability: "SR",
+      difficulty_level: 3,
+      stimulus: {
+        shape: { cells: [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 2]], notch: [0, 0], color: "#4338ca" },
+        rotation: 0,
+        mirror: false
+      },
+      options: [
+        { option_id: "MR2_A", payload: { shape: { cells: [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 2]], color: "#4338ca" }, rotation: 180, mirror: true } },
+        { option_id: "MR2_B", payload: { shape: { cells: [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 2]], color: "#4338ca" }, rotation: 270, mirror: true } },
+        { option_id: "MR2_C", payload: { shape: { cells: [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 2]], color: "#4338ca" }, rotation: 90, mirror: false } },
+        { option_id: "MR2_D", payload: { shape: { cells: [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 2]], color: "#4338ca" }, rotation: 0, mirror: true } }
+      ],
+      correctAnswer: "MR2_C",
+      hint: "Rotate the stepped Z-shape 90° clockwise and ensure no mirror reflection occurred."
+    },
+    {
+      id: "GV_MR_003",
+      subtest_id: "mental_rotation",
+      subtest_name: "Mental Rotation",
+      text: "Select the rotated copy of the figure on the left.",
+      story: "Mental Rotation (SR): High-speed mental transformation.",
+      type: "gv-item",
+      primary_ability: "SR",
+      difficulty_level: 3,
+      stimulus: {
+        shape: { cells: [[1, 0], [2, 0], [3, 0], [0, 1], [1, 1], [0, 2]], notch: [3, 0], color: "#0369a1" },
+        rotation: 90,
+        mirror: false
+      },
+      options: [
+        { option_id: "MR3_A", payload: { shape: { cells: [[1, 0], [2, 0], [3, 0], [0, 1], [1, 1], [0, 2]], color: "#0369a1" }, rotation: 0, mirror: true } },
+        { option_id: "MR3_B", payload: { shape: { cells: [[1, 0], [2, 0], [3, 0], [0, 1], [1, 1], [0, 2]], color: "#0369a1" }, rotation: 270, mirror: false } },
+        { option_id: "MR3_C", payload: { shape: { cells: [[1, 0], [2, 0], [3, 0], [0, 1], [1, 1], [0, 2]], color: "#0369a1" }, rotation: 180, mirror: true } },
+        { option_id: "MR3_D", payload: { shape: { cells: [[1, 0], [2, 0], [3, 0], [0, 1], [1, 1], [0, 2]], color: "#0369a1" }, rotation: 90, mirror: true } }
+      ],
+      correctAnswer: "MR3_B",
+      hint: "The target is rotated 90°. Rotating 180° further matches 270°."
+    },
+    {
+      id: "GV_PF_001",
+      subtest_id: "paper_folding",
+      subtest_name: "Paper Folding",
+      text: "The paper is folded horizontally down and punched. Choose the unfolded hole pattern.",
+      story: "Paper Folding (Vz): Mentally unfold a punched sheet and predict the resulting spatial pattern.",
+      type: "gv-item",
+      primary_ability: "Vz",
+      difficulty_level: 2,
+      stimulus: {
+        folds: [{ axis: "horizontal", direction: "down" }],
+        punched: [[1, 0]],
+        grid_size: 4
+      },
+      options: [
+        { option_id: "PF1_A", payload: { holes: [[1, 0], [2, 3]] } },
+        { option_id: "PF1_B", payload: { holes: [[1, 3]] } },
+        { option_id: "PF1_C", payload: { holes: [[1, 0], [1, 3]] } },
+        { option_id: "PF1_D", payload: { holes: [[1, 0], [1, 3], [2, 0]] } }
+      ],
+      correctAnswer: "PF1_C",
+      hint: "Unfolding down reflects row 0 onto row 3 in column 1."
+    },
+    {
+      id: "GV_PF_002",
+      subtest_id: "paper_folding",
+      subtest_name: "Paper Folding",
+      text: "The paper is folded vertically right then horizontally down and punched. Choose the unfolded hole pattern.",
+      story: "Paper Folding (Vz): Dual-axis folding transformation.",
+      type: "gv-item",
+      primary_ability: "Vz",
+      difficulty_level: 3,
+      stimulus: {
+        folds: [{ axis: "vertical", direction: "right" }, { axis: "horizontal", direction: "down" }],
+        punched: [[0, 0]],
+        grid_size: 4
+      },
+      options: [
+        { option_id: "PF2_A", payload: { holes: [[0, 0], [3, 0]] } },
+        { option_id: "PF2_B", payload: { holes: [[0, 0], [3, 0], [0, 3], [3, 3]] } },
+        { option_id: "PF2_C", payload: { holes: [[0, 0], [0, 3]] } },
+        { option_id: "PF2_D", payload: { holes: [[1, 1], [2, 1], [1, 2], [2, 2]] } }
+      ],
+      correctAnswer: "PF2_B",
+      hint: "Folding both axes creates a 4-corner symmetrical hole pattern."
+    },
+    {
+      id: "GV_PF_003",
+      subtest_id: "paper_folding",
+      subtest_name: "Paper Folding",
+      text: "The paper is folded vertically right and punched. Choose the unfolded hole pattern.",
+      story: "Paper Folding (Vz): Symmetry reflection deduction.",
+      type: "gv-item",
+      primary_ability: "Vz",
+      difficulty_level: 3,
+      stimulus: {
+        folds: [{ axis: "vertical", direction: "right" }],
+        punched: [[1, 2]],
+        grid_size: 4
+      },
+      options: [
+        { option_id: "PF3_A", payload: { holes: [[1, 2]] } },
+        { option_id: "PF3_B", payload: { holes: [[0, 2], [3, 2]] } },
+        { option_id: "PF3_C", payload: { holes: [[1, 2], [1, 1]] } },
+        { option_id: "PF3_D", payload: { holes: [[1, 2], [2, 2]] } }
+      ],
+      correctAnswer: "PF3_D",
+      hint: "Reflect column 1 horizontally across the fold line to column 2."
+    },
+    {
+      id: "GV_HF_001",
+      subtest_id: "hidden_figures",
+      subtest_name: "Hidden Figures",
+      text: "Which complex figure contains the target shape exactly?",
+      story: "Hidden Figures (CF): Locate a simple target shape embedded within visual interference lines.",
+      type: "gv-item",
+      primary_ability: "CF",
+      difficulty_level: 2,
+      stimulus: {
+        target_segments: [[[15, 20], [15, 80]], [[15, 80], [70, 80]], [[40, 40], [70, 80]]]
+      },
+      options: [
+        { option_id: "HF1_A", payload: { segments: [[[5, 10], [95, 90]], [[5, 90], [95, 15]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[12, 75], [38, 25]], [[38, 25], [76, 74]]] } },
+        { option_id: "HF1_B", payload: { segments: [[[7, 10], [93, 90]], [[5, 88], [95, 17]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[20, 15], [80, 75]]] } },
+        { option_id: "HF1_C", payload: { segments: [[[9, 10], [91, 90]], [[5, 86], [95, 19]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[20, 85], [80, 25]]] } },
+        { option_id: "HF1_D", payload: { segments: [[[11, 10], [89, 90]], [[5, 84], [95, 21]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[15, 20], [15, 80]], [[15, 80], [70, 80]], [[40, 40], [70, 80]]] } }
+      ],
+      correctAnswer: "HF1_D",
+      hint: "Look for the L-shaped right angle connected to a diagonal hypotenuse."
+    },
+    {
+      id: "GV_HF_002",
+      subtest_id: "hidden_figures",
+      subtest_name: "Hidden Figures",
+      text: "Which complex figure contains the target shape exactly?",
+      story: "Hidden Figures (CF): Flexibility of closure task.",
+      type: "gv-item",
+      primary_ability: "CF",
+      difficulty_level: 3,
+      stimulus: {
+        target_segments: [[[20, 20], [80, 20]], [[50, 20], [50, 80]], [[20, 80], [80, 80]]]
+      },
+      options: [
+        { option_id: "HF2_A", payload: { segments: [[[5, 10], [95, 90]], [[5, 90], [95, 15]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[20, 20], [80, 20]], [[50, 20], [50, 80]], [[20, 80], [80, 80]]] } },
+        { option_id: "HF2_B", payload: { segments: [[[7, 10], [93, 90]], [[5, 88], [95, 17]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[12, 75], [38, 25]], [[38, 25], [76, 74]]] } },
+        { option_id: "HF2_C", payload: { segments: [[[9, 10], [91, 90]], [[5, 86], [95, 19]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[20, 15], [80, 75]]] } },
+        { option_id: "HF2_D", payload: { segments: [[[11, 10], [89, 90]], [[5, 84], [95, 21]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[20, 85], [80, 25]]] } }
+      ],
+      correctAnswer: "HF2_A",
+      hint: "Search for the horizontal top and bottom bars connected by a vertical stem."
+    },
+    {
+      id: "GV_HF_003",
+      subtest_id: "hidden_figures",
+      subtest_name: "Hidden Figures",
+      text: "Which complex figure contains the target shape exactly?",
+      story: "Hidden Figures (CF): High-density visual closure.",
+      type: "gv-item",
+      primary_ability: "CF",
+      difficulty_level: 4,
+      stimulus: {
+        target_segments: [[[10, 80], [40, 20]], [[40, 20], [70, 80]], [[25, 55], [55, 55]]]
+      },
+      options: [
+        { option_id: "HF3_A", payload: { segments: [[[5, 10], [95, 90]], [[5, 90], [95, 15]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[12, 75], [38, 25]], [[38, 25], [76, 74]]] } },
+        { option_id: "HF3_B", payload: { segments: [[[7, 10], [93, 90]], [[5, 88], [95, 17]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[20, 15], [80, 75]]] } },
+        { option_id: "HF3_C", payload: { segments: [[[9, 10], [91, 90]], [[5, 86], [95, 19]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[10, 80], [40, 20]], [[40, 20], [70, 80]], [[25, 55], [55, 55]]] } },
+        { option_id: "HF3_D", payload: { segments: [[[11, 10], [89, 90]], [[5, 84], [95, 21]], [[10, 50], [90, 50]], [[50, 5], [50, 95]], [[20, 85], [80, 25]]] } }
+      ],
+      correctAnswer: "HF3_C",
+      hint: "Look for the triangular peak with a horizontal crossbar."
+    },
+    {
+      id: "GV_MM_001",
+      subtest_id: "mystery_map",
+      subtest_name: "Mystery Map Builder",
+      text: "Study the map, then rebuild it by placing every tile in its original position.",
+      story: "Mystery Map Builder (CS/SS): Visual memory synthesis & spatial tile reconstruction.",
+      type: "gv-item",
+      response_type: "map_placement",
+      primary_ability: "CS",
+      difficulty_level: 2,
+      stimulus: {
+        cols: 2,
+        rows: 2,
+        piece_size: 2,
+        study_seconds: 6,
+        map: [
+          ["grass", "road", "water", "building"],
+          ["road", "park", "water", "sand"],
+          ["grass", "road", "building", "grass"],
+          ["park", "road", "sand", "building"]
+        ],
+        pieces: [
+          { piece_id: "GV_MM_001_P1", initial_rotation: 0, cells: [["grass", "road"], ["road", "park"]] },
+          { piece_id: "GV_MM_001_P2", initial_rotation: 90, cells: [["water", "building"], ["water", "sand"]] },
+          { piece_id: "GV_MM_001_P3", initial_rotation: 0, cells: [["grass", "road"], ["park", "road"]] },
+          { piece_id: "GV_MM_001_P4", initial_rotation: 180, cells: [["building", "grass"], ["sand", "building"]] }
+        ]
+      },
+      options: [],
+      correctAnswer: "GV_MM_001_SOLVED",
+      hint: "Pay attention to where the water river and road intersections are located."
+    },
+    {
+      id: "GV_MM_002",
+      subtest_id: "mystery_map",
+      subtest_name: "Mystery Map Builder",
+      text: "Study the map, then rebuild it by placing every tile in its original position.",
+      story: "Mystery Map Builder (CS/SS): Multi-tile spatial layout placement.",
+      type: "gv-item",
+      response_type: "map_placement",
+      primary_ability: "CS",
+      difficulty_level: 3,
+      stimulus: {
+        cols: 3,
+        rows: 2,
+        piece_size: 2,
+        study_seconds: 8,
+        map: [
+          ["grass", "road", "water", "building", "park", "sand"],
+          ["road", "park", "water", "sand", "building", "grass"],
+          ["grass", "road", "building", "grass", "road", "water"],
+          ["park", "road", "sand", "building", "road", "water"]
+        ],
+        pieces: [
+          { piece_id: "GV_MM_002_P1", initial_rotation: 0, cells: [["grass", "road"], ["road", "park"]] },
+          { piece_id: "GV_MM_002_P2", initial_rotation: 0, cells: [["water", "building"], ["water", "sand"]] },
+          { piece_id: "GV_MM_002_P3", initial_rotation: 90, cells: [["park", "sand"], ["building", "grass"]] },
+          { piece_id: "GV_MM_002_P4", initial_rotation: 0, cells: [["grass", "road"], ["park", "road"]] },
+          { piece_id: "GV_MM_002_P5", initial_rotation: 180, cells: [["building", "grass"], ["sand", "building"]] },
+          { piece_id: "GV_MM_002_P6", initial_rotation: 0, cells: [["road", "water"], ["road", "water"]] }
+        ]
+      },
+      options: [],
+      correctAnswer: "GV_MM_002_SOLVED",
+      hint: "Track the horizontal road crossing the 3x2 grid."
+    },
+    {
+      id: "GV_MM_003",
+      subtest_id: "mystery_map",
+      subtest_name: "Mystery Map Builder",
+      text: "Study the map, then rebuild it by placing every tile in its original position.",
+      story: "Mystery Map Builder (CS/SS): Complex grid spatial memory.",
+      type: "gv-item",
+      response_type: "map_placement",
+      primary_ability: "CS",
+      difficulty_level: 4,
+      stimulus: {
+        cols: 3,
+        rows: 3,
+        piece_size: 2,
+        study_seconds: 10,
+        map: [
+          ["grass", "road", "water", "building", "park", "sand"],
+          ["road", "park", "water", "sand", "building", "grass"],
+          ["grass", "road", "building", "grass", "road", "water"],
+          ["park", "road", "sand", "building", "road", "water"],
+          ["water", "water", "grass", "park", "sand", "building"],
+          ["road", "road", "building", "grass", "grass", "park"]
+        ],
+        pieces: [
+          { piece_id: "GV_MM_003_P1", initial_rotation: 0, cells: [["grass", "road"], ["road", "park"]] },
+          { piece_id: "GV_MM_003_P2", initial_rotation: 0, cells: [["water", "building"], ["water", "sand"]] },
+          { piece_id: "GV_MM_003_P3", initial_rotation: 90, cells: [["park", "sand"], ["building", "grass"]] },
+          { piece_id: "GV_MM_003_P4", initial_rotation: 0, cells: [["grass", "road"], ["park", "road"]] },
+          { piece_id: "GV_MM_003_P5", initial_rotation: 180, cells: [["building", "grass"], ["sand", "building"]] },
+          { piece_id: "GV_MM_003_P6", initial_rotation: 0, cells: [["road", "water"], ["road", "water"]] },
+          { piece_id: "GV_MM_003_P7", initial_rotation: 0, cells: [["water", "water"], ["road", "road"]] },
+          { piece_id: "GV_MM_003_P8", initial_rotation: 90, cells: [["grass", "park"], ["building", "grass"]] },
+          { piece_id: "GV_MM_003_P9", initial_rotation: 0, cells: [["sand", "building"], ["grass", "park"]] }
+        ]
+      },
+      options: [],
+      correctAnswer: "GV_MM_003_SOLVED",
+      hint: "Remember the 3x3 layout by grouping the water features first."
     }
   ]
 };

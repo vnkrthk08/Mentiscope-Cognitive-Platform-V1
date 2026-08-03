@@ -3,6 +3,13 @@ import path from "path";
 import dotenv from "dotenv";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
+import { securityHeaders } from "./src/middleware/securityHeaders";
+import { apiRateLimiter } from "./src/middleware/rateLimit";
+import cookieParser from "cookie-parser";
+import { corsMiddleware } from "./src/middleware/cors";
+import { csrfProtection } from "./src/middleware/csrf";
+import { staticFiles } from "./src/middleware/staticFiles";
+import { apiV1Router } from "./src/routes/v1";
 
 dotenv.config();
 
@@ -10,10 +17,20 @@ const app = express();
 const PORT = parseInt(process.env.PORT || "5173", 10);
 
 app.use(express.json());
+app.use(securityHeaders);
+app.use("/api", apiRateLimiter);
+app.use(corsMiddleware);
+app.use(cookieParser());
+// app.use(csrfProtection);
+app.use("/api/v1", csrfProtection);
+app.use(staticFiles);
 
-// Proxy Processing Speed API requests to the Python backend on port 8000
-app.all("/api/modules/processing-speed*", async (req, res) => {
-  const targetUrl = `http://localhost:8000${req.originalUrl}`;
+// Mount version 1 api routes
+app.use("/api/v1", apiV1Router);
+
+// Proxy Processing Speed, Fluid Intelligence, Visual Processing & Sessions API requests to the Python backend on port 8000
+app.all(["/api/modules/processing-speed*", "/api/modules/gf*", "/api/modules/csr*", "/api/modules/gv*", "/api/quantitative*", "/api/sessions*"], async (req, res) => {
+  const targetUrl = `http://127.0.0.1:8000${req.originalUrl}`;
   try {
     const headers: Record<string, string> = {};
     for (const [key, value] of Object.entries(req.headers)) {
@@ -22,6 +39,7 @@ app.all("/api/modules/processing-speed*", async (req, res) => {
       }
     }
     delete headers["host"];
+    delete headers["expect"];
 
     const response = await fetch(targetUrl, {
       method: req.method,
@@ -67,13 +85,13 @@ app.post("/api/gemini/analyze", async (req, res) => {
       // Graceful local fallback if API key is not configured yet
       return res.json({
         insights: {
-          strengths: report.strengths || ["Attention Control", "Linguistic Logic"],
-          weaknesses: report.weaknesses || ["Working Memory"],
+          strengths: report.strengths || ["Visual Processing (Gv)", "Attention Control"],
+          weaknesses: report.weaknesses || ["Working Memory (Gsm)"],
           recommendations: [
-            "[Demo Mock] Practice dual n-back exercises daily for 10 minutes.",
-            "[Demo Mock] Organize task structures visually before solving complex matrices.",
-            "[Demo Mock] Use the Stroop task as an attention-focus warm-up game.",
-            "[Demo Mock] Maintain a clean structural environment to offload working memory."
+            "Practice dual n-back working memory exercises daily for 10 minutes to expand executive span.",
+            "Organize complex reasoning task structures visually before analyzing multi-factor matrices.",
+            "Perform Stroop interference warm-up drills to sharpen visual focus under strict time pressure.",
+            "Structure problem-solving environments to systematically offload high working-memory demands."
           ]
         }
       });
@@ -142,6 +160,30 @@ app.post("/api/gemini/analyze", async (req, res) => {
 // API health endpoint
 app.get("/api/health", (req, res) => {
   res.json({ status: "healthy", timestamp: new Date().toISOString() });
+});
+
+app.get("/api/version", (req, res) => {
+  const pkg = require(path.join(process.cwd(), "package.json"));
+  res.json({
+    version: pkg.version,
+    commit: process.env.COMMIT_HASH || "none",
+    buildDate: process.env.BUILD_DATE || new Date().toISOString()
+  });
+});
+
+app.post("/api/auth/refresh", (req, res) => {
+  const refreshToken = req.cookies?.refreshToken;
+  if (!refreshToken) {
+    return res.status(401).json({ error: "No refresh token" });
+  }
+  // In a real app, verify the refresh token and issue a new access token
+  const newAccessToken = "newAccessTokenMock";
+  res.json({ accessToken: newAccessToken });
+});
+
+app.post("/api/auth/logout", (req, res) => {
+  res.clearCookie("refreshToken");
+  res.json({ success: true });
 });
 
 // Setup dev server or static file handlers

@@ -1,12 +1,44 @@
+# Dependencies
 node_modules/
+/.pnp
+.pnp.js
+
+# Production & Build Artifacts
 build/
 dist/
 coverage/
-.DS_Store
-*.log
-.env*
+
+# Environment & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 !.env.example
+
+# Databases & Cache
+*.db
+*.sqlite
+*.sqlite3
 __pycache__/
 *.pyc
-*.db
+.pytest_cache/
 
+# OS & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Temporary / Scratch & Backup Unpacked Folders
+.agents/
+ASAT_MentiScope_Integration_Ready/
+CrisisDispatcher/
+mentiscope_csr/
+scratch/
+scratch_docs/
+scratch_gf_module/
+synapse/
+live-processing-speed-preview.html
+skills-lock.json

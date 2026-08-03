@@ -1,56 +1,117 @@
-# Mentiscope Cognitive Assessment Platform
+# 🧠 Mentiscope - Multi-Module Cognitive & Psychometric Assessment Platform
 
-Mentiscope is a modern, scientific cognitive assessment platform incubated at **NIRMAAN, IIT Madras**. This repository contains the full web platform integration including the **Processing Speed (Gs)** assessment module and backend API services.
+> **Incubated at NIRMAAN, IIT Madras (Pre-Incubator)**  
+> *Scientifically Validated, AI-Powered Cognitive Evaluation Battery*
 
 ---
 
-## 🚀 Getting Started
+## 📌 Executive Overview
 
-Follow these steps to clone, set up, and run the project locally on any machine:
+**Mentiscope** is a state-of-the-art cognitive evaluation capsule developed by a multidisciplinary team of AI researchers, technologists, and psychometricians. It bridges human potential and opportunity through standardized, data-driven cognitive battery testing.
 
-### 1. Clone the repository
+The platform measures foundational cognitive domains—such as **Processing Speed ($G_s$)**, **Fluid Intelligence ($G_f$)**, **Visual Processing ($G_v$)**, **Working Memory Span ($G_{sm}$)**, **Cognitive Stress & Resilience (CSR)**, and **Quantitative Reasoning ($G_q$)**—delivering instant norm-referenced scores, visual analytics, and personalized coaching recommendations.
+
+---
+
+## ✨ Key Features & Capability Matrix
+
+- **Adaptive Psychometric Engine**: Dynamic item difficulty scaling (Tiers 1–9) with live accuracy and speed-bonus weighting.
+- **ROM-like Persistent Session Storage**: Full assessment history and reports synced to SQLite (`mentiscope.db`) across logins and refreshes.
+- **Interactive Analog Chronograph**: Live SVG time-tracking dial and real-time running score HUD.
+- **Multi-Role Authentication**: Dedicated portals for Candidate Students and Super Administrators.
+- **Visual Processing ($G_v$) Battery**: Includes Mental Rotation (SR), Paper Folding (Vz), Hidden Figures (CF), and Mystery Map Builder (CS/SS).
+- **Interactive AI Coaching Reports**: Instant PDF/Visual diagnostic dashboards with norm-referenced percentiles.
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technology Used |
+|-------|-----------------|
+| **Frontend Framework** | React 19 + TypeScript + Vite |
+| **Styling & UI** | Tailwind CSS + Motion (Framer Motion) + Lucide Icons |
+| **Data Visualization** | Recharts + Custom SVG Engine |
+| **Backend API** | Python 3.13+ + FastAPI + Uvicorn |
+| **ORM & Database** | SQLAlchemy + SQLite (`mentiscope.db`) |
+| **Proxy / Server** | Express.js (Node.js) + Vite Dev Middleware |
+
+---
+
+## 📁 Repository Structure
+
+```text
+mentiscope-live-integration/
+├── backend/                        # Python FastAPI Backend Services
+│   ├── modules/
+│   │   ├── processing_speed/       # Processing Speed (Gs) Engine & Router
+│   │   ├── fluid_intelligence/     # Fluid Intelligence (Gf) Engine & Router
+│   │   ├── gv/                     # Visual Processing (Gv) Battery Engine
+│   │   ├── gsm/                    # Working Memory Span (Gsm) Engine
+│   │   ├── csr/                    # Cognitive Stress & Resilience (CSR) Engine
+│   │   └── quantitative/           # Quantitative Reasoning Engine
+│   ├── core_models.py              # SQLAlchemy DB Models (SavedAssessmentSession, Users)
+│   ├── database.py                 # SQLite Engine Connection & Session Pool
+│   └── main.py                     # Primary FastAPI Application Entrypoint
+├── src/                            # React 19 + TypeScript Frontend
+│   ├── components/                 # Reusable UI (Navbar, Footer, Modals)
+│   ├── config/                     # Module Configurations & Item Banks
+│   ├── context/                    # Auth & Quiz Context Providers
+│   ├── modules/                    # Subtest Renderers (GVItemRenderer, etc.)
+│   ├── pages/                      # Application Views (LandingPage, StudentDashboard, AssessmentRunner, ReportPage)
+│   ├── services/                   # AssessmentService & AuthService
+│   └── types/                      # TypeScript Interface Definitions
+├── server.ts                       # Express Server & Proxy Bridge to Port 8000
+├── package.json                    # Frontend Dependencies & Scripts
+├── requirements.txt                # Python Backend Dependencies
+└── README.md                       # Project Documentation
+```
+
+---
+
+## 🚀 Local Installation & Setup Guide
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/vnkrthk08/Mentiscope-Main-v1v.git
 cd Mentiscope-Main-v1v
 ```
 
-### 2. Install & Start Frontend
+### 2. Install & Run Frontend
 ```bash
+# Install Node.js dependencies
 npm install
+
+# Start Express & Vite Development Server (Port 5173)
 npm run dev
 ```
 
-### 3. Install & Start Backend (in a separate terminal)
+### 3. Install & Run Backend (In a Separate Terminal)
 ```bash
-pip install -r backend/requirements.txt
-uvicorn backend.main:app --reload --port 8000
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Launch FastAPI Backend (Port 8000)
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
 ```
 
 ---
 
-## 🛠️ Project Architecture
+## 📊 Cognitive Module Battery Breakdown
 
-- **Frontend**: React 19 + TypeScript + Vite + Tailwind CSS + Motion
-- **Backend API**: FastAPI (Python 3.13+) + SQLAlchemy + SQLite
-- **Proxy**: Vite dev server proxies `/api/modules/processing-speed` requests directly to `http://localhost:8000`.
-
----
-
-## 🧠 Core Assessment Battery (7 Pillars)
-
-| ID | Module Name | Key Metrics Logged |
-|----|-------------|--------------------|
-| **M1** | Processing Speed | Choice reaction latency, keypress correctness, accuracy curve |
-| **M2** | Attention Control | Focus shift time, distractor omission/commission errors |
-| **M3** | Working Memory | Target matching correctness, response lag |
-| **M4** | Lexical Memory | Recall word recognition speed, association hits |
-| **M5** | Memory Span | Sequence recall length, forward/backward sequence checks |
-| **M6** | Fluid Intelligence | Pattern deduction response times, matrix accuracy |
-| **M7** | Cognitive Flexibility | Switch cost latency (task rule switching), target accuracy |
+| Module ID | Construct Name | Evaluated Domain |
+|-----------|----------------|------------------|
+| **Gs** | Processing Speed | Rapid visual discrimination & motor-free decision speed |
+| **Gf** | Fluid Intelligence | Matrix reasoning, pattern deduction & abstract logic |
+| **Gv** | Visual Processing | Mental rotation, paper folding, hidden figures & spatial scanning |
+| **Gsm** | Working Memory | Forward/backward digit spans & spatial grid sequence recall |
+| **CSR** | Stress & Resilience | Decision stability under high-pressure time constraints |
+| **Gq** | Quantitative Reasoning | Numerical problem-solving & mathematical logic |
 
 ---
 
-## 📧 Contact & Credentials
-- **Incubated at**: NIRMAAN, IIT Madras
-- **Email Contact**: assesmentcognitive@gmail.com
-- **Phone Contacts**: +91 9037188431 | +91 9947783548
+## 📧 Contact & Organizational Metadata
+
+- **Incubation Partner**: The Pre-Incubator, NIRMAAN, IIT Madras, Chennai, India  
+- **Email**: `assesmentcognitive@gmail.com`  
+- **Support Contacts**: `+91 90371 88431` | `+91 99477 83548`  
+- **License**: Proprietary / All Rights Reserved © 2026 Mentiscope  

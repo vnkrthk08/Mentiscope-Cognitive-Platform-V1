@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AuthService } from "../services/auth/AuthService";
 import { User, UserRole } from "../types";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   Brain, 
   Lock, 
@@ -12,16 +13,19 @@ import {
   FileText,
   KeyRound,
   ShieldAlert,
-  ArrowLeft
+  ArrowLeft,
+  Loader2,
+  Sparkles,
+  UserCheck
 } from "lucide-react";
 
 interface AuthPageProps {
   onLoginSuccess: (user: User) => void;
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string, targetTab?: string) => void;
   initialTab?: string;
 }
 
-type TabType = "student-login" | "student-register" | "intern-login" | "admin-login" | "forgot-password";
+type TabType = "student-login" | "student-register" | "admin-login" | "forgot-password";
 
 export default function AuthPage({ onLoginSuccess, onNavigate, initialTab }: AuthPageProps) {
   const [activeTab, setActiveTab] = useState<TabType>((initialTab as TabType) || "student-login");
@@ -63,10 +67,6 @@ export default function AuthPage({ onLoginSuccess, onNavigate, initialTab }: Aut
       setLoginEmail("alex.mercer@candidate.edu");
       setLoginPassword("student123");
       setActiveTab("student-login");
-    } else if (role === UserRole.INTERN) {
-      setLoginEmail("clara@mentiscope.org");
-      setLoginPassword("intern123");
-      setActiveTab("intern-login");
     } else if (role === UserRole.SUPER_ADMIN) {
       setLoginEmail("admin@mentiscope.org");
       setLoginPassword("admin123");
@@ -93,24 +93,7 @@ export default function AuthPage({ onLoginSuccess, onNavigate, initialTab }: Aut
     }
   };
 
-  const handleInternLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    if (!loginEmail || !loginPassword) {
-      setError("Both ID/Email and password are required.");
-      return;
-    }
-    setLoading(true);
-    try {
-      const user = await AuthService.internLogin(loginEmail, loginPassword);
-      onLoginSuccess(user);
-      onNavigate("intern");
-    } catch (e: any) {
-      setError(e.message || "Intern verification failed");
-    } finally {
-      setLoading(false);
-    }
-  };
+
 
   const handleAdminLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -205,183 +188,251 @@ export default function AuthPage({ onLoginSuccess, onNavigate, initialTab }: Aut
       <div className="absolute -left-20 -top-20 w-96 h-96 bg-blue-600/5 dark:bg-blue-600/10 blur-3xl rounded-full pointer-events-none" />
       <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-indigo-600/5 dark:bg-indigo-600/10 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-5 sm:p-6 shadow-xl dark:shadow-none relative z-10 space-y-4">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.96, y: 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-5 sm:p-6 shadow-xl dark:shadow-none relative z-10 space-y-4"
+      >
         
-        <div className="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800/60 pb-5">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm shadow-blue-500/10">
-            <Brain className="h-5 w-5" />
+        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/60 pb-5">
+          <div className="flex items-center gap-4">
+            <img 
+              src="/logo_mentiscope.png" 
+              alt="Mentiscope Logo" 
+              className="h-16 w-16 object-cover rounded-2xl border border-slate-200/10 dark:border-slate-800/40 shadow-md transition-all hover:scale-105"
+            />
+            <div>
+              <h1 className="font-sans font-black tracking-tight text-3xl sm:text-4xl text-slate-950 dark:text-white leading-none">Mentiscope</h1>
+              <p className="text-[10px] font-sans font-extrabold tracking-widest text-blue-600 dark:text-blue-400 uppercase mt-1.5">Gateway Portal</p>
+            </div>
           </div>
-          <div>
-            <h1 className="font-sans font-extrabold tracking-tight text-2xl sm:text-3xl text-slate-950 dark:text-white leading-none">Mentiscope</h1>
-            <p className="text-[9px] font-sans font-bold tracking-wider text-blue-600 dark:text-blue-400 uppercase mt-1">Gateway Portal</p>
+          <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl text-[11px] font-semibold text-slate-655 dark:text-slate-400">
+            <button
+              type="button"
+              onClick={() => setActiveTab("student-login")}
+              className={`px-2.5 py-1 rounded-lg transition-all spring-press ${activeTab === "student-login" ? "bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-450 shadow-sm" : "hover:text-slate-900 dark:hover:text-white"}`}
+            >
+              Candidate
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("admin-login")}
+              className={`px-2.5 py-1 rounded-lg transition-all spring-press ${activeTab === "admin-login" ? "bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-450 shadow-sm" : "hover:text-slate-900 dark:hover:text-white"}`}
+            >
+              Admin
+            </button>
+          </div>
+        </div>
+
+        {/* Quick Demo Credentials Autofill Bar */}
+        <div className="bg-slate-50 dark:bg-slate-950/60 p-2.5 rounded-2xl border border-slate-100 dark:border-slate-800/80 text-xs flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 font-bold text-slate-500 dark:text-slate-400 text-[11px]">
+            <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+            <span>Quick Fill:</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => handleSetDemoCredentials(UserRole.STUDENT)}
+              className="px-2 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-450 text-[10px] font-bold hover:bg-blue-100 transition-colors"
+            >
+              Student
+            </button>
+            <button
+              type="button"
+              onClick={() => handleSetDemoCredentials(UserRole.SUPER_ADMIN)}
+              className="px-2 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-955/40 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold hover:bg-indigo-100 transition-colors"
+            >
+              Admin
+            </button>
           </div>
         </div>
 
         {/* Error alerts */}
-        {error && (
-          <div className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/30 text-xs font-semibold text-rose-800 dark:text-rose-400 flex items-start gap-2.5">
-            <ShieldAlert className="h-4.5 w-4.5 shrink-0 text-rose-600 dark:text-rose-400" />
-            <span>{error}</span>
-          </div>
-        )}
-
-        {/* Success message */}
-        {message && (
-          <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/30 text-xs font-semibold text-emerald-800 dark:text-emerald-400">
-            {message}
-          </div>
-        )}
-
-        {/* A. STUDENT LOGIN */}
-        {activeTab === "student-login" && (
-          <form onSubmit={handleStudentLogin} className="space-y-4">
-            <div className="space-y-1.5">
-              <h2 className="text-xl font-bold tracking-tight text-slate-950 dark:text-white">Candidate Assessment Login</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Access your saved evaluation session to start or resume cognitive testing.</p>
-            </div>
-
-            <div className="space-y-3 pt-2">
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Candidate Email Address</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-2.5 h-4 w-4 text-slate-400 dark:text-slate-500" />
-                  <input
-                    type="email"
-                    required
-                    value={loginEmail}
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                    placeholder="alex.mercer@candidate.edu"
-                    className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 pl-9 pr-3.5 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between text-xs pt-1">
-                <label className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                    className="rounded border-slate-300 dark:border-slate-800 text-blue-600 bg-white dark:bg-slate-950 focus:ring-blue-500"
-                  />
-                  <span>Remember Candidate ID</span>
-                </label>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("forgot-password")}
-                  className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  Forgot Credentials?
-                </button>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-700 shadow-sm"
+        <AnimatePresence mode="wait">
+          {error && (
+            <motion.div 
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/30 text-xs font-semibold text-rose-800 dark:text-rose-400 flex items-start gap-2.5"
             >
-              {loading ? "Establishing Session..." : "Access Candidate Portal"}
-              <ChevronRight className="h-4 w-4" />
-            </button>
+              <ShieldAlert className="h-4.5 w-4.5 shrink-0 text-rose-600 dark:text-rose-400" />
+              <span>{error}</span>
+            </motion.div>
+          )}
 
-            <div className="pt-2 text-center space-y-2">
-              <p className="text-xs text-slate-500 dark:text-slate-400">
-                Don't have an account?{" "}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveTab("student-register");
-                    setError(null);
-                    setMessage(null);
-                  }}
-                  className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  Create one here
-                </button>
-              </p>
-              <div className="border-t border-slate-100 dark:border-slate-800/60 my-2 pt-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveTab("admin-login");
-                    setError(null);
-                    setMessage(null);
-                  }}
-                  className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
-                >
-                  Are you an administrator? Access Admin Portal
-                </button>
-              </div>
-            </div>
-          </form>
-        )}
-
-        {/* C. SUPER ADMIN LOGIN */}
-        {activeTab === "admin-login" && (
-          <form onSubmit={handleAdminLogin} className="space-y-4">
-            <div className="space-y-1.5">
-              <h2 className="text-xl font-bold tracking-tight text-slate-950 dark:text-white">Super Administrator Login</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Sign in with root administrative access to manage modules, students, settings, and logs.</p>
-            </div>
-
-            <div className="space-y-3 pt-2">
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Administrator Email</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-2.5 h-4 w-4 text-slate-400 dark:text-slate-500" />
-                  <input
-                    type="email"
-                    required
-                    value={loginEmail}
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                    placeholder="admin@mentiscope.org"
-                    className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 pl-9 pr-3.5 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Security Password</label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-2.5 h-4 w-4 text-slate-400 dark:text-slate-500" />
-                  <input
-                    type="password"
-                    required
-                    value={loginPassword}
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                    placeholder="••••••••"
-                    className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 pl-9 pr-3.5 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:outline-none"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-700 shadow-sm"
+          {message && (
+            <motion.div 
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/30 text-xs font-semibold text-emerald-800 dark:text-emerald-400"
             >
-              {loading ? "Verifying Root Security..." : "Authorise & Enter System"}
-              <ChevronRight className="h-4 w-4" />
-            </button>
+              {message}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-            <div className="pt-2 text-center">
+        <AnimatePresence mode="wait">
+          {/* A. STUDENT LOGIN */}
+          {activeTab === "student-login" && (
+            <motion.form 
+              key="student-login"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              transition={{ duration: 0.2 }}
+              onSubmit={handleStudentLogin} 
+              className="space-y-4"
+            >
+              <div className="space-y-1.5">
+                <h2 className="text-xl font-bold tracking-tight text-slate-950 dark:text-white">Candidate Assessment Login</h2>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Access your saved evaluation session to start or resume cognitive testing.</p>
+              </div>
+
+              <div className="space-y-3 pt-2">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Candidate Email Address</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-2.5 h-4 w-4 text-slate-400 dark:text-slate-500" />
+                    <input
+                      type="email"
+                      required
+                      value={loginEmail}
+                      onChange={(e) => setLoginEmail(e.target.value)}
+                      placeholder="alex.mercer@candidate.edu"
+                      className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 pl-9 pr-3.5 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-xs pt-1">
+                  <label className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      className="rounded border-slate-300 dark:border-slate-800 text-blue-600 bg-white dark:bg-slate-950 focus:ring-blue-500"
+                    />
+                    <span>Remember Candidate ID</span>
+                  </label>
+
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab("forgot-password")}
+                    className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    Forgot Credentials?
+                  </button>
+                </div>
+              </div>
+
               <button
-                type="button"
-                onClick={() => {
-                  setActiveTab("student-login");
-                  setError(null);
-                  setMessage(null);
-                }}
-                className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
+                type="submit"
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-700 shadow-sm shadow-blue-500/10 disabled:opacity-75"
               >
-                Are you a candidate? Return to Candidate Sign In
+                {loading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin text-white" />
+                    <span>Establishing Candidate Session...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Access Candidate Portal</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
-            </div>
-          </form>
-        )}
+
+              <div className="pt-2 text-center space-y-2">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  Don't have an account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveTab("student-register");
+                      setError(null);
+                      setMessage(null);
+                    }}
+                    className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    Create one here
+                  </button>
+                </p>
+              </div>
+            </motion.form>
+          )}
+
+          {/* C. SUPER ADMIN LOGIN */}
+          {activeTab === "admin-login" && (
+            <motion.form 
+              key="admin-login"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              transition={{ duration: 0.2 }}
+              onSubmit={handleAdminLogin} 
+              className="space-y-4"
+            >
+              <div className="space-y-1.5">
+                <h2 className="text-xl font-bold tracking-tight text-slate-950 dark:text-white">Super Administrator Login</h2>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Sign in with root administrative access to manage modules, students, settings, and logs.</p>
+              </div>
+
+              <div className="space-y-3 pt-2">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Administrator Email</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-2.5 h-4 w-4 text-slate-400 dark:text-slate-500" />
+                    <input
+                      type="email"
+                      required
+                      value={loginEmail}
+                      onChange={(e) => setLoginEmail(e.target.value)}
+                      placeholder="admin@mentiscope.org"
+                      className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 pl-9 pr-3.5 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Security Password</label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-2.5 h-4 w-4 text-slate-400 dark:text-slate-500" />
+                    <input
+                      type="password"
+                      required
+                      value={loginPassword}
+                      onChange={(e) => setLoginPassword(e.target.value)}
+                      placeholder="••••••••"
+                      className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 pl-9 pr-3.5 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 text-sm font-semibold text-white transition-all hover:bg-indigo-700 shadow-sm shadow-indigo-500/10 disabled:opacity-75"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin text-white" />
+                    <span>Verifying Root Security...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Authorise & Enter System</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+            </motion.form>
+          )}
 
         {/* D. CANDIDATE REGISTER */}
         {activeTab === "student-register" && (
@@ -615,8 +666,9 @@ export default function AuthPage({ onLoginSuccess, onNavigate, initialTab }: Aut
             </button>
           </form>
         )}
+        </AnimatePresence>
 
-      </div>
+      </motion.div>
     </div>
   );
 }

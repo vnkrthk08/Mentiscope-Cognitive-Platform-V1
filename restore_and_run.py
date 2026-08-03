@@ -1,7 +1,7 @@
 import os
 import shutil
 
-src_dir = r"c:\Users\venka\Desktop\trail iitm\mentiscope-processing-speed-live-integration"
+src_dir = r"c:\Users\venka\Desktop\trail iitm\mentiscope-live-integration"
 backend_dir = os.path.join(src_dir, "backend")
 src_folder = os.path.join(src_dir, "src")
 
