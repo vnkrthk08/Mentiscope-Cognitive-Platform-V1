@@ -1,0 +1,36 @@
+{
+  "module_id": "asat_attention",
+  "module_name": "Adaptive Shape Attention Task",
+  "construct": "Attention",
+  "description": "Measures sustained, selective, divided, and executive attention via continuous performance tracking.",
+  "language": "python",
+  "framework": "fastapi",
+  "version": "2.0.0",
+  "author": "Charanjeet-MVN",
+  "estimated_duration_minutes": 10,
+  "endpoints": {
+    "start": "/api/start",
+    "answer": "/api/answer",
+    "finish": "/api/finish",
+    "result": "/api/result/{session_id}"
+  },
+  "metrics": [
+    "sustained_score",
+    "selective_score",
+    "divided_score",
+    "executive_score",
+    "overall_score",
+    "percentile",
+    "rt_variability",
+    "fatigue_slope",
+    "adaptation_speed",
+    "impulsivity_index",
+    "attention_stability",
+    "recovery_after_errors"
+  ],
+  "dependencies": {
+    "database": "postgresql",
+    "caching": "none",
+    "auth": "none (platform managed)"
+  }
+}

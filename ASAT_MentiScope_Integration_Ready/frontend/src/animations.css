@@ -1,0 +1,220 @@
+/* =====================================================
+   ASAT – Animations & Micro-interactions
+   ===================================================== */
+
+/* ── Keyframes ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.6); }
+  70%  { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shapePop {
+  0%   { opacity: 0; transform: scale(0) rotate(-10deg); }
+  60%  { opacity: 1; transform: scale(1.1) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes shapeFadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.7); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { border-color: rgba(0,188,212,0.3); box-shadow: 0 0 0 0 rgba(0,188,212,0); }
+  50%       { border-color: rgba(0,188,212,0.7); box-shadow: 0 0 0 6px rgba(0,188,212,0.1); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,188,212,0.2); }
+  50%       { box-shadow: 0 0 30px rgba(0,188,212,0.5), 0 0 60px rgba(0,188,212,0.2); }
+}
+
+@keyframes countUp {
+  from { transform: translateY(6px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+@keyframes correctFlash {
+  0%   { background: rgba(76,175,80,0); }
+  30%  { background: rgba(76,175,80,0.25); }
+  100% { background: rgba(76,175,80,0); }
+}
+
+@keyframes incorrectFlash {
+  0%   { background: rgba(229,57,53,0); }
+  30%  { background: rgba(229,57,53,0.25); }
+  100% { background: rgba(229,57,53,0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -20px) scale(1.05); }
+  66%       { transform: translate(-10px, 15px) scale(0.97); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes progressPulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(0,188,212,0.3); }
+  50%       { box-shadow: 0 0 12px rgba(0,188,212,0.7); }
+}
+
+@keyframes timerWarning {
+  0%, 100% { color: var(--color-accent-3); }
+  50%       { color: var(--color-accent-4); }
+}
+
+@keyframes switchAlert {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.06); }
+  40%  { transform: scale(0.96); }
+  60%  { transform: scale(1.03); }
+  80%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+/* ── Animation Utility Classes ── */
+.animate-fade-in      { animation: fadeIn 0.4s var(--transition-normal) both; }
+.animate-slide-up     { animation: slideUp 0.5s cubic-bezier(0.4,0,0.2,1) both; }
+.animate-slide-down   { animation: slideDown 0.4s cubic-bezier(0.4,0,0.2,1) both; }
+.animate-scale-in     { animation: scaleIn 0.4s cubic-bezier(0.4,0,0.2,1) both; }
+.animate-pop          { animation: popIn 0.45s cubic-bezier(0.4,0,0.2,1) both; }
+.animate-float        { animation: float 3s ease-in-out infinite; }
+.animate-pulse        { animation: pulse 1.5s ease-in-out infinite; }
+.animate-glow         { animation: glow 2s ease-in-out infinite; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ── Shape appearance / removal ── */
+.shape-enter { animation: shapePop 0.35s cubic-bezier(0.34,1.56,0.64,1) both; }
+.shape-exit  { animation: shapeFadeOut 0.2s ease-in both; }
+
+/* ── Feedback Flashes ── */
+.flash-correct   { animation: correctFlash 0.5s ease-out forwards; }
+.flash-incorrect { animation: incorrectFlash 0.5s ease-out forwards; }
+.shake           { animation: shake 0.4s ease-in-out; }
+
+/* ── Rule Switch Alert ── */
+.rule-switch-alert { animation: switchAlert 0.5s ease-in-out; }
+
+/* ── Pulsing border on active arena ── */
+.arena-active { animation: pulseBorder 2s ease-in-out infinite; }
+
+/* ── Timer warning state ── */
+.timer-warning { animation: timerWarning 1s ease-in-out infinite; }
+
+/* ── Background Orbs ── */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.bg-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-secondary);
+  top: -100px;
+  right: -100px;
+}
+
+.bg-orb-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent-1);
+  bottom: -80px;
+  left: -80px;
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.bg-orb-3 {
+  width: 200px;
+  height: 200px;
+  background: var(--color-primary);
+  top: 40%;
+  left: 30%;
+  animation-delay: -5s;
+  animation-duration: 12s;
+}
+
+/* ── Gradient animated text ── */
+.gradient-text {
+  background: linear-gradient(90deg, #00BCD4, #90CAF9, #1A237E, #00BCD4);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s linear infinite;
+}
+
+/* ── Score counter animation ── */
+.score-digit { animation: countUp 0.4s ease-out both; }
+
+/* ── Progress bar pulse ── */
+.progress-fill-active { animation: progressPulse 1.5s ease-in-out infinite; }
+
+/* ── Feedback badge ── */
+.feedback-enter {
+  animation: slideDown 0.3s cubic-bezier(0.4,0,0.2,1) both;
+}

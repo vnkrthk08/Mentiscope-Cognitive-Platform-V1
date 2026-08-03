@@ -1,0 +1,483 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Mentiscope API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/modules/processing-speed/start": {
+      "post": {
+        "tags": [
+          "processing-speed"
+        ],
+        "summary": "Start",
+        "operationId": "start_api_modules_processing_speed_start_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/modules/processing-speed/answer": {
+      "post": {
+        "tags": [
+          "processing-speed"
+        ],
+        "summary": "Answer",
+        "operationId": "answer_api_modules_processing_speed_answer_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/modules/processing-speed/finish": {
+      "post": {
+        "tags": [
+          "processing-speed"
+        ],
+        "summary": "Finish",
+        "operationId": "finish_api_modules_processing_speed_finish_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinishRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/modules/processing-speed/result": {
+      "get": {
+        "tags": [
+          "processing-speed"
+        ],
+        "summary": "Result",
+        "operationId": "result_api_modules_processing_speed_result_get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/modules/csr/start": {
+      "post": {
+        "tags": [
+          "csr"
+        ],
+        "summary": "Start",
+        "operationId": "start_api_modules_csr_start_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/modules/csr/answer": {
+      "post": {
+        "tags": [
+          "csr"
+        ],
+        "summary": "Answer",
+        "operationId": "answer_api_modules_csr_answer_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/modules/csr/finish": {
+      "post": {
+        "tags": [
+          "csr"
+        ],
+        "summary": "Finish",
+        "operationId": "finish_api_modules_csr_finish_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinishRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/modules/csr/result": {
+      "get": {
+        "tags": [
+          "csr"
+        ],
+        "summary": "Result",
+        "operationId": "result_api_modules_csr_result_get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Api Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnswerRequest": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "question_id": {
+            "type": "string",
+            "title": "Question Id"
+          },
+          "answer": {
+            "type": "string",
+            "title": "Answer"
+          },
+          "duration_ms": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Duration Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "question_id",
+          "answer",
+          "duration_ms"
+        ],
+        "title": "AnswerRequest"
+      },
+      "FinishRequest": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "answers": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Answers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id"
+        ],
+        "title": "FinishRequest"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "StartRequest": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Session Id"
+          },
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id"
+        ],
+        "title": "StartRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

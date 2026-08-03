@@ -1,0 +1,6 @@
+{
+  "name": "SYNAPSE",
+  "description": "A high-fidelity cognitive testing and AI adaptivity assessment portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

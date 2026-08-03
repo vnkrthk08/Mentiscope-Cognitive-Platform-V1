@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "MentiScope - CSR (Classroom Scenario Recall / Gsm) Module",
+    "description": "API collection for the Classroom Scenario Recall working memory microservice. Set the {{base_url}} variable (e.g. http://localhost:8000) before running.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000" },
+    { "key": "session_id", "value": "S001" }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{base_url}}/api/health", "host": ["{{base_url}}"], "path": ["api", "health"] }
+      }
+    },
+    {
+      "name": "Start Session",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"{{session_id}}\",\n  \"student_id\": \"STU-DEMO-001\"\n}"
+        },
+        "url": { "raw": "{{base_url}}/api/modules/csr/start", "host": ["{{base_url}}"], "path": ["api", "modules", "csr", "start"] }
+      }
+    },
+    {
+      "name": "Submit Answer",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"{{session_id}}\",\n  \"question_id\": \"csr-1\",\n  \"answer\": \"heat to 60 degrees\",\n  \"duration_ms\": 1450\n}"
+        },
+        "url": { "raw": "{{base_url}}/api/modules/csr/answer", "host": ["{{base_url}}"], "path": ["api", "modules", "csr", "answer"] }
+      }
+    },
+    {
+      "name": "Finish Session",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"{{session_id}}\",\n  \"answers\": []\n}"
+        },
+        "url": { "raw": "{{base_url}}/api/modules/csr/finish", "host": ["{{base_url}}"], "path": ["api", "modules", "csr", "finish"] }
+      }
+    },
+    {
+      "name": "Get Result",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/modules/csr/result?session_id={{session_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "modules", "csr", "result"],
+          "query": [{ "key": "session_id", "value": "{{session_id}}" }]
+        }
+      }
+    }
+  ]
+}
