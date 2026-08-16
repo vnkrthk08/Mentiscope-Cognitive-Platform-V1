@@ -1,0 +1,705 @@
+import React from "react";
+import { User, AssessmentSession } from "../types";
+import { MODULE_CONFIGS } from "../config/moduleConfig";
+import { AssessmentService } from "../services/assessment/AssessmentService";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { 
+  Play, 
+  RotateCcw, 
+  FileText, 
+  CheckCircle, 
+  Circle, 
+  User as UserIcon, 
+  Calendar, 
+  Award, 
+  ShieldCheck,
+  Activity,
+  Brain,
+  Clock,
+  Timer,
+  Info,
+  X,
+  ChevronRight,
+  BarChart3,
+  Sparkles,
+  ArrowRight,
+  Trash2
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { ModuleConfig } from "../types";
+
+interface StudentDashboardProps {
+  user: User;
+  onNavigate: (page: string) => void;
+  onStartAssessment: () => void;
+}
+
+export default function StudentDashboard({ user, onNavigate, onStartAssessment }: StudentDashboardProps) {
+  const navigate = useNavigate();
+  const [activeReportModule, setActiveReportModule] = React.useState<ModuleConfig | null>(null);
+  const [historySessions, setHistorySessions] = React.useState<AssessmentSession[]>([]);
+
+  // Query active session state
+  const session = AssessmentService.getSession();
+
+  React.useEffect(() => {
+    const list = AssessmentService.getSessionHistory(user.id);
+    const current = AssessmentService.getSession();
+    if (current && Object.keys(current.moduleScores).length > 0) {
+      if (!list.some((s) => s.sessionId === current.sessionId)) {
+        list.unshift(current);
+      }
+    }
+    setHistorySessions(list);
+  }, [user.id, session?.sessionId]);
+
+  const handleDeleteRecord = (sessionIdToDelete: string) => {
+    AssessmentService.deleteSessionFromHistory(sessionIdToDelete);
+    const current = AssessmentService.getSession();
+    if (current && current.sessionId === sessionIdToDelete) {
+      AssessmentService.clearSession();
+    }
+    setHistorySessions((prev) => prev.filter((s) => s.sessionId !== sessionIdToDelete));
+  };
+  const isSessionOngoing = session && session.status === "ongoing";
+  const hasCompletedSession = session && session.status === "completed";
+  
+  // Calculate module progress
+  const totalModules = MODULE_CONFIGS.length;
+  const completedCount = session ? Object.keys(session.moduleScores).length : 0;
+  const progressPercent = Math.round((completedCount / totalModules) * 100);
+
+  // Calculate overall GQ score index if completed
+  const overallScore = session && Object.values(session.moduleScores).length > 0
+    ? Math.round(Object.values(session.moduleScores).reduce((a, b) => a + b, 0) / Object.values(session.moduleScores).length)
+    : 0;
+
+  // Generate real-time chart data from real completed session module scores
+  const chartData = session && Object.keys(session.moduleScores).length > 0
+    ? Object.entries(session.moduleScores).map(([modId, score], idx) => ({
+        date: `Mod ${idx + 1} (${modId.toUpperCase()})`,
+        score: Math.round(score),
+        timestamp: idx
+      }))
+    : [];
+
+  // Sort chartData chronologically
+  chartData.sort((a, b) => a.timestamp - b.timestamp);
+
+  // Calculate dynamic growth metrics
+  let growthText = "Baseline Established";
+  let isGrowthPositive = true;
+  if (chartData.length >= 2) {
+    const firstScore = chartData[0].score;
+    const lastScore = chartData[chartData.length - 1].score;
+    const growthVal = lastScore - firstScore;
+    isGrowthPositive = growthVal >= 0;
+    growthText = growthVal >= 0 ? `+${growthVal}% Growth` : `${growthVal}% Deviation`;
+  }
+
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8 transition-colors duration-300">
+      
+      {/* 1. Header Welcome Card */}
+      <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-sm">
+        <div className="absolute right-0 top-0 -mr-16 -mt-16 h-48 w-48 rounded-full bg-blue-50/50 dark:bg-blue-900/10 blur-3xl pointer-events-none" />
+        
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between relative z-10">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+              Welcome back, {user.name}
+            </h1>
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed">
+              You are signed in to the Candidate Cognitive Portal. Complete the sequential assessment capsule to generate your certified psychological profile report.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            {isSessionOngoing ? (
+              <button
+                onClick={onStartAssessment}
+                className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-700 hover:shadow shadow-blue-500/20 active:scale-[0.98]"
+              >
+                <Play className="h-4 w-4 fill-white" />
+                <span>Resume Cognitive Assessment</span>
+              </button>
+            ) : (
+              <button
+                onClick={onStartAssessment}
+                className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-700 hover:shadow shadow-blue-500/20 active:scale-[0.98]"
+              >
+                <Play className="h-4 w-4 fill-white" />
+                <span>Start Baseline Cognitive Test</span>
+              </button>
+            )}
+
+            {session && (
+              <button
+                onClick={() => {
+                  AssessmentService.clearSession();
+                  onStartAssessment();
+                }}
+                className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm font-medium text-slate-655 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+              >
+                <RotateCcw className="h-4.5 w-4.5 text-slate-450" />
+                <span>Reset Progress</span>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Premium KPI Stats Row */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Card 1: GQ Index */}
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 p-5 flex items-center justify-between shadow-xs relative overflow-hidden group">
+          <div className="space-y-1 relative z-10">
+            <span className="text-[10px] text-slate-450 dark:text-slate-550 uppercase font-mono block">Cognitive Score Index</span>
+            <span className="text-xl font-black text-slate-800 dark:text-white block">
+              {hasCompletedSession ? `${overallScore}%` : "Pending completion"}
+            </span>
+          </div>
+          <div className="h-10 w-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+            <Award className="h-5 w-5" />
+          </div>
+        </div>
+
+        {/* Card 2: Modules Cleared */}
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 p-5 flex items-center justify-between shadow-xs relative overflow-hidden group">
+          <div className="space-y-1 relative z-10">
+            <span className="text-[10px] text-slate-450 dark:text-slate-550 uppercase font-mono block">Assessment Progress</span>
+            <span className="text-xl font-black text-slate-800 dark:text-white block">
+              {completedCount} / {totalModules} Modules
+            </span>
+          </div>
+          <div className="h-10 w-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+            <Brain className="h-5 w-5" />
+          </div>
+        </div>
+
+        {/* Card 3: Performance Latency */}
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 p-5 flex items-center justify-between shadow-xs relative overflow-hidden group">
+          <div className="space-y-1 relative z-10">
+            <span className="text-[10px] text-slate-455 dark:text-slate-550 uppercase font-mono block">Response Latency</span>
+            <span className="text-xl font-black text-slate-800 dark:text-white block">
+              {isSessionOngoing ? "Tracking Live" : "Stable baseline"}
+            </span>
+          </div>
+          <div className="h-10 w-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-450 flex items-center justify-center shrink-0">
+            <Clock className="h-5 w-5" />
+          </div>
+        </div>
+
+        {/* Card 4: Proctor Status */}
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 p-5 flex items-center justify-between shadow-xs relative overflow-hidden group">
+          <div className="space-y-1 relative z-10">
+            <span className="text-[10px] text-slate-455 dark:text-slate-550 uppercase font-mono block">Proctor Session</span>
+            <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded-full inline-block border border-emerald-100/60 dark:border-emerald-900/30 mt-1">
+              Secured & Active
+            </span>
+          </div>
+          <div className="h-10 w-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+            <ShieldCheck className="h-5 w-5" />
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Cognitive Report Card (Shows if there is a completed session) */}
+      {hasCompletedSession && (
+        <div className="rounded-3xl border border-emerald-500/30 bg-slate-900/90 backdrop-blur-2xl p-6 sm:p-8 shadow-xl grid grid-cols-1 md:grid-cols-12 gap-6 items-center transition-all text-slate-100">
+          <div className="md:col-span-7 space-y-4">
+            <div>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-800/40">
+                Cognitive Performance Certified
+              </span>
+              <h2 className="text-xl font-black text-white tracking-tight mt-2 font-mono">
+                Your Psychometric Assessment Report is Ready!
+              </h2>
+              <p className="text-xs text-slate-400 leading-relaxed mt-1">
+                Your performance has been evaluated across all core cognitive modules. You can view, download, or print your certified report.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <div className="bg-slate-950/80 p-3 rounded-2xl border border-slate-800">
+                <span className="text-[10px] text-slate-400 uppercase font-mono block">Overall Index</span>
+                <span className="text-xl font-black text-emerald-400 font-mono">{overallScore}%</span>
+              </div>
+              <div className="bg-slate-950/80 p-3 rounded-2xl border border-slate-800">
+                <span className="text-[10px] text-slate-400 uppercase font-mono block">Duration</span>
+                <span className="text-xl font-black text-slate-200 font-mono">24 mins</span>
+              </div>
+              <div className="bg-slate-950/80 p-3 rounded-2xl border border-slate-800 col-span-2 sm:col-span-1">
+                <span className="text-[10px] text-slate-400 uppercase font-mono block">Status</span>
+                <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-800/40 inline-block mt-1">
+                  Verified Active
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-5 flex flex-col justify-center gap-3 border-t md:border-t-0 md:border-l border-slate-800 pt-4 md:pt-0 md:pl-6">
+            <button
+              onClick={() => {
+                AssessmentService.setViewingSession(null);
+                navigate("/report");
+              }}
+              className="w-full flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white py-3.5 px-4 text-xs font-extrabold shadow-lg shadow-emerald-500/20 transition-all cursor-pointer active:scale-95"
+            >
+              <FileText className="h-4 w-4" />
+              <span>View Full Cognitive Report</span>
+            </button>
+
+            <button
+              onClick={() => {
+                AssessmentService.createNewSession(user.id);
+                onStartAssessment();
+              }}
+              className="w-full flex items-center justify-center gap-2 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white py-3.5 px-4 text-xs font-extrabold shadow-lg shadow-blue-500/20 transition-all cursor-pointer active:scale-95"
+            >
+              <RotateCcw className="h-4 w-4" />
+              <span>Take Another Test (New Session)</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* 4. Main Dashboard Grid */}
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
+        
+        {/* Left Area (2/3 width) - Contains Progress Checklist, Area Chart, and Achievements */}
+        <div className="lg:col-span-8 space-y-6">
+          
+          {/* Progress Checklist Card */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm space-y-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-base font-bold text-slate-900 dark:text-white">Baseline Assessment Modules</h2>
+                <p className="text-xs text-slate-400 dark:text-slate-500">All modules must be cleared sequentially in one testing run.</p>
+              </div>
+              <span className="text-xs font-mono font-bold text-blue-650 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-1 rounded-full border border-blue-100 dark:border-blue-900/40">
+                {completedCount} / {totalModules} Cleared
+              </span>
+            </div>
+
+            <div className="relative pt-1">
+              <div className="mb-2 flex items-center justify-between text-xs font-bold text-slate-650 dark:text-slate-400">
+                <span>Overall Session Progress</span>
+                <span>{progressPercent}%</span>
+              </div>
+              <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden border border-slate-200/40 dark:border-slate-700/40">
+                <div 
+                  className="h-full rounded-full bg-blue-600 transition-all duration-500" 
+                  style={{ width: `${progressPercent}%` }} 
+                />
+              </div>
+            </div>
+
+            {/* Sequential Checklist Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-slate-150 dark:border-slate-800/80">
+              {MODULE_CONFIGS.map((mod, index) => {
+                const isCompleted = session && session.moduleScores[mod.id] !== undefined;
+                const isCurrent = session && index === session.currentModuleIndex && isSessionOngoing;
+                const modScore = session?.moduleScores[mod.id];
+
+                return (
+                  <div 
+                    key={mod.id} 
+                    onClick={() => {
+                      if (isCompleted) {
+                        setActiveReportModule(mod);
+                      } else {
+                        const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+                        activeSess.currentModuleIndex = index;
+                        AssessmentService.saveSession(activeSess);
+                        onStartAssessment();
+                      }
+                    }}
+                    className={`flex items-center justify-between p-3.5 rounded-xl border text-xs font-bold transition-all cursor-pointer hover:shadow-md ${
+                      isCompleted 
+                        ? "bg-emerald-50/40 dark:bg-emerald-950/10 border-emerald-200 dark:border-emerald-900/40 text-slate-850 dark:text-emerald-300 hover:border-emerald-400"
+                        : isCurrent 
+                          ? "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900/40 text-blue-900 dark:text-blue-300 hover:border-blue-400"
+                          : "bg-slate-50/60 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800/60 text-slate-400 dark:text-slate-550 hover:border-blue-300"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      {isCompleted ? (
+                        <CheckCircle className="h-4.5 w-4.5 text-emerald-500 shrink-0" />
+                      ) : (
+                        <Circle className="h-4.5 w-4.5 text-slate-300 dark:text-slate-750 shrink-0" />
+                      )}
+                      <span className="truncate">
+                        {index + 1}. {mod.name}
+                      </span>
+                    </div>
+
+                    {isCompleted ? (
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-mono font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-100/60 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200/40 dark:border-emerald-900/40">
+                          {Math.round(modScore || 0)}%
+                        </span>
+                        <span className="text-[10px] font-mono text-blue-600 dark:text-blue-400 flex items-center gap-0.5 hover:underline">
+                          Report <ChevronRight className="h-3 w-3" />
+                        </span>
+                      </div>
+                    ) : (
+                      <span className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5 rounded-md border border-slate-200/20 dark:border-slate-700/20">
+                        {isCurrent ? "Active" : "Locked"}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Cognitive Achievements Card */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm">
+            <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+              <Award className="h-5 w-5 text-indigo-500" />
+              Cognitive Achievements
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {/* Badge 1: Pattern Master (Fluid Intelligence Gf) */}
+              {(() => {
+                const gfScore = session?.moduleScores["gf"];
+                const isUnlocked = gfScore !== undefined;
+                
+                return (
+                  <div className={`flex flex-col items-center p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 text-center transition-transform hover:scale-105 cursor-pointer ${!isUnlocked ? "opacity-40 grayscale" : ""}`}>
+                    <div className="h-12 w-12 rounded-full bg-blue-600 text-white flex items-center justify-center mb-2 shadow-lg shadow-blue-500/30">
+                      <Brain className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs font-bold text-slate-850 dark:text-white">Pattern Master</span>
+                    <span className="text-[10px] text-slate-450 dark:text-slate-400 mt-1 leading-normal">
+                      {isUnlocked ? `Gf Accuracy (${Math.round(gfScore)}%)` : "Locked (Pending Gf exam)"}
+                    </span>
+                  </div>
+                );
+              })()}
+
+              {/* Badge 2: Speed Demon (Processing Speed Gs) */}
+              {(() => {
+                const speedScore = session?.moduleScores["processing-speed"];
+                const isUnlocked = speedScore !== undefined;
+                
+                return (
+                  <div className={`flex flex-col items-center p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 text-center transition-transform hover:scale-105 cursor-pointer ${!isUnlocked ? "opacity-40 grayscale" : ""}`}>
+                    <div className="h-12 w-12 rounded-full bg-indigo-500 text-white flex items-center justify-center mb-2 shadow-lg shadow-indigo-500/30">
+                      <Timer className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs font-bold text-slate-850 dark:text-white">Speed Demon</span>
+                    <span className="text-[10px] text-slate-450 dark:text-slate-400 mt-1 leading-normal">
+                      {isUnlocked ? `Reaction Index (${Math.round(speedScore)}%)` : "Locked (Pending Gs exam)"}
+                    </span>
+                  </div>
+                );
+              })()}
+
+              {/* Badge 3: Iron Focus */}
+              {(() => {
+                const tabSwitches = session?.moduleMetrics?.tabSwitches ?? 0;
+                const completedAnyModule = session && Object.keys(session.moduleScores).length > 0;
+                const isUnlocked = completedAnyModule;
+                const hasPerfectFocus = tabSwitches === 0;
+
+                return (
+                  <div className={`flex flex-col items-center p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/30 text-center transition-transform hover:scale-105 cursor-pointer ${!isUnlocked ? "opacity-40 grayscale" : ""}`}>
+                    <div className="h-12 w-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mb-2 shadow-lg shadow-emerald-500/30">
+                      <ShieldCheck className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs font-bold text-slate-850 dark:text-white">Iron Focus</span>
+                    <span className="text-[10px] text-slate-455 dark:text-slate-400 mt-1 leading-normal">
+                      {isUnlocked 
+                        ? hasPerfectFocus 
+                          ? "Perfect Focus (0 switches)" 
+                          : `Focus Logged (${tabSwitches} switches)`
+                        : "Locked (Pending focus log)"}
+                    </span>
+                  </div>
+                );
+              })()}
+
+              {/* Badge 4: Memory Master */}
+              {(() => {
+                const memoryScore = session?.moduleScores["gsm"];
+                const isUnlocked = memoryScore !== undefined;
+
+                return (
+                  <div className={`flex flex-col items-center p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/30 text-center transition-transform hover:scale-105 cursor-pointer ${!isUnlocked ? "opacity-40 grayscale" : ""}`}>
+                    <div className="h-12 w-12 rounded-full bg-rose-500 text-white flex items-center justify-center mb-2 shadow-lg shadow-rose-500/30">
+                      <Activity className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs font-bold text-slate-850 dark:text-white">Memory Master</span>
+                    <span className="text-[10px] text-slate-455 dark:text-slate-400 mt-1 leading-normal">
+                      {isUnlocked ? `Retention (${Math.round(memoryScore)}%)` : "Locked (Pending Gsm exam)"}
+                    </span>
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Right Area (1/3 width) - Contains Assessment History and Safe Room Guidelines */}
+        <div className="lg:col-span-4 space-y-6">
+          
+          {/* Assessment History Card */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm space-y-4 hover-lift">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <Award className="h-4.5 w-4.5 text-blue-600 dark:text-blue-500" />
+              <span>Assessment History</span>
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-normal">
+              View and download your permanent diagnostic evaluation records:
+            </p>
+
+            <div className="space-y-3.5 pt-2 max-h-[420px] overflow-y-auto pr-1">
+              {historySessions.length > 0 ? (
+                historySessions.map((histSess) => {
+                  const histScores = Object.values(histSess.moduleScores || {});
+                  const histOverall = histScores.length > 0
+                    ? Math.round(histScores.reduce((a, b) => a + b, 0) / histScores.length)
+                    : 0;
+                  const histCleared = histScores.length;
+                  const isCurrentActive = session?.sessionId === histSess.sessionId;
+
+                  return (
+                    <div key={histSess.sessionId} className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-4 space-y-3 transition-colors relative group">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1">
+                          <Calendar className="h-3.5 w-3.5 text-blue-500" />
+                          {new Date(histSess.startTime || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </span>
+                        <span className="font-mono text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded border border-blue-100 dark:border-blue-900/30">
+                          ID: {histSess.sessionId.slice(-6)}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        <span>Overall Score Index:</span>
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold text-sm">{histOverall}%</span>
+                      </div>
+
+                      <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                        <span>Completed: {histCleared} / {totalModules} Modules</span>
+                        <span className="text-emerald-600 font-semibold">{isCurrentActive ? "Active Run" : "Archived Record"}</span>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 pt-1">
+                        <button
+                          onClick={() => {
+                            AssessmentService.setViewingSession(histSess);
+                            onNavigate("report");
+                          }}
+                          className="flex items-center justify-center gap-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 py-2 text-xs font-bold text-white transition-all shadow-sm active:scale-95 cursor-pointer"
+                        >
+                          <FileText className="h-3.5 w-3.5" />
+                          <span>View Report</span>
+                        </button>
+
+                        <button
+                          onClick={() => handleDeleteRecord(histSess.sessionId)}
+                          className="flex items-center justify-center gap-1.5 rounded-xl bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800/40 py-2 text-xs font-bold text-rose-300 transition-all active:scale-95 cursor-pointer"
+                        >
+                          <Trash2 className="h-3.5 w-3.5 text-rose-400" />
+                          <span>Delete</span>
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="rounded-xl border border-dashed border-slate-200 dark:border-slate-800 p-6 text-center space-y-2">
+                  <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 block">No Completed Reports Yet</span>
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500 leading-relaxed">
+                    Complete your first cognitive module to generate and unlock your certified diagnostic report record.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Secure Institutional Guidelines */}
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-3 shadow-sm hover-lift">
+            <h3 className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <ShieldCheck className="h-4.5 w-4.5 text-emerald-600 dark:text-emerald-500" />
+              <span>Assessment Safe Room</span>
+            </h3>
+            <p className="text-[11px] text-slate-550 dark:text-slate-450 leading-normal">
+              This system tracks screen-focus intervals and active response latencies. Leaving the browser tab or closing the window repeatedly will flag the session as "Interrupted" for review by clinical supervisors.
+            </p>
+          </div>
+
+        </div>
+        
+      </div>
+      
+      {/* 5. Right-Side Module Report Drawer */}
+      {activeReportModule && (() => {
+        const modScoreVal = session?.moduleScores[activeReportModule.id] !== undefined
+          ? Math.round(session.moduleScores[activeReportModule.id])
+          : 0;
+
+        const rawModMetrics = (session as any)?.moduleMetrics?.[activeReportModule.id];
+        const modPercentile = rawModMetrics?.score?.percentile !== undefined
+          ? Math.round(rawModMetrics.score.percentile)
+          : (modScoreVal > 0 ? Math.round(modScoreVal * 0.9) : 0);
+
+        const rawModSubscores = rawModMetrics?.score?.subscores;
+        const modSubscoresList = (() => {
+          let list: { name: string; val: number }[] = [];
+
+          if (activeReportModule.id === "gv") {
+            const gvMetrics = rawModMetrics?.metrics || rawModMetrics;
+            if (gvMetrics) {
+              list = [
+                { name: "Mental Rotation (SR)", val: Math.round(gvMetrics.mental_rotation_accuracy ?? modScoreVal) },
+                { name: "Paper Folding (Vz)", val: Math.round(gvMetrics.paper_folding_accuracy ?? modScoreVal) },
+                { name: "Hidden Figures (CF)", val: Math.round(gvMetrics.hidden_figures_accuracy ?? modScoreVal) },
+                { name: "Mystery Map Builder (CS)", val: Math.round(gvMetrics.mystery_map_accuracy ?? modScoreVal) }
+              ];
+            }
+          }
+          
+          if (!list.length && Array.isArray(rawModSubscores)) {
+            list = rawModSubscores.map((s: any) => {
+              const abilityName = s?.ability?.name || s?.ability?.value || s?.ability || s?.name || "Cognitive Domain";
+              const valNum = typeof s?.normalized_score === 'number' ? s.normalized_score : (typeof s?.normalizedScore === 'number' ? s.normalizedScore : (typeof s?.percentage === 'number' ? s.percentage : 0));
+              return {
+                name: String(abilityName).replace(/_/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase()),
+                val: Math.round(valNum)
+              };
+            });
+          } else if (!list.length && rawModSubscores && typeof rawModSubscores === 'object') {
+            list = Object.entries(rawModSubscores).map(([k, v]: [string, any]) => {
+              const abilityName = v?.ability?.name || v?.ability?.value || v?.ability || v?.name || (isNaN(Number(k)) ? k : "Cognitive Domain");
+              const valNum = typeof v === 'number' ? v : (typeof v?.normalized_score === 'number' ? v.normalized_score : (typeof v?.percentage === 'number' ? v.percentage : 0));
+              return {
+                name: String(abilityName).replace(/_/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase()),
+                val: Math.round(valNum)
+              };
+            });
+          }
+
+          if (!list.length) {
+            if (activeReportModule.id === "gv") {
+              list = [
+                { name: "Mental Rotation (SR)", val: modScoreVal },
+                { name: "Paper Folding (Vz)", val: modScoreVal },
+                { name: "Hidden Figures (CF)", val: modScoreVal },
+                { name: "Mystery Map Builder (CS)", val: modScoreVal }
+              ];
+            } else {
+              list = [
+                { name: "Pattern Recognition", val: modScoreVal },
+                { name: "Inductive Reasoning", val: modScoreVal },
+                { name: "Deductive Reasoning", val: modScoreVal },
+                { name: "Abstract Reasoning", val: modScoreVal },
+                { name: "Logical Reasoning", val: modScoreVal }
+              ];
+            }
+          }
+
+          return list;
+        })();
+
+        return (
+          <div className="fixed inset-0 z-50 flex justify-end bg-slate-950/70 backdrop-blur-sm animate-fadeIn">
+            <div className="w-full max-w-xl bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 h-full overflow-y-auto p-6 space-y-6 shadow-2xl relative">
+              <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-extrabold border border-blue-100 dark:border-blue-900/40">
+                    <Brain className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+                      Module Detailed Report
+                    </span>
+                    <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">
+                      {activeReportModule.name}
+                    </h2>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setActiveReportModule(null)}
+                  className="rounded-xl p-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Score & Analytics */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase block">Module Score</span>
+                  <span className="text-3xl font-black text-emerald-600 dark:text-emerald-400">
+                    {modScoreVal}%
+                  </span>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase block">Percentile Rank</span>
+                  <span className="text-2xl font-extrabold text-slate-800 dark:text-slate-200">
+                    {modPercentile > 0 ? `${modPercentile}th Percentile` : "Baseline Profile"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <div className="p-4 rounded-2xl bg-blue-50/40 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 text-xs text-slate-650 dark:text-slate-300 leading-relaxed font-sans">
+                <span className="font-extrabold text-blue-600 dark:text-blue-400 block mb-1">Psychometric Domain Construct:</span>
+                {activeReportModule.description}
+              </div>
+
+              {/* Subscore Breakdown */}
+              <div className="space-y-3 pt-2 border-t border-slate-200 dark:border-slate-800">
+                <h3 className="text-xs font-mono font-extrabold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                  <BarChart3 className="h-4 w-4 text-blue-500" />
+                  Cognitive Subscore Performance
+                </h3>
+                <div className="space-y-2.5">
+                  {modSubscoresList.map(item => (
+                    <div key={item.name} className="space-y-1 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40">
+                      <div className="flex justify-between text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        <span>{item.name}</span>
+                        <span className="font-mono text-emerald-600 dark:text-emerald-400">{item.val}%</span>
+                      </div>
+                      <div className="h-1.5 w-full rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                        <div className="h-full rounded-full bg-emerald-500" style={{ width: `${item.val}%` }} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex gap-3">
+                <button
+                  onClick={() => setActiveReportModule(null)}
+                  className="flex-1 rounded-xl border border-slate-200 dark:border-slate-800 py-3 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                >
+                  Close Report
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveReportModule(null);
+                    AssessmentService.clearSession();
+                    AssessmentService.createNewSession(user.id);
+                    onStartAssessment();
+                  }}
+                  className="flex-1 rounded-xl bg-blue-600 hover:bg-blue-700 py-3 text-xs font-bold text-white transition-all shadow-md shadow-blue-500/20 active:scale-95 cursor-pointer"
+                >
+                  Retake Assessment
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+    </div>
+  );
+}

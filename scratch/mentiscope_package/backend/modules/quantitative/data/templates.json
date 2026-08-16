@@ -1,0 +1,862 @@
+[
+  {
+    "template_id": "PB-T01",
+    "module": "PatternBot",
+    "difficulty": 1,
+    "family": "Arithmetic Progression",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T02",
+    "module": "PatternBot",
+    "difficulty": 2,
+    "family": "Geometric Progression",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T03",
+    "module": "PatternBot",
+    "difficulty": 3,
+    "family": "Increasing Difference",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T04",
+    "module": "PatternBot",
+    "difficulty": 3,
+    "family": "Recursive Pattern",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T05",
+    "module": "PatternBot",
+    "difficulty": 4,
+    "family": "Alternating Pattern",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T06",
+    "module": "PatternBot",
+    "difficulty": 3,
+    "family": "Squares",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T07",
+    "module": "PatternBot",
+    "difficulty": 4,
+    "family": "Cubes",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T08",
+    "module": "PatternBot",
+    "difficulty": 4,
+    "family": "Fibonacci",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T09",
+    "module": "PatternBot",
+    "difficulty": 5,
+    "family": "Matrix Pattern",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "PB-T10",
+    "module": "PatternBot",
+    "difficulty": 5,
+    "family": "Hybrid Pattern",
+    "parameters": {
+      "start": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "step": [
+        2,
+        3,
+        4
+      ]
+    },
+    "length": 5,
+    "story_pool": [
+      "Repair the neural pathway.",
+      "Reconnect the AI chain."
+    ],
+    "hint": "Look at the sequence differences."
+  },
+  {
+    "template_id": "CB-T01",
+    "module": "CompareBot",
+    "difficulty": 1,
+    "family": "Magnitude Comparison",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T02",
+    "module": "CompareBot",
+    "difficulty": 3,
+    "family": "Percentage Comparison",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T03",
+    "module": "CompareBot",
+    "difficulty": 3,
+    "family": "Fraction Comparison",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T04",
+    "module": "CompareBot",
+    "difficulty": 4,
+    "family": "Ratio Comparison",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T05",
+    "module": "CompareBot",
+    "difficulty": 3,
+    "family": "Decimal Comparison",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T06",
+    "module": "CompareBot",
+    "difficulty": 4,
+    "family": "Mixed Representation",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T07",
+    "module": "CompareBot",
+    "difficulty": 3,
+    "family": "Equivalent Expressions",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T08",
+    "module": "CompareBot",
+    "difficulty": 2,
+    "family": "Number Line",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T09",
+    "module": "CompareBot",
+    "difficulty": 4,
+    "family": "Unit Comparison",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "CB-T10",
+    "module": "CompareBot",
+    "difficulty": 5,
+    "family": "Multi-stage Comparison",
+    "parameters": {
+      "pairs": [
+        [
+          15,
+          18
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          45,
+          52
+        ]
+      ]
+    },
+    "story_pool": [
+      "Compare the reactor outputs."
+    ],
+    "hint": "Evaluate which side is greater."
+  },
+  {
+    "template_id": "VB-T01",
+    "module": "VisionBot",
+    "difficulty": 2,
+    "family": "Bar Graph",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T02",
+    "module": "VisionBot",
+    "difficulty": 2,
+    "family": "Table Analysis",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T03",
+    "module": "VisionBot",
+    "difficulty": 3,
+    "family": "Line Graph",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T04",
+    "module": "VisionBot",
+    "difficulty": 3,
+    "family": "Pie Chart",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T05",
+    "module": "VisionBot",
+    "difficulty": 4,
+    "family": "Dual Dashboard",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T06",
+    "module": "VisionBot",
+    "difficulty": 5,
+    "family": "Triple Dashboard",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T07",
+    "module": "VisionBot",
+    "difficulty": 4,
+    "family": "Heat Map",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T08",
+    "module": "VisionBot",
+    "difficulty": 4,
+    "family": "Timeline",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T09",
+    "module": "VisionBot",
+    "difficulty": 5,
+    "family": "Scatter Plot",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "VB-T10",
+    "module": "VisionBot",
+    "difficulty": 5,
+    "family": "Integrated",
+    "parameters": {
+      "grid_size": 3
+    },
+    "story_pool": [
+      "Analyze the visual data array."
+    ],
+    "hint": "Extract data from the chart."
+  },
+  {
+    "template_id": "SB-T01",
+    "module": "SolverBot",
+    "difficulty": 1,
+    "family": "Equal Distribution",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T02",
+    "module": "SolverBot",
+    "difficulty": 3,
+    "family": "Capacity Planning",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T03",
+    "module": "SolverBot",
+    "difficulty": 3,
+    "family": "Resource Allocation",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T04",
+    "module": "SolverBot",
+    "difficulty": 4,
+    "family": "Scheduling",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T05",
+    "module": "SolverBot",
+    "difficulty": 4,
+    "family": "Inventory",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T06",
+    "module": "SolverBot",
+    "difficulty": 4,
+    "family": "Production Planning",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T07",
+    "module": "SolverBot",
+    "difficulty": 5,
+    "family": "Constraint Problems",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T08",
+    "module": "SolverBot",
+    "difficulty": 5,
+    "family": "Route Optimization",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T09",
+    "module": "SolverBot",
+    "difficulty": 5,
+    "family": "Load Balancing",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  },
+  {
+    "template_id": "SB-T10",
+    "module": "SolverBot",
+    "difficulty": 5,
+    "family": "Multi-objective Optimization",
+    "parameters": {
+      "numbers": [
+        [
+          10,
+          3
+        ],
+        [
+          15,
+          5
+        ]
+      ]
+    },
+    "story_pool": [
+      "Allocate power to the nodes."
+    ],
+    "hint": "Balance the distribution."
+  }
+]

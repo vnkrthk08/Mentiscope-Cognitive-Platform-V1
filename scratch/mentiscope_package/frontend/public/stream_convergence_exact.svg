@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 320" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="canvasBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050814" />
+      <stop offset="50%" stop-color="#090e1f" />
+      <stop offset="100%" stop-color="#060a17" />
+    </linearGradient>
+
+    <!-- Stream Outline Gradients -->
+    <linearGradient id="medStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <linearGradient id="engStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <linearGradient id="lawStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <linearGradient id="commStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+
+    <!-- Filters for crisp subtle glow -->
+    <filter id="hubGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1100" height="320" rx="16" fill="url(#canvasBg)" />
+
+  <!-- Subtle ambient circular background shadows -->
+  <circle cx="150" cy="160" r="130" fill="#0f172a" fill-opacity="0.5" />
+  <circle cx="580" cy="160" r="110" fill="#1e1b4b" fill-opacity="0.3" />
+
+  <!-- ================= LEFT: 4 STREAM PILLS ================= -->
+
+  <!-- 1. Medicine Pill -->
+  <g transform="translate(50, 36)">
+    <!-- Pill body -->
+    <rect x="0" y="0" width="210" height="50" rx="25" fill="#0c1427" stroke="url(#medStroke)" stroke-width="1.8" />
+    <!-- Icon Circle -->
+    <circle cx="25" cy="25" r="17" fill="#064e3b" fill-opacity="0.6" stroke="#10b981" stroke-width="1" stroke-opacity="0.5" />
+    <!-- Medical Cross Icon -->
+    <path d="M 25 17 L 25 33 M 17 25 L 33 25" stroke="#10b981" stroke-width="3" stroke-linecap="round" />
+    <!-- Label -->
+    <text x="56" y="31" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" letter-spacing="0.2">Medicine</text>
+    <!-- Right connector dot -->
+    <circle cx="210" cy="25" r="5" fill="#10b981" />
+  </g>
+
+  <!-- 2. Engineering Pill -->
+  <g transform="translate(50, 102)">
+    <!-- Pill body -->
+    <rect x="0" y="0" width="210" height="50" rx="25" fill="#0c1427" stroke="url(#engStroke)" stroke-width="1.8" />
+    <!-- Icon Circle -->
+    <circle cx="25" cy="25" r="17" fill="#075985" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5" />
+    <!-- Gear / Tech Icon -->
+    <path d="M 25 17 L 25 33 M 17 25 L 33 25 M 19 19 L 31 31 M 19 31 L 31 19" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" />
+    <circle cx="25" cy="25" r="4.5" fill="#0c1427" stroke="#38bdf8" stroke-width="2" />
+    <!-- Label -->
+    <text x="56" y="31" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" letter-spacing="0.2">Engineering</text>
+    <!-- Right connector dot -->
+    <circle cx="210" cy="25" r="5" fill="#38bdf8" />
+  </g>
+
+  <!-- 3. Law Pill -->
+  <g transform="translate(50, 168)">
+    <!-- Pill body -->
+    <rect x="0" y="0" width="210" height="50" rx="25" fill="#0c1427" stroke="url(#lawStroke)" stroke-width="1.8" />
+    <!-- Icon Circle -->
+    <circle cx="25" cy="25" r="17" fill="#78350f" fill-opacity="0.6" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.5" />
+    <!-- Scales of Justice Icon -->
+    <path d="M 25 17 L 25 33 M 18 21 L 32 21 M 18 21 L 15 27 M 21 27 L 18 21 M 15 27 L 21 27 M 32 21 L 29 27 M 35 27 L 32 21 M 29 27 L 35 27" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Label -->
+    <text x="56" y="31" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" letter-spacing="0.2">Law</text>
+    <!-- Right connector dot -->
+    <circle cx="210" cy="25" r="5" fill="#fbbf24" />
+  </g>
+
+  <!-- 4. Commerce & Arts Pill -->
+  <g transform="translate(50, 234)">
+    <!-- Pill body -->
+    <rect x="0" y="0" width="210" height="50" rx="25" fill="#0c1427" stroke="url(#commStroke)" stroke-width="1.8" />
+    <!-- Icon Circle -->
+    <circle cx="25" cy="25" r="17" fill="#581c87" fill-opacity="0.6" stroke="#c084fc" stroke-width="1" stroke-opacity="0.5" />
+    <!-- Upward Trend Icon -->
+    <path d="M 18 30 L 23 24 L 27 27 L 32 19 M 32 19 L 28 19 M 32 19 L 32 23" stroke="#c084fc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Label -->
+    <text x="56" y="31" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" letter-spacing="0.2">Commerce &amp; Arts</text>
+    <!-- Right connector dot -->
+    <circle cx="210" cy="25" r="5" fill="#c084fc" />
+  </g>
+
+  <!-- ================= MIDDLE: SMOOTH CONVERGENCE PATHS ================= -->
+
+  <!-- Medicine Flow Line -->
+  <path d="M 260 61 C 390 61, 460 160, 580 160" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" />
+  <circle cx="395" cy="85" r="3.5" fill="#34d399" />
+
+  <!-- Engineering Flow Line -->
+  <path d="M 260 127 C 390 127, 460 160, 580 160" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
+  <circle cx="410" cy="136" r="3.5" fill="#7dd3fc" />
+
+  <!-- Law Flow Line -->
+  <path d="M 260 193 C 390 193, 460 160, 580 160" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" />
+  <circle cx="410" cy="184" r="3.5" fill="#fcd34d" />
+
+  <!-- Commerce Flow Line -->
+  <path d="M 260 259 C 390 259, 460 160, 580 160" fill="none" stroke="#c084fc" stroke-width="2.5" stroke-linecap="round" />
+  <circle cx="395" cy="235" r="3.5" fill="#e9d5ff" />
+
+  <!-- Center Glowing Hub -->
+  <g transform="translate(580, 160)">
+    <circle cx="0" cy="0" r="16" fill="#6366f1" fill-opacity="0.35" filter="url(#hubGlow)" />
+    <circle cx="0" cy="0" r="9" fill="#6366f1" />
+    <circle cx="0" cy="0" r="4.5" fill="#ffffff" />
+  </g>
+
+  <!-- Directional Triangle Arrow -->
+  <polygon points="685,153 699,160 685,167" fill="#38bdf8" />
+
+  <!-- ================= RIGHT: STREAM FIT REPORT CARD ================= -->
+  <g transform="translate(720, 28)">
+    <!-- Main Card Body -->
+    <rect x="0" y="0" width="340" height="264" rx="18" fill="#0b1326" stroke="#1e293b" stroke-width="1.5" />
+
+    <!-- Card Header -->
+    <g transform="translate(20, 18)">
+      <!-- Document Icon Container -->
+      <rect x="0" y="0" width="38" height="38" rx="10" fill="#075985" fill-opacity="0.4" stroke="#0284c7" stroke-width="1.2" />
+      <!-- Document Icon -->
+      <path d="M 13 10 L 21 10 L 25 14 L 25 28 L 13 28 Z" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 16 17 L 22 17 M 16 21 L 20 21" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" />
+      
+      <!-- Header Text -->
+      <text x="48" y="16" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">Stream Fit Report</text>
+      <text x="48" y="32" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400">Your optimal career fit</text>
+    </g>
+
+    <!-- Highlighted Best Match Box -->
+    <g transform="translate(20, 74)">
+      <rect x="0" y="0" width="300" height="76" rx="12" fill="#0f1d38" stroke="#2563eb" stroke-width="1.6" />
+      
+      <text x="16" y="24" fill="#93c5fd" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="0.6">BEST MATCHED STREAM</text>
+      <text x="16" y="52" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="800">Engineering &amp; Tech</text>
+
+      <!-- 94% Score Pill -->
+      <rect x="226" y="18" width="60" height="38" rx="8" fill="#2563eb" />
+      <text x="256" y="42" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="14.5" font-weight="800">94%</text>
+    </g>
+
+    <!-- Bottom Verification Box -->
+    <g transform="translate(20, 166)">
+      <rect x="0" y="0" width="300" height="46" rx="10" fill="#061c18" stroke="#059669" stroke-width="1.2" />
+      <!-- Green Check Circle -->
+      <circle cx="22" cy="23" r="10" fill="#064e3b" stroke="#10b981" stroke-width="1" />
+      <path d="M 17 23 L 20 26 L 27 19" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Text -->
+      <text x="42" y="27" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="500">Many paths, one clear answer.</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+
+from database import get_db
+from ..repository import CsrRepository
+from ..schemas import AnswerRequest, FinishRequest, StartRequest
+from ..service import CsrAssessmentService
+
+router = APIRouter()
+
+
+def service(db: Session = Depends(get_db)) -> CsrAssessmentService:
+    return CsrAssessmentService(CsrRepository(db))
+
+
+@router.post("/start")
+def start(payload: StartRequest, assessment: CsrAssessmentService = Depends(service)):
+    return assessment.start(payload.session_id, payload.student_id)
+
+
+@router.post("/answer")
+def answer(payload: AnswerRequest, assessment: CsrAssessmentService = Depends(service)):
+    return assessment.answer(payload.session_id, payload.question_id, payload.answer, payload.duration_ms)
+
+
+@router.post("/finish")
+def finish(payload: FinishRequest, assessment: CsrAssessmentService = Depends(service)):
+    return assessment.finish(payload.session_id)
+
+
+@router.get("/result")
+def result(session_id: str, assessment: CsrAssessmentService = Depends(service)):
+    return assessment.result(session_id)
