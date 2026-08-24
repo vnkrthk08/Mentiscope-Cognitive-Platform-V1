@@ -218,7 +218,13 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
     const mod = MODULE_CONFIGS[index];
     setActiveModule(mod);
     setModuleStarted(false);
-    setTimeLeft(mod.id === "processing-speed" || mod.id === "gs" || mod.id === "attention" ? 120 : 180); // shorter timers for speed tests
+    if (mod.id === "gf") {
+      setTimeLeft(105); // 1 minute 45 seconds
+    } else if (mod.id === "processing-speed" || mod.id === "gs" || mod.id === "attention") {
+      setTimeLeft(120);
+    } else {
+      setTimeLeft(180);
+    }
     
     // Call /start API
     const startResponse = await AssessmentService.startModule(mod.id, currentSess.sessionId);
@@ -229,13 +235,8 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
           ? startResponse.questions 
           : (QUESTIONS_DATA[mod.id] || []));
 
-    if (mod.id === "gv") {
-      // Randomize Gv item presentation order on every assessment launch
-      modQuestions = [...modQuestions].sort(() => Math.random() - 0.5);
-    }
-
     setQuestions(modQuestions);
-    setTotalQuestions(startResponse.totalQuestions || modQuestions.length);
+    setTotalQuestions(modQuestions.length);
     
     // Save seed if returned by API
     if (startResponse.seed !== undefined) {
@@ -408,7 +409,7 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
     updatedAnswers[activeModule.id].push(payload);
 
     const nextQIndex = session.currentQuestionIndex + 1;
-    const isModuleComplete = nextQIndex >= totalQuestions;
+    const isModuleComplete = nextQIndex >= totalQuestions || nextQIndex >= questions.length;
 
     const updatedSess: AssessmentSession = {
       ...session,
@@ -1229,8 +1230,15 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
               item={currentQuestion as any} 
               disabled={isAnswering} 
               onChange={(st) => {
-                const sel = st.response?.selected_option_id || (st.response ? JSON.stringify(st.response) : "");
-                setSelectedAnswer(sel);
+                if (st.response?.selected_option_id) {
+                  setSelectedAnswer(st.response.selected_option_id);
+                } else if (st.response?.placements && Object.keys(st.response.placements).length > 0) {
+                  setSelectedAnswer(JSON.stringify(st.response));
+                } else if (st.response) {
+                  setSelectedAnswer(JSON.stringify(st.response));
+                } else {
+                  setSelectedAnswer("");
+                }
               }} 
               onBehavior={() => {}} 
             />

@@ -9,32 +9,8 @@ export const MODULE_CONFIGS: ModuleConfig[] = [
     description: "Evaluates capacity to reason logically, identify novel abstract patterns, and solve unpracticed visual matrix problems using inductive and deductive rule discovery.",
     icon: "Cpu",
     apiBaseUrl: "/api/modules/gf",
-    estimatedTime: "5 mins",
+    estimatedTime: "1m 45s",
     color: "indigo",
-    enabled: true
-  },
-  {
-    id: "gc",
-    name: "Crystallized Intelligence (Gc)",
-    taskName: "Knowledge Application Task",
-    researcher: "Sai Aditya Pragyan",
-    description: "Measures depth of acquired knowledge, domain vocabulary, contextual comprehension, and real-world synthesis in diverse scenarios.",
-    icon: "BookOpen",
-    apiBaseUrl: "/api/modules/gc",
-    estimatedTime: "4 mins",
-    color: "blue",
-    enabled: true
-  },
-  {
-    id: "gq",
-    name: "Quantitative Ability (Gq)",
-    taskName: "Adaptive Quantitative Decision Arena",
-    researcher: "Sagar R",
-    description: "Evaluates numerical reasoning, mathematical logic, adaptive difficulty calibration, and quantitative estimation under timed conditions.",
-    icon: "Calculator",
-    apiBaseUrl: "/api/quantitative",
-    estimatedTime: "5 mins",
-    color: "emerald",
     enabled: true
   },
   {
