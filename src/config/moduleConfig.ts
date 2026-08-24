@@ -26,18 +26,6 @@ export const MODULE_CONFIGS: ModuleConfig[] = [
     enabled: true
   },
   {
-    id: "gsm",
-    name: "Working Memory (Gsm)",
-    taskName: "Classroom Scenario Recall",
-    researcher: "Suryansh Raj",
-    description: "Tests active memory capacity, dual-task sequence retention, and information updating under controlled memory loads.",
-    icon: "Activity",
-    apiBaseUrl: "/api/modules/gsm",
-    estimatedTime: "5 mins",
-    color: "teal",
-    enabled: true
-  },
-  {
     id: "gs",
     name: "Processing Speed (Gs)",
     taskName: "Advanced Perceptual Speed Matrix",
@@ -59,30 +47,6 @@ export const MODULE_CONFIGS: ModuleConfig[] = [
     apiBaseUrl: "/api/modules/csr",
     estimatedTime: "3 mins",
     color: "rose",
-    enabled: true
-  },
-  {
-    id: "riasec",
-    name: "Career Interest Assessment (RIASEC Model)",
-    taskName: "Day-in-the-Life Project Simulation",
-    researcher: "N.S Rakshna",
-    description: "Profiles vocational interests across 6 Holland dimensions (Realistic, Investigative, Artistic, Social, Enterprising, Conventional) through interactive simulations.",
-    icon: "Compass",
-    apiBaseUrl: "/api/modules/riasec",
-    estimatedTime: "6 mins",
-    color: "violet",
-    enabled: true
-  },
-  {
-    id: "emotional_regulation",
-    name: "Emotional Regulation Assessment",
-    taskName: "Crisis Dispatcher Simulation",
-    researcher: "Evlin Sara Johny & Lakshmi Pramode",
-    description: "Measures stress tolerance, emotional stability, decision consistency, and emergency response performance under high-pressure simulation.",
-    icon: "ShieldAlert",
-    apiBaseUrl: "/api/modules/emotional-regulation",
-    estimatedTime: "6 mins",
-    color: "red",
     enabled: true
   }
 ];
