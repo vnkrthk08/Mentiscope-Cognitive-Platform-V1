@@ -1,6 +1,10 @@
 import { ModuleConfig } from "../types";
 
-export const MODULE_CONFIGS: ModuleConfig[] = [
+/**
+ * The full 9 scientific pillars of the Mentiscope platform developed at NIRMAAN IIT Madras.
+ * Displayed across the Landing Page, Overview cards, and Institutional reports.
+ */
+export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
   {
     id: "gf",
     name: "Fluid Intelligence (Gf)",
@@ -14,6 +18,30 @@ export const MODULE_CONFIGS: ModuleConfig[] = [
     enabled: true
   },
   {
+    id: "gc",
+    name: "Crystallized Intelligence (Gc)",
+    taskName: "Knowledge Application Task",
+    researcher: "Sai Aditya Pragyan",
+    description: "Measures depth of acquired knowledge, domain vocabulary, contextual comprehension, and real-world synthesis in diverse scenarios.",
+    icon: "BookOpen",
+    apiBaseUrl: "/api/modules/gc",
+    estimatedTime: "4 mins",
+    color: "blue",
+    enabled: true
+  },
+  {
+    id: "gq",
+    name: "Quantitative Ability (Gq)",
+    taskName: "Adaptive Quantitative Decision Arena",
+    researcher: "Sagar R",
+    description: "Evaluates numerical reasoning, mathematical logic, adaptive difficulty calibration, and quantitative estimation under timed conditions.",
+    icon: "Calculator",
+    apiBaseUrl: "/api/quantitative",
+    estimatedTime: "5 mins",
+    color: "emerald",
+    enabled: true
+  },
+  {
     id: "gv",
     name: "Visual Processing (Gv)",
     taskName: "Mystery Map Builder",
@@ -23,6 +51,18 @@ export const MODULE_CONFIGS: ModuleConfig[] = [
     apiBaseUrl: "/api/modules/gv",
     estimatedTime: "4 mins",
     color: "cyan",
+    enabled: true
+  },
+  {
+    id: "gsm",
+    name: "Working Memory (Gsm)",
+    taskName: "Classroom Scenario Recall",
+    researcher: "Suryansh Raj",
+    description: "Tests active memory capacity, dual-task sequence retention, and information updating under controlled memory loads.",
+    icon: "Activity",
+    apiBaseUrl: "/api/modules/gsm",
+    estimatedTime: "5 mins",
+    color: "teal",
     enabled: true
   },
   {
@@ -48,5 +88,42 @@ export const MODULE_CONFIGS: ModuleConfig[] = [
     estimatedTime: "3 mins",
     color: "rose",
     enabled: true
+  },
+  {
+    id: "riasec",
+    name: "Career Interest Assessment (RIASEC Model)",
+    taskName: "Day-in-the-Life Project Simulation",
+    researcher: "N.S Rakshna",
+    description: "Profiles vocational interests across 6 Holland dimensions (Realistic, Investigative, Artistic, Social, Enterprising, Conventional) through interactive simulations.",
+    icon: "Compass",
+    apiBaseUrl: "/api/modules/riasec",
+    estimatedTime: "6 mins",
+    color: "violet",
+    enabled: true
+  },
+  {
+    id: "emotional_regulation",
+    name: "Emotional Regulation Assessment",
+    taskName: "Crisis Dispatcher Simulation",
+    researcher: "Evlin Sara Johny & Lakshmi Pramode",
+    description: "Measures stress tolerance, emotional stability, decision consistency, and emergency response performance under high-pressure simulation.",
+    icon: "ShieldAlert",
+    apiBaseUrl: "/api/modules/emotional-regulation",
+    estimatedTime: "6 mins",
+    color: "red",
+    enabled: true
   }
+];
+
+export const ALL_MODULE_CONFIGS = NINE_PILLARS_CONFIG;
+
+/**
+ * Active testing flow for candidate assessment runner.
+ * Modules currently in active test rotation.
+ */
+export const MODULE_CONFIGS: ModuleConfig[] = [
+  NINE_PILLARS_CONFIG[0], // Gf - Fluid Intelligence (1m 45s)
+  NINE_PILLARS_CONFIG[3], // Gv - Visual Processing (4 mins)
+  NINE_PILLARS_CONFIG[5], // Gs - Processing Speed (3 mins)
+  NINE_PILLARS_CONFIG[6], // Attention - ASAT (3 mins)
 ];

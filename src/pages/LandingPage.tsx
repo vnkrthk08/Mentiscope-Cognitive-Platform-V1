@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { MODULE_CONFIGS } from "../config/moduleConfig";
+import { MODULE_CONFIGS, NINE_PILLARS_CONFIG } from "../config/moduleConfig";
 import Footer from "../components/Footer";
 import StreamConvergenceGraphic from "../components/StreamConvergenceGraphic";
 import { motion, useScroll, useSpring } from "motion/react";
@@ -575,7 +575,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
             </motion.div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {MODULE_CONFIGS.map((mod, i) => {
+              {NINE_PILLARS_CONFIG.map((mod, i) => {
                 const iconMap: Record<string, any> = {
                   Cpu, BookOpen, Calculator, Box, Activity, Zap, Eye, Compass, UserCheck, ShieldAlert
                 };
