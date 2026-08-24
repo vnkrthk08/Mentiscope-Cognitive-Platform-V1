@@ -1,6 +1,6 @@
 import React from "react";
 import { User, AssessmentSession } from "../types";
-import { MODULE_CONFIGS } from "../config/moduleConfig";
+import { MODULE_CONFIGS, NINE_PILLARS_CONFIG } from "../config/moduleConfig";
 import { AssessmentService } from "../services/assessment/AssessmentService";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { 
@@ -64,10 +64,10 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
   const isSessionOngoing = session && session.status === "ongoing";
   const hasCompletedSession = session && session.status === "completed";
   
-  // Calculate module progress
-  const totalModules = MODULE_CONFIGS.length;
-  const completedCount = session ? Object.keys(session.moduleScores).length : 0;
-  const progressPercent = Math.round((completedCount / totalModules) * 100);
+  // Calculate module progress across all 9 baseline assessment modules
+  const totalModules = NINE_PILLARS_CONFIG.length;
+  const completedCount = session ? NINE_PILLARS_CONFIG.filter(mod => session.moduleScores[mod.id] !== undefined).length : 0;
+  const progressPercent = Math.min(100, Math.round((completedCount / totalModules) * 100));
 
   // Calculate overall GQ score index if completed
   const overallScore = session && Object.values(session.moduleScores).length > 0
@@ -297,7 +297,7 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
 
             {/* Sequential Checklist Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-slate-150 dark:border-slate-800/80">
-              {MODULE_CONFIGS.map((mod, index) => {
+              {NINE_PILLARS_CONFIG.map((mod, index) => {
                 const isCompleted = session && session.moduleScores[mod.id] !== undefined;
                 const isCurrent = session && index === session.currentModuleIndex && isSessionOngoing;
                 const modScore = session?.moduleScores[mod.id];
@@ -310,7 +310,8 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                         setActiveReportModule(mod);
                       } else {
                         const activeSess = session || AssessmentService.getOrCreateSession(user.id);
-                        activeSess.currentModuleIndex = index;
+                        const runnerIdx = MODULE_CONFIGS.findIndex(m => m.id === mod.id);
+                        activeSess.currentModuleIndex = runnerIdx >= 0 ? runnerIdx : 0;
                         AssessmentService.saveSession(activeSess);
                         onStartAssessment();
                       }
