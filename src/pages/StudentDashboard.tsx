@@ -50,7 +50,25 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
         list.unshift(current);
       }
     }
+    list.sort((a, b) => new Date(b.startTime || 0).getTime() - new Date(a.startTime || 0).getTime());
     setHistorySessions(list);
+
+    // Also fetch updated history from SQLite backend
+    fetch(`/api/sessions/history?student_id=${encodeURIComponent(user.id)}`)
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data && Array.isArray(data.sessions) && data.sessions.length > 0) {
+          const remoteList = [...data.sessions];
+          if (current && Object.keys(current.moduleScores).length > 0) {
+            if (!remoteList.some((s) => s.sessionId === current.sessionId)) {
+              remoteList.unshift(current);
+            }
+          }
+          remoteList.sort((a, b) => new Date(b.startTime || 0).getTime() - new Date(a.startTime || 0).getTime());
+          setHistorySessions(remoteList);
+        }
+      })
+      .catch(() => {});
   }, [user.id, session?.sessionId]);
 
   const handleDeleteRecord = (sessionIdToDelete: string) => {
@@ -458,8 +476,20 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
             </p>
 
             <div className="space-y-3.5 pt-2 max-h-[420px] overflow-y-auto pr-1">
-              {historySessions.length > 0 ? (
-                historySessions.map((histSess) => {
+              {(() => {
+                const sortedList = [...historySessions].sort((a, b) => new Date(b.startTime || 0).getTime() - new Date(a.startTime || 0).getTime());
+                if (sortedList.length === 0) {
+                  return (
+                    <div className="rounded-xl border border-dashed border-slate-200 dark:border-slate-800 p-6 text-center space-y-2">
+                      <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 block">No Completed Reports Yet</span>
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 leading-relaxed">
+                        Complete your first cognitive module to generate and unlock your certified diagnostic report record.
+                      </p>
+                    </div>
+                  );
+                }
+
+                return sortedList.map((histSess) => {
                   const histScores = Object.values(histSess.moduleScores || {});
                   const histOverall = histScores.length > 0
                     ? Math.round(histScores.reduce((a, b) => a + b, 0) / histScores.length)
@@ -511,15 +541,8 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                       </div>
                     </div>
                   );
-                })
-              ) : (
-                <div className="rounded-xl border border-dashed border-slate-200 dark:border-slate-800 p-6 text-center space-y-2">
-                  <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 block">No Completed Reports Yet</span>
-                  <p className="text-[11px] text-slate-400 dark:text-slate-500 leading-relaxed">
-                    Complete your first cognitive module to generate and unlock your certified diagnostic report record.
-                  </p>
-                </div>
-              )}
+                });
+              })()}
             </div>
           </div>
 

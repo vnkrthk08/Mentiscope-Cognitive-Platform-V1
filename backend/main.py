@@ -125,7 +125,9 @@ def save_session(payload: dict[str, Any], db: Session = Depends(get_db)):
 
 @app.get("/api/sessions/history")
 def get_session_history(student_id: str, db: Session = Depends(get_db)):
-    records = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.student_id == student_id).all()
+    records = db.query(SavedAssessmentSession).filter(
+        SavedAssessmentSession.student_id == student_id
+    ).order_by(SavedAssessmentSession.updated_at.desc()).all()
     sessions = [r.payload for r in records if r.payload]
     return {"status": "success", "sessions": sessions}
 

@@ -57,12 +57,16 @@ export class AssessmentService {
       }
     }
     
+    // Sort descending so the latest taken test is always on top
+    localHistory.sort((a, b) => new Date(b.startTime || 0).getTime() - new Date(a.startTime || 0).getTime());
+
     // Asynchronously fetch from SQLite backend to ensure persistent data recovery
     fetch(`/api/sessions/history?student_id=${encodeURIComponent(studentId)}`)
       .then(res => res.ok ? res.json() : null)
       .then(data => {
         if (data && Array.isArray(data.sessions) && data.sessions.length > 0) {
           const merged = [...data.sessions];
+          merged.sort((a, b) => new Date(b.startTime || 0).getTime() - new Date(a.startTime || 0).getTime());
           localStorage.setItem("mentiscope_session_history", JSON.stringify(merged));
         }
       })
