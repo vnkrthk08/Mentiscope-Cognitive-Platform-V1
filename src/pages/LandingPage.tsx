@@ -245,7 +245,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 </h1>
                 
                 <p className="max-w-xl text-base sm:text-lg text-slate-650 dark:text-slate-350 leading-relaxed animate-fade-up delay-200">
-                  A 15-minute science-backed assessment that maps how you think, then tells you which stream — Medicine, Engineering, Law, and beyond — actually fits you best.
+                  A 15-minute assessment based on how you actually solve problems - not what your relatives think you're good at. Get a clear recommendation across Medicine, Engineering, Law, and beyond.
                 </p>
 
                 {/* Incubator Partnership Card */}
