@@ -47,26 +47,25 @@ import {
 import { User, UserRole } from "../types";
 import { AuthService } from "../services/auth/AuthService";
 
-/* ---------- Scientific Pillars Filter & Metadata Configuration ---------- */
-const PILLAR_FILTERS = [
-  { id: "all", label: "All Constructs", icon: Layers },
-  { id: "cognitive", label: "Cognitive Core (CHC)", icon: Brain },
-  { id: "aptitude", label: "Perception & Speed", icon: Zap },
-  { id: "behavioral", label: "Vocational & Affective", icon: Compass },
-] as const;
+/* ---------- 10 Modules Bento Tiers (2 Featured + 4 Cognitive + 4 Specialized) ---------- */
+const FEATURED_MODULES = [
+  NINE_PILLARS_CONFIG.find(m => m.id === "gf") || NINE_PILLARS_CONFIG[0],
+  NINE_PILLARS_CONFIG.find(m => m.id === "riasec") || NINE_PILLARS_CONFIG[7],
+];
 
-const PILLAR_CATEGORIES: Record<string, string[]> = {
-  gf: ["cognitive"],
-  gc: ["cognitive"],
-  gq: ["cognitive"],
-  gv: ["cognitive", "aptitude"],
-  gsm: ["cognitive"],
-  gs: ["cognitive", "aptitude"],
-  attention: ["aptitude"],
-  riasec: ["behavioral"],
-  emotional_regulation: ["behavioral"],
-  auditory_verbal: ["cognitive", "aptitude"],
-};
+const CORE_COGNITIVE_MODULES = [
+  NINE_PILLARS_CONFIG.find(m => m.id === "gq") || NINE_PILLARS_CONFIG[2],
+  NINE_PILLARS_CONFIG.find(m => m.id === "gv") || NINE_PILLARS_CONFIG[3],
+  NINE_PILLARS_CONFIG.find(m => m.id === "gsm") || NINE_PILLARS_CONFIG[4],
+  NINE_PILLARS_CONFIG.find(m => m.id === "gs") || NINE_PILLARS_CONFIG[5],
+];
+
+const SPECIALIZED_MODULES = [
+  NINE_PILLARS_CONFIG.find(m => m.id === "attention") || NINE_PILLARS_CONFIG[6],
+  NINE_PILLARS_CONFIG.find(m => m.id === "gc") || NINE_PILLARS_CONFIG[1],
+  NINE_PILLARS_CONFIG.find(m => m.id === "emotional_regulation") || NINE_PILLARS_CONFIG[8],
+  NINE_PILLARS_CONFIG.find(m => m.id === "auditory_verbal") || NINE_PILLARS_CONFIG[9],
+];
 
 const CONSTRUCT_META: Record<string, {
   shortCode: string;
@@ -341,13 +340,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
   const [submitted, setSubmitted] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const [selectedModuleId, setSelectedModuleId] = useState<string>("gq");
-  const [activePillarFilter, setActivePillarFilter] = useState<string>("all");
   const [inspectedModule, setInspectedModule] = useState<typeof NINE_PILLARS_CONFIG[0] | null>(null);
-
-  const getModuleCount = (filterId: string) => {
-    if (filterId === "all") return NINE_PILLARS_CONFIG.length;
-    return NINE_PILLARS_CONFIG.filter((m) => PILLAR_CATEGORIES[m.id]?.includes(filterId)).length;
-  };
 
   // Hero Live Reaction Test Widget State
   const [reactionState, setReactionState] = useState<"idle" | "waiting" | "ready" | "result">("idle");
@@ -835,109 +828,168 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
             
-            {/* Elevated Section Header */}
+            {/* Clean, Normal Section Header */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto mb-14 space-y-4"
+              className="text-center max-w-3xl mx-auto mb-14 space-y-3"
             >
-              {/* Premium Eyebrow Pill Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 dark:bg-blue-950/60 px-4 py-1.5 text-xs font-semibold text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/60 shadow-sm animate-scale-in">
-                <Sparkles className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
-                <span className="font-mono uppercase tracking-widest text-[11px]">Research-Backed Evaluation Battery · NIRMAAN IIT Madras</span>
-              </div>
-
-              {/* Main Section Heading */}
-              <div className="space-y-2">
-                <h2 className="text-xs sm:text-sm font-mono font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
-                  The Scientific Pillars (10 Modules)
-                </h2>
-                <p className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl leading-tight">
-                  Cognitive & Psychometric <br className="hidden sm:inline" />
-                  <span className="gradient-text glow-text font-bold">
-                    Evaluation Battery
-                  </span>
-                </p>
-              </div>
-
-              {/* Lead Subtitle */}
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-350 max-w-2xl mx-auto leading-relaxed">
-                10 scientifically designed constructs developed by <span className="font-semibold text-slate-900 dark:text-white">NIRMAAN IIT Madras</span> researchers for comprehensive human potential profiling — grounded in Cattell-Horn-Carroll (CHC) theory and calibrated for precision career alignment.
+              <h2 className="text-xs font-mono font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
+                The Scientific Pillars (10 Modules)
+              </h2>
+              <p className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+                Cognitive & Psychometric Evaluation Battery
               </p>
-
-              {/* Research Credibility Ribbon */}
-              <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span>10 Standardized Battery Modules</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
-                  <Award className="h-3.5 w-3.5 text-blue-500" />
-                  <span>CHC Cognitive Architecture</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
-                  <ShieldCheck className="h-3.5 w-3.5 text-indigo-500" />
-                  <span>Norm-Referenced Scoring</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
-                  <Clock className="h-3.5 w-3.5 text-amber-500" />
-                  <span>15-Minute Adaptive Assessment</span>
-                </div>
-              </div>
-
-              {/* Interactive Filter Navigation */}
-              <div className="pt-4">
-                <div className="inline-flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-inner">
-                  {PILLAR_FILTERS.map((tab) => {
-                    const TabIcon = tab.icon;
-                    const isSelected = activePillarFilter === tab.id;
-                    const count = getModuleCount(tab.id);
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => setActivePillarFilter(tab.id)}
-                        className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer ${
-                          isSelected
-                            ? "bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm border border-slate-200/80 dark:border-slate-700"
-                            : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                        }`}
-                      >
-                        <TabIcon className={`h-3.5 w-3.5 ${isSelected ? "text-blue-600 dark:text-blue-400" : "text-slate-400"}`} />
-                        <span>{tab.label}</span>
-                        <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                          isSelected
-                            ? "bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-300 font-extrabold"
-                            : "bg-slate-200/60 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400"
-                        }`}>
-                          {count}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+              <p className="text-sm text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                10 scientifically designed constructs developed by NIRMAAN IIT Madras researchers for comprehensive human potential profiling.
+              </p>
             </motion.div>
 
-            {/* Bento Card Grid */}
-            <motion.div 
-              layout
-              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              <AnimatePresence mode="popLayout">
-                {NINE_PILLARS_CONFIG
-                  .filter((mod) => {
-                    if (activePillarFilter === "all") return true;
-                    return PILLAR_CATEGORIES[mod.id]?.includes(activePillarFilter);
-                  })
-                  .map((mod, i) => {
-                    const theme = PILLAR_COLOR_THEMES[mod.color] || PILLAR_COLOR_THEMES.blue;
+            {/* 10 Modules Modern Bento Deck (2 Featured + 4 Cognitive + 4 Specialized) */}
+            <div className="space-y-7">
+              
+              {/* Tier 1: 2 Flagship Anchor Modules */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {FEATURED_MODULES.map((mod, i) => {
+                  const meta = CONSTRUCT_META[mod.id] || {
+                    shortCode: `M${i + 1}`,
+                    chcLabel: "Standard Construct",
+                    categoryTag: "Evaluation Battery",
+                    benchmarkMetric: "Cognitive Indicator",
+                  };
+                  const isActive = MODULE_CONFIGS.some((m) => m.id === mod.id);
+                  const iconMap: Record<string, any> = {
+                    Cpu, BookOpen, Calculator, Box, Activity, Zap, Eye, Compass, UserCheck, ShieldAlert, Headphones
+                  };
+                  const IconComponent = iconMap[mod.icon] || Compass;
+
+                  return (
+                    <motion.div
+                      key={mod.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.08 }}
+                      onClick={() => setInspectedModule(mod)}
+                      className="group relative rounded-2xl p-6 sm:p-7 bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800 hover:border-blue-500/40 dark:hover:border-blue-500/40 shadow-sm hover:shadow-xl dark:hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden"
+                    >
+                      {/* Ambient corner light */}
+                      <div className="absolute top-0 right-0 w-44 h-44 bg-gradient-to-bl from-blue-500/8 via-indigo-500/4 to-transparent blur-2xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+
+                      <div>
+                        {/* Top Meta Row */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-3">
+                            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/50 group-hover:scale-105 transition-transform duration-300">
+                              <IconComponent className="h-5.5 w-5.5" />
+                            </div>
+                            <div>
+                              <span className="text-[10px] font-mono font-extrabold uppercase tracking-wider text-blue-600 dark:text-blue-400 block leading-none mb-0.5">
+                                {meta.categoryTag}
+                              </span>
+                              <span className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500">
+                                {meta.shortCode}
+                              </span>
+                            </div>
+                          </div>
+
+                          {isActive ? (
+                            <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/60 px-2.5 py-1 rounded-full shadow-xs">
+                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              Active Battery
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 px-2.5 py-1 rounded-full">
+                              <CheckCircle className="h-3 w-3 text-slate-400" />
+                              Full Battery Spec
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Title & Task */}
+                        <h3 className="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1.5">
+                          {mod.name}
+                        </h3>
+
+                        {mod.taskName && (
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-800/80 border border-slate-200/70 dark:border-slate-700/60 text-xs font-mono text-slate-700 dark:text-slate-300 mb-3 shadow-xs">
+                            <span className="h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
+                            <span className="text-slate-400 dark:text-slate-500 font-sans text-[10px] uppercase font-bold">Protocol:</span>
+                            <span className="font-semibold text-slate-800 dark:text-slate-200 truncate">{mod.taskName}</span>
+                          </div>
+                        )}
+
+                        {/* Description */}
+                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans mb-4">
+                          {mod.description}
+                        </p>
+
+                        {/* Micro-Visual for Featured Anchor Cards */}
+                        {mod.id === "gf" && (
+                          <div className="mb-4 p-3 rounded-xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <div className="grid grid-cols-3 gap-1.5 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-lg">
+                                {[1,2,3,4,5,6,7,8].map(n => (
+                                  <div key={n} className="h-2 w-2 rounded-xs bg-blue-500/70" />
+                                ))}
+                                <div className="h-2 w-2 rounded-xs bg-emerald-500 animate-pulse" />
+                              </div>
+                              <div>
+                                <p className="text-[11px] font-bold text-slate-700 dark:text-slate-300">Rule Induction Matrix</p>
+                                <p className="text-[10px] text-slate-400">Non-verbal pattern discovery</p>
+                              </div>
+                            </div>
+                            <span className="text-[10px] font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">
+                              Matrix IRT
+                            </span>
+                          </div>
+                        )}
+
+                        {mod.id === "riasec" && (
+                          <div className="mb-4 p-3 rounded-xl bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800">
+                            <p className="text-[10px] font-mono font-bold text-slate-400 uppercase mb-1.5">6 Holland Vocational Dimensions</p>
+                            <div className="flex flex-wrap gap-1.5">
+                              {["Realistic", "Investigative", "Artistic", "Social", "Enterprising", "Conventional"].map(dim => (
+                                <span key={dim} className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
+                                  {dim}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Card Footer: Researcher & Time */}
+                      <div className="flex items-center justify-between pt-3.5 border-t border-slate-200/80 dark:border-slate-800/80 text-xs">
+                        <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+                          <GraduationCap className="h-3.5 w-3.5 text-blue-500 shrink-0" />
+                          <span className="text-slate-400 font-normal">Lead:</span>
+                          <span className="font-semibold text-slate-700 dark:text-slate-200">{mod.researcher}</span>
+                        </div>
+                        <div className="flex items-center gap-1 text-slate-400 font-mono text-[11px]">
+                          <Clock className="h-3 w-3" />
+                          <span>{mod.estimatedTime}</span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Tier 2: 4 Core Cognitive Ability Modules */}
+              <div>
+                <div className="flex items-center gap-2 mb-3.5 px-1">
+                  <span className="h-2 w-2 rounded-full bg-blue-500" />
+                  <h4 className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                    Core Cognitive Architecture (CHC Theory)
+                  </h4>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4.5">
+                  {CORE_COGNITIVE_MODULES.map((mod, i) => {
                     const meta = CONSTRUCT_META[mod.id] || {
-                      shortCode: `M${i + 1}`,
+                      shortCode: `M${i + 3}`,
                       chcLabel: "Standard Construct",
                       categoryTag: "Evaluation Battery",
                       benchmarkMetric: "Cognitive Indicator",
@@ -951,91 +1003,152 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                     return (
                       <motion.div
                         key={mod.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.94, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.94, y: 20 }}
-                        transition={{ duration: 0.3, delay: i * 0.03 }}
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.05 }}
                         onClick={() => setInspectedModule(mod)}
-                        className={`group relative bento-card spring-press rounded-2xl p-6 cursor-pointer flex flex-col justify-between overflow-hidden border ${theme.borderHover} ${theme.lightShadow} transition-all duration-300`}
+                        className="group relative rounded-2xl p-5 bg-white dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800 hover:border-blue-500/40 dark:hover:border-blue-500/40 shadow-xs hover:shadow-lg dark:hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between"
                       >
-                        {/* Top Gradient Accent Bar */}
-                        <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${theme.accentBar} opacity-80 group-hover:opacity-100 transition-opacity`} />
-                        
-                        {/* Corner Ambient Glow */}
-                        <div className={`absolute -top-10 -right-10 w-36 h-36 rounded-full bg-gradient-to-bl ${theme.glowGradient} blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500`} />
-
                         <div>
-                          {/* Header: Icon + Construct Symbol + Module Index */}
-                          <div className="mb-4 flex items-center justify-between">
-                            <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${theme.iconBg} group-hover:scale-110 group-hover:shadow-md transition-all duration-300`}>
-                              <IconComponent className="h-5.5 w-5.5" />
+                          {/* Header */}
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/50 group-hover:scale-105 transition-transform duration-300">
+                              <IconComponent className="h-4.5 w-4.5" />
                             </div>
-                            <div className="flex items-center gap-1.5">
-                              <span className={`text-[10px] font-mono font-extrabold px-2.5 py-0.5 rounded-full border ${theme.badge}`}>
-                                {meta.shortCode}
-                              </span>
-                              <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-200/60 dark:border-slate-700/60">
-                                M{String(i + 1).padStart(2, "0")}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Construct Domain & Name */}
-                          <div className="mb-2.5">
-                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-0.5">
-                              {meta.chcLabel}
+                            <span className="text-[10px] font-mono font-extrabold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-100 dark:border-blue-900/50">
+                              {meta.shortCode}
                             </span>
-                            <h3 className="font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-base leading-snug">
-                              {mod.name}
-                            </h3>
                           </div>
 
-                          {/* Task Name Protocol Badge */}
+                          {/* Title */}
+                          <h4 className="font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-sm mb-1 leading-snug">
+                            {mod.name}
+                          </h4>
+
+                          {/* Task Name */}
                           {mod.taskName && (
-                            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-800 text-[11px] font-mono text-slate-650 dark:text-slate-350 mb-2.5">
-                              <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse shrink-0" />
-                              <span className="text-slate-400 dark:text-slate-500 font-sans text-[10px] uppercase font-bold">Task:</span>
-                              <span className="font-semibold text-slate-800 dark:text-slate-200 truncate">{mod.taskName}</span>
-                            </div>
+                            <p className="text-[11px] font-mono text-blue-500 dark:text-blue-400 truncate mb-2">
+                              {mod.taskName}
+                            </p>
                           )}
 
-                          {/* Researcher Attribution */}
-                          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-600 dark:text-slate-350 mb-3">
-                            <GraduationCap className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
-                            <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500">Lead:</span>
-                            <span className="font-semibold text-slate-800 dark:text-slate-200 truncate">{mod.researcher}</span>
-                          </div>
-
                           {/* Description */}
-                          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans line-clamp-3 mb-4">
+                          <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-sans line-clamp-3 mb-3">
                             {mod.description}
                           </p>
                         </div>
 
-                        {/* Card Footer: Duration & Assessment Status */}
-                        <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-3 text-[11px] font-medium text-slate-400">
-                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
-                            <Clock className="h-3.5 w-3.5" />
-                            <span>Est: {mod.estimatedTime}</span>
+                        {/* Footer: Researcher & Time */}
+                        <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800/80 text-[10px] space-y-1.5">
+                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400 truncate">
+                            <span className="text-slate-400">Lead:</span>
+                            <span className="font-semibold text-slate-700 dark:text-slate-300 truncate">{mod.researcher}</span>
                           </div>
-                          {isActive ? (
-                            <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/60 px-2 py-0.5 rounded-full shadow-sm">
-                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                              Active Test Battery
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 px-2 py-0.5 rounded-full">
-                              <CheckCircle className="h-3 w-3 text-slate-400" />
-                              Full Battery Spec
-                            </span>
-                          )}
+                          <div className="flex items-center justify-between text-slate-400 font-mono">
+                            <span>{mod.estimatedTime}</span>
+                            {isActive ? (
+                              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                Active
+                              </span>
+                            ) : (
+                              <span className="text-slate-400">Spec</span>
+                            )}
+                          </div>
                         </div>
                       </motion.div>
                     );
                   })}
-              </AnimatePresence>
-            </motion.div>
+                </div>
+              </div>
+
+              {/* Tier 3: 4 Specialized Aptitude, Behavioral & Auditory Modules */}
+              <div>
+                <div className="flex items-center gap-2 mb-3.5 px-1">
+                  <span className="h-2 w-2 rounded-full bg-indigo-500" />
+                  <h4 className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                    Specialized Aptitude, Behavioral & Auditory Constructs
+                  </h4>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4.5">
+                  {SPECIALIZED_MODULES.map((mod, i) => {
+                    const meta = CONSTRUCT_META[mod.id] || {
+                      shortCode: `M${i + 7}`,
+                      chcLabel: "Standard Construct",
+                      categoryTag: "Evaluation Battery",
+                      benchmarkMetric: "Cognitive Indicator",
+                    };
+                    const isActive = MODULE_CONFIGS.some((m) => m.id === mod.id);
+                    const iconMap: Record<string, any> = {
+                      Cpu, BookOpen, Calculator, Box, Activity, Zap, Eye, Compass, UserCheck, ShieldAlert, Headphones
+                    };
+                    const IconComponent = iconMap[mod.icon] || Compass;
+
+                    return (
+                      <motion.div
+                        key={mod.id}
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.05 }}
+                        onClick={() => setInspectedModule(mod)}
+                        className="group relative rounded-2xl p-5 bg-white dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 shadow-xs hover:shadow-lg dark:hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                      >
+                        <div>
+                          {/* Header */}
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/50 group-hover:scale-105 transition-transform duration-300">
+                              <IconComponent className="h-4.5 w-4.5" />
+                            </div>
+                            <span className="text-[10px] font-mono font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-full border border-indigo-100 dark:border-indigo-900/50">
+                              {meta.shortCode}
+                            </span>
+                          </div>
+
+                          {/* Title */}
+                          <h4 className="font-extrabold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors text-sm mb-1 leading-snug">
+                            {mod.name}
+                          </h4>
+
+                          {/* Task Name */}
+                          {mod.taskName && (
+                            <p className="text-[11px] font-mono text-indigo-500 dark:text-indigo-400 truncate mb-2">
+                              {mod.taskName}
+                            </p>
+                          )}
+
+                          {/* Description */}
+                          <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-sans line-clamp-3 mb-3">
+                            {mod.description}
+                          </p>
+                        </div>
+
+                        {/* Footer: Researcher & Time */}
+                        <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800/80 text-[10px] space-y-1.5">
+                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400 truncate">
+                            <span className="text-slate-400">Lead:</span>
+                            <span className="font-semibold text-slate-700 dark:text-slate-300 truncate">{mod.researcher}</span>
+                          </div>
+                          <div className="flex items-center justify-between text-slate-400 font-mono">
+                            <span>{mod.estimatedTime}</span>
+                            {isActive ? (
+                              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                Active
+                              </span>
+                            ) : (
+                              <span className="text-slate-400">Spec</span>
+                            )}
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+
+            </div>
 
           </div>
 
