@@ -435,8 +435,8 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 
                 <div className="h-1.5 w-20 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 animate-gradient-shift" />
                 
-                <p className="text-sm font-medium italic text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
-                  "Evaluates cognitive abilities, aptitude, personality, and learning preferences to empower decisions through science."
+                <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
+                  Evaluates cognitive abilities, aptitude, personality, and learning preferences to empower decisions through science.
                 </p>
               </motion.div>
 
