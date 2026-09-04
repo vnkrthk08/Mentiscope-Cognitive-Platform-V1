@@ -13,7 +13,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Evaluates capacity to reason logically, identify novel abstract patterns, and solve unpracticed visual matrix problems using inductive and deductive rule discovery.",
     icon: "Cpu",
     apiBaseUrl: "/api/modules/gf",
-    estimatedTime: "1m 45s",
+    estimatedTime: "2 mins",
     color: "indigo",
     enabled: true
   },
@@ -25,7 +25,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Measures depth of acquired knowledge, domain vocabulary, contextual comprehension, and real-world synthesis in diverse scenarios.",
     icon: "BookOpen",
     apiBaseUrl: "/api/modules/gc",
-    estimatedTime: "4 mins",
+    estimatedTime: "2 mins",
     color: "blue",
     enabled: true
   },
@@ -37,7 +37,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Evaluates numerical reasoning, mathematical logic, adaptive difficulty calibration, and quantitative estimation under timed conditions.",
     icon: "Calculator",
     apiBaseUrl: "/api/quantitative",
-    estimatedTime: "5 mins",
+    estimatedTime: "2-3 mins",
     color: "emerald",
     enabled: true
   },
@@ -49,7 +49,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Measures 2D/3D spatial manipulation, mental rotation, visual memory synthesis, and spatial relationship recognition.",
     icon: "Box",
     apiBaseUrl: "/api/modules/gv",
-    estimatedTime: "4 mins",
+    estimatedTime: "2 mins",
     color: "cyan",
     enabled: true
   },
@@ -61,7 +61,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Tests active memory capacity, dual-task sequence retention, and information updating under controlled memory loads.",
     icon: "Activity",
     apiBaseUrl: "/api/modules/gsm",
-    estimatedTime: "5 mins",
+    estimatedTime: "2 mins",
     color: "teal",
     enabled: true
   },
@@ -73,7 +73,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Measures rapid visual discrimination, symbol matching precision, and motor-free decision speed under strict time pressure.",
     icon: "Zap",
     apiBaseUrl: "/api/modules/processing-speed",
-    estimatedTime: "3 mins",
+    estimatedTime: "2 mins",
     color: "amber",
     enabled: true
   },
@@ -85,7 +85,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Evaluates sustained focus, selective visual attention, inhibitory control, and distractor rejection using dynamic Stroop & shape stimuli.",
     icon: "Eye",
     apiBaseUrl: "/api/modules/csr",
-    estimatedTime: "3 mins",
+    estimatedTime: "2 mins",
     color: "rose",
     enabled: true
   },
@@ -97,7 +97,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Profiles vocational interests across 6 Holland dimensions (Realistic, Investigative, Artistic, Social, Enterprising, Conventional) through interactive simulations.",
     icon: "Compass",
     apiBaseUrl: "/api/modules/riasec",
-    estimatedTime: "6 mins",
+    estimatedTime: "2-3 mins",
     color: "violet",
     enabled: true
   },
@@ -109,7 +109,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Measures stress tolerance, emotional stability, decision consistency, and emergency response performance under high-pressure simulation.",
     icon: "ShieldAlert",
     apiBaseUrl: "/api/modules/emotional-regulation",
-    estimatedTime: "6 mins",
+    estimatedTime: "2-3 mins",
     color: "red",
     enabled: true
   },
@@ -121,7 +121,7 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     description: "Evaluates active working memory, sustained auditory attention, comprehension, decision making, adaptability, metacognition, and verbal delivery fluency through 50 scenario simulations.",
     icon: "Headphones",
     apiBaseUrl: "http://127.0.0.1:8001/api/v1",
-    estimatedTime: "6 mins",
+    estimatedTime: "2-3 mins",
     color: "purple",
     enabled: true,
     externalUrl: "http://localhost:3000"
@@ -135,8 +135,8 @@ export const ALL_MODULE_CONFIGS = NINE_PILLARS_CONFIG;
  * Modules currently in active test rotation.
  */
 export const MODULE_CONFIGS: ModuleConfig[] = [
-  NINE_PILLARS_CONFIG[0], // Gf - Fluid Intelligence (1m 45s)
-  NINE_PILLARS_CONFIG[3], // Gv - Visual Processing (4 mins)
-  NINE_PILLARS_CONFIG[5], // Gs - Processing Speed (3 mins)
-  NINE_PILLARS_CONFIG[6], // Attention - ASAT (3 mins)
+  NINE_PILLARS_CONFIG[0], // Gf - Fluid Intelligence (2 mins)
+  NINE_PILLARS_CONFIG[3], // Gv - Visual Processing (2 mins)
+  NINE_PILLARS_CONFIG[5], // Gs - Processing Speed (2 mins)
+  NINE_PILLARS_CONFIG[6], // Attention - ASAT (2 mins)
 ];

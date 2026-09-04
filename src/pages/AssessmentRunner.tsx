@@ -926,14 +926,14 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">
                   {activeModule.name}
                 </h1>
-                <p className="text-xs text-slate-400 mt-0.5 font-sans">{activeModule.taskName} · Researcher: {activeModule.researcher}</p>
+                <p className="text-xs text-slate-400 mt-0.5 font-sans">{activeModule.taskName}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
               <div className="bg-slate-950/80 border border-slate-800 px-4 py-2.5 rounded-2xl text-center">
                 <span className="text-[10px] font-mono font-bold text-slate-400 block uppercase">Time Limit</span>
-                <span className="text-lg font-black text-blue-400">{activeModule.estimatedTime || "4 mins"}</span>
+                <span className="text-lg font-black text-blue-400">{activeModule.estimatedTime || "2 mins"}</span>
               </div>
               <div className="bg-slate-950/80 border border-slate-800 px-4 py-2.5 rounded-2xl text-center">
                 <span className="text-[10px] font-mono font-bold text-slate-400 block uppercase">Scored Questions</span>

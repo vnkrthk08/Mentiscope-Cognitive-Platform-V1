@@ -961,17 +961,15 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                         )}
                       </div>
 
-                      {/* Card Footer: Researcher & Time */}
+                      {/* Card Footer: Duration & Metric */}
                       <div className="flex items-center justify-between pt-3.5 border-t border-slate-200/80 dark:border-slate-800/80 text-xs">
-                        <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
-                          <GraduationCap className="h-3.5 w-3.5 text-blue-500 shrink-0" />
-                          <span className="text-slate-400 font-normal">Lead:</span>
-                          <span className="font-semibold text-slate-700 dark:text-slate-200">{mod.researcher}</span>
+                        <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 font-mono text-xs">
+                          <Clock className="h-3.5 w-3.5 text-blue-500 shrink-0" />
+                          <span>Est: {mod.estimatedTime}</span>
                         </div>
-                        <div className="flex items-center gap-1 text-slate-400 font-mono text-[11px]">
-                          <Clock className="h-3 w-3" />
-                          <span>{mod.estimatedTime}</span>
-                        </div>
+                        <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 font-medium">
+                          {meta.benchmarkMetric}
+                        </span>
                       </div>
                     </motion.div>
                   );
@@ -1039,23 +1037,20 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                           </p>
                         </div>
 
-                        {/* Footer: Researcher & Time */}
-                        <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800/80 text-[10px] space-y-1.5">
-                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400 truncate">
-                            <span className="text-slate-400">Lead:</span>
-                            <span className="font-semibold text-slate-700 dark:text-slate-300 truncate">{mod.researcher}</span>
-                          </div>
-                          <div className="flex items-center justify-between text-slate-400 font-mono">
+                        {/* Footer: Duration & Status */}
+                        <div className="flex items-center justify-between pt-2.5 border-t border-slate-100 dark:border-slate-800/80 text-[11px] font-mono text-slate-400">
+                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                            <Clock className="h-3 w-3 text-slate-400" />
                             <span>{mod.estimatedTime}</span>
-                            {isActive ? (
-                              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
-                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                Active
-                              </span>
-                            ) : (
-                              <span className="text-slate-400">Spec</span>
-                            )}
                           </div>
+                          {isActive ? (
+                            <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1 text-[10px]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              Active
+                            </span>
+                          ) : (
+                            <span className="text-slate-400 text-[10px]">Spec</span>
+                          )}
                         </div>
                       </motion.div>
                     );
@@ -1124,23 +1119,20 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                           </p>
                         </div>
 
-                        {/* Footer: Researcher & Time */}
-                        <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800/80 text-[10px] space-y-1.5">
-                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400 truncate">
-                            <span className="text-slate-400">Lead:</span>
-                            <span className="font-semibold text-slate-700 dark:text-slate-300 truncate">{mod.researcher}</span>
-                          </div>
-                          <div className="flex items-center justify-between text-slate-400 font-mono">
+                        {/* Footer: Duration & Status */}
+                        <div className="flex items-center justify-between pt-2.5 border-t border-slate-100 dark:border-slate-800/80 text-[11px] font-mono text-slate-400">
+                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                            <Clock className="h-3 w-3 text-slate-400" />
                             <span>{mod.estimatedTime}</span>
-                            {isActive ? (
-                              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
-                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                Active
-                              </span>
-                            ) : (
-                              <span className="text-slate-400">Spec</span>
-                            )}
                           </div>
+                          {isActive ? (
+                            <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1 text-[10px]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              Active
+                            </span>
+                          ) : (
+                            <span className="text-slate-400 text-[10px]">Spec</span>
+                          )}
                         </div>
                       </motion.div>
                     );
@@ -1210,13 +1202,15 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                     </div>
                   </div>
 
-                  {/* Researcher & Institution Pill */}
-                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 mb-6">
-                    <GraduationCap className="h-5 w-5 text-blue-600 dark:text-blue-400 shrink-0" />
-                    <div className="text-xs">
-                      <span className="text-slate-400">Lead Researcher: </span>
-                      <strong className="text-slate-800 dark:text-slate-200 font-semibold">{inspectedModule.researcher}</strong>
-                      <span className="text-slate-400"> · NIRMAAN, IIT Madras</span>
+                  {/* Institution & Duration Pill */}
+                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 mb-6">
+                    <div className="flex items-center gap-2.5 text-xs">
+                      <GraduationCap className="h-4.5 w-4.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                      <span className="text-slate-600 dark:text-slate-300 font-semibold">NIRMAAN, IIT Madras</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-xs font-mono text-slate-500 dark:text-slate-400">
+                      <Clock className="h-3.5 w-3.5 text-slate-400" />
+                      <span>Est: {inspectedModule.estimatedTime}</span>
                     </div>
                   </div>
 
