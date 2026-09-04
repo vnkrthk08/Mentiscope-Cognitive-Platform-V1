@@ -25,80 +25,53 @@ export class AuthService {
 
   static async studentRegister(data: Omit<User, "id" | "role"> & { consent: boolean }): Promise<User> {
     console.log("[Auth API] POST /api/auth/register", data);
-    try {
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        const user = await res.json();
-        const fullUser: User = {
-          ...user,
-          role: UserRole.STUDENT
-        };
-        this.saveUserSession(fullUser);
-        return fullUser;
-      }
-    } catch (e) {
-      console.warn("Backend auth register fallback:", e);
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (!res.ok) {
+      const errPayload = await res.json().catch(() => null);
+      const msg = errPayload?.detail || errPayload?.error || "Registration failed. Please try again.";
+      throw new Error(msg);
     }
 
-    const newUser: User = {
-      ...data,
-      id: `stud_${Math.random().toString(36).substring(2, 11)}`,
-      role: UserRole.STUDENT,
-      token: "jwt_student_active_session"
+    const user = await res.json();
+    const fullUser: User = {
+      ...user,
+      role: UserRole.STUDENT
     };
-
-    this.saveUserSession(newUser);
-    return newUser;
+    this.saveUserSession(fullUser);
+    return fullUser;
   }
 
   static async studentLogin(email: string, rememberMe?: boolean): Promise<User> {
     console.log("[Auth API] POST /api/auth/login", { email, rememberMe });
-    if (!email || !email.includes("@")) {
-      throw new Error("Please enter a valid student email address (e.g. candidate@mentiscope.org).");
+    const cleanEmail = (email || "").trim().toLowerCase();
+    if (!cleanEmail || !cleanEmail.includes("@")) {
+      throw new Error("Please enter a valid student email address.");
     }
 
-    try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, rememberMe })
-      });
-      if (res.ok) {
-        const user = await res.json();
-        const fullUser: User = {
-          ...user,
-          role: UserRole.STUDENT
-        };
-        this.saveUserSession(fullUser);
-        return fullUser;
-      }
-    } catch (e) {
-      console.warn("Backend auth login fallback:", e);
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: cleanEmail, rememberMe })
+    });
+
+    if (!res.ok) {
+      const errPayload = await res.json().catch(() => null);
+      const msg = errPayload?.detail || errPayload?.error || "Account not found. Please check your email or create a new account to take the test.";
+      throw new Error(msg);
     }
 
-    const user: User = {
-      id: `stud_${email.split("@")[0].toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
-      name: email.split("@")[0].replace(".", " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-      email: email,
-      role: UserRole.STUDENT,
-      age: 21,
-      gender: "Male",
-      state: "Tamil Nadu",
-      district: "Chennai",
-      education: "Undergraduate",
-      course: "Bachelor of Science",
-      specialization: "Cognitive Science",
-      previousExamPercentage: 88,
-      collegeType: "Private",
-      token: "jwt_student_active_session"
+    const user = await res.json();
+    const fullUser: User = {
+      ...user,
+      role: UserRole.STUDENT
     };
-
-    this.saveUserSession(user);
-    return user;
+    this.saveUserSession(fullUser);
+    return fullUser;
   }
 
   static async updateProfile(user: User): Promise<User> {

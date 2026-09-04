@@ -47,11 +47,49 @@ class UpdateProfileRequest(BaseModel):
     collegeType: Optional[str] = None
 
 
+def ensure_default_users(db: Session):
+    demo_email = "alex.mercer@candidate.edu"
+    existing = db.query(UserRecord).filter(UserRecord.email == demo_email).first()
+    if not existing:
+        demo_user = UserRecord(
+            id="stud_alex_mercer",
+            email=demo_email,
+            name="Alex Mercer",
+            role="student",
+            age=21,
+            gender="Male",
+            state="Tamil Nadu",
+            district="Chennai",
+            education="Undergraduate",
+            course="Bachelor of Science",
+            specialization="Psychology",
+            previous_exam_percentage=88.0,
+            college_type="Private",
+            created_at=datetime.utcnow()
+        )
+        db.add(demo_user)
+        db.commit()
+
+
 @router.post("/register")
 def register_student(payload: StudentRegisterRequest, db: Session = Depends(get_db)):
     email_clean = payload.email.strip().lower()
     existing = db.query(UserRecord).filter(UserRecord.email == email_clean).first()
     if existing:
+        # Update existing profile with newly registered details
+        existing.name = payload.name.strip()
+        existing.age = payload.age
+        existing.gender = payload.gender
+        existing.state = payload.state
+        existing.district = payload.district
+        existing.education = payload.education
+        existing.course = payload.course
+        existing.specialization = payload.specialization
+        existing.previous_exam_percentage = payload.previousExamPercentage
+        existing.college_type = payload.collegeType
+        existing.updated_at = datetime.utcnow()
+        db.commit()
+        db.refresh(existing)
         return {
             "id": existing.id,
             "name": existing.name,
@@ -110,31 +148,15 @@ def register_student(payload: StudentRegisterRequest, db: Session = Depends(get_
 
 @router.post("/login")
 def login_student(payload: StudentLoginRequest, db: Session = Depends(get_db)):
+    ensure_default_users(db)
     email_clean = payload.email.strip().lower()
     existing = db.query(UserRecord).filter(UserRecord.email == email_clean).first()
     
     if not existing:
-        name_part = email_clean.split("@")[0].replace(".", " ").title()
-        user_id = f"stud_{uuid.uuid4().hex[:8]}"
-        existing = UserRecord(
-            id=user_id,
-            email=email_clean,
-            name=name_part,
-            role="student",
-            age=21,
-            gender="Male",
-            state="Tamil Nadu",
-            district="Chennai",
-            education="Undergraduate",
-            course="Bachelor of Science",
-            specialization="Cognitive Science",
-            previous_exam_percentage=88.0,
-            college_type="Private",
-            created_at=datetime.utcnow()
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, 
+            detail="Account not found. Please enter your registered email or create a new account to take the test."
         )
-        db.add(existing)
-        db.commit()
-        db.refresh(existing)
 
     return {
         "id": existing.id,

@@ -256,10 +256,28 @@ export default function AuthPage({ onLoginSuccess, onNavigate, initialTab }: Aut
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
-              className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/30 text-xs font-semibold text-rose-800 dark:text-rose-400 flex items-start gap-2.5"
+              className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/40 text-xs font-semibold text-rose-800 dark:text-rose-300 space-y-2"
             >
-              <ShieldAlert className="h-4.5 w-4.5 shrink-0 text-rose-600 dark:text-rose-400" />
-              <span>{error}</span>
+              <div className="flex items-start gap-2.5">
+                <ShieldAlert className="h-4.5 w-4.5 shrink-0 text-rose-600 dark:text-rose-400 mt-0.5" />
+                <div className="space-y-1">
+                  <p>{error}</p>
+                  {error.toLowerCase().includes("account not found") && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveTab("student-register");
+                        setError(null);
+                        setMessage(null);
+                      }}
+                      className="inline-flex items-center gap-1 font-bold text-blue-600 dark:text-blue-400 underline hover:text-blue-700 cursor-pointer pt-1"
+                    >
+                      <span>Click here to create a new student account</span>
+                      <ChevronRight className="h-3 w-3" />
+                    </button>
+                  )}
+                </div>
+              </div>
             </motion.div>
           )}
 
