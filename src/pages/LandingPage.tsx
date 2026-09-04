@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MODULE_CONFIGS, NINE_PILLARS_CONFIG } from "../config/moduleConfig";
 import Footer from "../components/Footer";
 import StreamConvergenceGraphic from "../components/StreamConvergenceGraphic";
-import { motion, useScroll, useSpring } from "motion/react";
+import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import {
   Brain,
   Award,
@@ -34,11 +34,278 @@ import {
   Zap,
   Eye,
   UserCheck,
-  ShieldAlert
+  ShieldAlert,
+  Headphones,
+  Layers,
+  FlaskConical,
+  Target,
+  X,
+  Info,
+  ExternalLink
 } from "lucide-react";
 
 import { User, UserRole } from "../types";
 import { AuthService } from "../services/auth/AuthService";
+
+/* ---------- Scientific Pillars Filter & Metadata Configuration ---------- */
+const PILLAR_FILTERS = [
+  { id: "all", label: "All Constructs", icon: Layers },
+  { id: "cognitive", label: "Cognitive Core (CHC)", icon: Brain },
+  { id: "aptitude", label: "Perception & Speed", icon: Zap },
+  { id: "behavioral", label: "Vocational & Affective", icon: Compass },
+] as const;
+
+const PILLAR_CATEGORIES: Record<string, string[]> = {
+  gf: ["cognitive"],
+  gc: ["cognitive"],
+  gq: ["cognitive"],
+  gv: ["cognitive", "aptitude"],
+  gsm: ["cognitive"],
+  gs: ["cognitive", "aptitude"],
+  attention: ["aptitude"],
+  riasec: ["behavioral"],
+  emotional_regulation: ["behavioral"],
+  auditory_verbal: ["cognitive", "aptitude"],
+};
+
+const CONSTRUCT_META: Record<string, {
+  shortCode: string;
+  chcLabel: string;
+  categoryTag: string;
+  benchmarkMetric: string;
+}> = {
+  gf: {
+    shortCode: "Gf",
+    chcLabel: "Fluid Reasoning",
+    categoryTag: "CHC Core",
+    benchmarkMetric: "Inductive Rule Discovery",
+  },
+  gc: {
+    shortCode: "Gc",
+    chcLabel: "Crystallized Knowledge",
+    categoryTag: "CHC Core",
+    benchmarkMetric: "Knowledge & Comprehension",
+  },
+  gq: {
+    shortCode: "Gq",
+    chcLabel: "Quantitative Ability",
+    categoryTag: "CHC Core",
+    benchmarkMetric: "Adaptive Math Decision Arena",
+  },
+  gv: {
+    shortCode: "Gv",
+    chcLabel: "Visual-Spatial Processing",
+    categoryTag: "Spatial Synthesis",
+    benchmarkMetric: "2D/3D Mental Rotation",
+  },
+  gsm: {
+    shortCode: "Gsm",
+    chcLabel: "Short-Term Working Memory",
+    categoryTag: "CHC Core",
+    benchmarkMetric: "Active Retention Span",
+  },
+  gs: {
+    shortCode: "Gs",
+    chcLabel: "Perceptual Speed",
+    categoryTag: "Speed & Fluency",
+    benchmarkMetric: "Symbol Matrix Matching",
+  },
+  attention: {
+    shortCode: "Attn",
+    chcLabel: "Inhibitory Control",
+    categoryTag: "Cognitive Control",
+    benchmarkMetric: "Adaptive Shape Stroop",
+  },
+  riasec: {
+    shortCode: "Holland",
+    chcLabel: "Vocational Profiling",
+    categoryTag: "RIASEC Model",
+    benchmarkMetric: "6 Holland Dimensions",
+  },
+  emotional_regulation: {
+    shortCode: "EQ",
+    chcLabel: "Affective Resilience",
+    categoryTag: "Stress Dispatch",
+    benchmarkMetric: "Crisis Simulation Index",
+  },
+  auditory_verbal: {
+    shortCode: "Aud-V",
+    chcLabel: "Auditory & Verbal Cognition",
+    categoryTag: "Dual Domain",
+    benchmarkMetric: "Acoustic Comprehension",
+  },
+};
+
+interface PillarColorTheme {
+  borderHover: string;
+  iconBg: string;
+  badge: string;
+  glowGradient: string;
+  accentBar: string;
+  lightShadow: string;
+  textAccent: string;
+}
+
+const PILLAR_COLOR_THEMES: Record<string, PillarColorTheme> = {
+  indigo: {
+    borderHover: "hover:border-indigo-400/80 dark:hover:border-indigo-500/70",
+    iconBg: "bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/60 shadow-indigo-500/10",
+    badge: "bg-indigo-50 text-indigo-700 dark:bg-indigo-950/80 dark:text-indigo-300 border-indigo-200/80 dark:border-indigo-800/60",
+    glowGradient: "from-indigo-500/15 via-indigo-500/5 to-transparent",
+    accentBar: "from-indigo-500 to-blue-600",
+    lightShadow: "hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/5",
+    textAccent: "text-indigo-600 dark:text-indigo-400",
+  },
+  blue: {
+    borderHover: "hover:border-blue-400/80 dark:hover:border-blue-500/70",
+    iconBg: "bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/60 shadow-blue-500/10",
+    badge: "bg-blue-50 text-blue-700 dark:bg-blue-950/80 dark:text-blue-300 border-blue-200/80 dark:border-blue-800/60",
+    glowGradient: "from-blue-500/15 via-blue-500/5 to-transparent",
+    accentBar: "from-blue-500 to-indigo-600",
+    lightShadow: "hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5",
+    textAccent: "text-blue-600 dark:text-blue-400",
+  },
+  emerald: {
+    borderHover: "hover:border-emerald-400/80 dark:hover:border-emerald-500/70",
+    iconBg: "bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/60 shadow-emerald-500/10",
+    badge: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-200/80 dark:border-emerald-800/60",
+    glowGradient: "from-emerald-500/15 via-emerald-500/5 to-transparent",
+    accentBar: "from-emerald-500 to-teal-600",
+    lightShadow: "hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5",
+    textAccent: "text-emerald-600 dark:text-emerald-400",
+  },
+  cyan: {
+    borderHover: "hover:border-cyan-400/80 dark:hover:border-cyan-500/70",
+    iconBg: "bg-cyan-50 dark:bg-cyan-950/70 text-cyan-600 dark:text-cyan-400 border border-cyan-100 dark:border-cyan-900/60 shadow-cyan-500/10",
+    badge: "bg-cyan-50 text-cyan-700 dark:bg-cyan-950/80 dark:text-cyan-300 border-cyan-200/80 dark:border-cyan-800/60",
+    glowGradient: "from-cyan-500/15 via-cyan-500/5 to-transparent",
+    accentBar: "from-cyan-500 to-blue-600",
+    lightShadow: "hover:shadow-cyan-500/10 dark:hover:shadow-cyan-500/5",
+    textAccent: "text-cyan-600 dark:text-cyan-400",
+  },
+  teal: {
+    borderHover: "hover:border-teal-400/80 dark:hover:border-teal-500/70",
+    iconBg: "bg-teal-50 dark:bg-teal-950/70 text-teal-600 dark:text-teal-400 border border-teal-100 dark:border-teal-900/60 shadow-teal-500/10",
+    badge: "bg-teal-50 text-teal-700 dark:bg-teal-950/80 dark:text-teal-300 border-teal-200/80 dark:border-teal-800/60",
+    glowGradient: "from-teal-500/15 via-teal-500/5 to-transparent",
+    accentBar: "from-teal-500 to-emerald-600",
+    lightShadow: "hover:shadow-teal-500/10 dark:hover:shadow-teal-500/5",
+    textAccent: "text-teal-600 dark:text-teal-400",
+  },
+  amber: {
+    borderHover: "hover:border-amber-400/80 dark:hover:border-amber-500/70",
+    iconBg: "bg-amber-50 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 border border-amber-100 dark:border-amber-900/60 shadow-amber-500/10",
+    badge: "bg-amber-50 text-amber-700 dark:bg-amber-950/80 dark:text-amber-300 border-amber-200/80 dark:border-amber-800/60",
+    glowGradient: "from-amber-500/15 via-amber-500/5 to-transparent",
+    accentBar: "from-amber-500 to-orange-600",
+    lightShadow: "hover:shadow-amber-500/10 dark:hover:shadow-amber-500/5",
+    textAccent: "text-amber-600 dark:text-amber-400",
+  },
+  rose: {
+    borderHover: "hover:border-rose-400/80 dark:hover:border-rose-500/70",
+    iconBg: "bg-rose-50 dark:bg-rose-950/70 text-rose-600 dark:text-rose-400 border border-rose-100 dark:border-rose-900/60 shadow-rose-500/10",
+    badge: "bg-rose-50 text-rose-700 dark:bg-rose-950/80 dark:text-rose-300 border-rose-200/80 dark:border-rose-800/60",
+    glowGradient: "from-rose-500/15 via-rose-500/5 to-transparent",
+    accentBar: "from-rose-500 to-red-600",
+    lightShadow: "hover:shadow-rose-500/10 dark:hover:shadow-rose-500/5",
+    textAccent: "text-rose-600 dark:text-rose-400",
+  },
+  violet: {
+    borderHover: "hover:border-violet-400/80 dark:hover:border-violet-500/70",
+    iconBg: "bg-violet-50 dark:bg-violet-950/70 text-violet-600 dark:text-violet-400 border border-violet-100 dark:border-violet-900/60 shadow-violet-500/10",
+    badge: "bg-violet-50 text-violet-700 dark:bg-violet-950/80 dark:text-violet-300 border-violet-200/80 dark:border-violet-800/60",
+    glowGradient: "from-violet-500/15 via-violet-500/5 to-transparent",
+    accentBar: "from-violet-500 to-purple-600",
+    lightShadow: "hover:shadow-violet-500/10 dark:hover:shadow-violet-500/5",
+    textAccent: "text-violet-600 dark:text-violet-400",
+  },
+  red: {
+    borderHover: "hover:border-red-400/80 dark:hover:border-red-500/70",
+    iconBg: "bg-red-50 dark:bg-red-950/70 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/60 shadow-red-500/10",
+    badge: "bg-red-50 text-red-700 dark:bg-red-950/80 dark:text-red-300 border-red-200/80 dark:border-red-800/60",
+    glowGradient: "from-red-500/15 via-red-500/5 to-transparent",
+    accentBar: "from-red-500 to-rose-600",
+    lightShadow: "hover:shadow-red-500/10 dark:hover:shadow-red-500/5",
+    textAccent: "text-red-600 dark:text-red-400",
+  },
+  purple: {
+    borderHover: "hover:border-purple-400/80 dark:hover:border-purple-500/70",
+    iconBg: "bg-purple-50 dark:bg-purple-950/70 text-purple-600 dark:text-purple-400 border border-purple-100 dark:border-purple-900/60 shadow-purple-500/10",
+    badge: "bg-purple-50 text-purple-700 dark:bg-purple-950/80 dark:text-purple-300 border-purple-200/80 dark:border-purple-800/60",
+    glowGradient: "from-purple-500/15 via-purple-500/5 to-transparent",
+    accentBar: "from-purple-500 to-pink-600",
+    lightShadow: "hover:shadow-purple-500/10 dark:hover:shadow-purple-500/5",
+    textAccent: "text-purple-600 dark:text-purple-400",
+  },
+};
+
+const MODULE_RESEARCH_DETAILS: Record<string, {
+  streamRelevance: string;
+  scientificBasis: string;
+  normSample: string;
+  sampleInsight: string;
+}> = {
+  gf: {
+    streamRelevance: "High indicator for Engineering, Computer Science, and Data Science.",
+    scientificBasis: "Cattell-Horn-Carroll (CHC) Fluid Reasoning index. Evaluates non-verbal abstract induction and deduction independent of prior schooling.",
+    normSample: "Calibrated against secondary and higher secondary STEM cohorts.",
+    sampleInsight: "Strong abstract pattern recognition correlates with computational and algorithmic problem-solving adaptability."
+  },
+  gc: {
+    streamRelevance: "High indicator for Law, Journalism, Civil Services, and Humanities.",
+    scientificBasis: "Cattell-Horn-Carroll (CHC) Crystallized Intelligence. Measures lexical depth, semantic reasoning, and contextual knowledge assimilation.",
+    normSample: "Multi-domain contextual comprehension battery.",
+    sampleInsight: "Predicts superior case analysis, structured debate, and contextual reading comprehension in professional environments."
+  },
+  gq: {
+    streamRelevance: "Essential for STEM, Actuarial Science, Quantitative Finance, and Economics.",
+    scientificBasis: "Quantitative Knowledge (Gq) with adaptive Item Response Theory (IRT) calibrated under strict latency constraints.",
+    normSample: "Dynamic item bank with varying computational loads.",
+    sampleInsight: "Measures numerical fluency and probabilistic estimation under high-speed decision constraints."
+  },
+  gv: {
+    streamRelevance: "Critical for Architecture, Surgery/Medicine, Industrial Design, and Mechanical Engineering.",
+    scientificBasis: "Visual Processing (Gv) spatial manipulation. Assesses mental rotation, multi-perspective synthesis, and coordinate tracking.",
+    normSample: "3D perspective transformation and topological navigation tasks.",
+    sampleInsight: "Essential for mentally visualizing complex spatial systems, surgical pathways, and physical structural mechanics."
+  },
+  gsm: {
+    streamRelevance: "High predictor for Academic Rigor, Competitive Exams (JEE/NEET/UPSC), and Research.",
+    scientificBasis: "Short-Term Working Memory (Gsm). Measures dual-stream retention and real-time buffer updating under cognitive distraction.",
+    normSample: "Dynamic classroom scenario multi-item recall paradigms.",
+    sampleInsight: "Buffers critical facts while actively processing secondary inputs without cognitive overload."
+  },
+  gs: {
+    streamRelevance: "Crucial for Clinical Medicine, Aviation, Emergency Management, and Real-Time Trading.",
+    scientificBasis: "Processing Speed (Gs). Assesses visual scanning efficiency, symbol discrimination, and decision latency without motor artifacts.",
+    normSample: "High-frequency perceptual discrimination matrices.",
+    sampleInsight: "Ensures rapid, high-accuracy decision making when time is of the essence."
+  },
+  attention: {
+    streamRelevance: "Fundamental across all disciplines, particularly Complex Problem Solving and Analytical Research.",
+    scientificBasis: "Selective Visual Attention & Inhibitory Control (Stroop & ASAT architecture). Gauges distractor suppression and focus maintenance.",
+    normSample: "Dynamic perceptual distractor streams and Stroop interference.",
+    sampleInsight: "Determines resilience against sensory distractions and sustained focus during extended analytical sessions."
+  },
+  riasec: {
+    streamRelevance: "Holistic career alignment across Holland's 6 dimensions: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional.",
+    scientificBasis: "Holland RIASEC Hexagon psychometric taxonomy, integrated with behavioral simulation scenarios.",
+    normSample: "Interactive day-in-the-life project simulation choices.",
+    sampleInsight: "Maps personal vocational affinity to real-world career clusters, preventing stream-interest mismatch."
+  },
+  emotional_regulation: {
+    streamRelevance: "High predictor for Leadership, Healthcare, Corporate Management, and High-Stakes Operations.",
+    scientificBasis: "Affective Psychometrics & Stress Dispatch Resilience. Measures decision stability under simulated emergency scenarios.",
+    normSample: "Dynamic simulated dispatch crises with conflicting urgency cues.",
+    sampleInsight: "Evaluates emotional stability, preventing cognitive paralysis during high-stakes emergencies."
+  },
+  auditory_verbal: {
+    streamRelevance: "High indicator for Clinical Medicine, Counseling, Legal Advocacy, Media, and International Relations.",
+    scientificBasis: "Dual-Domain Auditory & Verbal processing. Measures phonological working memory, speech comprehension, and verbal delivery synthesis.",
+    normSample: "50 real-time auditory dilemma simulations.",
+    sampleInsight: "Combines listening comprehension with expressive verbal fluency for persuasive communication."
+  }
+};
 
 interface LandingPageProps {
   user?: User | null;
@@ -74,6 +341,13 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
   const [submitted, setSubmitted] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const [selectedModuleId, setSelectedModuleId] = useState<string>("gq");
+  const [activePillarFilter, setActivePillarFilter] = useState<string>("all");
+  const [inspectedModule, setInspectedModule] = useState<typeof NINE_PILLARS_CONFIG[0] | null>(null);
+
+  const getModuleCount = (filterId: string) => {
+    if (filterId === "all") return NINE_PILLARS_CONFIG.length;
+    return NINE_PILLARS_CONFIG.filter((m) => PILLAR_CATEGORIES[m.id]?.includes(filterId)).length;
+  };
 
   // Hero Live Reaction Test Widget State
   const [reactionState, setReactionState] = useState<"idle" | "waiting" | "ready" | "result">("idle");
@@ -553,77 +827,345 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
         {/* 4. Assessment Modules Grid */}
         <section 
           id="modules" 
-          className="relative bg-white dark:bg-slate-950 border-y border-slate-150 dark:border-slate-900 min-h-[calc(100vh-5rem)] flex items-center w-full transition-colors duration-300 py-16"
+          className="relative bg-white dark:bg-slate-950 border-y border-slate-200/80 dark:border-slate-900 min-h-[calc(100vh-5rem)] flex items-center w-full transition-colors duration-300 py-20 overflow-hidden"
         >
+          {/* Ambient Lighting Gradients */}
+          <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-blue-500/10 via-indigo-500/5 to-transparent blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 right-0 w-96 h-96 bg-purple-500/5 dark:bg-purple-500/10 blur-3xl pointer-events-none" />
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            
+            {/* Elevated Section Header */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+              className="text-center max-w-4xl mx-auto mb-14 space-y-4"
             >
-              <h2 className="text-xs font-mono font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
-                The Nine Pillars
-              </h2>
-              <p className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-                Cognitive & Psychometric Evaluation Battery
+              {/* Premium Eyebrow Pill Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 dark:bg-blue-950/60 px-4 py-1.5 text-xs font-semibold text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/60 shadow-sm animate-scale-in">
+                <Sparkles className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                <span className="font-mono uppercase tracking-widest text-[11px]">Research-Backed Evaluation Battery · NIRMAAN IIT Madras</span>
+              </div>
+
+              {/* Main Section Heading */}
+              <div className="space-y-2">
+                <h2 className="text-xs sm:text-sm font-mono font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
+                  The Scientific Pillars (10 Modules)
+                </h2>
+                <p className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl leading-tight">
+                  Cognitive & Psychometric <br className="hidden sm:inline" />
+                  <span className="gradient-text glow-text font-bold">
+                    Evaluation Battery
+                  </span>
+                </p>
+              </div>
+
+              {/* Lead Subtitle */}
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-350 max-w-2xl mx-auto leading-relaxed">
+                10 scientifically designed constructs developed by <span className="font-semibold text-slate-900 dark:text-white">NIRMAAN IIT Madras</span> researchers for comprehensive human potential profiling — grounded in Cattell-Horn-Carroll (CHC) theory and calibrated for precision career alignment.
               </p>
-              <p className="text-sm text-slate-500 dark:text-slate-400">
-                9 scientifically designed constructs developed by NIRMAAN IIT Madras researchers for comprehensive human potential profiling.
-              </p>
+
+              {/* Research Credibility Ribbon */}
+              <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>10 Standardized Battery Modules</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
+                  <Award className="h-3.5 w-3.5 text-blue-500" />
+                  <span>CHC Cognitive Architecture</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
+                  <ShieldCheck className="h-3.5 w-3.5 text-indigo-500" />
+                  <span>Norm-Referenced Scoring</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
+                  <Clock className="h-3.5 w-3.5 text-amber-500" />
+                  <span>15-Minute Adaptive Assessment</span>
+                </div>
+              </div>
+
+              {/* Interactive Filter Navigation */}
+              <div className="pt-4">
+                <div className="inline-flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-inner">
+                  {PILLAR_FILTERS.map((tab) => {
+                    const TabIcon = tab.icon;
+                    const isSelected = activePillarFilter === tab.id;
+                    const count = getModuleCount(tab.id);
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActivePillarFilter(tab.id)}
+                        className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                          isSelected
+                            ? "bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm border border-slate-200/80 dark:border-slate-700"
+                            : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                        }`}
+                      >
+                        <TabIcon className={`h-3.5 w-3.5 ${isSelected ? "text-blue-600 dark:text-blue-400" : "text-slate-400"}`} />
+                        <span>{tab.label}</span>
+                        <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
+                          isSelected
+                            ? "bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-300 font-extrabold"
+                            : "bg-slate-200/60 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400"
+                        }`}>
+                          {count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {NINE_PILLARS_CONFIG.map((mod, i) => {
-                const iconMap: Record<string, any> = {
-                  Cpu, BookOpen, Calculator, Box, Activity, Zap, Eye, Compass, UserCheck, ShieldAlert
-                };
-                const IconComponent = iconMap[mod.icon] || Compass;
+            {/* Bento Card Grid */}
+            <motion.div 
+              layout
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              <AnimatePresence mode="popLayout">
+                {NINE_PILLARS_CONFIG
+                  .filter((mod) => {
+                    if (activePillarFilter === "all") return true;
+                    return PILLAR_CATEGORIES[mod.id]?.includes(activePillarFilter);
+                  })
+                  .map((mod, i) => {
+                    const theme = PILLAR_COLOR_THEMES[mod.color] || PILLAR_COLOR_THEMES.blue;
+                    const meta = CONSTRUCT_META[mod.id] || {
+                      shortCode: `M${i + 1}`,
+                      chcLabel: "Standard Construct",
+                      categoryTag: "Evaluation Battery",
+                      benchmarkMetric: "Cognitive Indicator",
+                    };
+                    const isActive = MODULE_CONFIGS.some((m) => m.id === mod.id);
+                    const iconMap: Record<string, any> = {
+                      Cpu, BookOpen, Calculator, Box, Activity, Zap, Eye, Compass, UserCheck, ShieldAlert, Headphones
+                    };
+                    const IconComponent = iconMap[mod.icon] || Compass;
 
-                return (
-                  <motion.div
-                    key={mod.id}
-                    initial={{ opacity: 0, y: 25 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.05 }}
-                    className="group relative bento-card spring-press rounded-2xl p-5 cursor-default shadow-sm flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="mb-3.5 flex items-center justify-between">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
-                          <IconComponent className="h-5 w-5" />
+                    return (
+                      <motion.div
+                        key={mod.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.94, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.94, y: 20 }}
+                        transition={{ duration: 0.3, delay: i * 0.03 }}
+                        onClick={() => setInspectedModule(mod)}
+                        className={`group relative bento-card spring-press rounded-2xl p-6 cursor-pointer flex flex-col justify-between overflow-hidden border ${theme.borderHover} ${theme.lightShadow} transition-all duration-300`}
+                      >
+                        {/* Top Gradient Accent Bar */}
+                        <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${theme.accentBar} opacity-80 group-hover:opacity-100 transition-opacity`} />
+                        
+                        {/* Corner Ambient Glow */}
+                        <div className={`absolute -top-10 -right-10 w-36 h-36 rounded-full bg-gradient-to-bl ${theme.glowGradient} blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500`} />
+
+                        <div>
+                          {/* Header: Icon + Construct Symbol + Module Index */}
+                          <div className="mb-4 flex items-center justify-between">
+                            <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${theme.iconBg} group-hover:scale-110 group-hover:shadow-md transition-all duration-300`}>
+                              <IconComponent className="h-5.5 w-5.5" />
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <span className={`text-[10px] font-mono font-extrabold px-2.5 py-0.5 rounded-full border ${theme.badge}`}>
+                                {meta.shortCode}
+                              </span>
+                              <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-200/60 dark:border-slate-700/60">
+                                M{String(i + 1).padStart(2, "0")}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Construct Domain & Name */}
+                          <div className="mb-2.5">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-0.5">
+                              {meta.chcLabel}
+                            </span>
+                            <h3 className="font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-base leading-snug">
+                              {mod.name}
+                            </h3>
+                          </div>
+
+                          {/* Task Name Protocol Badge */}
+                          {mod.taskName && (
+                            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-800 text-[11px] font-mono text-slate-650 dark:text-slate-350 mb-2.5">
+                              <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse shrink-0" />
+                              <span className="text-slate-400 dark:text-slate-500 font-sans text-[10px] uppercase font-bold">Task:</span>
+                              <span className="font-semibold text-slate-800 dark:text-slate-200 truncate">{mod.taskName}</span>
+                            </div>
+                          )}
+
+                          {/* Researcher Attribution */}
+                          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-600 dark:text-slate-350 mb-3">
+                            <GraduationCap className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                            <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500">Lead:</span>
+                            <span className="font-semibold text-slate-800 dark:text-slate-200 truncate">{mod.researcher}</span>
+                          </div>
+
+                          {/* Description */}
+                          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans line-clamp-3 mb-4">
+                            {mod.description}
+                          </p>
                         </div>
-                        <span className="text-[10px] font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded-full border border-blue-100 dark:border-blue-900/40">
-                          M{i + 1}
+
+                        {/* Card Footer: Duration & Assessment Status */}
+                        <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-3 text-[11px] font-medium text-slate-400">
+                          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                            <Clock className="h-3.5 w-3.5" />
+                            <span>Est: {mod.estimatedTime}</span>
+                          </div>
+                          {isActive ? (
+                            <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/60 px-2 py-0.5 rounded-full shadow-sm">
+                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              Active Test Battery
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 px-2 py-0.5 rounded-full">
+                              <CheckCircle className="h-3 w-3 text-slate-400" />
+                              Full Battery Spec
+                            </span>
+                          )}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+              </AnimatePresence>
+            </motion.div>
+
+          </div>
+
+          {/* Interactive Scientific Deep Dive Modal */}
+          <AnimatePresence>
+            {inspectedModule && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setInspectedModule(null)}
+                  className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm"
+                />
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 z-10 max-h-[90vh] overflow-y-auto"
+                >
+                  {/* Close button */}
+                  <button
+                    onClick={() => setInspectedModule(null)}
+                    className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+
+                  {/* Modal Header */}
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${PILLAR_COLOR_THEMES[inspectedModule.color]?.iconBg || "bg-blue-50 text-blue-600"}`}>
+                      {(() => {
+                        const iconMap: Record<string, any> = {
+                          Cpu, BookOpen, Calculator, Box, Activity, Zap, Eye, Compass, UserCheck, ShieldAlert, Headphones
+                        };
+                        const Icon = iconMap[inspectedModule.icon] || Compass;
+                        return <Icon className="h-6 w-6" />;
+                      })()}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/70 px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800/60">
+                          {CONSTRUCT_META[inspectedModule.id]?.shortCode || "Construct"}
+                        </span>
+                        <span className="text-xs font-mono text-slate-400">
+                          {CONSTRUCT_META[inspectedModule.id]?.chcLabel}
                         </span>
                       </div>
-                      
-                      <h3 className="font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1 text-sm leading-snug">
-                        {mod.name}
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+                        {inspectedModule.name}
                       </h3>
-
-                      {mod.taskName && (
-                        <p className="text-[10px] font-mono font-bold text-blue-500 dark:text-blue-400 mb-2">
-                          Task: {mod.taskName}
+                      {inspectedModule.taskName && (
+                        <p className="text-xs font-mono text-blue-500 dark:text-blue-400 mt-0.5">
+                          Task Protocol: {inspectedModule.taskName}
                         </p>
                       )}
-
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-sans line-clamp-3 mb-3">
-                        {mod.description}
-                      </p>
                     </div>
+                  </div>
 
-                    <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-2.5 text-[10px] font-semibold text-slate-400">
-                      <span>Est: {mod.estimatedTime}</span>
-                      <span className="font-mono text-blue-600 dark:text-blue-400 bg-blue-50/60 dark:bg-blue-950/40 px-1.5 py-0.5 rounded">Active</span>
+                  {/* Researcher & Institution Pill */}
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 mb-6">
+                    <GraduationCap className="h-5 w-5 text-blue-600 dark:text-blue-400 shrink-0" />
+                    <div className="text-xs">
+                      <span className="text-slate-400">Lead Researcher: </span>
+                      <strong className="text-slate-800 dark:text-slate-200 font-semibold">{inspectedModule.researcher}</strong>
+                      <span className="text-slate-400"> · NIRMAAN, IIT Madras</span>
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+                  </div>
+
+                  {/* Detailed Description */}
+                  <div className="space-y-4 text-xs sm:text-sm text-slate-650 dark:text-slate-350 leading-relaxed font-sans">
+                    <p>{inspectedModule.description}</p>
+
+                    {MODULE_RESEARCH_DETAILS[inspectedModule.id] && (
+                      <>
+                        <div className="p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-900/40 space-y-2">
+                          <h4 className="text-xs font-bold text-blue-800 dark:text-blue-300 uppercase tracking-wider flex items-center gap-1.5">
+                            <Compass className="h-4 w-4" />
+                            Academic & Career Stream Alignment
+                          </h4>
+                          <p className="text-xs text-blue-900/80 dark:text-blue-200/90 leading-relaxed">
+                            {MODULE_RESEARCH_DETAILS[inspectedModule.id].streamRelevance}
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800">
+                            <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block mb-1">
+                              Theoretical Grounding
+                            </span>
+                            <p className="text-xs text-slate-600 dark:text-slate-300">
+                              {MODULE_RESEARCH_DETAILS[inspectedModule.id].scientificBasis}
+                            </p>
+                          </div>
+                          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800">
+                            <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block mb-1">
+                              Predictive Metric
+                            </span>
+                            <p className="text-xs text-slate-600 dark:text-slate-300">
+                              {MODULE_RESEARCH_DETAILS[inspectedModule.id].sampleInsight}
+                            </p>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Modal Footer CTA */}
+                  <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                    <span className="text-xs font-mono text-slate-400 flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5" />
+                      Testing Duration: {inspectedModule.estimatedTime}
+                    </span>
+                    <button
+                      onClick={() => {
+                        setInspectedModule(null);
+                        handleLoginOrDashboard();
+                      }}
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-blue-500/20 flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <span>Take Full Assessment</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
         </section>
 
         {/* 5. Assessment Module Workflow Section */}
@@ -720,7 +1262,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                     </div>
                     <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Take Test</h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-sans">
-                      Complete a comprehensive battery of 9 cognitive modules, evaluating memory span, attention, processing speed, and reasoning.
+                      Complete a comprehensive battery of 10 cognitive modules, evaluating memory span, attention, processing speed, and auditory reasoning.
                     </p>
                   </div>
                 </motion.div>

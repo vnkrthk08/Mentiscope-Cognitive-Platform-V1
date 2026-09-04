@@ -324,6 +324,18 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                   <div 
                     key={mod.id} 
                     onClick={() => {
+                      if (mod.externalUrl) {
+                        const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+                        const tokenPayload = btoa(encodeURIComponent(JSON.stringify({ 
+                          session_id: activeSess.sessionId,
+                          id: user.id, 
+                          name: user.name, 
+                          ts: Date.now() 
+                        })));
+                        const targetUrl = `${mod.externalUrl}?token=${tokenPayload}`;
+                        window.open(targetUrl, "_blank");
+                        return;
+                      }
                       if (isCompleted) {
                         setActiveReportModule(mod);
                       } else {
@@ -335,11 +347,13 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                       }
                     }}
                     className={`flex items-center justify-between p-3.5 rounded-xl border text-xs font-bold transition-all cursor-pointer hover:shadow-md ${
-                      isCompleted 
-                        ? "bg-emerald-50/40 dark:bg-emerald-950/10 border-emerald-200 dark:border-emerald-900/40 text-slate-850 dark:text-emerald-300 hover:border-emerald-400"
-                        : isCurrent 
-                          ? "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900/40 text-blue-900 dark:text-blue-300 hover:border-blue-400"
-                          : "bg-slate-50/60 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800/60 text-slate-400 dark:text-slate-550 hover:border-blue-300"
+                      mod.externalUrl
+                        ? "bg-purple-50/50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-900/40 text-purple-900 dark:text-purple-300 hover:border-purple-400"
+                        : isCompleted 
+                          ? "bg-emerald-50/40 dark:bg-emerald-950/10 border-emerald-200 dark:border-emerald-900/40 text-slate-850 dark:text-emerald-300 hover:border-emerald-400"
+                          : isCurrent 
+                            ? "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-900/40 text-blue-900 dark:text-blue-300 hover:border-blue-400"
+                            : "bg-slate-50/60 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800/60 text-slate-400 dark:text-slate-550 hover:border-blue-300"
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
@@ -362,6 +376,10 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                           Report <ChevronRight className="h-3 w-3" />
                         </span>
                       </div>
+                    ) : mod.externalUrl ? (
+                      <span className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded-md border border-purple-200/40 dark:border-purple-800/40 flex items-center gap-1">
+                        Launch <ArrowRight className="h-2.5 w-2.5" />
+                      </span>
                     ) : (
                       <span className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5 rounded-md border border-slate-200/20 dark:border-slate-700/20">
                         {isCurrent ? "Active" : "Locked"}

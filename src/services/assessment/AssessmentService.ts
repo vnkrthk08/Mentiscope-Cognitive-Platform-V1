@@ -177,7 +177,13 @@ export class AssessmentService {
   }
 
   static async startModule(moduleId: string, sessionId: string, studentId?: string): Promise<{ status: string; totalQuestions: number; questions?: Question[]; question?: Question; seed?: number }> {
-    if (moduleId === "processing-speed" || moduleId === "gs") return ProcessingSpeedService.start(sessionId, studentId);
+    if (moduleId === "processing-speed" || moduleId === "gs") {
+      try {
+        return await ProcessingSpeedService.start(sessionId, studentId);
+      } catch (e) {
+        console.warn("Processing Speed backend start endpoint fallback:", e);
+      }
+    }
     console.log(`[API Call] POST /api/modules/${moduleId}/start | Session: ${sessionId}`);
     try {
       const res = await fetch(`/api/modules/${moduleId}/start`, {
@@ -205,7 +211,13 @@ export class AssessmentService {
     sessionId: string, 
     payload: AnswerPayload
   ): Promise<{ status: string; isCorrect: boolean; feedback?: string; nextQuestion?: Question }> {
-    if (moduleId === "processing-speed" || moduleId === "gs") return ProcessingSpeedService.answer(sessionId, payload);
+    if (moduleId === "processing-speed" || moduleId === "gs") {
+      try {
+        return await ProcessingSpeedService.answer(sessionId, payload);
+      } catch (e) {
+        console.warn("Processing Speed backend answer endpoint fallback:", e);
+      }
+    }
     console.log(`[API Call] POST /api/modules/${moduleId}/answer | Session: ${sessionId}`, payload);
     try {
       const res = await fetch(`/api/modules/${moduleId}/answer`, {

@@ -236,7 +236,8 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
           : (QUESTIONS_DATA[mod.id] || []));
 
     setQuestions(modQuestions);
-    setTotalQuestions(modQuestions.length);
+    const plannedTotal = startResponse.totalQuestions || ((mod.id === "gs" || mod.id === "processing-speed") ? 20 : (modQuestions.length || 20));
+    setTotalQuestions(plannedTotal);
     
     // Save seed if returned by API
     if (startResponse.seed !== undefined) {
@@ -406,10 +407,14 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
     if (!updatedAnswers[activeModule.id]) {
       updatedAnswers[activeModule.id] = [];
     }
-    updatedAnswers[activeModule.id].push(payload);
+    const storedPayload: AnswerPayload = {
+      ...payload,
+      isCorrect: response.isCorrect
+    };
+    updatedAnswers[activeModule.id].push(storedPayload);
 
     const nextQIndex = session.currentQuestionIndex + 1;
-    const isModuleComplete = nextQIndex >= totalQuestions || nextQIndex >= questions.length;
+    const isModuleComplete = Boolean((response as any)?.finished) || nextQIndex >= totalQuestions;
 
     const updatedSess: AssessmentSession = {
       ...session,
@@ -1119,13 +1124,6 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
         </div>
 
         <div className="flex items-center gap-4 text-xs font-semibold text-slate-300 shrink-0">
-          {/* Row Timer for Stage 3 of Processing Speed */}
-          {activeModule.id === "processing-speed" && (currentQuestion as any).stage === 3 && (
-            <div className="flex items-center gap-1.5 bg-amber-950/60 border border-amber-800/60 px-2.5 py-1.5 rounded-xl text-amber-300 font-mono">
-              <span className="text-[9px] font-bold uppercase tracking-wider">Row Limit:</span>
-              <span className="font-bold">{rowTimer.toFixed(1)}s</span>
-            </div>
-          )}
 
           <div className="flex items-center gap-1.5 bg-slate-950/80 border border-slate-800 px-3 py-1.5 rounded-xl text-blue-400 font-mono shadow-inner">
             <Timer className="h-3.5 w-3.5" />
@@ -1484,8 +1482,8 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
                 </span>
                 <span className="text-xl font-mono font-black text-emerald-400">
                   {session && (session.answers["gs"] || session.answers["processing-speed"])
-                    ? (session.answers["gs"] || session.answers["processing-speed"]).filter((a: any) => a.isCorrect !== false).length
-                    : 0} Matches
+                    ? (session.answers["gs"] || session.answers["processing-speed"]).filter((a: any) => a.isCorrect === true).length
+                    : 0} Correct Matches
                 </span>
               </div>
             </div>
@@ -1524,22 +1522,6 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
               </div>
             </div>
           </div>
-
-          {/* Module 3 Timed Challenge 8s Progress Bar */}
-          {((currentQuestion as any).stage === 3 || (currentQuestion as any).stage === "3" || currentQuestion.id?.includes("stage_3") || currentQuestion.id?.includes("level_3") || currentQuestion.id?.includes("mod3")) && (
-            <div className="rounded-xl bg-amber-950/40 border border-amber-800/40 p-3 space-y-1.5 shadow-sm">
-              <div className="flex justify-between items-center text-xs font-mono font-bold text-amber-300">
-                <span>Row Challenge Timer (8.0s)</span>
-                <span className="text-amber-400 font-extrabold text-sm">{rowTimer.toFixed(1)}s</span>
-              </div>
-              <div className="h-2 w-full rounded-full bg-slate-950 overflow-hidden border border-amber-900/40">
-                <div 
-                  className="h-full bg-gradient-to-r from-amber-500 to-rose-500 transition-all duration-100" 
-                  style={{ width: `${(rowTimer / 8.0) * 100}%` }}
-                />
-              </div>
-            </div>
-          )}
 
           <div className="pt-2">
             <p className="text-xs font-mono font-extrabold text-amber-400 uppercase tracking-widest text-center mb-4">

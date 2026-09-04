@@ -112,6 +112,19 @@ export const NINE_PILLARS_CONFIG: ModuleConfig[] = [
     estimatedTime: "6 mins",
     color: "red",
     enabled: true
+  },
+  {
+    id: "auditory_verbal",
+    name: "Auditory & Verbal Cognitive Assessment",
+    taskName: "Dual-Domain Scenario Simulation",
+    researcher: "Gowtham",
+    description: "Evaluates active working memory, sustained auditory attention, comprehension, decision making, adaptability, metacognition, and verbal delivery fluency through 50 scenario simulations.",
+    icon: "Headphones",
+    apiBaseUrl: "http://127.0.0.1:8001/api/v1",
+    estimatedTime: "6 mins",
+    color: "purple",
+    enabled: true,
+    externalUrl: "http://localhost:3000"
   }
 ];
 

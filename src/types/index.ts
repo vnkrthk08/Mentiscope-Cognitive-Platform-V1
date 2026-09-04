@@ -32,6 +32,7 @@ export interface ModuleConfig {
   estimatedTime: string; // e.g. "5 mins"
   color: string; // Tailwind color class prefix (e.g. "blue", "teal", "amber")
   enabled: boolean;
+  externalUrl?: string;
 }
 
 export interface Question {
@@ -60,6 +61,7 @@ export interface AnswerPayload {
   questionId: string;
   answer: string;
   durationMs: number; // For processing speed or analytics
+  isCorrect?: boolean;
 }
 
 export interface AssessmentSession {

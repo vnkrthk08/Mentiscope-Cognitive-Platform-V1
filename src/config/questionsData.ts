@@ -1,6 +1,690 @@
 import { Question } from "../types";
 
 export const QUESTIONS_DATA: { [moduleId: string]: Question[] } = {
+  gs: [
+    {
+        "id": "gs-1",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "◆■",
+            "★✚",
+            "▲★",
+            "♥⬢",
+            "■★",
+            "★✚"
+        ],
+        "correctAnswer": "★✚",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-2",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "◆▲",
+            "●■",
+            "✚⬢",
+            "★✚",
+            "●■",
+            "⧓■"
+        ],
+        "correctAnswer": "●■",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-3",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "♥♥",
+            "★✚",
+            "⧓■",
+            "✚●",
+            "◆■",
+            "♥♥"
+        ],
+        "correctAnswer": "♥♥",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-4",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "■♥",
+            "■♥",
+            "♥✚",
+            "♥✖",
+            "★⬢",
+            "♥▲"
+        ],
+        "correctAnswer": "■♥",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-5",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "⧓▲",
+            "✚▲",
+            "★♥",
+            "✖⧓",
+            "★♥",
+            "✖■"
+        ],
+        "correctAnswer": "★♥",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-6",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "XKG",
+            "N8E",
+            "NCU",
+            "N8E",
+            "2B5",
+            "MHQ"
+        ],
+        "correctAnswer": "N8E",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-7",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "FTK",
+            "LGK",
+            "8RL",
+            "TTT",
+            "P7M",
+            "TTT"
+        ],
+        "correctAnswer": "TTT",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-8",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "HD4",
+            "786",
+            "CN2",
+            "WLY",
+            "5NK",
+            "HD4"
+        ],
+        "correctAnswer": "HD4",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-9",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "5KL",
+            "TDS",
+            "32D",
+            "URC",
+            "8HB",
+            "32D"
+        ],
+        "correctAnswer": "32D",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-10",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "B4P",
+            "ZNA",
+            "57A",
+            "57A",
+            "CWJ",
+            "WDK"
+        ],
+        "correctAnswer": "57A",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-11",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "NPAS",
+            "ES2R",
+            "U7QP",
+            "D7R9",
+            "X6CH",
+            "NPAS"
+        ],
+        "correctAnswer": "NPAS",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-12",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "2RBD",
+            "9PBJ",
+            "K4ZR",
+            "JG6J",
+            "ABXL",
+            "JG6J"
+        ],
+        "correctAnswer": "JG6J",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-13",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "GD9R",
+            "LR4D",
+            "5TVX",
+            "5TVX",
+            "8TXY",
+            "VPQR"
+        ],
+        "correctAnswer": "5TVX",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-14",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "5BEN",
+            "C933",
+            "5BEN",
+            "HUHM",
+            "N3ZW",
+            "ASCS"
+        ],
+        "correctAnswer": "5BEN",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-15",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "TAP9",
+            "N6H9",
+            "E4JY",
+            "NVPE",
+            "RWQU",
+            "NVPE"
+        ],
+        "correctAnswer": "NVPE",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-16",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "V39",
+            "JH7",
+            "JU3",
+            "2P7",
+            "H47",
+            "2P7"
+        ],
+        "correctAnswer": "2P7",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-17",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "6D3",
+            "BYM",
+            "3N6",
+            "KF8",
+            "ELF",
+            "KF8"
+        ],
+        "correctAnswer": "KF8",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-18",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "CZH",
+            "DLF",
+            "EGJ",
+            "8PF",
+            "NEJ",
+            "DLF"
+        ],
+        "correctAnswer": "DLF",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-19",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "NA6",
+            "EMG",
+            "L2U",
+            "L2U",
+            "DBZ",
+            "FRJ"
+        ],
+        "correctAnswer": "L2U",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-20",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "UWJ",
+            "YUM",
+            "43Z",
+            "6W5",
+            "6W5",
+            "DXW"
+        ],
+        "correctAnswer": "6W5",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    }
+],
+  "processing-speed": [
+    {
+        "id": "gs-1",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "◆■",
+            "★✚",
+            "▲★",
+            "♥⬢",
+            "■★",
+            "★✚"
+        ],
+        "correctAnswer": "★✚",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-2",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "◆▲",
+            "●■",
+            "✚⬢",
+            "★✚",
+            "●■",
+            "⧓■"
+        ],
+        "correctAnswer": "●■",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-3",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "♥♥",
+            "★✚",
+            "⧓■",
+            "✚●",
+            "◆■",
+            "♥♥"
+        ],
+        "correctAnswer": "♥♥",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-4",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "■♥",
+            "■♥",
+            "♥✚",
+            "♥✖",
+            "★⬢",
+            "♥▲"
+        ],
+        "correctAnswer": "■♥",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-5",
+        "text": "Select the string that appears twice in the row below (Symbol Matching).",
+        "story": "Processing Speed (Symbol Matching): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "⧓▲",
+            "✚▲",
+            "★♥",
+            "✖⧓",
+            "★♥",
+            "✖■"
+        ],
+        "correctAnswer": "★♥",
+        "difficulty_level": 1,
+        "stage": 1,
+        "type": "choice"
+    },
+    {
+        "id": "gs-6",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "XKG",
+            "N8E",
+            "NCU",
+            "N8E",
+            "2B5",
+            "MHQ"
+        ],
+        "correctAnswer": "N8E",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-7",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "FTK",
+            "LGK",
+            "8RL",
+            "TTT",
+            "P7M",
+            "TTT"
+        ],
+        "correctAnswer": "TTT",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-8",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "HD4",
+            "786",
+            "CN2",
+            "WLY",
+            "5NK",
+            "HD4"
+        ],
+        "correctAnswer": "HD4",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-9",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "5KL",
+            "TDS",
+            "32D",
+            "URC",
+            "8HB",
+            "32D"
+        ],
+        "correctAnswer": "32D",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-10",
+        "text": "Select the string that appears twice in the row below (Alphanumeric Comparison).",
+        "story": "Processing Speed (Alphanumeric Comparison): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "B4P",
+            "ZNA",
+            "57A",
+            "57A",
+            "CWJ",
+            "WDK"
+        ],
+        "correctAnswer": "57A",
+        "difficulty_level": 2,
+        "stage": 2,
+        "type": "choice"
+    },
+    {
+        "id": "gs-11",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "NPAS",
+            "ES2R",
+            "U7QP",
+            "D7R9",
+            "X6CH",
+            "NPAS"
+        ],
+        "correctAnswer": "NPAS",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-12",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "2RBD",
+            "9PBJ",
+            "K4ZR",
+            "JG6J",
+            "ABXL",
+            "JG6J"
+        ],
+        "correctAnswer": "JG6J",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-13",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "GD9R",
+            "LR4D",
+            "5TVX",
+            "5TVX",
+            "8TXY",
+            "VPQR"
+        ],
+        "correctAnswer": "5TVX",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-14",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "5BEN",
+            "C933",
+            "5BEN",
+            "HUHM",
+            "N3ZW",
+            "ASCS"
+        ],
+        "correctAnswer": "5BEN",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-15",
+        "text": "Select the string that appears twice in the row below (Timed Complexity Challenge).",
+        "story": "Processing Speed (Timed Complexity Challenge): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "TAP9",
+            "N6H9",
+            "E4JY",
+            "NVPE",
+            "RWQU",
+            "NVPE"
+        ],
+        "correctAnswer": "NVPE",
+        "difficulty_level": 3,
+        "stage": 3,
+        "type": "choice"
+    },
+    {
+        "id": "gs-16",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "V39",
+            "JH7",
+            "JU3",
+            "2P7",
+            "H47",
+            "2P7"
+        ],
+        "correctAnswer": "2P7",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-17",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "6D3",
+            "BYM",
+            "3N6",
+            "KF8",
+            "ELF",
+            "KF8"
+        ],
+        "correctAnswer": "KF8",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-18",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "CZH",
+            "DLF",
+            "EGJ",
+            "8PF",
+            "NEJ",
+            "DLF"
+        ],
+        "correctAnswer": "DLF",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-19",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "NA6",
+            "EMG",
+            "L2U",
+            "L2U",
+            "DBZ",
+            "FRJ"
+        ],
+        "correctAnswer": "L2U",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    },
+    {
+        "id": "gs-20",
+        "text": "Select the string that appears twice in the row below (Adaptive Difficulty Engine).",
+        "story": "Processing Speed (Adaptive Difficulty Engine): Scan the 6 character strings and identify the duplicate pair as quickly and accurately as possible.",
+        "options": [
+            "UWJ",
+            "YUM",
+            "43Z",
+            "6W5",
+            "6W5",
+            "DXW"
+        ],
+        "correctAnswer": "6W5",
+        "difficulty_level": 4,
+        "stage": 4,
+        "type": "choice"
+    }
+],
   gq: [
     {
       id: "gq-1",
