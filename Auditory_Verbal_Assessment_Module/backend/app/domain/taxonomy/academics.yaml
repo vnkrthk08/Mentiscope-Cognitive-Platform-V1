@@ -1,0 +1,38 @@
+category: "Academics & Research"
+subcategories:
+  "STEM & Lab Research":
+    intents:
+      "Risk Assessment":
+        events: ["fume hood ventilation shutdown", "digital scale zero calibration error", "chemical reagent contamination", "centrifuge imbalance vibration"]
+        constraints: ["hazardous material protocol", "lab safety inspection today", "limited reagent volume"]
+        escalations: ["lab supervisor orders immediate experiment shutdown", "safety alarm triggers falsely"]
+    equipment: ["digital balance scale", "fume hood", "centrifuge machine", "microscope camera rig", "beaker set"]
+    stakeholders: ["lab safety inspector", "research professor", "lab technician", "student research partner"]
+    resources: ["material safety data sheets (MSDS)", "lab notebook log", "calibration weights"]
+    missing_resources: ["pure distilled water supply", "sealed chemical disposal container"]
+    failure_risks: ["experiment invalidation", "lab safety violation fine", "hazardous chemical exposure risk"]
+    reflection_themes: ["adhering strictly to scientific protocol under pressure", "prioritizing laboratory safety over results speed"]
+  "Humanities & Social Sciences":
+    intents:
+      "Policy Interpretation":
+        events: ["primary source translation dispute", "historical map archive damage", "survey sample sampling bias flag", "citation format discrepancy"]
+        constraints: ["thesis defense deadline in 24 hours", "academic integrity board guidelines", "archival access restriction"]
+        escalations: ["thesis committee member flags potential plagiarism", "archivist withdraws rare manuscript access"]
+    equipment: ["rare manuscript archive box", "microfilm reader", "citation software", "survey analysis tool"]
+    stakeholders: ["department chair", "thesis advisor", "archivist librarian", "peer reviewer"]
+    resources: ["archival source catalog", "interview transcript notes", "style manual guide"]
+    missing_resources: ["verified original translation document", "signed oral history consent form"]
+    failure_risks: ["thesis defense postponement", "academic misconduct flag", "loss of research credibility"]
+    reflection_themes: ["evaluating source credibility and research ethics", "defending academic methodology under faculty scrutiny"]
+  "Inter-School Competitions":
+    intents:
+      "Crisis Response":
+        events: ["quiz buzzer system wire short", "debate tie-breaker rules ambiguity", "scorekeeper calculation mismatch", "museum artifact replica break"]
+        constraints: ["final round live in 5 minutes", "visiting school team present", "trophy ceremony scheduled"]
+        escalations: ["visiting school coach files formal dispute", "quizmaster voice lost to hoarseness"]
+    equipment: ["quiz buzzer console", "debate podium timer", "scorekeeper ledger", "competition trophy display"]
+    stakeholders: ["chief judge", "quizmaster", "visiting team coach", "competition host lead"]
+    resources: ["printed question bank backup", "rulebook reference sheet", "manual bell timer"]
+    missing_resources: ["spare buzzer cable", "signed judge scorecards"]
+    failure_risks: ["disputed competition outcome", "visiting school team boycott", "host school reputation damage"]
+    reflection_themes: ["maintaining fairness and hospitality under competitive strain", "resolving rule ambiguities impartially"]

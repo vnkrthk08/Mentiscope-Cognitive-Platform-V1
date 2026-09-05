@@ -1,0 +1,42 @@
+category: "Sports & Athletics"
+subcategories:
+  "Court & Team Sports":
+    intents:
+      "Emergency Response":
+        events: ["scoreboard LED segment failure", "starting line floor moisture leak", "basketball hoop net torn", "table tennis rubber peeling"]
+        constraints: ["live broadcast ongoing", "10 minutes to tip-off", "referee time limit", "crowd capacity overflow"]
+        escalations: ["head referee threatens forfeit match call", "visiting team refuses to play on wet court"]
+      "Consensus Building":
+        events: ["player roster substitution dispute", "unbalanced match scheduling complaint", "equipment sharing deadlock"]
+        constraints: ["equal play time mandate", "tournament rulebook freeze", "parent representative presence"]
+        escalations: ["captain threatens team walkout", "opposing coach files official protest"]
+    equipment: ["basketball court floor", "volleyball net system", "table tennis tables", "badminton rackets", "digital scoreboard"]
+    stakeholders: ["head referee", "tournament director", "team captain", "sports medicine trainer", "school athletic director"]
+    resources: ["replacement net kit", "floor towel wipers", "spare match balls", "first aid kit"]
+    missing_resources: ["backup electronic scoreboard console", "certified athletic trainer"]
+    failure_risks: ["match cancellation penalty", "player injury safety breach", "tournament point deduction"]
+    reflection_themes: ["balancing fairness with tournament schedules", "resolving team disputes under referee scrutiny"]
+  "Athletics & Track":
+    intents:
+      "Crisis Response":
+        events: ["starting pistol misfire", "photo finish camera sync failure", "track lane line marker smudged", "spike shoe size mismatch"]
+        constraints: ["heat finals starting in 15 mins", "incoming rain forecast", "strict IAAF rulebook enforcement"]
+        escalations: ["wind gauge battery dies during record attempt", "athlete falls past finish line with injury"]
+    equipment: ["starting blocks", "photo finish timing camera", "batons", "high jump mat", "hurdles"]
+    stakeholders: ["track marshal", "chief timer", "head coach", "event announcer"]
+    resources: ["manual stopwatch set", "spare relay batons", "measuring tape"]
+    missing_resources: ["calibrated electronic wind gauge", "backup photo finish sensor"]
+    failure_risks: ["disqualification appeal deadlock", "invalidated race record"]
+    reflection_themes: ["maintaining sporting integrity under operational glitches", "supporting athlete safety during equipment delays"]
+  "Mind & Precision Sports":
+    intents:
+      "Policy Interpretation":
+        events: ["tournament pairing software crash", "chess clock touch-move dispute", "score sheet notation error", "board piece missing"]
+        constraints: ["5 minutes left on clock", "silent tournament hall rule", "tie-breaker round pending"]
+        escalations: ["player accuses opponent of illegal move", "grandmaster arbiter steps in to review video"]
+    equipment: ["digital chess clock", "tournament boards", "pairing computer", "score sheets"]
+    stakeholders: ["chief arbiter", "grandmaster mentor", "player representative"]
+    resources: ["paper pairing sheet backup", "spare chess piece sets"]
+    missing_resources: ["electronic board sensor replacement", "official arbiter logbook"]
+    failure_risks: ["forfeited round penalty", "disputed tournament winner"]
+    reflection_themes: ["applying strict procedural rules fairly", "de-escalating interpersonal tension in high-stakes competition"]

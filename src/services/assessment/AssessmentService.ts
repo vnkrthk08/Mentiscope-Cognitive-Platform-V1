@@ -154,6 +154,60 @@ export class AssessmentService {
     }
   }
 
+  static updateModuleScore(sessionId: string, moduleId: string, score: number, metrics?: any, studentId?: string): AssessmentSession | null {
+    let session = this.getSession();
+    const viewing = this.getViewingSession();
+    if (!session || (sessionId && session.sessionId !== sessionId)) {
+      session = viewing && viewing.sessionId === sessionId ? viewing : session;
+    }
+    if (!session) {
+      session = {
+        sessionId: sessionId || `sess_${Math.random().toString(36).substring(2, 11)}`,
+        studentId: studentId || "stud_alex_mercer",
+        currentModuleIndex: 0,
+        currentQuestionIndex: 0,
+        answers: {},
+        moduleScores: {},
+        moduleMetrics: {},
+        startTime: new Date().toISOString(),
+        status: "ongoing"
+      };
+    }
+
+    const updatedScores = {
+      ...session.moduleScores,
+      [moduleId]: score
+    };
+    const updatedMetrics = {
+      ...(session.moduleMetrics || {}),
+      ...(metrics ? { [moduleId]: metrics } : {})
+    };
+
+    const updatedSession: AssessmentSession = {
+      ...session,
+      moduleScores: updatedScores,
+      moduleMetrics: updatedMetrics
+    };
+
+    this.saveSession(updatedSession);
+    this.setViewingSession(updatedSession);
+
+    // Call backend endpoint to ensure persistence in SQLite DB
+    fetch("/api/sessions/score", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionId: updatedSession.sessionId,
+        studentId: updatedSession.studentId,
+        moduleId,
+        score,
+        metrics
+      })
+    }).catch(err => console.warn("Error persisting module score to backend:", err));
+
+    return updatedSession;
+  }
+
   static clearSession(): void {
     localStorage.removeItem(SESSION_STORAGE_KEY);
   }

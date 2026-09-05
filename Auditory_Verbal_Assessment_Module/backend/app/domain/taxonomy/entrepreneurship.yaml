@@ -1,0 +1,42 @@
+category: "Innovation & Entrepreneurship"
+subcategories:
+  "School Startup Incubator":
+    intents:
+      "Negotiation & Pitching":
+        events: ["prototype 3D print nozzle clog", "pitch deck projector HDMI failure", "mentor session time slot clash", "business plan cost estimation gap"]
+        constraints: ["angel investor panel waiting", "3 minute pitch limit", "no internet access in auditorium"]
+        escalations: ["lead investor cuts pitch time to 90 seconds", "demo unit battery fails on stage"]
+      "Resource Allocation":
+        events: ["trademark name similarity flag", "unit economics margin error", "cofounder equity share dispute"]
+        constraints: ["initial seed grant limit", "first customer delivery date", "competitor product release"]
+        escalations: ["legal advisor warns of trademark infringement risk", "cofounder threatens to leave startup"]
+    equipment: ["prototype demo unit", "pitch deck clicker", "projection screen", "sample packaging box"]
+    stakeholders: ["angel investor", "incubator director", "faculty mentor", "lead customer", "cofounder"]
+    resources: ["financial model spreadsheet", "customer survey data", "patent search draft"]
+    missing_resources: ["functional prototype spare part", "signed non-disclosure agreement"]
+    failure_risks: ["loss of seed funding", "missed launch window", "team dissolution"]
+    reflection_themes: ["communicating value under extreme time constraints", "evaluating risk versus reward in early ventures"]
+  "E-Commerce & Digital Ventures":
+    intents:
+      "Emergency Response":
+        events: ["payment gateway checkout error", "inventory count sync mismatch", "server SSL certificate expiration", "order fulfillment backlog"]
+        constraints: ["flash sale live right now", "customer service queue full", "zero server downtime policy"]
+        escalations: ["social media complaints spike regarding failed transactions", "logistics partner stops pickups"]
+    equipment: ["e-commerce dashboard", "inventory scanner", "payment gateway API", "support ticket console"]
+    stakeholders: ["operations manager", "customer support lead", "payment gateway representative", "fulfillment manager"]
+    resources: ["error log console", "manual order dispatch spreadsheet", "backup payment processor"]
+    missing_resources: ["API root secret key", "warehouse stock audit sheet"]
+    failure_risks: ["revenue loss during flash sale", "reputational brand damage", "customer refund surge"]
+    reflection_themes: ["prioritizing customer trust during operational outages", "rapid troubleshooting under commercial pressure"]
+  "Social Entrepreneurship":
+    intents:
+      "Ethical Decision Making":
+        events: ["NGO grant funding delay", "beneficiary community feedback dispute", "recycled material supply shortage"]
+        constraints: ["non-profit status compliance", "fixed impact metric targets", "local community elder approval"]
+        escalations: ["local community leader questions project motive", "donor threatens to withdraw grant"]
+    equipment: ["field survey tablet", "community workshop kit", "impact tracking ledger"]
+    stakeholders: ["NGO partner liaison", "community leader", "impact investor", "field volunteer"]
+    resources: ["community needs assessment report", "volunteer roster", "impact measurement framework"]
+    missing_resources: ["signed community partnership agreement", "emergency relief funds"]
+    failure_risks: ["loss of community trust", "project shutdown", "grant default"]
+    reflection_themes: ["balancing social impact with financial sustainability", "respecting community stakeholder voices"]

@@ -1,0 +1,50 @@
+category: "Technology & STEM"
+subcategories:
+  "Robotics & Hardware":
+    intents:
+      "Emergency Response":
+        events: ["battery thermal runaway", "firmware corruption crash", "optical sensor blind spot collision", "voltage surge fault"]
+        constraints: ["evacuation in progress", "15 minutes before trial", "power main disconnected", "safety officer lockdown"]
+        escalations: ["main power breaker trips unexpectedly", "backup power pack drops below 10%", "safety judge halts arena access"]
+      "Negotiation & Budget":
+        events: ["component price hike", "spare motor stock deficit", "custom PCB fabrication delay", "supplier warranty dispute"]
+        constraints: ["reduced budget allocation", "single vendor restriction", "48 hour deadline", "audit sign-off pending"]
+        escalations: ["supplier cancels delivery commitment", "finance committee freezes emergency fund"]
+      "Risk Assessment":
+        events: ["telemetry data packet loss", "motor driver thermal limit breach", "gyroscope calibration drift"]
+        constraints: ["untested field environment", "high humidity conditions", "strict weight threshold"]
+        escalations: ["weather radar alerts incoming storm", "arena surface friction drops unexpectedly"]
+    equipment: ["autonomous rover", "drone battery pack", "robotic arm joint", "optical sensor rig", "conveyor robot", "underwater probe", "AI edge gateway"]
+    stakeholders: ["visiting STEM evaluator", "safety officer", "sponsor evaluator", "faculty advisor", "alumni mentor", "lab technician"]
+    resources: ["diagnostic workstation", "spare sensor kit", "oscilloscope", "soldering station", "backup battery pack"]
+    missing_resources: ["replacement motor controller board", "calibrated laser rangefinder", "custom firmware source code"]
+    failure_risks: ["withdrawal of annual project grant", "disqualification from regional championship", "hardware structural damage"]
+    reflection_themes: ["balancing technical precision against deadline pressure", "evaluating safety margins during emergency pivots"]
+  "Software & AI Systems":
+    intents:
+      "Risk Assessment":
+        events: ["model overfitting on validation set", "API rate limit exhaustion", "database query lock bottleneck", "memory leak spike"]
+        constraints: ["live server deployment window", "zero downtime requirement", "GDPR compliance lock", "legacy API compatibility"]
+        escalations: ["user traffic spikes by 300%", "primary cloud database region goes offline"]
+      "Ethical Decision Making":
+        events: ["training dataset demographic bias flag", "privacy audit security flag", "unintended user data logging"]
+        constraints: ["investor demo tomorrow", "contractual launch SLA", "competing team feature release"]
+        escalations: ["whistleblower alert submitted to ethics board", "security auditor requests immediate code freeze"]
+    equipment: ["cloud GPU cluster", "neural network pipeline", "microservice cluster", "automated test suite", "CI/CD runner"]
+    stakeholders: ["lead software architect", "data privacy officer", "product manager", "external penetration tester", "CTO"]
+    resources: ["staging environment logs", "synthetic test benchmark data", "container orchestration console"]
+    missing_resources: ["production database dump", "third-party API access keys"]
+    failure_risks: ["user data breach vulnerability", "server deployment rollback failure", "production outage"]
+    reflection_themes: ["ethical implications of algorithmic trade-offs", "maintaining system stability under tight deadlines"]
+  "Electronics & Circuitry":
+    intents:
+      "Resource Allocation":
+        events: ["capacitor short circuit fault", "microcontroller pin fried", "voltage regulator ripple noise", "solder bridge short"]
+        constraints: ["no spare PCBs remaining", "high ambient heat", "strict EMI shielding standard"]
+        escalations: ["oscilloscope screen freezes", "smoke detected near power stage"]
+    equipment: ["printed circuit board", "frequency synthesizer", "logic analyzer", "variable power supply"]
+    stakeholders: ["lab supervisor", "quality assurance inspector", "junior circuit designer"]
+    resources: ["multimeter", "component bin", "breadboard prototyping kit"]
+    missing_resources: ["surface-mount soldering tip", "exact replacement IC chip"]
+    failure_risks: ["permanent component destruction", "failed lab certification"]
+    reflection_themes: ["systematic fault isolation vs quick patch fixes", "adhering to safety standards in high-voltage work"]

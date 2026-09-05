@@ -1,0 +1,26 @@
+{
+  "DECISION_MAKING": {
+    "primary_objectives": ["trade_off_analysis", "priority_shift"],
+    "fallback_objectives": ["constraint_change", "resource_limitation"]
+  },
+  "REASONING": {
+    "primary_objectives": ["reasoning_probe", "alternative_strategy"],
+    "fallback_objectives": ["contradiction_detection"]
+  },
+  "LEADERSHIP": {
+    "primary_objectives": ["stakeholder_perspective", "priority_shift"],
+    "fallback_objectives": ["alternative_strategy"]
+  },
+  "PROBLEM_SOLVING": {
+    "primary_objectives": ["alternative_strategy", "constraint_change"],
+    "fallback_objectives": ["trade_off_analysis"]
+  },
+  "COMMUNICATION": {
+    "primary_objectives": ["clarification"],
+    "fallback_objectives": ["clarification"]
+  },
+  "ATTENTION": {
+    "primary_objectives": ["clarification", "contradiction_detection"],
+    "fallback_objectives": ["clarification"]
+  }
+}

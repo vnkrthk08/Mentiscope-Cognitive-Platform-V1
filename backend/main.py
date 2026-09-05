@@ -123,6 +123,162 @@ def save_session(payload: dict[str, Any], db: Session = Depends(get_db)):
     db.commit()
     return {"status": "success", "sessionId": session_id}
 
+@app.post("/api/sessions/score")
+def update_session_score(payload: dict[str, Any], db: Session = Depends(get_db)):
+    session_id = payload.get("sessionId") or payload.get("session_id")
+    student_id = payload.get("studentId") or payload.get("student_id") or "stud_alex_mercer"
+    module_id = payload.get("moduleId") or payload.get("module_id")
+    raw_score = payload.get("score")
+    metrics = payload.get("metrics")
+
+    if not session_id:
+        latest = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.student_id == student_id).order_by(SavedAssessmentSession.updated_at.desc()).first()
+        if not latest:
+            latest = db.query(SavedAssessmentSession).order_by(SavedAssessmentSession.updated_at.desc()).first()
+        if latest:
+            session_id = latest.session_id
+        else:
+            session_id = "sess_current"
+
+    if not module_id or raw_score is None:
+        raise HTTPException(status_code=400, detail="Missing moduleId or score")
+
+    score = float(raw_score)
+    existing = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.session_id == session_id).first()
+
+    if existing and existing.payload:
+        data = dict(existing.payload)
+        mod_scores = dict(data.get("moduleScores", {}))
+        mod_scores[module_id] = score
+        data["moduleScores"] = mod_scores
+        if metrics:
+            mod_metrics = dict(data.get("moduleMetrics", {}))
+            mod_metrics[module_id] = metrics
+            data["moduleMetrics"] = mod_metrics
+        if len(mod_scores) > 0:
+            data["overallScore"] = round(sum(mod_scores.values()) / len(mod_scores))
+        existing.payload = data
+        db.commit()
+        return {"status": "success", "sessionId": session_id, "moduleScores": mod_scores, "session": data}
+    else:
+        new_payload = {
+            "sessionId": session_id,
+            "studentId": student_id,
+            "moduleScores": {module_id: score},
+            "overallScore": round(score),
+            "status": "completed",
+            "startTime": payload.get("startTime") or "2026-09-04T00:00:00.000Z"
+        }
+        rec = SavedAssessmentSession(session_id=session_id, student_id=student_id, payload=new_payload)
+        db.add(rec)
+        db.commit()
+        return {"status": "success", "sessionId": session_id, "moduleScores": new_payload["moduleScores"], "session": new_payload}
+
+@app.get("/api/sessions/sync-external")
+def sync_external_scores(session_id: str = None, student_id: str = None, db: Session = Depends(get_db)):
+    """
+    Checks external Module 10 database (gowtham_mentiscope.db)
+    and syncs auditory_verbal scores if available.
+    """
+    import os
+    import sqlite3
+    import json
+
+    ext_db_paths = [
+        "Auditory_Verbal_Assessment_Module/backend/gowtham_mentiscope.db",
+        "../Auditory_Verbal_Assessment_Module/backend/gowtham_mentiscope.db",
+        os.path.join(os.path.dirname(__file__), "..", "Auditory_Verbal_Assessment_Module", "backend", "gowtham_mentiscope.db")
+    ]
+    found_db = None
+    for p in ext_db_paths:
+        if os.path.exists(p):
+            found_db = p
+            break
+
+    if not found_db:
+        return {"status": "not_found", "message": "External database not located"}
+
+    try:
+        conn = sqlite3.connect(found_db)
+        cur = conn.cursor()
+
+        row = None
+        if session_id:
+            cur.execute("SELECT session_id, candidate_id, overall_cognitive_index, construct_scores FROM assessment_reports WHERE session_id = ? ORDER BY created_at DESC LIMIT 1", (session_id,))
+            row = cur.fetchone()
+        if not row and student_id:
+            cur.execute("SELECT session_id, candidate_id, overall_cognitive_index, construct_scores FROM assessment_reports WHERE candidate_id = ? ORDER BY created_at DESC LIMIT 1", (student_id,))
+            row = cur.fetchone()
+        if not row:
+            cur.execute("SELECT session_id, candidate_id, overall_cognitive_index, construct_scores FROM assessment_reports WHERE overall_cognitive_index > 0 ORDER BY created_at DESC LIMIT 1")
+            row = cur.fetchone()
+        conn.close()
+
+        if not row:
+            return {"status": "no_external_data", "message": "No external assessment reports found"}
+
+        ext_sess_id, cand_id, overall_idx, raw_constructs = row
+        score_val = float(overall_idx) if overall_idx is not None else 72.0
+
+        if score_val < 10.0 and score_val > 0.0:
+            score_val = score_val * 10.0
+        score_val = round(score_val)
+
+        subscores = {}
+        if raw_constructs:
+            try:
+                subscores = json.loads(raw_constructs) if isinstance(raw_constructs, str) else raw_constructs
+            except Exception:
+                subscores = {}
+
+        metrics = {
+            "score": score_val,
+            "constructScores": subscores,
+            "externalCandidateId": cand_id,
+            "externalSessionId": ext_sess_id
+        }
+
+        target_sess_id = session_id
+        if not target_sess_id and student_id:
+            latest = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.student_id == student_id).order_by(SavedAssessmentSession.updated_at.desc()).first()
+            if latest:
+                target_sess_id = latest.session_id
+        if not target_sess_id:
+            latest = db.query(SavedAssessmentSession).order_by(SavedAssessmentSession.updated_at.desc()).first()
+            if latest:
+                target_sess_id = latest.session_id
+
+        if target_sess_id:
+            sess_rec = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.session_id == target_sess_id).first()
+            if sess_rec and sess_rec.payload:
+                p = dict(sess_rec.payload)
+                mod_scores = dict(p.get("moduleScores", {}))
+                mod_scores["auditory_verbal"] = score_val
+                p["moduleScores"] = mod_scores
+                mod_metrics = dict(p.get("moduleMetrics", {}))
+                mod_metrics["auditory_verbal"] = metrics
+                p["moduleMetrics"] = mod_metrics
+                p["overallScore"] = round(sum(mod_scores.values()) / len(mod_scores))
+                sess_rec.payload = p
+                db.commit()
+                return {
+                    "status": "synced",
+                    "sessionId": target_sess_id,
+                    "moduleId": "auditory_verbal",
+                    "score": score_val,
+                    "metrics": metrics,
+                    "session": p
+                }
+
+        return {
+            "status": "found_not_saved",
+            "moduleId": "auditory_verbal",
+            "score": score_val,
+            "metrics": metrics
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 @app.get("/api/sessions/history")
 def get_session_history(student_id: str, db: Session = Depends(get_db)):
     records = db.query(SavedAssessmentSession).filter(

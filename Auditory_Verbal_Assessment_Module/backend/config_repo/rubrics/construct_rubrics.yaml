@@ -1,0 +1,14 @@
+version: "1.0.0"
+rubrics:
+  WORKING_MEMORY:
+    base_weight: 0.20
+    positive_indicator_points: 10
+    negative_indicator_penalty: 5
+  ETHICAL_REASONING:
+    base_weight: 0.25
+    positive_indicator_points: 15
+    negative_indicator_penalty: 10
+  DECISION_MAKING:
+    base_weight: 0.25
+    positive_indicator_points: 15
+    negative_indicator_penalty: 5

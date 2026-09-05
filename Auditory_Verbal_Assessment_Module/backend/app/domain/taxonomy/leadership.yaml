@@ -1,0 +1,42 @@
+category: "Student Leadership & Governance"
+subcategories:
+  "Model United Nations (MUN)":
+    intents:
+      "Negotiation & Alignment":
+        events: ["microphone queue system failure", "country allocation preference dispute", "draft resolution clause deadlock", "block voting split"]
+        constraints: ["15 minutes before plenary vote", "parliamentary procedure rules", "veto threat active"]
+        escalations: ["key bloc sponsor pulls out of draft resolution", "committee chair threatens to table motion"]
+      "Consensus Building":
+        events: ["amendment wording standoff", "delegate decorum breach warning", "unmoderated caucus time expiration"]
+        constraints: ["2/3 majority requirement", "strict time limits per speaker", "translated text delay"]
+        escalations: ["opposing coalition launches counter-resolution", "crisis element introduced by dais"]
+    equipment: ["dais microphone console", "placards", "resolution printer", "digital speaker timer"]
+    stakeholders: ["committee chair", "secretary-general", "head delegate", "bloc sponsor", "crisis director"]
+    resources: ["printed draft amendments", "parliamentary guide sheet", "caucus tally board"]
+    missing_resources: ["signed sponsor agreement page", "consensus clause draft"]
+    failure_risks: ["failed resolution vote", "committee deadlock", "loss of delegation award"]
+    reflection_themes: ["balancing diplomacy with national interest", "building multi-stakeholder consensus under tight rules"]
+  "Student Council & Governance":
+    intents:
+      "Conflict Resolution":
+        events: ["canteen price policy debate dispute", "assembly sound system feedback", "march past uniform size shortage", "election debate schedule clash"]
+        constraints: ["principal approval required", "student referendum tomorrow", "budget transparency mandate"]
+        escalations: ["student union petitions for emergency meeting", "treasurer reports budget mismatch"]
+    equipment: ["assembly podium", "ballot box", "council minute book", "notice board"]
+    stakeholders: ["school principal", "council president", "faculty advisor", "student treasurer"]
+    resources: ["meeting minutes archive", "student survey results", "draft budget spreadsheet"]
+    missing_resources: ["verified expense receipts", "signed faculty consent form"]
+    failure_risks: ["student mistrust escalation", "vetoed policy proposal", "budget freeze"]
+    reflection_themes: ["representing student needs while maintaining institutional compliance", "resolving internal governance disputes"]
+  "School Events & Ceremonies":
+    intents:
+      "Crisis Response":
+        events: ["chief guest arrival delay", "banner printing typo discovered", "seating chart capacity overlap", "stage flower decor collapse"]
+        constraints: ["event begins in 10 minutes", "live stream audience", "weather disruption risk"]
+        escalations: ["chief guest limousine stuck in traffic", "auditorium main air conditioner stops"]
+    equipment: ["stage curtain controls", "sound mixing desk", "printed event program", "ceremonial lamp"]
+    stakeholders: ["chief guest coordinator", "event usher lead", "school vice principal", "media team coordinator"]
+    resources: ["spare printed programs", "usher radio headsets", "stage backup mic"]
+    missing_resources: ["chief guest bio sheet", "reserved seating badges"]
+    failure_risks: ["event timeline collapse", "embarrassment before VIPs", "auditorium overcrowding"]
+    reflection_themes: ["adaptability during live event contingencies", "maintaining composure under public scrutiny"]

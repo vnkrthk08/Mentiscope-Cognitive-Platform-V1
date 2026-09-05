@@ -1,0 +1,38 @@
+category: "Community & Environment"
+subcategories:
+  "Eco-Club & Sustainability":
+    intents:
+      "Risk Assessment":
+        events: ["water conservation audit leak found", "plantation drive sapling shortfall", "solar panel dirt buildup output drop", "compost bin pest contamination"]
+        constraints: ["Earth Day event tomorrow", "municipal waste policy rule", "zero plastic mandate"]
+        escalations: ["municipal inspector threatens violation fine", "heavy rain washes out sapling planting area"]
+    equipment: ["water flow meter", "solar power monitor", "compost tumbler", "soil testing kit"]
+    stakeholders: ["municipal eco-inspector", "sustainability coordinator", "facilities manager", "student volunteer"]
+    resources: ["campus water audit data", "tree planting map", "recycling bin inventory"]
+    missing_resources: ["replacement solar inverter fuse", "organic compost starter kit"]
+    failure_risks: ["failed sustainability certification", "wasted campus resources", "event cancellation"]
+    reflection_themes: ["implementing pragmatic environmental solutions", "building long-term sustainable habits"]
+  "Social Service & Outreach":
+    intents:
+      "Crisis Response":
+        events: ["senior home visit transport delay", "book donation sorting box shortage", "charity fundraiser receipt mismatch", "blood donation camp shift gap"]
+        constraints: ["bus departure scheduled in 15 mins", "donor privacy rule", "strict venue curfew"]
+        escalations: ["charity bus driver refuses overtime route", "senior home director calls to cancel visit"]
+    equipment: ["donation collection box", "volunteer bus", "registration desk tablet", "relief package crates"]
+    stakeholders: ["senior home director", "volunteer coordinator", "charity accountant", "bus driver"]
+    resources: ["volunteer attendance sheet", "donation receipt book", "relief item inventory"]
+    missing_resources: ["transport permit paper", "emergency contact list"]
+    failure_risks: ["failed community outreach mission", "misplaced charity funds", "volunteer safety issue"]
+    reflection_themes: ["maintaining empathy and operational discipline", "resolving logistical bottlenecks in service work"]
+  "Public Health & Awareness":
+    intents:
+      "Communication & Advocacy":
+        events: ["first aid kit expired supply discovery", "awareness pamphlet typo error", "health camp venue room lock", "hydration station water shortage"]
+        constraints: ["morning assembly presentation slot", "school nurse approval mandatory", "district health guideline"]
+        escalations: ["school nurse rejects awareness poster content", "heatwave advisory issued during outdoor event"]
+    equipment: ["health awareness banners", "first aid training mannequin", "digital pamphlet projector", "water dispenser"]
+    stakeholders: ["school nurse", "district health officer", "physical education lead", "student awareness coordinator"]
+    resources: ["health advisory flyer master", "first aid kit inventory list", "assembly schedule"]
+    missing_resources: ["approved medical disclaimer form", "digital projector power cord"]
+    failure_risks: ["dissemination of inaccurate health advice", "event safety breach"]
+    reflection_themes: ["ensuring accuracy in public health communication", "prioritizing student wellness under extreme conditions"]

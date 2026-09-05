@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { User, AssessmentSession, CognitiveReport } from "../types";
-import { MODULE_CONFIGS } from "../config/moduleConfig";
+import { MODULE_CONFIGS, NINE_PILLARS_CONFIG } from "../config/moduleConfig";
 import { ReportService } from "../services/report/ReportService";
 import { AssessmentService } from "../services/assessment/AssessmentService";
 import { CognitiveRadar } from "../components/Charts";
@@ -26,7 +26,15 @@ import {
   ShieldAlert,
   ListChecks,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Calculator,
+  BookOpen,
+  Headphones,
+  Edit3,
+  PlusCircle,
+  X,
+  Check,
+  RefreshCw
 } from "lucide-react";
 
 interface ReportPageProps {
@@ -40,6 +48,13 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
   const [report, setReport] = useState<CognitiveReport | null>(null);
   const [loadingAi, setLoadingAi] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  
+  // Score Input / Sync Modal State
+  const [scoreModalOpen, setScoreModalOpen] = useState(false);
+  const [targetModuleId, setTargetModuleId] = useState<string>("auditory_verbal");
+  const [inputScoreVal, setInputScoreVal] = useState<string>("");
+  const [savingScore, setSavingScore] = useState(false);
+  const [scoreSuccessMsg, setScoreSuccessMsg] = useState<string | null>(null);
 
   // Load results from real active/historical session
   useEffect(() => {
@@ -77,12 +92,99 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
     triggerAiAnalysis();
   }, [user]);
 
+  // Sync listener: listen for postMessage from external modules (like localhost:3000) or URL params
+  useEffect(() => {
+    // 1. URL search params listener (e.g. ?module=auditory_verbal&score=85)
+    const params = new URLSearchParams(window.location.search);
+    const modParam = params.get("module") || params.get("module_id");
+    const scoreParam = params.get("score");
+    if (modParam && scoreParam) {
+      const num = parseFloat(scoreParam);
+      if (!isNaN(num)) {
+        const activeSess = AssessmentService.getViewingSession() || AssessmentService.getSession();
+        if (activeSess) {
+          const updated = AssessmentService.updateModuleScore(activeSess.sessionId, modParam, num);
+          if (updated) {
+            setReport(ReportService.generateReport(
+              updated.sessionId,
+              user.name,
+              user.age || 21,
+              user.gender || "Male",
+              updated.moduleScores,
+              updated.moduleMetrics
+            ));
+          }
+        }
+      }
+    }
+
+    // 2. Real-time postMessage listener from external window (localhost:3000)
+    const handlePostMessage = (event: MessageEvent) => {
+      if (event.data && typeof event.data === "object") {
+        const { moduleId, score, module_id, score_percentage } = event.data;
+        const targetId = moduleId || module_id;
+        const targetScore = score !== undefined ? score : score_percentage;
+        if (targetId && targetScore !== undefined) {
+          const num = parseFloat(targetScore);
+          if (!isNaN(num)) {
+            const activeSess = AssessmentService.getViewingSession() || AssessmentService.getSession();
+            if (activeSess) {
+              const updated = AssessmentService.updateModuleScore(activeSess.sessionId, targetId, num);
+              if (updated) {
+                setReport(ReportService.generateReport(
+                  updated.sessionId,
+                  user.name,
+                  user.age || 21,
+                  user.gender || "Male",
+                  updated.moduleScores,
+                  updated.moduleMetrics
+                ));
+              }
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener("message", handlePostMessage);
+    return () => window.removeEventListener("message", handlePostMessage);
+  }, [user]);
+
   const handleDownloadPDF = () => {
     setDownloading(true);
     setTimeout(() => {
       setDownloading(false);
       window.print();
     }, 1500);
+  };
+
+  const handleSaveModuleScore = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const num = parseFloat(inputScoreVal);
+    if (isNaN(num) || num < 0 || num > 100) return;
+
+    setSavingScore(true);
+    const activeSess = AssessmentService.getViewingSession() || AssessmentService.getSession();
+    const sid = activeSess ? activeSess.sessionId : (report?.sessionId || `sess_${Date.now()}`);
+
+    const updated = AssessmentService.updateModuleScore(sid, targetModuleId, num);
+    if (updated) {
+      const refreshedReport = ReportService.generateReport(
+        updated.sessionId,
+        user.name,
+        user.age || 21,
+        user.gender || "Male",
+        updated.moduleScores,
+        updated.moduleMetrics
+      );
+      setReport(refreshedReport);
+      setScoreSuccessMsg(`Score for ${targetModuleId} updated to ${num}% and stored in database!`);
+      setTimeout(() => {
+        setScoreSuccessMsg(null);
+        setScoreModalOpen(false);
+      }, 1200);
+    }
+    setSavingScore(false);
   };
 
   if (!report) {
@@ -110,41 +212,49 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
     );
   }
 
-  // Formatted module labels for radar chart
+  // Formatted module labels for all 10 pillars
   const moduleNamesShort: { [key: string]: string } = {
-    gq: "Quantitative (Gq)",
-    gsm: "Working Memory (Gsm)",
     gf: "Fluid Intel. (Gf)",
+    gc: "Crystallized (Gc)",
+    gq: "Quantitative (Gq)",
     gv: "Visual Proc. (Gv)",
+    gsm: "Working Memory (Gsm)",
+    gs: "Proc. Speed (Gs)",
     attention: "Attention Ctrl.",
+    riasec: "Career Interest",
+    emotional_regulation: "Emotional Reg.",
+    auditory_verbal: "Auditory & Verbal",
     language: "Verbal Logic",
     executive: "Exec. Planning",
     "processing-speed": "Proc. Speed (Gs)",
-    gs: "Proc. Speed (Gs)",
     spatial: "Spatial Vis.",
     "pattern-recognition": "Pattern Rec."
   };
 
-  const radarData = Object.keys(report.moduleScores).map(k => ({
+  // Build radar chart: show all modules that have been completed or default to all assessed modules
+  const assessedKeys = Object.keys(report.moduleScores);
+  const radarData = (assessedKeys.length >= 4 ? assessedKeys : NINE_PILLARS_CONFIG.map(m => m.id)).map(k => ({
     subject: moduleNamesShort[k] || k,
-    score: Math.round(report.moduleScores[k]),
+    score: Math.round(report.moduleScores[k] || 0),
     average: 74
   }));
 
   // Icon mapping helper for cards
   const getModuleIcon = (id: string) => {
     switch (id) {
-      case "gq": return <Brain className="h-5 w-5 text-blue-400" />;
+      case "gq": return <Calculator className="h-5 w-5 text-emerald-400" />;
       case "gsm": return <Activity className="h-5 w-5 text-teal-400" />;
       case "gf": return <Cpu className="h-5 w-5 text-indigo-400" />;
       case "gv": return <Compass className="h-5 w-5 text-cyan-400" />;
       case "attention": return <Eye className="h-5 w-5 text-rose-400" />;
+      case "gc": return <BookOpen className="h-5 w-5 text-blue-400" />;
+      case "riasec": return <Compass className="h-5 w-5 text-violet-400" />;
+      case "emotional_regulation": return <ShieldAlert className="h-5 w-5 text-red-400" />;
+      case "auditory_verbal": return <Headphones className="h-5 w-5 text-purple-400" />;
       case "language": return <Languages className="h-5 w-5 text-violet-400" />;
       case "executive": return <GitBranch className="h-5 w-5 text-amber-400" />;
       case "processing-speed":
       case "gs": return <Zap className="h-5 w-5 text-amber-400" />;
-      case "spatial": return <Compass className="h-5 w-5 text-cyan-400" />;
-      case "pattern-recognition": return <Cpu className="h-5 w-5 text-purple-400" />;
       default: return <Award className="h-5 w-5 text-slate-400" />;
     }
   };
@@ -216,6 +326,18 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
         <div className="flex flex-wrap gap-3">
           <button
+            onClick={() => {
+              setTargetModuleId("auditory_verbal");
+              setInputScoreVal("");
+              setScoreModalOpen(true);
+            }}
+            className="flex items-center gap-2 rounded-2xl border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-900/60 px-4 py-2.5 text-xs font-bold text-cyan-300 transition-all cursor-pointer active:scale-95 shadow-sm hover:shadow-cyan-500/10"
+          >
+            <PlusCircle className="h-4 w-4" />
+            <span>Record / Sync Score</span>
+          </button>
+
+          <button
             onClick={() => navigate("/dashboard")}
             className="flex items-center gap-2 rounded-2xl border border-slate-800 bg-slate-900/90 px-4 py-2.5 text-xs font-bold text-slate-200 hover:bg-slate-800 transition-all cursor-pointer active:scale-95"
           >
@@ -276,12 +398,17 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
           {/* Psychometric Distribution Map (Radar Chart) */}
           <div className="rounded-3xl border border-slate-800 bg-slate-900/90 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
-            <div>
-              <h2 className="text-base font-extrabold text-white font-mono flex items-center gap-2">
-                <Compass className="h-5 w-5 text-cyan-400" />
-                <span>Psychometric Distribution Map</span>
-              </h2>
-              <p className="text-xs text-slate-400">Visual profile mapping your test scores against the demographic normative benchmark curve (74%).</p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-base font-extrabold text-white font-mono flex items-center gap-2">
+                  <Compass className="h-5 w-5 text-cyan-400" />
+                  <span>Psychometric Distribution Map</span>
+                </h2>
+                <p className="text-xs text-slate-400">Visual profile mapping test scores across scientific pillars against demographic benchmark (74%).</p>
+              </div>
+              <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded-full border border-cyan-800/40">
+                {assessedKeys.length} / {NINE_PILLARS_CONFIG.length} Assessed
+              </span>
             </div>
 
             <div className="border border-slate-800 rounded-2xl bg-slate-950/60 p-4">
@@ -291,12 +418,25 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
           {/* Core Pillar Metrics Table */}
           <div className="rounded-3xl border border-slate-800 bg-slate-900/90 backdrop-blur-2xl p-6 shadow-2xl space-y-4">
-            <div>
-              <h2 className="text-base font-extrabold text-white font-mono flex items-center gap-2">
-                <Activity className="h-5 w-5 text-cyan-400" />
-                <span>Core Assessment Pillar Metrics</span>
-              </h2>
-              <p className="text-xs text-slate-400">Detailed breakdown of individual module performance metrics and baseline standing.</p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-base font-extrabold text-white font-mono flex items-center gap-2">
+                  <Activity className="h-5 w-5 text-cyan-400" />
+                  <span>Scientific Pillar Battery Metrics (All 10 Modules)</span>
+                </h2>
+                <p className="text-xs text-slate-400">Detailed breakdown of individual module performance metrics and permanent database standing.</p>
+              </div>
+              <button
+                onClick={() => {
+                  setTargetModuleId("auditory_verbal");
+                  setInputScoreVal("");
+                  setScoreModalOpen(true);
+                }}
+                className="text-[11px] font-mono font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 bg-cyan-950/60 px-2.5 py-1 rounded-lg border border-cyan-800/50 hover:border-cyan-500 transition-all cursor-pointer"
+              >
+                <PlusCircle className="h-3.5 w-3.5" />
+                <span>Sync External</span>
+              </button>
             </div>
             
             <div className="overflow-x-auto pt-2">
@@ -310,15 +450,20 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60">
-                  {MODULE_CONFIGS.map((mod) => {
-                    const rawScore = report.moduleScores[mod.id] !== undefined ? report.moduleScores[mod.id] : 0;
+                  {NINE_PILLARS_CONFIG.map((mod) => {
+                    const isAssessed = report.moduleScores[mod.id] !== undefined;
+                    const rawScore = isAssessed ? report.moduleScores[mod.id] : 0;
                     const score = Math.round(rawScore);
                     
                     let badgeLabel = "Building Baseline";
                     let badgeClass = "bg-amber-950/50 text-amber-300 border-amber-800/40";
                     let barClass = "bg-amber-500";
 
-                    if (score >= 80) {
+                    if (!isAssessed) {
+                      badgeLabel = "Pending Battery";
+                      badgeClass = "bg-slate-800/60 text-slate-400 border-slate-700/60";
+                      barClass = "bg-slate-700";
+                    } else if (score >= 80) {
                       badgeLabel = "Superior Profile";
                       badgeClass = "bg-emerald-950/60 text-emerald-300 border-emerald-800/50";
                       barClass = "bg-emerald-500";
@@ -341,7 +486,14 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
                               {getModuleIcon(mod.id)}
                             </div>
                             <div>
-                              <h4 className="font-bold text-slate-100 leading-tight">{mod.name}</h4>
+                              <div className="flex items-center gap-1.5">
+                                <h4 className="font-bold text-slate-100 leading-tight">{mod.name}</h4>
+                                {mod.externalUrl && (
+                                  <span className="text-[9px] font-mono text-purple-400 bg-purple-950/60 px-1.5 py-0.2 rounded border border-purple-800/50">
+                                    External
+                                  </span>
+                                )}
+                              </div>
                               <p className="text-[10px] text-slate-400 mt-0.5 font-mono">{mod.estimatedTime} limit</p>
                             </div>
                           </div>
@@ -359,14 +511,40 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
                           <div className="w-28 h-2 rounded-full bg-slate-950 overflow-hidden border border-slate-800">
                             <div 
                               className={`h-full rounded-full transition-all duration-500 ${barClass}`} 
-                              style={{ width: `${score}%` }} 
+                              style={{ width: `${isAssessed ? score : 0}%` }} 
                             />
                           </div>
                         </td>
 
-                        {/* Score Index */}
+                        {/* Score Index & Quick Action */}
                         <td className="py-4 text-right font-mono font-black text-slate-100 text-sm">
-                          {score}%
+                          <div className="flex items-center justify-end gap-2">
+                            {isAssessed ? (
+                              <span className="text-slate-100">{score}%</span>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  setTargetModuleId(mod.id);
+                                  setInputScoreVal("");
+                                  setScoreModalOpen(true);
+                                }}
+                                className="text-[10px] font-mono font-bold text-cyan-400 hover:text-cyan-300 bg-cyan-950/60 hover:bg-cyan-900/60 px-2 py-1 rounded border border-cyan-800/50 transition-colors"
+                              >
+                                + Record
+                              </button>
+                            )}
+                            <button
+                              onClick={() => {
+                                setTargetModuleId(mod.id);
+                                setInputScoreVal(isAssessed ? String(score) : "");
+                                setScoreModalOpen(true);
+                              }}
+                              title="Update or record score for this module"
+                              className="p-1 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+                            >
+                              <Edit3 className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     );
@@ -474,8 +652,106 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
           </div>
 
         </div>
-
       </div>
+
+      {/* Score Recording / Syncing Modal */}
+      {scoreModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+          <div className="relative w-full max-w-md rounded-3xl border border-slate-700 bg-slate-900 p-6 sm:p-8 shadow-2xl space-y-6">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center gap-2.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-950 text-cyan-400 border border-cyan-800/60">
+                  <PlusCircle className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-extrabold text-white">Record / Sync Module Score</h3>
+                  <p className="text-[10px] text-slate-400 font-mono">Updates active session & stores in SQLite DB</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setScoreModalOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {scoreSuccessMsg ? (
+              <div className="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 text-xs flex items-center gap-2">
+                <Check className="h-4 w-4 text-emerald-400 shrink-0" />
+                <span>{scoreSuccessMsg}</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSaveModuleScore} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 font-bold mb-1.5 uppercase">
+                    Select Scientific Pillar / Module
+                  </label>
+                  <select
+                    value={targetModuleId}
+                    onChange={(e) => setTargetModuleId(e.target.value)}
+                    className="w-full rounded-xl bg-slate-950 border border-slate-700 p-3 text-xs text-white focus:border-cyan-500 focus:outline-hidden font-sans"
+                  >
+                    {NINE_PILLARS_CONFIG.map((m, idx) => (
+                      <option key={m.id} value={m.id}>
+                        {idx + 1}. {m.name} {m.externalUrl ? "(External Module)" : ""}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 font-bold mb-1.5 uppercase">
+                    Score Percentage (0 - 100)%
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    placeholder="e.g. 85"
+                    required
+                    value={inputScoreVal}
+                    onChange={(e) => setInputScoreVal(e.target.value)}
+                    className="w-full rounded-xl bg-slate-950 border border-slate-700 p-3 text-sm text-white font-mono focus:border-cyan-500 focus:outline-hidden"
+                  />
+                  <p className="text-[10px] text-slate-400 mt-1">
+                    Enter the percentage score obtained from test completion or external assessment runner.
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-end gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setScoreModalOpen(false)}
+                    className="px-4 py-2.5 rounded-xl border border-slate-800 text-xs font-bold text-slate-300 hover:bg-slate-800 transition-colors cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={savingScore}
+                    className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-xs font-extrabold text-white transition-all shadow-lg shadow-cyan-500/20 cursor-pointer disabled:opacity-50"
+                  >
+                    {savingScore ? (
+                      <>
+                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                        <span>Saving to Database...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Check className="h-3.5 w-3.5" />
+                        <span>Save Score to DB</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

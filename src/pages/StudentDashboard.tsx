@@ -23,7 +23,13 @@ import {
   BarChart3,
   Sparkles,
   ArrowRight,
-  Trash2
+  Trash2,
+  PlusCircle,
+  Edit3,
+  RefreshCw,
+  Loader2,
+  Check,
+  ExternalLink
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ModuleConfig } from "../types";
@@ -38,9 +44,15 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
   const navigate = useNavigate();
   const [activeReportModule, setActiveReportModule] = React.useState<ModuleConfig | null>(null);
   const [historySessions, setHistorySessions] = React.useState<AssessmentSession[]>([]);
+  const [session, setSession] = React.useState<AssessmentSession | null>(() => AssessmentService.getSession());
 
-  // Query active session state
-  const session = AssessmentService.getSession();
+  // Score Input / Sync Modal State
+  const [scoreModalOpen, setScoreModalOpen] = React.useState(false);
+  const [targetModuleId, setTargetModuleId] = React.useState<string>("auditory_verbal");
+  const [inputScoreVal, setInputScoreVal] = React.useState<string>("");
+  const [savingScore, setSavingScore] = React.useState(false);
+  const [scoreSuccessMsg, setScoreSuccessMsg] = React.useState<string | null>(null);
+  const [syncingExternal, setSyncingExternal] = React.useState(false);
 
   React.useEffect(() => {
     const list = AssessmentService.getSessionHistory(user.id);
@@ -49,6 +61,7 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
       if (!list.some((s) => s.sessionId === current.sessionId)) {
         list.unshift(current);
       }
+      setSession(current);
     }
     list.sort((a, b) => new Date(b.startTime || 0).getTime() - new Date(a.startTime || 0).getTime());
     setHistorySessions(list);
@@ -66,16 +79,141 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
           }
           remoteList.sort((a, b) => new Date(b.startTime || 0).getTime() - new Date(a.startTime || 0).getTime());
           setHistorySessions(remoteList);
+
+          // If remote session has more scores or updated scores, sync into active session
+          const matchedCurrent = remoteList.find(s => s.sessionId === current?.sessionId) || remoteList[0];
+          if (matchedCurrent) {
+            setSession(matchedCurrent);
+            AssessmentService.saveSession(matchedCurrent);
+          }
         }
       })
       .catch(() => {});
+
+    // Auto-check external module scores (e.g. from Module 10 db)
+    fetch(`/api/sessions/sync-external?student_id=${encodeURIComponent(user.id)}`)
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data && data.status === "synced" && data.session) {
+          setSession(data.session);
+          AssessmentService.saveSession(data.session);
+          setHistorySessions(prev => [data.session, ...prev.filter(s => s.sessionId !== data.session.sessionId)]);
+        }
+      })
+      .catch(() => {});
+  }, [user.id]);
+
+  // Sync listener: listen for postMessage from external modules (like localhost:3000) or URL params
+  React.useEffect(() => {
+    // 1. URL search params listener (e.g. ?module=auditory_verbal&score=85)
+    const params = new URLSearchParams(window.location.search);
+    const modParam = params.get("module") || params.get("module_id");
+    const scoreParam = params.get("score");
+    if (modParam && scoreParam) {
+      const num = parseFloat(scoreParam);
+      if (!isNaN(num)) {
+        const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+        const updated = AssessmentService.updateModuleScore(activeSess.sessionId, modParam, num, undefined, user.id);
+        if (updated) {
+          setSession(updated);
+          setHistorySessions((prev) => [updated, ...prev.filter((s) => s.sessionId !== updated.sessionId)]);
+        }
+      }
+    }
+
+    // 2. Real-time postMessage listener from external window (localhost:3000)
+    const handlePostMessage = (event: MessageEvent) => {
+      if (event.data && typeof event.data === "object") {
+        const { moduleId, score, module_id, score_percentage } = event.data;
+        const targetId = moduleId || module_id;
+        const targetScore = score !== undefined ? score : score_percentage;
+        if (targetId && targetScore !== undefined) {
+          const num = parseFloat(targetScore);
+          if (!isNaN(num)) {
+            const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+            const updated = AssessmentService.updateModuleScore(activeSess.sessionId, targetId, num, undefined, user.id);
+            if (updated) {
+              setSession(updated);
+              setHistorySessions((prev) => [updated, ...prev.filter((s) => s.sessionId !== updated.sessionId)]);
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener("message", handlePostMessage);
+    return () => window.removeEventListener("message", handlePostMessage);
   }, [user.id, session?.sessionId]);
+
+  const handleSaveModuleScore = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const num = parseFloat(inputScoreVal);
+    if (isNaN(num) || num < 0 || num > 100) return;
+
+    setSavingScore(true);
+    try {
+      const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+      const updated = AssessmentService.updateModuleScore(activeSess.sessionId, targetModuleId, num, undefined, user.id);
+      if (updated) {
+        setSession(updated);
+        setHistorySessions((prev) => {
+          const filtered = prev.filter((s) => s.sessionId !== updated.sessionId);
+          return [updated, ...filtered];
+        });
+        setScoreSuccessMsg(`Successfully saved score (${num}%) to database!`);
+        setTimeout(() => {
+          setScoreSuccessMsg(null);
+          setScoreModalOpen(false);
+          setInputScoreVal("");
+        }, 1200);
+      }
+    } catch (err) {
+      console.error("Failed to save score:", err);
+    } finally {
+      setSavingScore(false);
+    }
+  };
+
+  const handleSyncExternal = async () => {
+    setSyncingExternal(true);
+    try {
+      const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+      const res = await fetch(`/api/sessions/sync-external?session_id=${encodeURIComponent(activeSess.sessionId)}&student_id=${encodeURIComponent(user.id)}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.status === "synced" && data.session) {
+          AssessmentService.saveSession(data.session);
+          setSession(data.session);
+          setHistorySessions((prev) => {
+            const filtered = prev.filter((s) => s.sessionId !== data.session.sessionId);
+            return [data.session, ...filtered];
+          });
+          setScoreSuccessMsg(`Synced ${data.moduleId} score (${data.score}%) from external assessment!`);
+          setTimeout(() => {
+            setScoreSuccessMsg(null);
+            setScoreModalOpen(false);
+          }, 1400);
+        } else if (data.status === "found_not_saved") {
+          setInputScoreVal(String(data.score));
+          setTargetModuleId(data.moduleId || "auditory_verbal");
+        } else {
+          setScoreSuccessMsg(data.message || "No external assessment scores found.");
+          setTimeout(() => setScoreSuccessMsg(null), 2500);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to sync external scores:", err);
+    } finally {
+      setSyncingExternal(false);
+    }
+  };
 
   const handleDeleteRecord = (sessionIdToDelete: string) => {
     AssessmentService.deleteSessionFromHistory(sessionIdToDelete);
     const current = AssessmentService.getSession();
     if (current && current.sessionId === sessionIdToDelete) {
       AssessmentService.clearSession();
+      setSession(null);
     }
     setHistorySessions((prev) => prev.filter((s) => s.sessionId !== sessionIdToDelete));
   };
@@ -133,10 +271,22 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <button
+              onClick={() => {
+                setTargetModuleId("auditory_verbal");
+                setInputScoreVal(session?.moduleScores?.["auditory_verbal"] ? String(Math.round(session.moduleScores["auditory_verbal"])) : "");
+                setScoreModalOpen(true);
+              }}
+              className="flex items-center justify-center gap-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/70 dark:bg-indigo-950/40 px-4 py-3 text-sm font-semibold text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-all active:scale-[0.98] cursor-pointer shadow-xs"
+            >
+              <PlusCircle className="h-4.5 w-4.5 text-indigo-600 dark:text-indigo-400" />
+              <span>Record / Sync Score</span>
+            </button>
+
             {isSessionOngoing ? (
               <button
                 onClick={onStartAssessment}
-                className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-700 hover:shadow shadow-blue-500/20 active:scale-[0.98]"
+                className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-700 hover:shadow shadow-blue-500/20 active:scale-[0.98] cursor-pointer"
               >
                 <Play className="h-4 w-4 fill-white" />
                 <span>Resume Cognitive Assessment</span>
@@ -144,7 +294,7 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
             ) : (
               <button
                 onClick={onStartAssessment}
-                className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-700 hover:shadow shadow-blue-500/20 active:scale-[0.98]"
+                className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-700 hover:shadow shadow-blue-500/20 active:scale-[0.98] cursor-pointer"
               >
                 <Play className="h-4 w-4 fill-white" />
                 <span>Start Baseline Cognitive Test</span>
@@ -157,7 +307,7 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                   AssessmentService.clearSession();
                   onStartAssessment();
                 }}
-                className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm font-medium text-slate-655 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm font-medium text-slate-655 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <RotateCcw className="h-4.5 w-4.5 text-slate-450" />
                 <span>Reset Progress</span>
@@ -375,15 +525,79 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                         <span className="text-[10px] font-mono text-blue-600 dark:text-blue-400 flex items-center gap-0.5 hover:underline">
                           Report <ChevronRight className="h-3 w-3" />
                         </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setTargetModuleId(mod.id);
+                            setInputScoreVal(String(Math.round(modScore || 0)));
+                            setScoreModalOpen(true);
+                          }}
+                          title="Edit or sync score"
+                          className="p-1 rounded-md text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        >
+                          <Edit3 className="h-3 w-3" />
+                        </button>
                       </div>
                     ) : mod.externalUrl ? (
-                      <span className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded-md border border-purple-200/40 dark:border-purple-800/40 flex items-center gap-1">
-                        Launch <ArrowRight className="h-2.5 w-2.5" />
-                      </span>
+                      <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+                            const tokenPayload = btoa(encodeURIComponent(JSON.stringify({ 
+                              session_id: activeSess.sessionId,
+                              id: user.id, 
+                              name: user.name, 
+                              ts: Date.now() 
+                            })));
+                            const targetUrl = `${mod.externalUrl}?token=${tokenPayload}`;
+                            window.open(targetUrl, "_blank");
+                          }}
+                          className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-purple-600 hover:bg-purple-700 text-white px-2 py-1 rounded-md transition-all flex items-center gap-1 shadow-xs active:scale-95 cursor-pointer"
+                        >
+                          Launch <ArrowRight className="h-2.5 w-2.5" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setTargetModuleId(mod.id);
+                            setInputScoreVal("");
+                            setScoreModalOpen(true);
+                          }}
+                          className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 border border-indigo-200 dark:border-indigo-800 px-2 py-1 rounded-md transition-all flex items-center gap-0.5 shadow-xs active:scale-95 cursor-pointer"
+                        >
+                          + Score
+                        </button>
+                      </div>
                     ) : (
-                      <span className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5 rounded-md border border-slate-200/20 dark:border-slate-700/20">
-                        {isCurrent ? "Active" : "Locked"}
-                      </span>
+                      <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const activeSess = session || AssessmentService.getOrCreateSession(user.id);
+                            const runnerIdx = MODULE_CONFIGS.findIndex(m => m.id === mod.id);
+                            activeSess.currentModuleIndex = runnerIdx >= 0 ? runnerIdx : 0;
+                            AssessmentService.saveSession(activeSess);
+                            onStartAssessment();
+                          }}
+                          className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-slate-100 hover:bg-blue-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-md border border-slate-200/20 dark:border-slate-700/20 hover:border-blue-300 transition-colors cursor-pointer"
+                        >
+                          {isCurrent ? "Active" : "Start"}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setTargetModuleId(mod.id);
+                            setInputScoreVal("");
+                            setScoreModalOpen(true);
+                          }}
+                          title="Record score manually"
+                          className="p-1 rounded-md text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        >
+                          <PlusCircle className="h-3 w-3" />
+                        </button>
+                      </div>
                     )}
                   </div>
                 );
@@ -741,6 +955,130 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
           </div>
         );
       })()}
+
+      {/* 6. Score Recording & External Sync Modal */}
+      {scoreModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-fadeIn">
+          <div className="w-full max-w-md rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-7 shadow-2xl space-y-5">
+            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                  <PlusCircle className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                    Record / Sync Module Score
+                  </h3>
+                  <p className="text-[11px] text-slate-400">
+                    Saves directly to SQLite DB (mentiscope.db)
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setScoreModalOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {scoreSuccessMsg ? (
+              <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
+                <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                <span>{scoreSuccessMsg}</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSaveModuleScore} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 font-bold mb-1.5 uppercase">
+                    Select Scientific Pillar / Module
+                  </label>
+                  <select
+                    value={targetModuleId}
+                    onChange={(e) => setTargetModuleId(e.target.value)}
+                    className="w-full rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 p-3 text-xs text-slate-900 dark:text-white focus:border-indigo-500 focus:outline-hidden font-sans"
+                  >
+                    {NINE_PILLARS_CONFIG.map((m, idx) => (
+                      <option key={m.id} value={m.id}>
+                        {idx + 1}. {m.name} {m.externalUrl ? "(External Module)" : ""}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="block text-xs font-mono text-slate-600 dark:text-slate-300 font-bold uppercase">
+                      Score Percentage (0 - 100)%
+                    </label>
+                    {targetModuleId === "auditory_verbal" && (
+                      <button
+                        type="button"
+                        onClick={handleSyncExternal}
+                        disabled={syncingExternal}
+                        className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                      >
+                        {syncingExternal ? (
+                          <>
+                            <Loader2 className="h-3 w-3 animate-spin" />
+                            <span>Syncing...</span>
+                          </>
+                        ) : (
+                          <>
+                            <RefreshCw className="h-3 w-3" />
+                            <span>Auto-Fetch from Module 10</span>
+                          </>
+                        )}
+                      </button>
+                    )}
+                  </div>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    placeholder="e.g. 72"
+                    required
+                    value={inputScoreVal}
+                    onChange={(e) => setInputScoreVal(e.target.value)}
+                    className="w-full rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 p-3 text-sm text-slate-900 dark:text-white font-mono focus:border-indigo-500 focus:outline-hidden"
+                  />
+                  <p className="text-[10px] text-slate-400 mt-1">
+                    Enter the percentage score from test completion or external assessment runner.
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-end gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setScoreModalOpen(false)}
+                    className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={savingScore}
+                    className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-extrabold text-white transition-all shadow-lg shadow-indigo-500/20 cursor-pointer disabled:opacity-50"
+                  >
+                    {savingScore ? (
+                      <>
+                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                        <span>Saving...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Check className="h-3.5 w-3.5" />
+                        <span>Save to DB</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
 
     </div>
   );

@@ -132,11 +132,6 @@ export const ALL_MODULE_CONFIGS = NINE_PILLARS_CONFIG;
 
 /**
  * Active testing flow for candidate assessment runner.
- * Modules currently in active test rotation.
+ * Includes all 10 scientific constructs developed at NIRMAAN IIT Madras.
  */
-export const MODULE_CONFIGS: ModuleConfig[] = [
-  NINE_PILLARS_CONFIG[0], // Gf - Fluid Intelligence (2 mins)
-  NINE_PILLARS_CONFIG[3], // Gv - Visual Processing (2 mins)
-  NINE_PILLARS_CONFIG[5], // Gs - Processing Speed (2 mins)
-  NINE_PILLARS_CONFIG[6], // Attention - ASAT (2 mins)
-];
+export const MODULE_CONFIGS: ModuleConfig[] = NINE_PILLARS_CONFIG;

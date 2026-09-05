@@ -1,0 +1,138 @@
+id: "SCENARIO_LOGISTICS_01"
+title: "Supply Chain Crisis Management"
+narrative: "An urgent logistics disruption has occurred at the primary port container facility. As the operations team lead, you must analyze incoming audio briefings, coordinate team decisions, and handle ethical dilemmas under high pressure."
+version: "1.0.0"
+difficulty: "INTERMEDIATE"
+language: "en-US"
+
+audio_asset:
+  url: "/audio/scenarios/logistics_crisis.mp3"
+  duration_seconds: 180.0
+  format: "audio/mp3"
+
+listening_module:
+  questions:
+    - id: "L_Q1"
+      prompt: "What was the primary cause of the shipment delay mentioned at timestamp 01:15?"
+      options:
+        - "Port labor strike"
+        - "Severe weather condition"
+        - "Engine component failure"
+        - "Customs paperwork error"
+      correct_option_index: 1
+      target_construct: "Working Memory"
+      secondary_constructs: ["Listening Comprehension"]
+      question_type: "Recall"
+      cognitive_objective: "Verbatim recall of exact delay cause stated in narration"
+      difficulty: "INTERMEDIATE"
+      expected_evidence:
+        correct_answer_indicates: "Accurate recall of weather condition cause"
+        distractor_rationale:
+          "0": "Confused with labor strike"
+          "2": "Plausible engine failure mishearing"
+      weight: 1.0
+      points: 10
+      max_replays: 2
+
+    - id: "L_Q2"
+      prompt: "Which container shipment was prioritized for emergency re-routing?"
+      options:
+        - "Perishable medical supplies"
+        - "Commercial electronics"
+        - "Automotive replacement parts"
+        - "Construction steel beams"
+      correct_option_index: 0
+      target_construct: "Attention"
+      secondary_constructs: ["Listening Comprehension"]
+      question_type: "Detail"
+      cognitive_objective: "Focused identification of prioritized container detail"
+      difficulty: "INTERMEDIATE"
+      expected_evidence:
+        correct_answer_indicates: "Focused attention to medical supplies priority"
+        distractor_rationale:
+          "1": "Misheard commercial electronics"
+          "2": "Confused with automotive parts"
+      weight: 1.0
+      points: 10
+      max_replays: 2
+
+    - id: "L_Q3"
+      prompt: "What central operational challenge must the logistics team resolve during this port disruption?"
+      options:
+        - "Balancing emergency medical shipment deadlines against commercial delay penalties"
+        - "Replacing the entire port staff with temporary volunteers"
+        - "Selling all container inventory at discounted rates"
+        - "Building a new cargo terminal by the end of the day"
+      correct_option_index: 0
+      target_construct: "Listening Comprehension"
+      secondary_constructs: ["Reasoning"]
+      question_type: "Comprehension"
+      cognitive_objective: "Comprehension of overall logistics trade-off narrative"
+      difficulty: "INTERMEDIATE"
+      expected_evidence:
+        correct_answer_indicates: "Comprehension of core logistics trade-off"
+        distractor_rationale:
+          "1": "Unrealistic staffing assumption"
+          "2": "Unfounded inventory sales assumption"
+      weight: 1.0
+      points: 10
+      max_replays: 2
+
+    - id: "L_Q4"
+      prompt: "Based on the port briefing, what consequence is expected if secondary container inspections are skipped?"
+      options:
+        - "Processing speed increases initially, but customs hold risks remain higher later"
+        - "All port operations automatically shut down"
+        - "Vessels are forced to return to international waters immediately"
+        - "Commercial penalties are canceled by the shipping line"
+      correct_option_index: 0
+      target_construct: "Reasoning"
+      secondary_constructs: ["Listening Comprehension"]
+      question_type: "Inference"
+      cognitive_objective: "Inference synthesizing inspection skipping and downstream customs risks"
+      difficulty: "INTERMEDIATE"
+      expected_evidence:
+        correct_answer_indicates: "Logical inference combining inspection shortcut and risk"
+        distractor_rationale:
+          "1": "Exaggerated shutdown assumption"
+          "2": "Unfounded return vessel assumption"
+      weight: 1.0
+      points: 10
+      max_replays: 2
+
+speaking_module:
+  prompts:
+    - id: "S_P1"
+      title: "Team Emergency Briefing"
+      instructions: "Explain the crisis situation to your team, outline immediate priority steps, and address safety concerns clearly."
+      max_time_seconds: 120
+      target_constructs:
+        - "COMMUNICATION"
+        - "ETHICAL_REASONING"
+        - "DECISION_MAKING"
+      followup_eligible: true
+
+    - id: "S_P2"
+      title: "Resource Reallocation Rationale"
+      instructions: "Justify why medical supplies were prioritized over commercial shipments despite higher financial penalties from commercial vendors."
+      max_time_seconds: 150
+      target_constructs:
+        - "REASONING"
+        - "RESPONSIBILITY"
+        - "ETHICAL_REASONING"
+      followup_eligible: true
+
+follow_ups:
+  - id: "F_Q1"
+    parent_prompt_id: "S_P1"
+    prompt_text: "You mentioned prioritizing safety regulations. How would you handle a team member who suggests bypassing safety checks to meet the deadline?"
+    target_construct: "ETHICAL_REASONING"
+    priority: 1
+    trigger_conditions:
+      confidence_less_than: 0.70
+    expected_evidence_pattern: "Ethical trade-off reasoning and adherence to safety protocols"
+    max_time_seconds: 90
+
+metadata:
+  target_audience: "Higher Secondary Students"
+  domain: "Auditory Processing & Decision Making"

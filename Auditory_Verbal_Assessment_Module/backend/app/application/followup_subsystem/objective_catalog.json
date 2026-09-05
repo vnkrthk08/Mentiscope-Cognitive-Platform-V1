@@ -1,0 +1,60 @@
+{
+  "catalog_version": "1.0.0",
+  "objectives": {
+    "trade_off_analysis": {
+      "applicable_constructs": ["DECISION_MAKING", "REASONING"],
+      "type": "construct_targeted"
+    },
+    "priority_shift": {
+      "applicable_constructs": ["DECISION_MAKING", "LEADERSHIP"],
+      "type": "construct_targeted"
+    },
+    "stakeholder_perspective": {
+      "applicable_constructs": ["LEADERSHIP"],
+      "type": "construct_targeted"
+    },
+    "alternative_strategy": {
+      "applicable_constructs": ["LEADERSHIP", "PROBLEM_SOLVING"],
+      "type": "construct_targeted"
+    },
+    "constraint_change": {
+      "applicable_constructs": ["PROBLEM_SOLVING", "PLANNING"],
+      "type": "construct_targeted"
+    },
+    "reasoning_probe": {
+      "applicable_constructs": ["REASONING"],
+      "type": "construct_targeted"
+    },
+    "clarification": {
+      "applicable_constructs": ["COMMUNICATION", "ATTENTION"],
+      "type": "construct_targeted"
+    },
+    "ethical_challenge": {
+      "applicable_constructs": ["ETHICAL_REASONING"],
+      "type": "construct_targeted"
+    },
+    "failure_recovery": {
+      "applicable_constructs": ["ADAPTABILITY"],
+      "type": "construct_targeted"
+    },
+    "risk_assessment": {
+      "applicable_constructs": ["DECISION_MAKING", "PLANNING"],
+      "type": "construct_targeted"
+    },
+    "contradiction_detection": {
+      "applicable_constructs": ["ANY"],
+      "type": "signal_triggered",
+      "trigger": "contradiction"
+    },
+    "confidence_verification": {
+      "applicable_constructs": ["ANY"],
+      "type": "signal_triggered",
+      "trigger": "hedging"
+    },
+    "reflection": {
+      "applicable_constructs": ["ANY"],
+      "type": "signal_triggered",
+      "status": "deferred"
+    }
+  }
+}

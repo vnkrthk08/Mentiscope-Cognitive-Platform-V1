@@ -1,0 +1,42 @@
+category: "Arts & Performance"
+subcategories:
+  "Music & Orchestra":
+    intents:
+      "Emergency Response":
+        events: ["auditorium acoustic echo resonance", "stage spotlight bulb blowout", "violin string snapping", "synthesizer power cut"]
+        constraints: ["audience seated", "3 minutes before curtain call", "recording micro-rig active", "vip guest presence"]
+        escalations: ["main amplifier circuit breaker trips", "guest soloist instrument tuner breaks"]
+      "Consensus Building":
+        events: ["soloist selection disagreement", "rehearsal schedule conflict", "sheet music arrangement dispute"]
+        constraints: ["fixed performance duration", "shared stage space with choir", "union break rules"]
+        escalations: ["lead cellist refuses to perform modified score", "conductor threatens to cancel concert"]
+    equipment: ["grand piano", "auditorium PA system", "stage lights", "mixing console", "sheet music stands"]
+    stakeholders: ["orchestra conductor", "stage manager", "lead soloist", "sound engineer", "auditorium director"]
+    resources: ["spare instrument string set", "manual stage monitor", "printed backup score"]
+    missing_resources: ["replacement wireless microphone receiver", "spare amplifier fuse"]
+    failure_risks: ["ruined live performance", "audio recording distortion failure", "show delay penalty"]
+    reflection_themes: ["maintaining artistic excellence under stage malfunctions", "fostering collaborative harmony under pressure"]
+  "Visual Arts & Design":
+    intents:
+      "Resource Allocation":
+        events: ["exhibition glass display crack", "art catalog print color misalignment", "sculpture pedestal instability", "paint drying delay"]
+        constraints: ["gallery opening tonight", "strict temperature threshold", "limited wall space"]
+        escalations: ["curator rejects key gallery installment", "gallery lighting track short-circuits"]
+    equipment: ["display easels", "gallery spotlight track", "framed canvases", "sculpture pedestals"]
+    stakeholders: ["gallery curator", "art professor", "visiting critic", "student artist"]
+    resources: ["mounting tape and hardware", "touch-up paint kit", "backup spotlights"]
+    missing_resources: ["UV protective glass pane", "replacement catalog print run"]
+    failure_risks: ["artwork damage vulnerability", "delayed gallery opening", "negative review by critic"]
+    reflection_themes: ["balancing aesthetic vision with physical constraints", "handling constructive criticism under deadline"]
+  "Media & Journalism":
+    intents:
+      "Ethical Decision Making":
+        events: ["podcast microphone background hum", "video camera memory card corruption", "unverified quote in lead story", "copyrighted image flag"]
+        constraints: ["broadcast deadline 30 mins away", "editor-in-chief review mandatory", "source confidentiality lock"]
+        escalations: ["source demands retraction of story statement", "competing newspaper publishes scoop"]
+    equipment: ["teleprompter", "studio camera rig", "audio recorder", "editing workstation"]
+    stakeholders: ["editor-in-chief", "investigative reporter", "media ethics advisor", "broadcast technician"]
+    resources: ["raw interview audio backup", "b-roll video archive", "style guide reference"]
+    missing_resources: ["signed source waiver form", "original high-res photographic file"]
+    failure_risks: ["defamation legal risk", "retraction statement penalty", "missed broadcast window"]
+    reflection_themes: ["upholding journalistic integrity vs scoop speed", "navigating source protection under editorial pressure"]

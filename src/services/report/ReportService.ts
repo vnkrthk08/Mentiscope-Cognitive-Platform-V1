@@ -32,7 +32,8 @@ export class ReportService {
       attention: "Attention",
       riasec: "Career Interest Assessment (RIASEC Model)",
       personality: "Personality Assessment",
-      emotional_regulation: "Emotional Regulation Assessment"
+      emotional_regulation: "Emotional Regulation Assessment",
+      auditory_verbal: "Auditory & Verbal Cognitive Assessment"
     };
 
     keys.forEach(k => {
