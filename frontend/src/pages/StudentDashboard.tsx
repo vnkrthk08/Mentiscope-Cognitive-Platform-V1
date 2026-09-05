@@ -85,11 +85,6 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
         }
       })
       .catch(() => {});
-
-    // Auto-check external module scores (e.g. from Module 10 db)
-    fetch(`/api/sessions/sync-external?student_id=${encodeURIComponent(user.id)}`)
-      .then(res => res.ok ? res.json() : null)
-      .then(data => {
   }, [user.id]);
 
   // Automated background sync on dashboard load
@@ -212,15 +207,16 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
   const progressPercent = Math.min(100, Math.round((completedCount / totalModules) * 100));
 
   // Calculate overall GQ score index if completed
-  const overallScore = session && Object.values(session.moduleScores).length > 0
-    ? Math.round(Object.values(session.moduleScores).reduce((a, b) => a + b, 0) / Object.values(session.moduleScores).length)
+  const activeScores = session ? (Object.values(session.moduleScores) as number[]) : [];
+  const overallScore = activeScores.length > 0
+    ? Math.round(activeScores.reduce((a: number, b: number) => a + Number(b), 0) / activeScores.length)
     : 0;
 
   // Generate real-time chart data from real completed session module scores
   const chartData = session && Object.keys(session.moduleScores).length > 0
     ? Object.entries(session.moduleScores).map(([modId, score], idx) => ({
         date: `Mod ${idx + 1} (${modId.toUpperCase()})`,
-        score: Math.round(score),
+        score: Math.round(Number(score)),
         timestamp: idx
       }))
     : [];
@@ -528,17 +524,6 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                         >
                           Launch <ArrowRight className="h-2.5 w-2.5" />
                         </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setTargetModuleId(mod.id);
-                            setInputScoreVal("");
-                            setScoreModalOpen(true);
-                          }}
-                          className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 border border-indigo-200 dark:border-indigo-800 px-2 py-1 rounded-md transition-all flex items-center gap-0.5 shadow-xs active:scale-95 cursor-pointer"
-                        >
-                          + Score
-                        </button>
                       </div>
                     ) : (
                       <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
@@ -554,18 +539,6 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                           className="text-[9px] font-mono shrink-0 uppercase tracking-wider bg-slate-100 hover:bg-blue-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-md border border-slate-200/20 dark:border-slate-700/20 hover:border-blue-300 transition-colors cursor-pointer"
                         >
                           {isCurrent ? "Active" : "Start"}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setTargetModuleId(mod.id);
-                            setInputScoreVal("");
-                            setScoreModalOpen(true);
-                          }}
-                          title="Record score manually"
-                          className="p-1 rounded-md text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                        >
-                          <PlusCircle className="h-3 w-3" />
                         </button>
                       </div>
                     )}
@@ -692,9 +665,9 @@ export default function StudentDashboard({ user, onNavigate, onStartAssessment }
                 }
 
                 return sortedList.map((histSess) => {
-                  const histScores = Object.values(histSess.moduleScores || {});
+                  const histScores = Object.values(histSess.moduleScores || {}) as number[];
                   const histOverall = histScores.length > 0
-                    ? Math.round(histScores.reduce((a, b) => a + b, 0) / histScores.length)
+                    ? Math.round(histScores.reduce((a: number, b: number) => a + Number(b), 0) / histScores.length)
                     : 0;
                   const histCleared = histScores.length;
                   const isCurrentActive = session?.sessionId === histSess.sessionId;

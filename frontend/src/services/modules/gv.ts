@@ -8,8 +8,8 @@ import {
 } from "../../modules/gv/types";
 import { mockAnswer, mockFinish, mockResult, mockStart } from "../../modules/gv/mock/gvMockApi";
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
-const MOCK_MODE = String(import.meta.env.VITE_MOCK_DEMO_MODE || "false").toLowerCase() === "true";
+const API_BASE_URL = ((import.meta as any).env?.VITE_API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
+const MOCK_MODE = String((import.meta as any).env?.VITE_MOCK_DEMO_MODE || "false").toLowerCase() === "true";
 
 export class GVApiError extends Error {
   constructor(

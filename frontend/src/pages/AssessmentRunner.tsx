@@ -16,7 +16,8 @@ import {
   CheckCircle, 
   ArrowUpRight,
   Settings2,
-  LayoutDashboard
+  LayoutDashboard,
+  Loader2
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";

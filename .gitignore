@@ -47,3 +47,9 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# Agent and AI Tooling (Local Pair Programming Only)
+.agents/
+AGENTS.md
+metadata.json
+skills-lock.json

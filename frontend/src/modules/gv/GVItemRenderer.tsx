@@ -12,18 +12,30 @@ interface RendererProps {
 type Point = [number, number];
 type Segment = [Point, Point];
 
+interface ErrorBoundaryProps {
+  children: ReactNode;
+  fallbackText?: string;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
 // Error Boundary to prevent any SVG rendering crash from creating a blank screen
-class GVErrorBoundary extends Component<{ children: ReactNode; fallbackText?: string }, { hasError: boolean }> {
-  constructor(props: { children: ReactNode; fallbackText?: string }) {
+class GVErrorBoundary extends (Component as any) {
+  state: ErrorBoundaryState = { hasError: false };
+  props: ErrorBoundaryProps;
+
+  constructor(props: ErrorBoundaryProps) {
     super(props);
-    this.state = { hasError: false };
+    this.props = props;
   }
 
   static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: any, errorInfo: any) {
     console.warn("GVItemRenderer ErrorBoundary caught error:", error, errorInfo);
   }
 
@@ -179,7 +191,7 @@ function SingleChoiceRenderer({ item, disabled, onChange, onBehavior }: Renderer
   const renderedAt = useRef(Date.now());
   const changes = useRef(0);
 
-  const itemId = item.item_id || item.id || "item";
+  const itemId = item.item_id || (item as any).id || "item";
 
   useEffect(() => {
     setSelected("");
@@ -292,7 +304,7 @@ function MapPlacementRenderer({ item, disabled, onChange, onBehavior }: Renderer
   const rotationAttempts = useRef(0);
   const placementAttempts = useRef(0);
 
-  const itemId = item.item_id || item.id || "item";
+  const itemId = item.item_id || (item as any).id || "item";
 
   useEffect(() => {
     const initial = Object.fromEntries(
@@ -320,7 +332,7 @@ function MapPlacementRenderer({ item, disabled, onChange, onBehavior }: Renderer
     () => Object.fromEntries(pieces.map((piece) => [String(piece?.piece_id || ""), piece])),
     [pieces]
   );
-  const placedPieceIds = new Set(Object.values(placements).map((placement) => placement.pieceId));
+  const placedPieceIds = new Set((Object.values(placements) as Placement[]).map((placement) => placement.pieceId));
 
   const publish = (nextPlacements: Record<number, Placement>, nextRotations = rotations) => {
     const complete = Object.keys(nextPlacements).length === pieces.length && pieces.length > 0;
@@ -357,8 +369,8 @@ function MapPlacementRenderer({ item, disabled, onChange, onBehavior }: Renderer
     rotationAttempts.current += 1;
     const next = { ...rotations, [pieceId]: ((rotations[pieceId] || 0) + 90) % 360 };
     setRotations(next);
-    const slot = Object.values(placements).find((placement) => placement.pieceId === pieceId);
-    const nextPlacements = slot ? { ...placements, [slot.slotIndex]: { ...slot, rotation: next[pieceId] } } : placements;
+    const slot = (Object.values(placements) as Placement[]).find((placement) => placement.pieceId === pieceId);
+    const nextPlacements: Record<number, Placement> = slot ? { ...placements, [slot.slotIndex]: { ...slot, rotation: next[pieceId] } } : placements;
     if (slot) setPlacements(nextPlacements);
     onBehavior("piece_rotated", { piece_id: pieceId, rotation: next[pieceId] });
     publish(nextPlacements, next);
@@ -369,7 +381,7 @@ function MapPlacementRenderer({ item, disabled, onChange, onBehavior }: Renderer
     markFirst();
     placementAttempts.current += 1;
     const next = { ...placements };
-    for (const [key, placement] of Object.entries(next)) {
+    for (const [key, placement] of Object.entries(next) as [string, Placement][]) {
       if (placement.pieceId === selectedPieceId) delete next[Number(key)];
     }
     const displaced = next[slotIndex]?.pieceId;

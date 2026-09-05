@@ -1,6 +1,8 @@
 export enum UserRole {
   STUDENT = "student",
-  SUPER_ADMIN = "super_admin"
+  SUPER_ADMIN = "super_admin",
+  ADMIN = "admin",
+  INTERN = "intern"
 }
 
 export interface User {
@@ -40,10 +42,12 @@ export interface Question {
   text: string;
   story?: string;
   image?: string; // Optional image URL or vector description
-  options?: string[]; // Multiple choice options
+  options?: (string | any)[]; // Multiple choice options or structured options
   correctAnswer?: string;
   hint?: string;
-  type?: "choice" | "memory-span" | "stroop" | "grid-pattern" | "speed-match" | "svg-matrix";
+  type?: "choice" | "memory-span" | "stroop" | "grid-pattern" | "speed-match" | "svg-matrix" | "gv-item" | string;
+  response_type?: string;
+  stimulus?: any;
   // Extra properties for special cognitive tasks
   sequence?: (string | number)[]; // For Working Memory
   targetColor?: string; // For Stroop
@@ -55,6 +59,7 @@ export interface Question {
   svgContent?: string;
   examples?: { inputSvg: string; outputSvg: string }[];
   svgOptions?: { id: string; svgContent: string }[];
+  [key: string]: any;
 }
 
 export interface AnswerPayload {
