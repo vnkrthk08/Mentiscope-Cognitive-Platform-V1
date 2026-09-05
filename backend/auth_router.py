@@ -5,8 +5,12 @@ from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 from datetime import datetime
 
-from .database import get_db
-from .core_models import UserRecord
+try:
+    from .database import get_db
+    from .core_models import UserRecord
+except (ImportError, ValueError):
+    from database import get_db
+    from core_models import UserRecord
 
 router = APIRouter()
 

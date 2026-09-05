@@ -1,13 +1,16 @@
-# Dependencies
+﻿# Dependencies
 node_modules/
+*/node_modules/
 /.pnp
 .pnp.js
 
 # Production Build Output
 build/
 dist/
+*/dist/
 coverage/
 .next/
+*/.next/
 out/
 
 # Environment Secrets & Virtualenvs
@@ -17,17 +20,30 @@ out/
 .env.test.local
 .env.production.local
 !.env.example
+!*/.env.example
 .venv/
+*/.venv/
 venv/
+*/venv/
 ENV/
 env/
 
 # Python caches
 __pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
 *.py[cod]
 *$py.class
+
+# SQLite journal locks
+*.db-journal
+*.db-wal
+*.db-shm
 
 # OS & IDE Caches
 .DS_Store
 Thumbs.db
 *.log
+.vscode/
+.idea/

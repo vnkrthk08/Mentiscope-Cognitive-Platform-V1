@@ -2,7 +2,10 @@ from datetime import datetime
 
 from sqlalchemy.orm import Session
 
-from ....core_models import AnalyticsRecord, EventRecord, ResponseRecord, ResultRecord, SessionRecord
+try:
+    from ....core_models import AnalyticsRecord, EventRecord, ResponseRecord, ResultRecord, SessionRecord
+except (ImportError, ValueError):
+    from core_models import AnalyticsRecord, EventRecord, ResponseRecord, ResultRecord, SessionRecord
 
 MODULE_ID = "processing-speed"
 

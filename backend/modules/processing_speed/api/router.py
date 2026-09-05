@@ -1,7 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from ....database import get_db
+try:
+    from ....database import get_db
+except (ImportError, ValueError):
+    from database import get_db
 from ..repositories import ProcessingSpeedRepository
 from ..schemas import AnswerRequest, FinishRequest, StartRequest
 from ..services import ProcessingSpeedAssessmentService
