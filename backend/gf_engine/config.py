@@ -52,9 +52,9 @@ class RendererConfig:
     card_height: int = 110
     symbol_canvas_size: int = 64
     card_corner_radius: int = 12
-    card_background: str = "#FFFFFF"
-    card_border: str = "#D7DFEA"
-    stroke_color: str = "#1F2937"
+    card_background: str = "#090d16"
+    card_border: str = "#1e293b"
+    stroke_color: str = "#cbd5e1"
     stroke_widths: Mapping[str, float] = field(
         default_factory=lambda: {"none": 0.0, "thin": 2.0, "thick": 4.0, "dashed": 2.5}
     )

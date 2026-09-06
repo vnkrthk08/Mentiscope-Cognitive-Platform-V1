@@ -786,42 +786,63 @@ export const QUESTIONS_DATA: { [moduleId: string]: Question[] } = {
       text: "Identify the pattern rule to find the missing puzzle output.",
       story: "Rule Family: SEQUENCE — Observe the 90° clockwise rotation of symbols.",
       type: "svg-matrix",
-      svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="w-full h-auto bg-slate-950 rounded-xl p-2"><rect width="100%" height="100%" fill="#090d16" rx="12"/><circle cx="100" cy="100" r="45" fill="none" stroke="#3b82f6" stroke-width="4"/><polygon points="100,65 125,120 75,120" fill="#38bdf8"/></svg>`,
+      svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="42" fill="none" stroke="#3b82f6" stroke-width="3"/><polygon points="208,55 152,83 152,27" fill="#38bdf8"/></svg>`,
       examples: [
         {
-          inputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="50,20 75,75 25,75" fill="#3b82f6"/></svg>`,
-          outputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="75,50 20,75 20,25" fill="#3b82f6"/></svg>`
+          inputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="180,24 212,86 148,86" fill="#3b82f6"/></svg>`,
+          outputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="211,55 149,87 149,23" fill="#3b82f6"/></svg>`
         }
       ],
       svgOptions: [
-        { id: "opt-gf-1a", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="75,50 20,75 20,25" fill="#38bdf8"/></svg>` },
-        { id: "opt-gf-1b", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="50,80 75,25 25,25" fill="#a855f7"/></svg>` },
-        { id: "opt-gf-1c", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#14b8a6"/></svg>` },
-        { id: "opt-gf-1d", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><rect x="25" y="25" width="50" height="50" fill="#ef4444"/></svg>` }
+        { id: "opt-gf-1a", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="42" fill="none" stroke="#3b82f6" stroke-width="3"/><polygon points="180,83 152,27 208,27" fill="#38bdf8"/></svg>` },
+        { id: "opt-gf-1b", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="42" fill="none" stroke="#a855f7" stroke-width="3"/><polygon points="180,27 208,83 152,83" fill="#a855f7"/></svg>` },
+        { id: "opt-gf-1c", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="42" fill="none" stroke="#14b8a6" stroke-width="3"/><rect x="160" y="35" width="40" height="40" rx="4" fill="#14b8a6"/></svg>` },
+        { id: "opt-gf-1d", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><rect x="155" y="30" width="50" height="50" rx="8" fill="#ef4444"/></svg>` }
       ],
       correctAnswer: "opt-gf-1a",
-      hint: "Look at the direction the primary vertex points after a 90° rotation."
+      hint: "Look at the direction the primary vertex points after a 90° clockwise rotation."
     },
     {
       id: "gf-2",
       text: "Deduce the color transformation rule across the series.",
       story: "Rule Family: ATTRIBUTE — Attribute shift along the primary color spectrum.",
       type: "svg-matrix",
-      svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="w-full h-auto bg-slate-950 rounded-xl p-2"><rect width="100%" height="100%" fill="#090d16" rx="12"/><circle cx="100" cy="100" r="50" fill="#a855f7"/></svg>`,
+      svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="36" fill="#a855f7"/><circle cx="180" cy="55" r="46" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="6 4"/></svg>`,
       examples: [
         {
-          inputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#3b82f6"/></svg>`,
-          outputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#a855f7"/></svg>`
+          inputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="32" fill="#3b82f6"/></svg>`,
+          outputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="32" fill="#a855f7"/></svg>`
         }
       ],
       svgOptions: [
-        { id: "opt-gf-2a", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#ec4899"/></svg>` },
-        { id: "opt-gf-2b", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><rect x="25" y="25" width="50" height="50" fill="#a855f7"/></svg>` },
-        { id: "opt-gf-2c", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><polygon points="50,20 80,80 20,80" fill="#3b82f6"/></svg>` },
-        { id: "opt-gf-2d", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-auto bg-slate-900 rounded-lg"><circle cx="50" cy="50" r="30" fill="#10b981"/></svg>` }
+        { id: "opt-gf-2a", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="36" fill="#ec4899"/><circle cx="180" cy="55" r="46" fill="none" stroke="#ec4899" stroke-width="2.5" stroke-dasharray="6 4"/></svg>` },
+        { id: "opt-gf-2b", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><rect x="155" y="30" width="50" height="50" rx="8" fill="#f59e0b"/></svg>` },
+        { id: "opt-gf-2c", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="180,24 212,86 148,86" fill="#3b82f6"/></svg>` },
+        { id: "opt-gf-2d", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="180" cy="55" r="32" fill="#10b981"/></svg>` }
       ],
       correctAnswer: "opt-gf-2a",
-      hint: "Observe how Blue shifts to Purple, and Purple shifts to Magenta."
+      hint: "Observe how Blue shifts to Purple, and Purple shifts to Magenta/Pink."
+    },
+    {
+      id: "gf-3",
+      text: "Identify the number progression rule to find the missing puzzle output.",
+      story: "Rule Family: PROGRESSION — Incremental element count addition across the sequence.",
+      type: "svg-matrix",
+      svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="120,55 135,35 150,55 135,75" fill="#14b8a6"/><polygon points="210,55 225,35 240,55 225,75" fill="#14b8a6"/></svg>`,
+      examples: [
+        {
+          inputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="180,55 195,35 210,55 195,75" fill="#14b8a6"/></svg>`,
+          outputSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="135,55 150,35 165,55 150,75" fill="#14b8a6"/><polygon points="195,55 210,35 225,55 210,75" fill="#14b8a6"/></svg>`
+        }
+      ],
+      svgOptions: [
+        { id: "opt-gf-3a", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="90,55 105,35 120,55 105,75" fill="#14b8a6"/><polygon points="165,55 180,35 195,55 180,75" fill="#14b8a6"/><polygon points="240,55 255,35 270,55 255,75" fill="#14b8a6"/></svg>` },
+        { id: "opt-gf-3b", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><polygon points="180,55 195,35 210,55 195,75" fill="#14b8a6"/></svg>` },
+        { id: "opt-gf-3c", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><circle cx="135" cy="55" r="16" fill="#f59e0b"/><circle cx="225" cy="55" r="16" fill="#f59e0b"/></svg>` },
+        { id: "opt-gf-3d", svgContent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block"><rect x="1" y="1" width="358" height="108" rx="12" fill="#090d16" stroke="#1e293b" stroke-width="2"/><rect x="155" y="30" width="50" height="50" rx="8" fill="#ef4444"/></svg>` }
+      ],
+      correctAnswer: "opt-gf-3a",
+      hint: "Count how many identical elements increase with each step."
     }
   ],
   attention: [

@@ -7,6 +7,7 @@ class StartRequest(BaseModel):
 
     class Config:
         populate_by_name = True
+        extra = "ignore"
 
 class AnswerRequest(BaseModel):
     session_id: str = Field(..., validation_alias="sessionId", alias="session_id")
@@ -16,11 +17,14 @@ class AnswerRequest(BaseModel):
 
     class Config:
         populate_by_name = True
+        extra = "ignore"
 
 class FinishRequest(BaseModel):
     session_id: str = Field(..., validation_alias="sessionId", alias="session_id")
     seed: str | int | None = None
+    answers: list[Any] | None = None
 
     class Config:
         populate_by_name = True
+        extra = "ignore"
 

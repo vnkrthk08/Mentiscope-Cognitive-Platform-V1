@@ -30,7 +30,7 @@ app.use("/api/v1", apiV1Router);
 
 // Proxy Processing Speed, Fluid Intelligence, Visual Processing & Sessions API requests to the Python backend
 const BACKEND_URL = process.env.BACKEND_URL || "http://127.0.0.1:8000";
-app.all(["/api/modules/processing-speed*", "/api/modules/gf*", "/api/modules/csr*", "/api/modules/gv*", "/api/quantitative*", "/api/sessions*"], async (req, res) => {
+app.all(["/api/auth*", "/api/modules/*", "/api/quantitative*", "/api/sessions*"], async (req, res) => {
   const targetUrl = `${BACKEND_URL}${req.originalUrl}`;
   try {
     const headers: Record<string, string> = {};
@@ -41,6 +41,8 @@ app.all(["/api/modules/processing-speed*", "/api/modules/gf*", "/api/modules/csr
     }
     delete headers["host"];
     delete headers["expect"];
+    delete headers["content-length"];
+    delete headers["connection"];
 
     const response = await fetch(targetUrl, {
       method: req.method,

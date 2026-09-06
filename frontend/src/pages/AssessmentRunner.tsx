@@ -1337,9 +1337,9 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
                   <div className="flex flex-col gap-3">
                     {currentQuestion.examples.slice(0, 2).map((ex: any, i: number) => (
                       <div key={i} className="flex items-center justify-center gap-4 p-3.5 rounded-2xl border border-slate-800 bg-slate-950/80 shadow-inner">
-                         <div className="flex-1 rounded-xl overflow-hidden border border-slate-800/60 max-w-[250px] shadow-sm" style={{ aspectRatio: "360 / 110" }} dangerouslySetInnerHTML={{ __html: ex.inputSvg }} />
+                         <div className="flex-1 rounded-xl overflow-hidden border border-slate-800/60 max-w-[250px] shadow-sm flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-full [&>svg]:block [&>svg]:object-contain" style={{ aspectRatio: "360 / 110" }} dangerouslySetInnerHTML={{ __html: ex.inputSvg }} />
                          <ArrowRight className="h-6 w-6 text-blue-400 shrink-0" />
-                         <div className="flex-1 rounded-xl overflow-hidden border border-slate-800/60 max-w-[250px] shadow-sm" style={{ aspectRatio: "360 / 110" }} dangerouslySetInnerHTML={{ __html: ex.outputSvg }} />
+                         <div className="flex-1 rounded-xl overflow-hidden border border-slate-800/60 max-w-[250px] shadow-sm flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-full [&>svg]:block [&>svg]:object-contain" style={{ aspectRatio: "360 / 110" }} dangerouslySetInnerHTML={{ __html: ex.outputSvg }} />
                       </div>
                     ))}
                   </div>
@@ -1350,7 +1350,7 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
               <div className="pt-3">
                 <div className="w-full max-w-[520px] mx-auto rounded-2xl border-2 border-slate-800 p-3 shadow-inner bg-slate-950 flex flex-col items-center">
                   <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest mb-2">Matrix Prompt Card</span>
-                  <div className="w-full rounded-xl overflow-hidden" style={{ aspectRatio: "360 / 110" }} dangerouslySetInnerHTML={{ __html: currentQuestion.svgContent }} />
+                  <div className="w-full rounded-xl overflow-hidden flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-full [&>svg]:block [&>svg]:object-contain" style={{ aspectRatio: "360 / 110" }} dangerouslySetInnerHTML={{ __html: currentQuestion.svgContent }} />
                 </div>
               </div>
             </div>
@@ -1391,7 +1391,7 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
                         style={{ aspectRatio: "360 / 110" }}
                         className={`p-1.5 sm:p-2 rounded-2xl border-2 transition-all cursor-pointer bento-card flex items-center justify-center w-full ${btnClass}`}
                       >
-                        <div className="w-full h-full rounded-xl overflow-hidden pointer-events-none flex items-center justify-center" dangerouslySetInnerHTML={{ __html: opt.svgContent }} />
+                        <div className="w-full h-full rounded-xl overflow-hidden pointer-events-none flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-full [&>svg]:block [&>svg]:object-contain" dangerouslySetInnerHTML={{ __html: opt.svgContent }} />
                       </motion.button>
                     );
                   })}
