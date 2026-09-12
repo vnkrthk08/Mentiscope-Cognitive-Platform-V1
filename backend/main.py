@@ -51,6 +51,30 @@ except Exception:
         csr_router = None
 
 try:
+    from .modules.attention.api.router import router as attention_router
+except Exception:
+    try:
+        from modules.attention.api.router import router as attention_router
+    except Exception:
+        attention_router = None
+
+try:
+    from .modules.emotional_regulation.api.router import router as emotional_regulation_router
+except Exception:
+    try:
+        from modules.emotional_regulation.api.router import router as emotional_regulation_router
+    except Exception:
+        emotional_regulation_router = None
+
+try:
+    from .modules.riasec.api.router import router as riasec_router
+except Exception:
+    try:
+        from modules.riasec.api.router import router as riasec_router
+    except Exception:
+        riasec_router = None
+
+try:
     from .modules.gv.api.router import router as gv_router
 except Exception:
     try:
@@ -98,15 +122,27 @@ if fluid_intelligence_router:
 if gsm_router:
     app.include_router(gsm_router, prefix="/api/modules/gsm", tags=["gsm"])
 
-# 4. Cognitive Stress & Resilience (CSR)
-if csr_router:
+# 4. Attention & Executive Control (ASAT)
+if attention_router:
+    app.include_router(attention_router, prefix="/api/modules/attention", tags=["attention"])
+    app.include_router(attention_router, prefix="/api/modules/csr", tags=["attention-legacy"])
+elif csr_router:
     app.include_router(csr_router, prefix="/api/modules/csr", tags=["csr"])
 
-# 5. Visual Processing (Gv)
+# 5. Emotional Regulation Assessment (Crisis Dispatcher)
+if emotional_regulation_router:
+    app.include_router(emotional_regulation_router, prefix="/api/modules/emotional-regulation", tags=["emotional-regulation"])
+    app.include_router(emotional_regulation_router, prefix="/api/modules/emotional_regulation", tags=["emotional-regulation-alt"])
+
+# 6. Career Interest Assessment (RIASEC)
+if riasec_router:
+    app.include_router(riasec_router, prefix="/api/modules/riasec", tags=["riasec"])
+
+# 7. Visual Processing (Gv)
 if gv_router:
     app.include_router(gv_router, prefix="/api/modules/gv", tags=["gv"])
 
-# 6. Quantitative Reasoning (Gq)
+# 8. Quantitative Reasoning (Gq)
 if quantitative_answer_router:
     app.include_router(quantitative_answer_router, prefix="/api/quantitative", tags=["quantitative"])
     app.include_router(quantitative_start_router, prefix="/api/quantitative", tags=["quantitative"])
@@ -343,11 +379,27 @@ def delete_session_history(session_id: str, db: Session = Depends(get_db)):
         db.commit()
     return {"status": "success", "sessionId": session_id}
 
+@app.get("/")
+def root():
+    return {
+        "title": "Mentiscope Unified Cognitive Assessment Platform",
+        "status": "online",
+        "version": "1.0.0"
+    }
+
+@app.get("/api/sessions/{session_id}")
+def get_session_by_id(session_id: str, db: Session = Depends(get_db)):
+    record = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.session_id == session_id).first()
+    if not record or not record.payload:
+        raise HTTPException(status_code=404, detail="Session not found")
+    return record.payload
+
 @app.get("/api/health")
 def health() -> dict[str, Any]:
     return {
         "status": "healthy",
         "platform": "Mentiscope Cognitive Platform",
-        "modules": ["processing-speed", "gf", "gsm", "csr", "quantitative"]
+        "modules": ["processing-speed", "gf", "gsm", "attention", "emotional-regulation", "riasec", "gv", "quantitative", "auditory_verbal"]
     }
+
 

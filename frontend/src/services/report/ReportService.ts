@@ -7,45 +7,78 @@ export class ReportService {
    * Carroll-Horn-Cattell (CHC) psychometric theory.
    */
   static calculateStreamRecommendations(moduleScores: { [moduleId: string]: number }): StreamRecommendation[] {
-    const s = (k: string, fallback: number = 72) => (moduleScores[k] !== undefined ? moduleScores[k] : fallback);
+    const completedKeys = Object.keys(moduleScores).filter(k => moduleScores[k] !== undefined && Number(moduleScores[k]) > 0);
+
+    // Dynamic weighted calculation: purely derived from completed modules
+    const calcWeightedScore = (drivers: Array<{ id: string; weight: number; altIds?: string[] }>): number => {
+      let totalWeight = 0;
+      let weightedSum = 0;
+      for (const d of drivers) {
+        let score: number | undefined = moduleScores[d.id];
+        if (score === undefined && d.altIds) {
+          for (const alt of d.altIds) {
+            if (moduleScores[alt] !== undefined) {
+              score = moduleScores[alt];
+              break;
+            }
+          }
+        }
+        if (score !== undefined && Number(score) > 0) {
+          weightedSum += Number(score) * d.weight;
+          totalWeight += d.weight;
+        }
+      }
+
+      if (totalWeight === 0) {
+        // If none of the specific drivers for this stream are completed yet,
+        // use the overall completed average so far, or 0 if nothing completed
+        if (completedKeys.length > 0) {
+          const sum = completedKeys.reduce((acc, k) => acc + (Number(moduleScores[k]) || 0), 0);
+          return Math.round(sum / completedKeys.length);
+        }
+        return 0;
+      }
+      return Math.min(99, Math.max(35, Math.round(weightedSum / totalWeight)));
+    };
 
     // 1. Engineering & Technology
     // Primary: Gf (35%), Gv (25%), Gq (25%), Gs (15%)
-    const engGf = s("gf", 74);
-    const engGv = s("gv", s("spatial", 72));
-    const engGq = s("gq", 70);
-    const engGs = s("gs", s("processing-speed", 70));
-    const engRaw = Math.round(engGf * 0.35 + engGv * 0.25 + engGq * 0.25 + engGs * 0.15);
-    const engScore = Math.min(99, Math.max(45, engRaw));
+    const engScore = calcWeightedScore([
+      { id: "gf", weight: 0.35 },
+      { id: "gv", weight: 0.25, altIds: ["spatial"] },
+      { id: "gq", weight: 0.25 },
+      { id: "gs", weight: 0.15, altIds: ["processing-speed"] }
+    ]);
 
     // 2. Medicine & Healthcare
     // Primary: Attention (30%), Gsm (25%), Gv (20%), Emotional Regulation (25%)
-    const medAtt = s("attention", 72);
-    const medGsm = s("gsm", 70);
-    const medGv = s("gv", s("spatial", 70));
-    const medEmo = s("emotional_regulation", 72);
-    const medRaw = Math.round(medAtt * 0.30 + medGsm * 0.25 + medGv * 0.20 + medEmo * 0.25);
-    const medScore = Math.min(99, Math.max(45, medRaw));
+    const medScore = calcWeightedScore([
+      { id: "attention", weight: 0.30, altIds: ["csr"] },
+      { id: "gsm", weight: 0.25 },
+      { id: "gv", weight: 0.20, altIds: ["spatial"] },
+      { id: "emotional_regulation", weight: 0.25, altIds: ["emotional-regulation"] }
+    ]);
 
     // 3. Law & Governance
     // Primary: Gf (30%), Gc (25%), Auditory/Verbal (25%), Emotional Regulation (20%)
-    const lawGf = s("gf", 72);
-    const lawGc = s("gc", s("language", 74));
-    const lawAud = s("auditory_verbal", 70);
-    const lawEmo = s("emotional_regulation", 72);
-    const lawRaw = Math.round(lawGf * 0.30 + lawGc * 0.25 + lawAud * 0.25 + lawEmo * 0.20);
-    const lawScore = Math.min(99, Math.max(45, lawRaw));
+    const lawScore = calcWeightedScore([
+      { id: "gf", weight: 0.30 },
+      { id: "gc", weight: 0.25, altIds: ["language"] },
+      { id: "auditory_verbal", weight: 0.25 },
+      { id: "emotional_regulation", weight: 0.20, altIds: ["emotional-regulation"] }
+    ]);
 
     // 4. Commerce & Management
     // Primary: Gq (35%), Gs (25%), RIASEC/Decision (20%), Attention (20%)
-    const comGq = s("gq", 72);
-    const comGs = s("gs", s("processing-speed", 72));
-    const comRia = s("riasec", 70);
-    const comAtt = s("attention", 70);
-    const comRaw = Math.round(comGq * 0.35 + comGs * 0.25 + comRia * 0.20 + comAtt * 0.20);
-    const comScore = Math.min(99, Math.max(45, comRaw));
+    const comScore = calcWeightedScore([
+      { id: "gq", weight: 0.35 },
+      { id: "gs", weight: 0.25, altIds: ["processing-speed"] },
+      { id: "riasec", weight: 0.20 },
+      { id: "attention", weight: 0.20, altIds: ["csr"] }
+    ]);
 
     const getFitLevel = (val: number): StreamRecommendation["fitLevel"] => {
+      if (val === 0) return "Exploratory";
       if (val >= 84) return "Exceptional Fit";
       if (val >= 72) return "High Alignment";
       if (val >= 60) return "Moderate Alignment";
@@ -122,62 +155,74 @@ export class ReportService {
     moduleMetrics?: Record<string, any>,
     studentId?: string
   ): CognitiveReport {
-    const keys = Object.keys(moduleScores);
-    const sum = keys.reduce((acc, k) => acc + (moduleScores[k] || 0), 0);
-    const average = keys.length > 0 ? Math.round(sum / keys.length) : 74;
+    const keys = Object.keys(moduleScores).filter(k => moduleScores[k] !== undefined && Number(moduleScores[k]) > 0);
+    const sum = keys.reduce((acc, k) => acc + (Number(moduleScores[k]) || 0), 0);
+    const average = keys.length > 0 ? Math.round(sum / keys.length) : 0;
 
-    // Calculate streams
+    // Calculate streams dynamically from completed modules
     const streamRecommendations = this.calculateStreamRecommendations(moduleScores);
     const primaryStream = streamRecommendations[0];
 
-    // Primary cognitive strengths
+    // Primary cognitive strengths & growth areas evaluated strictly from completed modules
     const strengths: string[] = [];
     const weaknesses: string[] = [];
     const recommendations: string[] = [];
 
-    // Evaluate Strengths
-    if ((moduleScores["gf"] ?? 0) >= 75) {
+    // Evaluate Strengths only from completed tests
+    if (moduleScores["gf"] !== undefined && moduleScores["gf"] >= 75) {
       strengths.push("High Fluid Reasoning (Gf): Deduces novel visual rules, matrix symmetries, and abstract logical relations rapidly without prior rehearsal.");
     }
-    if ((moduleScores["gv"] ?? 0) >= 75) {
+    if ((moduleScores["gv"] !== undefined && moduleScores["gv"] >= 75) || (moduleScores["spatial"] !== undefined && moduleScores["spatial"] >= 75)) {
       strengths.push("Advanced Spatial Manipulation (Gv): Mentally scans 2D/3D topologies and visualizes structural transformations with precision.");
     }
-    if ((moduleScores["gs"] ?? 0) >= 75) {
+    if ((moduleScores["gs"] !== undefined && moduleScores["gs"] >= 75) || (moduleScores["processing-speed"] !== undefined && moduleScores["processing-speed"] >= 75)) {
       strengths.push("Fast Perceptual Speed (Gs): Excels in high-speed symbol matching and rapid visual discrimination with minimal motor reaction latency.");
     }
-    if ((moduleScores["attention"] ?? 0) >= 75) {
+    if ((moduleScores["attention"] !== undefined && moduleScores["attention"] >= 75) || (moduleScores["csr"] !== undefined && moduleScores["csr"] >= 75)) {
       strengths.push("Strong Inhibitory Focus: Demonstrates high resistance to visual interference (Stroop effect) and sustained target vigilance.");
     }
-    if ((moduleScores["gq"] ?? 0) >= 75) {
+    if (moduleScores["gq"] !== undefined && moduleScores["gq"] >= 75) {
       strengths.push("Agile Quantitative Logic (Gq): Exhibits intuitive numerical estimation, proportional reasoning, and mental arithmetic stability.");
     }
-    if ((moduleScores["gsm"] ?? 0) >= 75) {
+    if (moduleScores["gsm"] !== undefined && moduleScores["gsm"] >= 75) {
       strengths.push("Robust Working Memory (Gsm): Holds and recalls multi-sequence memory chunks under dual-task cognitive interference.");
     }
-    if ((moduleScores["auditory_verbal"] ?? 0) >= 75) {
+    if (moduleScores["emotional_regulation"] !== undefined && moduleScores["emotional_regulation"] >= 75) {
+      strengths.push("High Emotional Regulation: Demonstrates decision stability, low panic reactivity, and persistent crisis recovery under strict time pressure.");
+    }
+    if (moduleScores["riasec"] !== undefined && moduleScores["riasec"] >= 75) {
+      strengths.push("Clear Vocational Alignment (RIASEC): Strongly differentiated career interests indicating defined intrinsic motivation.");
+    }
+    if (moduleScores["auditory_verbal"] !== undefined && moduleScores["auditory_verbal"] >= 75) {
       strengths.push("Auditory & Verbal Fluency (Ga): Rapid comprehension of spoken instructions and precise verbal formulation during complex tasks.");
     }
 
     if (strengths.length === 0) {
-      strengths.push("Balanced Cognitive Baseline: Demonstrates dependable cognitive stamina and stable baseline focus across evaluated tasks.");
-      strengths.push("Adaptive Learning Potential: Responsive to deliberate practice routines in structured problem-solving environments.");
+      if (keys.length > 0) {
+        strengths.push("Emerging Cognitive Profile: Demonstrates consistent engagement across evaluated tasks with clear baseline performance.");
+      } else {
+        strengths.push("Diagnostic baseline will formulate upon completing cognitive modules.");
+      }
     }
 
-    // Evaluate Growth / Optimization Areas
-    if ((moduleScores["attention"] ?? 100) < 70) {
+    // Evaluate Growth / Optimization Areas strictly from completed tests
+    if (moduleScores["attention"] !== undefined && moduleScores["attention"] < 70) {
       weaknesses.push("Vigilance Under Distraction: Susceptible to subtle visual distractors during high-speed transitions; benefits from clean, distraction-free study environments.");
     }
-    if ((moduleScores["gs"] ?? 100) < 70) {
+    if ((moduleScores["gs"] !== undefined && moduleScores["gs"] < 70) || (moduleScores["processing-speed"] !== undefined && moduleScores["processing-speed"] < 70)) {
       weaknesses.push("Response Latency Under Strict Timers: Tendency to over-verify answers during timed sections; can be sharpened with timed speed drills.");
     }
-    if ((moduleScores["gsm"] ?? 100) < 70) {
+    if (moduleScores["gsm"] !== undefined && moduleScores["gsm"] < 70) {
       weaknesses.push("Memory Chunking Retention: Retention degrades slightly under multi-step cognitive load; benefits from external scratchpads and visual mind-maps.");
     }
-    if ((moduleScores["gf"] ?? 100) < 70) {
+    if (moduleScores["gf"] !== undefined && moduleScores["gf"] < 70) {
       weaknesses.push("Unfamiliar Pattern Abstraction: Benefits from structured exposure to non-verbal matrix puzzles and inductive reasoning exercises.");
     }
-    if ((moduleScores["gq"] ?? 100) < 70) {
+    if (moduleScores["gq"] !== undefined && moduleScores["gq"] < 70) {
       weaknesses.push("Mental Calculation Speed: Tendency to rely on pencil-and-paper verification for basic numerical steps; estimation heuristics will boost pacing.");
+    }
+    if (moduleScores["emotional_regulation"] !== undefined && moduleScores["emotional_regulation"] < 70) {
+      weaknesses.push("Pressure Escalation: Susceptibility to second-order mistakes following initial errors; deliberate pacing recovery drills recommended.");
     }
 
     if (weaknesses.length === 0) {

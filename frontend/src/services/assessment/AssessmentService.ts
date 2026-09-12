@@ -385,7 +385,7 @@ export class AssessmentService {
       }
     });
 
-    const scorePercentage = questions.length > 0 ? Math.round((correctCount / questions.length) * 100) : 75;
+    const scorePercentage = questions.length > 0 ? Math.round((correctCount / questions.length) * 100) : 0;
 
     return {
       status: "success",
@@ -416,7 +416,7 @@ export class AssessmentService {
     }
 
     const session = this.getSession();
-    const score = session?.moduleScores[moduleId] ?? 75;
+    const score = session?.moduleScores[moduleId] ?? 0;
     const metrics = session?.moduleMetrics?.[moduleId];
 
     return {

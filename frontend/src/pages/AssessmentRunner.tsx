@@ -4,6 +4,9 @@ import { MODULE_CONFIGS } from "../config/moduleConfig";
 import { QUESTIONS_DATA } from "../config/questionsData";
 import { AssessmentService } from "../services/assessment/AssessmentService";
 import GVItemRenderer from "../modules/gv/GVItemRenderer";
+import ASATAssessmentModule from "../modules/attention/ASATAssessmentModule";
+import CrisisDispatcherModule from "../modules/emotional_regulation/CrisisDispatcherModule";
+import RIASECModule from "../modules/riasec/RIASECModule";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Brain, 
@@ -629,6 +632,47 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
     });
   };
 
+  // 9.4 Handle completion for specialized interactive modules (ASAT, CrisisDispatcher, RIASEC)
+  const handleInteractiveModuleComplete = (score: number, metrics: any) => {
+    if (!activeModule || !session) return;
+    const updatedSess: AssessmentSession = {
+      ...session,
+      moduleScores: {
+        ...session.moduleScores,
+        [activeModule.id]: score
+      },
+      moduleMetrics: {
+        ...(session.moduleMetrics || {}),
+        tabSwitches: session.moduleMetrics?.tabSwitches || 0,
+        [activeModule.id]: metrics
+      },
+      currentModuleIndex: session.currentModuleIndex + 1,
+      currentQuestionIndex: 0
+    };
+
+    setSession(updatedSess);
+    AssessmentService.saveSession(updatedSess);
+    AssessmentService.updateModuleScore(
+      session.sessionId,
+      activeModule.id,
+      score,
+      metrics,
+      session.studentId
+    );
+
+    const nextIndex = session.currentModuleIndex + 1;
+    const nextMod = MODULE_CONFIGS[nextIndex] || null;
+
+    setCompletedModuleReport({
+      module: activeModule,
+      scorePercentage: score,
+      metrics,
+      nextModule: nextMod,
+      nextModuleIndex: nextIndex,
+      updatedSess
+    });
+  };
+
   // 10. Transition module splash screen (No longer used in Hub-and-Spoke model)
   const transitionToNextModule = (nextIndex: number, currentSess: AssessmentSession) => {
     // Deprecated. Handled by dashboard.
@@ -1187,8 +1231,26 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
         />
       </div>
 
-      {/* Main Container - Visual Processing (Gv) or SVG Matrix Puzzles in a Glassmorphism Card Box */}
-      {!currentQuestion ? (
+      {/* Main Container - Interactive Modules (ASAT, CrisisDispatcher, RIASEC, Gv, Processing Speed, or SVG Matrix) */}
+      {(activeModule.id === "attention" || activeModule.id === "csr") ? (
+        <ASATAssessmentModule
+          sessionId={session.sessionId}
+          studentId={user.id}
+          onComplete={(score, metrics) => handleInteractiveModuleComplete(score, metrics)}
+        />
+      ) : (activeModule.id === "emotional_regulation" || activeModule.id === "emotional-regulation") ? (
+        <CrisisDispatcherModule
+          sessionId={session.sessionId}
+          studentId={user.id}
+          onComplete={(score, metrics) => handleInteractiveModuleComplete(score, metrics)}
+        />
+      ) : (activeModule.id === "riasec") ? (
+        <RIASECModule
+          sessionId={session.sessionId}
+          studentId={user.id}
+          onComplete={(score, metrics) => handleInteractiveModuleComplete(score, metrics)}
+        />
+      ) : !currentQuestion ? (
         <div className="flex flex-col items-center justify-center p-12 text-center space-y-4 rounded-3xl border border-slate-800 bg-slate-900/90 backdrop-blur-2xl">
           <Loader2 className="h-10 w-10 text-cyan-400 animate-spin" />
           <p className="text-sm font-bold text-white font-mono">Finalizing assessment module...</p>

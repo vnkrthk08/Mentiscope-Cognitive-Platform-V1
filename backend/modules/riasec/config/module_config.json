@@ -1,0 +1,3242 @@
+[
+  {
+    "item_id": "ITEM_R_HS_01",
+    "world": "School Workshop",
+    "dimension": "Realistic",
+    "prompt": "Your robotics team needs a sturdy physical frame for the competition robot.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Measure, cut, and assemble aluminum beams using hand tools.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Program the sensor logic code on the computer.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_02",
+    "world": "Outdoor Club",
+    "dimension": "Realistic",
+    "prompt": "The mountain bike steering feels wobbly before a group trail ride.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Grab a wrench set, adjust the handlebars, and tighten the wheel axle.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Map out the safest GPS elevation route for the group.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_03",
+    "world": "Drama Department",
+    "dimension": "Realistic",
+    "prompt": "The school play set needs a 3D wooden backdrop built by tomorrow.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Use saws, hammers, and paint to physically construct the stage set.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design colorful digital posters to advertise ticket sales.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_04",
+    "world": "Tech Lab",
+    "dimension": "Realistic",
+    "prompt": "A desktop computer in the media lab keeps overheating and shutting down.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Open the tower case, clean the cooling fans, and replace hardware parts.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Research software troubleshooting articles online to find the error.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_05",
+    "world": "Community Project",
+    "dimension": "Realistic",
+    "prompt": "Your class is building a community garden space behind the school.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Build wooden planter boxes and set up the water hose piping.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Manage the seed budget and organize volunteer shift schedules.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_06",
+    "world": "Sports Equipment",
+    "dimension": "Realistic",
+    "prompt": "The school gym equipment room has several broken basketball rims and net hooks.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Re-attach net hooks using pliers and bolt the basketball backboards securely.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Schedule practice times on a master calendar calendar for all teams.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_07",
+    "world": "Science Lab",
+    "dimension": "Realistic",
+    "prompt": "The electronic scale in the chemistry lab loses calibration under weight.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Dismantle the base housing to align internal strain sensors manually.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Formulate hypotheses on chemical compound reactions.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_08",
+    "world": "School Parade",
+    "dimension": "Realistic",
+    "prompt": "The homecoming parade float requires structural framing on a trailer bed.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Weld or bolt metal brackets to secure cardboard props onto the trailer.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint artistic banners highlighting school spirit themes.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_09",
+    "world": "Music Room",
+    "dimension": "Realistic",
+    "prompt": "An electric guitar amplifer produces static due to loose jack wiring.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Solder copper wire connections inside the amp chassis.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Compose original musical chords for an upcoming song.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_10",
+    "world": "Auto Shop",
+    "dimension": "Realistic",
+    "prompt": "A small lawnmower engine used for school lawn maintenance refuses to turn over.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Clean the carburetor, swap the spark plug, and adjust fuel valves.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch an eco-friendly solar mower idea to the school board.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_11",
+    "world": "3D Printing Studio",
+    "dimension": "Realistic",
+    "prompt": "The school 3D printer nozzle jams during a long print job.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Heat up the print head, clear melted filament blockage, and re-level the bed.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sculpt imaginative 3D character models on digital design software.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_12",
+    "world": "Camping Trip",
+    "dimension": "Realistic",
+    "prompt": "High winds loosen tent stakes and snap a main support fiberglass pole.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Splice the broken tent pole with metal sleeves and hammer stakes into ground.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Lead campfire icebreaker games to keep group morale high.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_13",
+    "world": "Media Club",
+    "dimension": "Realistic",
+    "prompt": "Camera equipment tripods wobble during a live video broadcast.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Adjust leg clamp screws, re-weight tripods, and secure cables with tape.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Write persuasive commercial scripts for student announcements.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_14",
+    "world": "Solar Car Challenge",
+    "dimension": "Realistic",
+    "prompt": "A solar-powered model car keeps losing drive belt tension on the track.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Fit smaller rubber drive belts and realign motor pulleys.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Calculate solar panel energy conversion math equations.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_15",
+    "world": "School Aquarium",
+    "dimension": "Realistic",
+    "prompt": "The biology department water filter pump stops circulating water.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Disassemble pump housing, scrub intake impellers, and replace rubber seals.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Maintain daily water temperature and pH logbooks.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_16",
+    "world": "Maker Fair",
+    "dimension": "Realistic",
+    "prompt": "An arcade cabinet project button stops responding during testing.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Swap micro-switches and crimp new terminal wires onto button lugs.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer enthusiastic game tutorials to visiting younger kids.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_17",
+    "world": "Skatepark Project",
+    "dimension": "Realistic",
+    "prompt": "A plywood ramp at the local park has loose screws and splintering edges.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Power-drill stainless screws into wood framing and sand down rough edges.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design custom skate brand stickers and logos.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_18",
+    "world": "Greenhouse",
+    "dimension": "Realistic",
+    "prompt": "An automated greenhouse sprinkler line leaks water near power outlets.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Turn off water main, replace cracked PVC fittings, and seal joints with tape.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Apply for local environmental grants to fund greenhouse upgrades.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_19",
+    "world": "Drone Club",
+    "dimension": "Realistic",
+    "prompt": "A quadcopter drone propeller arm snaps after colliding with a tree branch.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Unscrew damaged motor mount, replace carbon fiber arm, and resolder wires.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Review flight telemetry graphs to detect altitude anomalies.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_20",
+    "world": "Bicycle Repair Drive",
+    "dimension": "Realistic",
+    "prompt": "Neighborhood kids bring flat tires and rusted chains to your repair workshop.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Patch inner tubes, apply chain lubricant, and adjust hand brakes.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Keep inventory counts of spare tires and tool kits.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_21",
+    "world": "Woodworking Class",
+    "dimension": "Realistic",
+    "prompt": "You are building a custom desk organizer out of oak wood panels.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Operate table saws, wood clamps, and sandpaper to finish timber joints.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Help classmates struggling with emotional stress during class.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_22",
+    "world": "Robotics Arena",
+    "dimension": "Realistic",
+    "prompt": "Robot wheel treads lose traction on slick competition floor surfaces.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Attach high-grip rubber treads and modify gear ratio torque.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Create stylish team jerseys and graphic team logos.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_23",
+    "world": "Event Lighting",
+    "dimension": "Realistic",
+    "prompt": "School dance spotlight stands wobble on carpeted floors.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Anchor lighting trusses with sandbags and clamp safety chains.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sell VIP ticket passes at the entrance table.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_24",
+    "world": "Weather Station",
+    "dimension": "Realistic",
+    "prompt": "Rooftop wind speed anemometer stops spinning after a storm.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Climb roof access ladder to clean sensor bearings and replace cups.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze rainfall data trends over the past five years.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_25",
+    "world": "School Cafe",
+    "dimension": "Realistic",
+    "prompt": "An espresso milk frother steam wand gets clogged with mineral buildup.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Unscrew wand tip, clear steam pinholes, and flush hot water lines.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Log daily drink sales totals into accounting spreadsheets.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_26",
+    "world": "E-Sports Arena",
+    "dimension": "Realistic",
+    "prompt": "Ethernet network wall jacks in gaming lab show damaged pin contacts.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Strip cable wires, punch down RJ45 connections, and test signal strength.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Mentor junior players on emotional resilience under pressure.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_27",
+    "world": "Sculpture Garden",
+    "dimension": "Realistic",
+    "prompt": "A heavy metal art installation requires mounting on concrete pedestals.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Drill concrete anchor holes and bolt steel base plates securely.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design conceptual sketches for future artistic installations.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_28",
+    "world": "Hydroponics Garden",
+    "dimension": "Realistic",
+    "prompt": "Water circulation tubing snaps in the school greenhouse.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Splice plastic hose lines and fit hose clamp seals.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch veggie subscription boxes to neighborhood families.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_29",
+    "world": "Kart Racing Club",
+    "dimension": "Realistic",
+    "prompt": "Go-kart hydraulic brakes feel soft before practice rounds.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Bleed brake fluid lines, replace pads, and tighten pedal linkage.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Calculate lap time velocity averages using physics formulas.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_R_HS_30",
+    "world": "Stage Rigging",
+    "dimension": "Realistic",
+    "prompt": "Auditorium curtain pulley ropes fray after heavy usage.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Re-string steel aircraft cable through overhead pulley blocks.",
+        "dimension": "Realistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Enforce backstage safety sign-in sheet protocols.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_01",
+    "world": "Science Fair",
+    "dimension": "Investigative",
+    "prompt": "A plant growth experiment gives completely unexpected height measurements.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Analyze environmental factors to figure out the scientific cause.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint an eye-catching visual display board for the judges.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_02",
+    "world": "Gaming Club",
+    "dimension": "Investigative",
+    "prompt": "A strategy game features a mystery puzzle that no player has solved yet.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Test different logical patterns and calculate probabilities to crack the secret code.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Lead a team stream on Twitch to showcase the game to new players.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_03",
+    "world": "Environmental Study",
+    "dimension": "Investigative",
+    "prompt": "A nearby lake water sample shows unusual cloudy discoloration.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Test water pH levels under a microscope to identify micro-organisms.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Organize a student cleanup drive along the lake shoreline.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_04",
+    "world": "History Class",
+    "dimension": "Investigative",
+    "prompt": "You uncover conflicting historical accounts of a famous historical event.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Compare original letters and ancient maps to piece together the truth.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Present a dramatic speech acting out key historical characters.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_05",
+    "world": "Computer Science",
+    "dimension": "Investigative",
+    "prompt": "Your mobile app project crashes every time a user taps the profile button.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Trace through lines of code logic step-by-step to isolate the bug.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Re-solder the physical touchscreen cable connections on the device.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_06",
+    "world": "Math Olympiad",
+    "dimension": "Investigative",
+    "prompt": "An unsolved geometry puzzle requires finding a hidden mathematical proof.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Derive algebraic equations and test theoretical geometric proofs.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Keep attendance score ledgers for tournament competitors.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_07",
+    "world": "Astronomy Club",
+    "dimension": "Investigative",
+    "prompt": "Telescope images reveal unexpected brightness variations near a distant star.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Analyze light spectrum wavelength data graphs to hypothesis exoplanet transits.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch starry night telescope tickets to school parents.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_08",
+    "world": "Forensics Lab",
+    "dimension": "Investigative",
+    "prompt": "A mock crime scene class exercise presents mysterious shoe footprint dust.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Analyze chemical dust compounds under ultraviolet spectrographs.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer reassuring words to nervous mock witness roleplayers.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_09",
+    "world": "Biology Class",
+    "dimension": "Investigative",
+    "prompt": "Yeast fermentation reaction rate doubles at unexpected temperatures.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Measure enzyme chemical kinetics using temperature graphing software.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design creative animated slides explaining yeast cell biology.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_10",
+    "world": "Cybersecurity Club",
+    "dimension": "Investigative",
+    "prompt": "A mock server setup experiences simulated password guessing attacks.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Inspect server access log files to discover vulnerability loopholes.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Replace damaged server network card hardware.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_11",
+    "world": "Psychology Project",
+    "dimension": "Investigative",
+    "prompt": "Students remember words better when background music is played at specific pitches.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Run statistical correlation calculations across test group scores.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Alphabetize participant consent forms into secure filing boxes.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_12",
+    "world": "Physics Lab",
+    "dimension": "Investigative",
+    "prompt": "A pendulum swing period deviates slightly from standard gravity predictions.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Formulate formulas accounting for air resistance and friction loss.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sell pendulum science kits at the school carnival.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_13",
+    "world": "Genetics Study",
+    "dimension": "Investigative",
+    "prompt": "Fruit fly breeding trials produce unexpected eye color distribution ratios.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Calculate genetic Punnett square probability models to trace mutations.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Provide empathetic study support to struggling lab partners.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_14",
+    "world": "School Debate",
+    "dimension": "Investigative",
+    "prompt": "The opposing debate team uses complex statistical economic claims.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Fact-check research studies to identify logical fallacies in their data.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint colorful protest posters for the debate topic.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_15",
+    "world": "Robotics Code",
+    "dimension": "Investigative",
+    "prompt": "Robot line-following sensor wavers erratically when crossing black tape.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Analyze infrared light reflection calibration algorithms.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Re-solder sensor wiring harness to main motor board.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_16",
+    "world": "Chemistry Lab",
+    "dimension": "Investigative",
+    "prompt": "An unknown liquid chemical sample needs identification during competition.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Perform flame color spectral testing and acid reaction observations.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Update chemistry reagent safety inventory record binders.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_17",
+    "world": "Economics Class",
+    "dimension": "Investigative",
+    "prompt": "Local cafeteria snack prices rise while purchasing volume drops.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Model supply and demand elasticity graphs on computer spreadsheets.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Negotiate lower bulk pricing with snack vendors.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_18",
+    "world": "Health Science",
+    "dimension": "Investigative",
+    "prompt": "Student sleep survey data indicates sharp energy drops during 3rd period.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Cross-reference circadian rhythm research with coffee intake data.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Counsel tired students on healthy bedtime habits.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_19",
+    "world": "Art Conservation",
+    "dimension": "Investigative",
+    "prompt": "A vintage painting in the school hallway displays paint flaking.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Examine paint binder chemical degradation under magnifying lamps.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint creative modern restoration touches on backdrop frames.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_20",
+    "world": "Aerodynamics",
+    "dimension": "Investigative",
+    "prompt": "Paper airplane prototype drag coefficient varies unexpectedly in wind tunnel testing.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Measure airflow smoke patterns to calculate wing lift formulas.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Fold paper models using precision folding techniques.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_21",
+    "world": "Data Science Club",
+    "dimension": "Investigative",
+    "prompt": "School cafeteria lunch preference survey yields 1,000 raw responses.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Write Python data filtering scripts to spot dietary preference clusters.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Organize paper survey sheets alphabetically into binder boxes.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_22",
+    "world": "Ecology Project",
+    "dimension": "Investigative",
+    "prompt": "Local bird species population drops near school sports fields.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Track noise decibel telemetry and nesting habitat disruption variables.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch birdhouse installation ideas to school principal.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_23",
+    "world": "Sociology Class",
+    "dimension": "Investigative",
+    "prompt": "Social media usage trends differ across freshmen and senior class groups.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Evaluate statistical survey metrics regarding screen time impact.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Host empathetic listening circles on digital wellness.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_24",
+    "world": "Creative Coding",
+    "dimension": "Investigative",
+    "prompt": "Procedural visual art algorithm creates repetitive visual shapes.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Debug pseudo-random number generator math logic in code.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Select vibrant color palettes for digital artwork display.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_25",
+    "world": "Audio Science",
+    "dimension": "Investigative",
+    "prompt": "Auditorium microphone feedback screech occurs at specific frequencies.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Perform sound wave spectrum analysis to isolate echo node frequencies.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Mount speaker brackets and run heavy audio cables.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_26",
+    "world": "Geology Club",
+    "dimension": "Investigative",
+    "prompt": "Rock mineral samples from local creek display metallic shimmer.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Test streak hardness scales and acid reactivity properties.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Catalog rock specimens into numbered display boxes.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_27",
+    "world": "E-Commerce Project",
+    "dimension": "Investigative",
+    "prompt": "Student web store visitor views jump but purchase conversion drops.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Analyze website click analytics data to spot checkout friction.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Run social media promo campaign to drive new customer traffic.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_28",
+    "world": "Nutrition Class",
+    "dimension": "Investigative",
+    "prompt": "Commercial energy bar labels show high sugar despite healthy marketing claims.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Calculate caloric nutrient ratios and glycemic index metrics.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Teach younger kids healthy eating habits through fun games.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_29",
+    "world": "Game Engine",
+    "dimension": "Investigative",
+    "prompt": "Game physics engine causes virtual car to fly off track unexpectedly.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Deconstruct collision detection math formulas in game scripts.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Draw creative 2D concept art for racing vehicles.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_I_HS_30",
+    "world": "Robotics Sensor",
+    "dimension": "Investigative",
+    "prompt": "Ultrasonic distance sensor misreads cardboard box obstacles.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Test acoustic reflection wave absorption properties of materials.",
+        "dimension": "Investigative"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Mount sensor bracket physically using screwdriver tools.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_01",
+    "world": "School Newspaper",
+    "dimension": "Artistic",
+    "prompt": "The annual school magazine needs a creative visual cover theme.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Create custom digital illustrations, typography, and layout artwork.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Proofread all student articles for correct grammar and formatting.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_02",
+    "world": "Music Studio",
+    "dimension": "Artistic",
+    "prompt": "Your band needs a unique song intro for an upcoming local talent showcase.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Compose catchy melodies and experiment with sound effects.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Negotiate ticket prices and handle sponsor payouts with venue manager.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_03",
+    "world": "Film Club",
+    "dimension": "Artistic",
+    "prompt": "A short movie project needs an engaging visual atmosphere for the climax scene.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Design custom lighting colors, camera angles, and emotional scene pacing.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Set up heavy tripod rigs and run sound cables across set floor.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_04",
+    "world": "Art Exhibition",
+    "dimension": "Artistic",
+    "prompt": "A bare hallway in the youth center is assigned for student art transformation.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Paint a vibrant expressive mural with bold colors and abstract shapes.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Survey students about what mental health topics they care about.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_05",
+    "world": "Creative Writing",
+    "dimension": "Artistic",
+    "prompt": "You are tasked with writing an original story for a national youth contest.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Develop imaginative story plots, fictional worlds, and rich characters.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Research historical facts and timeline dates to ensure accuracy.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_06",
+    "world": "Dance Squad",
+    "dimension": "Artistic",
+    "prompt": "Pep rally performance requires an energetic dance routine.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Choreograph artistic dance moves set to expressive music beats.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Manage performance practice schedules and attendance records.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_07",
+    "world": "Fashion Club",
+    "dimension": "Artistic",
+    "prompt": "Eco-friendly fashion show requires garments made from recycled materials.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Sketch stylish clothing silhouettes and drape experimental fabrics.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch ticket sales to local clothing boutique sponsors.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_08",
+    "world": "Game Design",
+    "dimension": "Artistic",
+    "prompt": "An indie video game project needs visual character visual designs.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Draw expressive digital character concepts and colorful outfits.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Write code algorithms for character movement physics.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_09",
+    "world": "Yearbook Team",
+    "dimension": "Artistic",
+    "prompt": "Senior class memory pages lack visual appeal.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Craft artistic photo collage layouts, font themes, and color borders.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Print photo backdrop frames using carpentry tools.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_10",
+    "world": "Drama Department",
+    "dimension": "Artistic",
+    "prompt": "The lead character in the play needs an emotional monologue.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Write poetic dramatic dialogue highlighting deep emotional themes.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer supportive words to anxious actors before curtain rise.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_11",
+    "world": "Podcast Club",
+    "dimension": "Artistic",
+    "prompt": "Student podcast needs an unforgettable audio intro motif.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Mix catchy synth beats, sound effects, and artistic voiceover clips.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Log audio file timestamps and track numbers into archive folders.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_12",
+    "world": "Graphic Design",
+    "dimension": "Artistic",
+    "prompt": "School sports team requests a modern updated logo mascot.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Illustrate a fierce, stylized falcon logo using vector art tools.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sell logo printed hoodies to student supporters.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_13",
+    "world": "Photography",
+    "dimension": "Artistic",
+    "prompt": "A photo contest theme is capturing \"Shadows and Light in the City\".",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Compose artistic photo shots focusing on mood, contrast, and angles.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze camera lens light absorption physics math.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_14",
+    "world": "Animation Studio",
+    "dimension": "Artistic",
+    "prompt": "Short 2D animated film needs fluid character motion keyframes.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Animate subtle facial expressions and dynamic action gestures.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Build wooden lightbox tracing tables for animators.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_15",
+    "world": "Poetry Slam",
+    "dimension": "Artistic",
+    "prompt": "Local youth poetry competition seeks original verse submissions.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Perform expressive spoken-word poetry exploring personal identity.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Facilitate peer encouragement circles for nervous performers.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_16",
+    "world": "Web Design",
+    "dimension": "Artistic",
+    "prompt": "School event website looks plain and outdated.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Design stylish dark-mode UI graphics and smooth button hover effects.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Maintain user privacy compliance records and form databases.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_17",
+    "world": "Stage Makeup",
+    "dimension": "Artistic",
+    "prompt": "Fantasy theatre play requires special effects creature makeup.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Apply artistic face paint, prosthetic blended colors, and glitter.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch show ticket packages to local businesses.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_18",
+    "world": "Architecture Project",
+    "dimension": "Artistic",
+    "prompt": "Design contest asks for a futuristic youth center concept.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Draft flowing organic building shapes with glass dome courtyards.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Calculate structural load-bearing beam stress formulas.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_19",
+    "world": "Ceramics Class",
+    "dimension": "Artistic",
+    "prompt": "Pottery exhibition calls for creative clay sculptures.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Shape abstract clay vase forms with textured glaze patterns.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Repair kiln heating elements and electrical switches.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_20",
+    "world": "Culinary Arts",
+    "dimension": "Artistic",
+    "prompt": "Baking competition requires a show-stopping cake design.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Decorate multi-tiered cake with artistic fondant flowers and sugar drizzle.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Provide friendly tasting guidance to competition judges.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_21",
+    "world": "Street Art",
+    "dimension": "Artistic",
+    "prompt": "Community center offers a legal spray-paint wall for youth.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Paint colorful graffiti lettering with elaborate color shading.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Maintain spray-can inventory stock lists.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_22",
+    "world": "App Design",
+    "dimension": "Artistic",
+    "prompt": "Meditation app needs relaxing visual themes.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Illustrate soothing pastel landscape graphics and flowing animations.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch app download subscriptions to wellness blogs.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_23",
+    "world": "Poster Contest",
+    "dimension": "Artistic",
+    "prompt": "Anti-bullying campaign calls for powerful poster visuals.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Design evocative symbolic artwork depicting unity and strength.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze survey statistics on school bullying reduction.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_24",
+    "world": "Jewelry Making",
+    "dimension": "Artistic",
+    "prompt": "Art fair craft table needs handmade accessory items.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Wire-wrap colorful glass beads into unique artistic pendants.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Solder copper jump rings using precision torch tools.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_25",
+    "world": "Music Video",
+    "dimension": "Artistic",
+    "prompt": "Local garage band films their first music video.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Direct creative visual lighting cuts and band wardrobe styling.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer warm hospitality to band family members on set.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_26",
+    "world": "Logo Branding",
+    "dimension": "Artistic",
+    "prompt": "Student environment club needs a recognizable icon.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Craft a clever leaf-and-hand emblem with clean geometric lines.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "File club registration paperwork with student government.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_27",
+    "world": "Interior Design",
+    "dimension": "Artistic",
+    "prompt": "Student lounge makeover needs a cozy aesthetic.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Choose warm color schemes, decorative wall art, and ambient lamps.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sell sponsorship coffee mugs to fund couch purchases.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_28",
+    "world": "Manga Club",
+    "dimension": "Artistic",
+    "prompt": "Self-published comic book needs dramatic scene layouts.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Inking dynamic comic panels with expressive action lines.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Research Japanese historical samurai mythology accuracy.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_29",
+    "world": "Stage Prop Design",
+    "dimension": "Artistic",
+    "prompt": "Fantasy play requires a magical glowing wizard staff.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Sculpt intricate dragon claw details out of clay and resin.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Wire battery LED lights inside staff shaft.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_A_HS_30",
+    "world": "Radio Show",
+    "dimension": "Artistic",
+    "prompt": "Late-night student radio show needs an ambient theme.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Curate expressive indie playlists interspersed with poetic commentary.",
+        "dimension": "Artistic"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer supportive phone advice to lonely late-night callers.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_01",
+    "world": "Peer Tutoring",
+    "dimension": "Social",
+    "prompt": "A classmate is feeling discouraged because they are falling behind in class.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Sit down with them, explain difficult concepts patiently, and offer encouragement.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Make detailed study flashcards and organize them into tidy topic folders.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_02",
+    "world": "Student Council",
+    "dimension": "Social",
+    "prompt": "Two student groups are arguing over who gets to use the gym auditorium.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Listen empathetically to both sides and help them reach a fair compromise.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch an aggressive marketing plan to double ticket sales for both groups.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_03",
+    "world": "Youth Volunteer Center",
+    "dimension": "Social",
+    "prompt": "New freshmen feel nervous and lost during their first week at school.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Lead orientation mentorship groups to help them build friendships.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design decorative welcome banners to hang in the hallways.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_04",
+    "world": "Sports Team",
+    "dimension": "Social",
+    "prompt": "Your team is feeling down after losing an important weekend match.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Give a supportive pep talk to boost team spirit and unity.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze video footage to study opponent tactics and weaknesses.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_05",
+    "world": "Community Service",
+    "dimension": "Social",
+    "prompt": "A local senior home is hosting a weekend social event.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Spend time chatting with residents, listening to their stories, and keeping them company.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Fix squeaky door hinges and repair loose chair legs around center.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_06",
+    "world": "Mental Health Club",
+    "dimension": "Social",
+    "prompt": "Students express feeling high stress during final exam week.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Host stress-relief circles, mindfulness sessions, and peer check-ins.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Track exam schedule time slots on master spreadsheets.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_07",
+    "world": "Special Olympics",
+    "dimension": "Social",
+    "prompt": "Volunteers are needed to coach athletes in unified sports events.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Cheer on athletes, offer warm encouragement, and celebrate achievements.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch local businesses for corporate sports gear donations.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_08",
+    "world": "Art Therapy",
+    "dimension": "Social",
+    "prompt": "Children at a community center struggle to express feelings after moving.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Guide kids through gentle drawing exercises to help them process emotions.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint complex artistic canvas murals for gallery display.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_09",
+    "world": "Science Lab",
+    "dimension": "Social",
+    "prompt": "A lab partner feels intimidated by complex chemistry experiments.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Break down safety steps gently and reassure them throughout the lab.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Calculate chemical molar mass formulas on whiteboard.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_10",
+    "world": "Habitat Humanity",
+    "dimension": "Social",
+    "prompt": "Volunteers build houses for local families needing affordable homes.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Welcome family members, coordinate volunteer lunch, and foster team warmth.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Operate circular saws and nail wall stud framing.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_11",
+    "world": "Reading Buddies",
+    "dimension": "Social",
+    "prompt": "Elementary students struggle with basic reading skills.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Read storybooks together, offer praise, and build their reading confidence.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Categorize library books by ISBN number records.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_12",
+    "world": "School Climate Drive",
+    "dimension": "Social",
+    "prompt": "Students want to make the school culture more welcoming.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Organize kindness campaigns, buddy benches, and inclusion initiatives.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sell eco-friendly water bottles to raise club funds.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_13",
+    "world": "Music Mentors",
+    "dimension": "Social",
+    "prompt": "Middle school beginners feel frustrated practicing brass instruments.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Offer supportive guidance, gentle feedback, and celebrate small improvements.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Compose complex multipart jazz harmony arrangements.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_14",
+    "world": "Drama Club",
+    "dimension": "Social",
+    "prompt": "An actor gets stage fright right before opening night.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Practice calm breathing exercises with them and offer steady emotional support.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Adjust stage light spotlight angles on catwalk.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_15",
+    "world": "Environmental Club",
+    "dimension": "Social",
+    "prompt": "Local residents feel unmotivated to participate in recycling.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Engage neighbors in friendly conversations about environmental benefits.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Track recycling bin weight metrics in weekly spreadsheets.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_16",
+    "world": "Robotics Team",
+    "dimension": "Social",
+    "prompt": "Team members argue over which mechanical strategy to use.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Facilitate open discussion so everyone feels heard and respected.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch team sponsorship deals to local engineering firms.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_17",
+    "world": "Computer Lab",
+    "dimension": "Social",
+    "prompt": "Seniors attend a community digital literacy class at school.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Patiently walk seniors through sending emails and video calling family.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Debug network router IP address assignments.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_18",
+    "world": "Dance Workshop",
+    "dimension": "Social",
+    "prompt": "Younger kids struggle to keep up with dance choreography steps.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Encourage them with smiles, slow down steps, and make practice fun.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design custom dance costume outfits.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_19",
+    "world": "First Aid Club",
+    "dimension": "Social",
+    "prompt": "Students learn basic CPR and emergency response skills.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Practice compassionate patient care and staying calm during crises.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Bandage physical wounds and assemble medical kit supplies.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_20",
+    "world": "Animal Shelter",
+    "dimension": "Social",
+    "prompt": "Rescue pets need social interaction before adoption.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Spend gentle time cuddling, walking, and comforting nervous animals.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Maintain pet vaccination record filing systems.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_21",
+    "world": "Fundraiser Drive",
+    "dimension": "Social",
+    "prompt": "A family in the neighborhood experienced a house fire.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Organize care packages, emotional support visits, and community meals.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Run a competitive fundraising drive targeting corporate sponsors.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_22",
+    "world": "School Broadcast",
+    "dimension": "Social",
+    "prompt": "Morning news team wants to highlight positive student achievements.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Interview students with warmth, making them feel comfortable on camera.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Write news script dialogue and research story facts.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_23",
+    "world": "Art Fair",
+    "dimension": "Social",
+    "prompt": "Visitors look for interactive art activities at the school festival.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Host collaborative finger-painting tables encouraging group joy.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint detailed oil canvas portraits for exhibition display.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_24",
+    "world": "Sports Camp",
+    "dimension": "Social",
+    "prompt": "Campers feel homesick during their first week away.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Offer comforting words, listen to their worries, and include them in games.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Inspect field goalpost hardware and turf safety.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_25",
+    "world": "Study Group",
+    "dimension": "Social",
+    "prompt": "Finals season leaves classmates feeling isolated.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Form collaborative study circles where everyone shares notes and supports each other.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Catalog study guides into organized subject binders.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_26",
+    "world": "Youth Leadership",
+    "dimension": "Social",
+    "prompt": "Middle schoolers attend a workshop on standing up to peer pressure.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Facilitate supportive roleplaying exercises on building self-confidence.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Deliver aggressive campaign pitch speeches to gain votes.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_27",
+    "world": "Science Club",
+    "dimension": "Social",
+    "prompt": "Younger students are curious about how space rockets work.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Explain rocket science using fun, easy analogies with enthusiastic care.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Derive orbital velocity physics equations on board.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_28",
+    "world": "Band Trip",
+    "dimension": "Social",
+    "prompt": "Long bus rides make band members restless and cranky.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Organize inclusive bus singalongs and group bonding games.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design custom graphic sticker merchandise for band instruments.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_29",
+    "world": "Community Garden",
+    "dimension": "Social",
+    "prompt": "Neighbors disagree on what vegetables to plant in shared plots.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Help neighbors converse respectfully and agree on shared planting areas.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Install drip hose irrigation plumbing fittings.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_S_HS_30",
+    "world": "Orientation Week",
+    "dimension": "Social",
+    "prompt": "Transfer students sit alone during school lunch.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Walk over, invite them to sit at your table, and introduce them to friends.",
+        "dimension": "Social"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Maintain student enrollment database records.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_01",
+    "world": "Fundraiser Event",
+    "dimension": "Enterprising",
+    "prompt": "Your club needs to raise $500 for an upcoming trip by the end of the week.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Pitch a creative snack sale campaign to students and lead sales outreach.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Keep accurate receipt records and log every dollar in a balance sheet.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_02",
+    "world": "Student Election",
+    "dimension": "Enterprising",
+    "prompt": "You are running for Class President against strong competition.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Deliver a persuasive campaign speech convincing peers to vote for your vision.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Coordinate face-to-face listening sessions to hear individual student worries.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_03",
+    "world": "School Festival",
+    "dimension": "Enterprising",
+    "prompt": "A local business offers to sponsor your school gaming tournament.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Negotiate a sponsorship deal in exchange for logo placement on prizes.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Wire up gaming consoles, monitors, and network cables.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_04",
+    "world": "Startup Challenge",
+    "dimension": "Enterprising",
+    "prompt": "Your group has 5 minutes to present an eco-friendly product idea to judges.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Lead the presentation with high energy, highlighting market appeal and profits.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Present the scientific chemistry data behind eco-friendly materials.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_05",
+    "world": "Drama Production",
+    "dimension": "Enterprising",
+    "prompt": "Ticket sales for the spring musical are lower than expected.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Partner with local radio stations and social media influencers to boost hype.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Choreograph artistic dance routines for lead performers.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_06",
+    "world": "School Store",
+    "dimension": "Enterprising",
+    "prompt": "Student store inventory isn\u2019t selling popular hoodie colors.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Run limited-time flash sales and promotional combo deals.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Organize hoodie sizes neatly into labeled inventory bins.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_07",
+    "world": "E-Sports Club",
+    "dimension": "Enterprising",
+    "prompt": "Gaming team needs funding for travel to national tournament.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Pitch corporate tech sponsors for tournament team jerseys and travel funds.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Solder custom mechanical keyboard switches.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_08",
+    "world": "Class Gift",
+    "dimension": "Enterprising",
+    "prompt": "Senior class wants to raise money for a permanent courtyard bench.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Rally classmates to participate in a high-stakes teacher pie-throw contest.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer supportive listening support to stressed seniors.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_09",
+    "world": "Podcast Network",
+    "dimension": "Enterprising",
+    "prompt": "Student podcast wants to land an interview with a famous author.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Send persuasive pitch emails highlighting audience reach and benefits.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze audio compression data frequencies.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_10",
+    "world": "Art Auction",
+    "dimension": "Enterprising",
+    "prompt": "Student art pieces will be auctioned for charity.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Act as charismatic auctioneer to drive up competitive bidding prices.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint creative canvas landscape paintings for auction.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_11",
+    "world": "Concession Stand",
+    "dimension": "Enterprising",
+    "prompt": "Friday football game concession lines move too slowly.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Re-organize staff roles and introduce fast-pass combo options to boost sales.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Keep strict cash register transaction logs.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_12",
+    "world": "Robotics League",
+    "dimension": "Enterprising",
+    "prompt": "Robotics team seeks exclusive naming sponsorship from local engineering company.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Deliver energetic pitch presentation highlighting brand visibility.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Assemble aluminum robot frame chassis using power tools.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_13",
+    "world": "Talent Show",
+    "dimension": "Enterprising",
+    "prompt": "Annual talent show needs maximum auditorium attendance.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Lead social media viral challenge campaigns promoting event ticket sales.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer warm encouragement to nervous backstage performers.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_14",
+    "world": "App Launch",
+    "dimension": "Enterprising",
+    "prompt": "Students create a homework helper mobile app.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Convince school principal to endorse app download across all grade levels.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze database search query code logic.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_15",
+    "world": "School Dance",
+    "dimension": "Enterprising",
+    "prompt": "Prom ticket sales fall behind budget targets.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Offer early-bird discount packages and raffle prize incentives.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design artistic decorative backdrops and floral arches.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_16",
+    "world": "Environmental Campaign",
+    "dimension": "Enterprising",
+    "prompt": "Students advocate for solar panels on school gym roof.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Present business case pitch showing long-term electricity cost savings.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Maintain solar panel energy output spreadsheets.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_17",
+    "world": "Car Wash Drive",
+    "dimension": "Enterprising",
+    "prompt": "Weekend car wash fundraiser competition between grade levels.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Direct traffic with bright sign-waving and motivate team to wash faster.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Connect high-pressure water hoses and wash bucket tools.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_18",
+    "world": "Youth Marketplace",
+    "dimension": "Enterprising",
+    "prompt": "Local fair hosts student craft and business booths.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Engage passing shoppers enthusiastically to pitch product benefits.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Offer friendly conversation to lonely fair visitors.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_19",
+    "world": "School Newspaper",
+    "dimension": "Enterprising",
+    "prompt": "Newspaper club needs ad revenue to print full-color editions.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Sell ad space to local pizza shops and tutoring centers.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Investigate investigative news story leads.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_20",
+    "world": "Band Merchandise",
+    "dimension": "Enterprising",
+    "prompt": "School marching band wants to fund trip to national parade.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Design and sell customized band hoodies, caps, and water bottles.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Illustrate artistic album sleeve designs.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_21",
+    "world": "Yearbook Sales",
+    "dimension": "Enterprising",
+    "prompt": "Yearbook pre-orders need a boost before final printing deadline.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Run promotional video teasers highlighting senior memory quotes.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Reconcile student payment receipt logs.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_22",
+    "world": "Bike Swap Event",
+    "dimension": "Enterprising",
+    "prompt": "Community bicycle exchange event needs organization.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Manage trade negotiations between bike sellers and buyers.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Repair bike chains and inflate tires.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_23",
+    "world": "Debate Tournament",
+    "dimension": "Enterprising",
+    "prompt": "Hosting regional debate tournament requires local business sponsorship.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Pitch corporate sponsors for meal vouchers and trophy funding.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Mentor junior debaters on emotional stress management.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_24",
+    "world": "Science Fair",
+    "dimension": "Enterprising",
+    "prompt": "Science competition seeks prizes for winning student inventions.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Persuade tech companies to donate laptops and tablets as top prizes.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze chemical experiment reaction data.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_25",
+    "world": "Film Festival",
+    "dimension": "Enterprising",
+    "prompt": "Student short film festival aims to sell out cinema seats.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Host red-carpet VIP events and secure local news coverage.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Edit creative movie color grading and visual effects.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_26",
+    "world": "Class Carnival",
+    "dimension": "Enterprising",
+    "prompt": "School spring carnival needs profitable game booth ideas.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Set up high-margin game booths with attractive prize tiers.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Keep exact ticket sales balance logs.",
+        "dimension": "Conventional"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_27",
+    "world": "Fitness Challenge",
+    "dimension": "Enterprising",
+    "prompt": "Charity 5K run needs runner sign-ups.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Lead energetic school assembly pitches to sign up 200 runners.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Assemble course barrier signs and water station tables.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_28",
+    "world": "Community CleanUp",
+    "dimension": "Enterprising",
+    "prompt": "Park cleanup campaign needs trash bag supplies.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Persuade hardware store owners to donate gloves, bags, and tools.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Provide friendly encouragement to volunteer cleanup teams.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_29",
+    "world": "Gaming Tournament",
+    "dimension": "Enterprising",
+    "prompt": "Smash Bros tournament wants cash prize pool.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Collect entry fees, secure prize match funds, and market bracket hype.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze frame data hitboxes in game code.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_E_HS_30",
+    "world": "Theatre Box Office",
+    "dimension": "Enterprising",
+    "prompt": "Opening night show has remaining unsold seats.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Sell discounted group pass bundles at school lunch doors.",
+        "dimension": "Enterprising"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Draft artistic poster graphics for theatre show.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_01",
+    "world": "Event Planning",
+    "dimension": "Conventional",
+    "prompt": "The prom committee needs to ensure every detail stays on schedule.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Create a clear master spreadsheet, check off deadlines, and track supplier costs.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design artistic centerpieces and custom lighting themes.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_02",
+    "world": "Library System",
+    "dimension": "Conventional",
+    "prompt": "A huge box of donated textbooks arrives at the school library.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Sort books systematically by subject, label code, and shelf placement.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Help younger students find inspiring books to read.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_03",
+    "world": "Class Treasury",
+    "dimension": "Conventional",
+    "prompt": "The senior class treasury records show missing receipt entries.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Go through transaction slips step-by-step to balance the account budget.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Rally students to buy tickets for the next class activity.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_04",
+    "world": "Robotics Competition",
+    "dimension": "Conventional",
+    "prompt": "The competition judges require official engineering safety documentation.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Organize inspection checklists, safety compliance binders, and team logs.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Tighten motor bolts and assemble gearboxes.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_05",
+    "world": "Science Lab",
+    "dimension": "Conventional",
+    "prompt": "The bio lab equipment inventory needs accurate stock counts before summer.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Count glass beakers, update inventory checklists, and store chemicals safely.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Conduct genetic DNA gel electrophoresis experiments.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_06",
+    "world": "Attendance Office",
+    "dimension": "Conventional",
+    "prompt": "Morning homeroom attendance slip sheets need filing into the school database.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Type absent records accurately, cross-check parent notes, and file sheets.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Counsel students struggling with frequent tardiness gently.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_07",
+    "world": "Sports Department",
+    "dimension": "Conventional",
+    "prompt": "School athletic uniforms need organizing after laundry cleaning.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Sort jerseys by number, fold neatly, and store in assigned team cubbies.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Repair helmet chin straps and shoulder pad hardware.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_08",
+    "world": "Newspaper Proofing",
+    "dimension": "Conventional",
+    "prompt": "Final draft of school paper needs proofreading before printing.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Check grammar mistakes, verify spelling, and enforce strict layout margin rules.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Draw creative political cartoons for editorial section.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_09",
+    "world": "School Store",
+    "dimension": "Conventional",
+    "prompt": "Daily store cash register needs closing balance check.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Count bills, reconcile cash receipts against register totals, and record log.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Pitch buy-one-get-one deals to lunch shoppers.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_10",
+    "world": "Exam Center",
+    "dimension": "Conventional",
+    "prompt": "State standardized testing booklets require strict distribution logs.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Scan test booklet serial numbers, arrange desks, and enforce quiet rules.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze statistical test score trend graphs.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_11",
+    "world": "Yearbook Index",
+    "dimension": "Conventional",
+    "prompt": "Yearbook portrait section requires student name spellings verified.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Alphabetize portrait lists, verify spelling against official school roster.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Encourage shy students during photo sessions.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_12",
+    "world": "Band Sheet Music",
+    "dimension": "Conventional",
+    "prompt": "Orchestra music library has hundreds of unorganized sheet music folders.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Catalog music sheets by composer, instrument, and difficulty level.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Compose original violin sonatas.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_13",
+    "world": "Stage Crew Schedule",
+    "dimension": "Conventional",
+    "prompt": "Backstage crew shift schedule conflicts with rehearsal times.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Format clear shift timetable spreadsheets showing exact stage assignments.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Mount spotlights and clamp overhead audio speakers.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_14",
+    "world": "Club Registrations",
+    "dimension": "Conventional",
+    "prompt": "Club fair registration sheets need entry into student activity database.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Input student IDs, emails, and chosen clubs accurately into system.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Deliver enthusiastic speech recruiting new club members.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_15",
+    "world": "Science Lab Supplies",
+    "dimension": "Conventional",
+    "prompt": "Hazardous lab chemical bottles require updated safety hazard labels.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Print safety warning codes, affix clear labels, and update safety binder.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Formulate hypotheses on chemical compound reactions.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_16",
+    "world": "Community Service",
+    "dimension": "Conventional",
+    "prompt": "Volunteer hour log sheets require student signatures verified.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Review hour totals, check supervisor sign-offs, and file certificates.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Console upset volunteers experiencing fatigue.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_17",
+    "world": "Art Supply Closet",
+    "dimension": "Conventional",
+    "prompt": "Painting supplies, brushes, and clay jars are jumbled in storage.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Categorize paints by color type, organize brushes, and label shelves.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Paint creative canvas landscape paintings.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_18",
+    "world": "Tutoring Center",
+    "dimension": "Conventional",
+    "prompt": "Peer tutoring appointment bookings need weekly schedule calendar setup.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Match tutor availability times with student requests on master calendar.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sell tutoring subscription packages to parents.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_19",
+    "world": "Media Lab",
+    "dimension": "Conventional",
+    "prompt": "Camera memory cards and batteries need sign-out inventory log tracking.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Maintain sign-out clipboard sheets logging student names and return dates.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Solder damaged battery charger cables.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_20",
+    "world": "School Garden",
+    "dimension": "Conventional",
+    "prompt": "Seed planting schedule requires tracking seasonal growth cycles.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Log seed types, planting dates, and expected harvest weeks in ledger.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Test soil nitrogen levels under lab analysis.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_21",
+    "world": "Graduation Committee",
+    "dimension": "Conventional",
+    "prompt": "Senior diploma name spellings require double-check verification.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Cross-check diploma proofs against birth certificate records line-by-line.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Guide anxious seniors through graduation ceremony walkthroughs.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_22",
+    "world": "Digital Archive",
+    "dimension": "Conventional",
+    "prompt": "Old school newspaper issues need scanning and tagging for web library.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Scan paper pages, tag publication dates, and index keywords into system.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Design graphic poster art for retro newspaper archives.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_23",
+    "world": "Concession Inventory",
+    "dimension": "Conventional",
+    "prompt": "Snack box inventory counts must match stadium delivery manifests.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Count candy boxes, verify against delivery invoices, and report gaps.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Negotiate lower soda costs with local distributors.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_24",
+    "world": "Locker Assignments",
+    "dimension": "Conventional",
+    "prompt": "Freshmen locker combination list needs updating for school start.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Format locker numbers, assign serial combinations, and print student slips.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Cut combination lock shackle bolts using bolt cutters.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_25",
+    "world": "Debate Research",
+    "dimension": "Conventional",
+    "prompt": "Evidence cards for debate team need organized filing by topic tag.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Organize citation cards, tag categories, and file into card boxes.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Analyze research survey statistical validity.",
+        "dimension": "Investigative"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_26",
+    "world": "Film Equipment",
+    "dimension": "Conventional",
+    "prompt": "Video production equipment cases require barcode label tracking.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Affix asset barcode tags, scan into database, and verify kit contents.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Direct creative visual lighting setups for video shoots.",
+        "dimension": "Artistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_27",
+    "world": "Fundraiser Receipts",
+    "dimension": "Conventional",
+    "prompt": "Car wash fundraiser cash donations require receipt tally records.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Tally cash donation slips, record donor names, and prepare bank deposit.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Provide warm hospitality to visiting car owners.",
+        "dimension": "Social"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_28",
+    "world": "E-Sports League",
+    "dimension": "Conventional",
+    "prompt": "Tournament match scores and win-loss brackets need recording.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Record score totals, update tournament bracket sheets, and log player IDs.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Sell tournament streaming sponsor passes.",
+        "dimension": "Enterprising"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_29",
+    "world": "Bicycle Parking",
+    "dimension": "Conventional",
+    "prompt": "School bike rack permit tags require registration database setup.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Issue numbered sticker tags, log student names, and file bike descriptions.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Repair bike chains and tighten hand brakes.",
+        "dimension": "Realistic"
+      }
+    ]
+  },
+  {
+    "item_id": "ITEM_C_HS_30",
+    "world": "Biology Lab",
+    "dimension": "Conventional",
+    "prompt": "Microscope slide collection needs cleaning and cataloging.",
+    "options": [
+      {
+        "option_id": "OPT_1",
+        "text": "Wipe glass slides, label specimen names, and organize in numbered slots.",
+        "dimension": "Conventional"
+      },
+      {
+        "option_id": "OPT_2",
+        "text": "Identify unknown cellular structures under microscope.",
+        "dimension": "Investigative"
+      }
+    ]
+  }
+]

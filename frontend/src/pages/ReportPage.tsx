@@ -253,9 +253,11 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
     spatial: "Spatial (Gv)"
   };
 
-  // Build radar chart: show all modules completed or all 10
-  const assessedKeys = Object.keys(report.moduleScores);
-  const radarData = (assessedKeys.length >= 4 ? assessedKeys : NINE_PILLARS_CONFIG.map(m => m.id)).map(k => ({
+  // Build radar chart: show only completed modules, or 10-module framework with 0 for pending
+  const assessedKeys = Object.keys(report.moduleScores).filter(
+    k => report.moduleScores[k] !== undefined && Number(report.moduleScores[k]) > 0
+  );
+  const radarData = (assessedKeys.length >= 3 ? assessedKeys : NINE_PILLARS_CONFIG.map(m => m.id)).map(k => ({
     subject: moduleNamesShort[k] || k,
     score: Math.round(report.moduleScores[k] || 0),
     average: 74
@@ -281,7 +283,13 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
   // Dynamic Normative Classification
   const getNormativeDetails = (score: number) => {
-    if (score >= 82) {
+    if (assessedKeys.length === 0 || score === 0) {
+      return {
+        range: "Diagnostic Baseline Pending",
+        percentile: "Pending",
+        description: "Initial evaluation record. Complete active modules from the candidate dashboard to generate your official psychometric cohort standing."
+      };
+    } else if (score >= 82) {
       return {
         range: "Superior Cognitive Range",
         percentile: "Top 12%",
