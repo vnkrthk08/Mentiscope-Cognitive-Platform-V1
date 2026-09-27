@@ -460,7 +460,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
             className="group flex items-center justify-end gap-3 text-right focus:outline-none"
           >
             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-505 dark:text-slate-400">
-              {sec === "home" ? "Welcome" : sec === "audience" ? "For Whom" : sec === "benefits" ? "Why it works" : sec.charAt(0).toUpperCase() + sec.slice(1)}
+              {sec === "home" ? "Welcome" : sec === "audience" ? "For Whom" : sec === "benefits" ? "Methodology" : sec.charAt(0).toUpperCase() + sec.slice(1)}
             </span>
             <div className={`h-3 w-3 rounded-full border-2 transition-all duration-300 ${
               activeSection === sec
@@ -767,8 +767,8 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                     </span>
                   </div>
 
-                  <p className="text-slate-650 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                    <strong>Mentiscope</strong> is an innovative cognitive assessment platform incubated at NIRMAAN, IIT Madras, dedicated to helping students, job aspirants, and professionals discover their true potential through scientifically designed assessments. By integrating cognitive science, psychometrics, and artificial intelligence, the platform evaluates cognitive abilities, aptitude, personality, and learning preferences to generate personalized insights. These assessments empower individuals to make informed academic, career, and personal development decisions.
+                  <p className="text-slate-650 dark:text-slate-300 text-sm leading-relaxed">
+                    <strong>Mentiscope</strong> is an innovative cognitive assessment platform incubated at NIRMAAN, IIT Madras. By integrating cognitive science, psychometrics, and artificial intelligence, we evaluate innate problem-solving abilities to generate personalized insights that empower students to make confident academic and career choices.
                   </p>
                 </div>
 
@@ -783,8 +783,8 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                     </span>
                   </div>
 
-                  <p className="text-slate-650 dark:text-slate-350 text-sm sm:text-base leading-relaxed">
-                    Mentiscope also supports schools, colleges, training institutions, and employers with data-driven tools for talent identification, career guidance, and skill assessment. Instead of providing only test scores, the platform delivers comprehensive reports with visual analytics, benchmarking, and personalized recommendations for continuous improvement. With a vision to make scientific assessment accessible to everyone, Mentiscope aims to bridge the gap between human potential and opportunity through technology-driven innovation.
+                  <p className="text-slate-650 dark:text-slate-350 text-sm leading-relaxed">
+                    Mentiscope also supports schools, colleges, and educators with data-driven tools for talent discovery and career guidance. Beyond traditional test scores, we deliver visual analytics, benchmark evaluations, and actionable recommendations to help bridge the gap between human potential and opportunity.
                   </p>
                 </div>
               </motion.div>
@@ -1480,16 +1480,16 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-center max-w-3xl mx-auto space-y-1"
+              className="text-center max-w-3xl mx-auto space-y-1.5"
             >
               <h2 className="text-[10px] font-mono font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
-                Why it works
+                Scientific Methodology
               </h2>
               <p className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
                 Backed by real science, not guesswork
               </p>
-              <p className="text-xs text-slate-555 dark:text-slate-405 max-w-xl mx-auto leading-relaxed">
-                Mentiscope bridges cognitive science and interactive technology to reveal your authentic problem-solving potential.
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-350 max-w-2xl mx-auto leading-relaxed pt-1">
+                Developed by a multidisciplinary team of AI experts, technologists, researchers, academicians, and psychologists to deliver scientifically validated and intelligent cognitive assessment solutions.
               </p>
             </motion.div>
 
