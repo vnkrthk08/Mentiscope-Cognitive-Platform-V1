@@ -366,12 +366,12 @@ export default function Navbar({
                 Home
               </button>
 
-              {/* Modern Glass & Glow Outline Candidate Portal Button */}
+              {/* Modern Candidate Portal Button */}
               <button
                 onClick={() => onNavigate("auth", "student-login")}
-                className="group relative flex items-center gap-2 rounded-xl border border-cyan-500/30 dark:border-cyan-400/30 bg-slate-900/60 dark:bg-slate-900/70 backdrop-blur-md px-4 py-2 text-xs sm:text-sm font-bold text-slate-900 dark:text-white transition-all duration-300 hover:border-cyan-400 dark:hover:border-cyan-300 hover:bg-cyan-500/10 dark:hover:bg-cyan-400/10 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] active:scale-[0.98]"
+                className="group relative flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 hover:bg-slate-50 dark:hover:bg-slate-800/80 hover:border-blue-400/80 dark:hover:border-blue-500/50 px-4 py-2 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white shadow-xs hover:shadow-sm transition-all duration-300 active:scale-[0.98] cursor-pointer"
               >
-                <UserIcon className="h-4 w-4 text-cyan-500 dark:text-cyan-400 transition-transform duration-300 group-hover:scale-110" />
+                <UserIcon className="h-4 w-4 text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-110" />
                 <span>Candidate Portal</span>
               </button>
 

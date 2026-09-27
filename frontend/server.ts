@@ -207,7 +207,7 @@ async function boot() {
     console.log("Serving static production assets from dist/ folder.");
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
+  app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
   });
 }
