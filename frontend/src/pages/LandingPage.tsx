@@ -721,7 +721,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
-              {/* Left Column: Heading and Story */}
+              {/* Left Column: Heading and Branding */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -729,90 +729,43 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-5 space-y-6"
               >
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 px-3.5 py-1 text-xs font-semibold text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/60 shadow-xs">
-                  <Sparkles className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
-                  <span>About Our Website & Project</span>
+                <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 dark:bg-blue-950/30 px-3.5 py-1 text-xs font-semibold text-blue-700 dark:text-blue-400 border border-blue-100/50 dark:border-blue-900/30 shadow-sm">
+                  <span>Platform Overview</span>
                 </div>
                 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-                  Know Your Stream, <br />
+                  Bridging the Gap <br />
+                  Between Human <br />
                   <span className="gradient-text glow-text font-bold inline-block pb-1">
-                    Before Making the Leap
+                    Potential & Opportunity
                   </span>
                 </h2>
                 
                 <div className="h-1.5 w-20 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 animate-gradient-shift" />
                 
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-350 leading-relaxed max-w-md">
-                  Choosing a stream after Class 10 or 12 shouldn't rely on guesswork, peer trends, or entrance exam pressure. Mentiscope turns career discovery into an engaging 15-minute challenge that uncovers how your mind genuinely solves problems.
+                <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
+                  Evaluates cognitive abilities, aptitude, personality, and learning preferences to empower decisions through science.
                 </p>
-
-                {/* Quick Highlight Stats */}
-                <div className="grid grid-cols-3 gap-3 pt-2">
-                  <div className="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80">
-                    <p className="text-lg font-black text-blue-600 dark:text-blue-400">15 Min</p>
-                    <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5">Zero-stress micro tests</p>
-                  </div>
-                  <div className="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80">
-                    <p className="text-lg font-black text-emerald-600 dark:text-emerald-400">10 Pillars</p>
-                    <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5">Whole-brain radar</p>
-                  </div>
-                  <div className="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80">
-                    <p className="text-lg font-black text-purple-600 dark:text-purple-400">4 Streams</p>
-                    <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-0.5">Engineering, Med, Law, Com</p>
-                  </div>
-                </div>
               </motion.div>
 
-              {/* Right Column: Narrative Bento Grid */}
+              {/* Right Column: Narrative Glass Card */}
               <motion.div 
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="lg:col-span-7 space-y-4"
+                className="lg:col-span-7"
               >
-                {/* Story Card 1 */}
-                <div className="bento-card rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800/80 hover:border-blue-400/60 dark:hover:border-blue-800/80 transition-all">
-                  <div className="flex items-center gap-3 mb-2.5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
-                      <Award className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-mono font-bold tracking-wider text-blue-600 dark:text-blue-400 uppercase">Our Purpose</span>
-                      <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">Built to Eliminate Stream Confusion</h4>
-                    </div>
-                  </div>
-                  <p className="text-slate-600 dark:text-slate-350 text-xs sm:text-sm leading-relaxed">
-                    Millions of students pick a career stream based on relative opinions, friends' choices, or entrance test stress — only to regret it within two years. Mentiscope gives students an objective, pressure-free evaluation of where their natural aptitudes actually shine.
+                <div className="bento-card rounded-3xl p-8 sm:p-10 shadow-lg space-y-6">
+                  <p className="text-slate-650 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <strong>Mentiscope</strong> is an innovative cognitive assessment platform incubated at NIRMAAN, IIT Madras, dedicated to helping students, job aspirants, and professionals discover their true potential through scientifically designed assessments. By integrating cognitive science, psychometrics, and artificial intelligence, the platform evaluates cognitive abilities, aptitude, personality, and learning preferences to generate personalized insights. These assessments empower individuals to make informed academic, career, and personal development decisions.
                   </p>
-                </div>
-
-                {/* Story Cards 2 & 3 in 2-col */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bento-card rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-400/60 dark:hover:border-emerald-800/80 transition-all">
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
-                        <Brain className="h-3.5 w-3.5" />
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Gamified Problem-Solving</h4>
-                    </div>
-                    <p className="text-slate-600 dark:text-slate-350 text-xs leading-relaxed">
-                      Instead of dry exams, students solve pattern puzzles, spatial logic, reaction calibration, and practical scenarios that make assessment feel like a fun game.
-                    </p>
-                  </div>
-
-                  <div className="bento-card rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-800/80 hover:border-purple-400/60 dark:hover:border-purple-800/80 transition-all">
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400">
-                        <UserCheck className="h-3.5 w-3.5" />
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Actionable Family Roadmap</h4>
-                    </div>
-                    <p className="text-slate-600 dark:text-slate-350 text-xs leading-relaxed">
-                      Parents and students receive an instant, easy-to-read radar report highlighting cognitive superpowers and stream fit, providing a shared foundation for confident decisions.
-                    </p>
-                  </div>
+                  
+                  <div className="border-t border-slate-200 dark:border-slate-800/80 my-4" />
+                  
+                  <p className="text-slate-650 dark:text-slate-350 text-sm sm:text-base leading-relaxed">
+                    Mentiscope also supports schools, colleges, training institutions, and employers with data-driven tools for talent identification, career guidance, and skill assessment. Instead of providing only test scores, the platform delivers comprehensive reports with visual analytics, benchmarking, and personalized recommendations for continuous improvement. With a vision to make scientific assessment accessible to everyone, Mentiscope aims to bridge the gap between human potential and opportunity through technology-driven innovation.
+                  </p>
                 </div>
               </motion.div>
 
