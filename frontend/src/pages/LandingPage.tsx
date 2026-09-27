@@ -721,7 +721,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
-              {/* Left Column: Heading, Branding & Structural Pillars */}
+              {/* Left Column: Heading and Branding */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -746,32 +746,9 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
                   Evaluates cognitive abilities, aptitude, personality, and learning preferences to empower decisions through science.
                 </p>
-
-                {/* Left Column Structural Accents to Balance Height */}
-                <div className="pt-2 space-y-2.5">
-                  <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/60 dark:bg-slate-900/50 border border-slate-200/70 dark:border-slate-800/80 shadow-xs hover:border-blue-300 dark:hover:border-blue-900/60 transition-all">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/40">
-                      <GraduationCap className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-slate-800 dark:text-slate-200">Incubated at NIRMAAN</p>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400">IIT Madras Pre-Incubator Initiative</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/60 dark:bg-slate-900/50 border border-slate-200/70 dark:border-slate-800/80 shadow-xs hover:border-emerald-300 dark:hover:border-emerald-900/60 transition-all">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/40">
-                      <BarChart4 className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-slate-800 dark:text-slate-200">Visual Analytics & Benchmarking</p>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Actionable insights beyond raw scores</p>
-                    </div>
-                  </div>
-                </div>
               </motion.div>
 
-              {/* Right Column: Dual-Pillar Glass Cards with Key Pillar Pills */}
+              {/* Right Column: Clean Dual-Pillar Glass Cards */}
               <motion.div 
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -779,35 +756,14 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 transition={{ duration: 0.7 }}
                 className="lg:col-span-7 space-y-4"
               >
-                {/* Top Research & Methodology Pill Strip */}
-                <div className="flex flex-wrap items-center gap-2 pb-1">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200/60 dark:border-blue-900/40">
-                    <Brain className="h-3 w-3" />
-                    Cognitive Science
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-200/60 dark:border-purple-900/40">
-                    <Layers className="h-3 w-3" />
-                    Psychometrics
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-900/40">
-                    <Sparkles className="h-3 w-3" />
-                    Artificial Intelligence
-                  </span>
-                </div>
-
                 {/* Pillar Card 1: Individual Potential & Discovery */}
                 <div className="bento-card rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800/80 hover:border-blue-400/50 dark:hover:border-blue-800/60 transition-all">
-                  <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-slate-100 dark:border-slate-800/80">
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
-                        <UserCheck className="h-3.5 w-3.5" />
-                      </div>
-                      <span className="text-[11px] font-mono font-bold tracking-wider text-blue-600 dark:text-blue-400 uppercase">
-                        Individual Potential & Growth
-                      </span>
+                  <div className="flex items-center gap-2.5 pb-3 mb-3.5 border-b border-slate-100 dark:border-slate-800/80">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
+                      <UserCheck className="h-3.5 w-3.5" />
                     </div>
-                    <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                      Students • Aspirants • Professionals
+                    <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wide">
+                      Individual Potential & Growth
                     </span>
                   </div>
 
@@ -818,17 +774,12 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
 
                 {/* Pillar Card 2: Institutional & Industry Impact */}
                 <div className="bento-card rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-400/50 dark:hover:border-emerald-800/60 transition-all">
-                  <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-slate-100 dark:border-slate-800/80">
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
-                        <Briefcase className="h-3.5 w-3.5" />
-                      </div>
-                      <span className="text-[11px] font-mono font-bold tracking-wider text-emerald-600 dark:text-emerald-400 uppercase">
-                        Institutional & Industry Solutions
-                      </span>
+                  <div className="flex items-center gap-2.5 pb-3 mb-3.5 border-b border-slate-100 dark:border-slate-800/80">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+                      <Briefcase className="h-3.5 w-3.5" />
                     </div>
-                    <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                      Schools • Colleges • Employers
+                    <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wide">
+                      Institutional & Industry Solutions
                     </span>
                   </div>
 
