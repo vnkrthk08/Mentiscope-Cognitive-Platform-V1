@@ -730,7 +730,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 className="lg:col-span-5 space-y-6"
               >
                 <div className="inline-flex items-center gap-2 rounded-full bg-blue-50/90 dark:bg-blue-950/50 px-3.5 py-1.5 text-xs font-semibold text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/60 shadow-xs">
-                  <Sparkles className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                  <GraduationCap className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0" />
                   <span>Unlock Your Potential… Transform Your Future</span>
                 </div>
                 
