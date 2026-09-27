@@ -499,8 +499,8 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 className="lg:col-span-7 space-y-6"
               >
                 {/* Stream Guidance Badge */}
-                <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 dark:bg-blue-950/50 px-4 py-1.5 text-xs font-semibold text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/60 shadow-sm animate-scale-in">
-                  <Compass className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0" />
+                <div className="inline-flex items-center gap-2 rounded-full bg-blue-50/90 dark:bg-blue-950/40 px-3.5 py-1.5 text-xs font-semibold text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/60 shadow-xs animate-scale-in">
+                  <GraduationCap className="h-4 w-4 text-blue-600 dark:text-blue-400 shrink-0" />
                   <span>Find Your Right Stream — Before You Have To Choose</span>
                 </div>
                 
@@ -544,15 +544,30 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                   </button>
                 </div>
 
-                {/* Trust Badges */}
-                <div className="pt-6 border-t border-slate-100 dark:border-slate-900 flex flex-wrap items-center gap-6 text-xs text-slate-505 dark:text-slate-400 flex-row animate-fade-up delay-500">
-                  <div className="flex items-center gap-1.5 font-semibold text-slate-600 dark:text-slate-350">
-                    <Award className="h-4 w-4 text-emerald-500" />
-                    <span>Incubated at IIT Madras</span>
+                {/* Human-Centered Research Methodology & Academic Standing */}
+                <div className="pt-6 border-t border-slate-200/70 dark:border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs animate-fade-up delay-500">
+                  <div className="flex items-start gap-2.5">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 mt-0.5 border border-blue-100 dark:border-blue-900/40">
+                      <Brain className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-800 dark:text-slate-200 text-xs">Cattell-Horn-Carroll Cognitive Model</h4>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 font-sans leading-relaxed mt-0.5">
+                        Assesses 10 distinct problem-solving constructs rather than test-taking memory.
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1.5 font-semibold text-slate-600 dark:text-slate-350">
-                    <ShieldCheck className="h-4 w-4 text-indigo-500" />
-                    <span>Scientifically Validated</span>
+
+                  <div className="flex items-start gap-2.5">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 mt-0.5 border border-emerald-100 dark:border-emerald-900/40">
+                      <UserCheck className="h-3.5 w-3.5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-800 dark:text-slate-200 text-xs">Zero Coaching Center Bias</h4>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 font-sans leading-relaxed mt-0.5">
+                        Uncovers genuine innate aptitudes, free from parental expectations or coaching drills.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
