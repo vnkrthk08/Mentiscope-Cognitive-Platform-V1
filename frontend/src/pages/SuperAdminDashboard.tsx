@@ -27,6 +27,8 @@ import {
   FileText,
   ExternalLink
 } from "lucide-react";
+import { AdminCsvHub } from "../components/AdminCsvHub";
+import { AdminCsvService } from "../services/admin/AdminCsvService";
 
 interface SuperAdminDashboardProps {
   user: User;
@@ -36,8 +38,8 @@ interface SuperAdminDashboardProps {
 export default function SuperAdminDashboard({ user, onNavigate }: SuperAdminDashboardProps) {
   const navigate = useNavigate();
 
-  // Navigation Tab State
-  const [activeTab, setActiveTab] = useState<"system" | "questions">("system");
+  // Navigation Tab State (defaults to Live CSV & Performance Hub)
+  const [activeTab, setActiveTab] = useState<"system" | "questions" | "csv_console">("csv_console");
 
   // Configurable REST Gateway URLs State
   const [moduleConfigs, setModuleConfigs] = useState<ModuleConfig[]>(MODULE_CONFIGS);
@@ -250,17 +252,18 @@ export default function SuperAdminDashboard({ user, onNavigate }: SuperAdminDash
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <a
-            href="http://localhost:8000/docs#/processing-speed/start_api_modules_processing_speed_start_post"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
-            title="Open Mentiscope FastAPI Swagger Documentation"
+          <button
+            onClick={() => setActiveTab("csv_console")}
+            className={`px-4 py-2 text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 shadow-sm ${
+              activeTab === "csv_console"
+                ? "bg-emerald-600 text-white ring-2 ring-emerald-500/20"
+                : "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50"
+            }`}
           >
-            <FileText className="h-3.5 w-3.5" />
-            <span>API Docs</span>
-            <ExternalLink className="h-3 w-3 opacity-80" />
-          </a>
+            <FileSpreadsheet className="h-3.5 w-3.5 text-emerald-400" />
+            <span>Live CSV & Performance Hub</span>
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse ml-0.5" />
+          </button>
           <button
             onClick={() => setActiveTab("system")}
             className={`px-4 py-2 text-xs font-bold rounded-xl transition-all ${
@@ -281,10 +284,23 @@ export default function SuperAdminDashboard({ user, onNavigate }: SuperAdminDash
           >
             Question Bank Manager
           </button>
+          <a
+            href="http://localhost:8000/docs#/processing-speed/start_api_modules_processing_speed_start_post"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+            title="Open Mentiscope FastAPI Swagger Documentation"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            <span>API Docs</span>
+            <ExternalLink className="h-3 w-3 opacity-80" />
+          </a>
         </div>
       </div>
 
-      {activeTab === "system" ? (
+      {activeTab === "csv_console" ? (
+        <AdminCsvHub onBackToSystem={() => setActiveTab("system")} />
+      ) : activeTab === "system" ? (
         <>
           {/* Metric Overview Panels */}
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -406,21 +422,65 @@ export default function SuperAdminDashboard({ user, onNavigate }: SuperAdminDash
                 <div className="absolute top-0 right-0 p-4 opacity-10">
                   <FileSpreadsheet className="h-24 w-24 text-emerald-600" />
                 </div>
-                <h2 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5 relative z-10">
-                  <FileSpreadsheet className="h-4.5 w-4.5 text-emerald-600 dark:text-emerald-400" />
-                  <span>Clinical Data Export Hub</span>
-                </h2>
+                <div className="flex items-center justify-between relative z-10">
+                  <h2 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <FileSpreadsheet className="h-4.5 w-4.5 text-emerald-600 dark:text-emerald-400" />
+                    <span>Clinical Data Export Hub</span>
+                  </h2>
+                  <span className="text-[9px] font-mono font-bold text-emerald-700 bg-emerald-100 dark:bg-emerald-900/60 dark:text-emerald-300 px-2 py-0.5 rounded-full">
+                    Real-Time Synced
+                  </span>
+                </div>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-normal relative z-10 pr-6">
-                  Export anonymized participant datasets for deep psychometric clinical research and validation.
+                  Export genuine verified participant datasets for psychometric clinical research and validation.
                 </p>
                 <div className="space-y-2 relative z-10">
-                  <button className="w-full flex justify-between items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 rounded-xl hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors shadow-sm">
-                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Raw Assessment JSON</span>
-                    <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2 rounded">Download</span>
+                  <button 
+                    onClick={() => AdminCsvService.downloadDataset("student-scores")}
+                    className="w-full flex justify-between items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 rounded-xl hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors shadow-sm"
+                  >
+                    <div className="text-left">
+                      <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Student Scores CSV</span>
+                      <span className="text-[10px] text-slate-400">student_performance_records.csv</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded font-bold">Download</span>
                   </button>
-                  <button className="w-full flex justify-between items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 rounded-xl hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors shadow-sm">
-                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Aggregated CSV (Cohort A)</span>
-                    <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2 rounded">Download</span>
+                  <button 
+                    onClick={() => AdminCsvService.downloadDataset("questions-bank")}
+                    className="w-full flex justify-between items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 rounded-xl hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors shadow-sm"
+                  >
+                    <div className="text-left">
+                      <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Cognitive Questions Bank</span>
+                      <span className="text-[10px] text-slate-400">cognitive_questions_bank.csv</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded font-bold">Download</span>
+                  </button>
+                  <button 
+                    onClick={() => AdminCsvService.downloadDataset("module-benchmarks")}
+                    className="w-full flex justify-between items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 rounded-xl hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors shadow-sm"
+                  >
+                    <div className="text-left">
+                      <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Module Benchmarks Analytics</span>
+                      <span className="text-[10px] text-slate-400">module_benchmarks_analytics.csv</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-400 px-2.5 py-1 rounded font-bold">Download</span>
+                  </button>
+                  <button 
+                    onClick={() => AdminCsvService.downloadDataset("all-datasets")}
+                    className="w-full flex justify-between items-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-3 rounded-xl hover:from-emerald-500 hover:to-teal-500 transition-all shadow-sm"
+                  >
+                    <div className="text-left">
+                      <span className="text-xs font-bold block">Download All 3 CSVs (ZIP Archive)</span>
+                      <span className="text-[10px] text-emerald-100">Full verified dataset package</span>
+                    </div>
+                    <span className="text-[10px] font-mono bg-white/20 px-2.5 py-1 rounded font-bold">Export ZIP</span>
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab("csv_console")}
+                    className="w-full py-2 text-center text-xs font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 flex items-center justify-center gap-1 mt-1"
+                  >
+                    <span>Open Live CSV Dashboard Tab</span>
+                    <ExternalLink className="h-3 w-3" />
                   </button>
                 </div>
               </div>

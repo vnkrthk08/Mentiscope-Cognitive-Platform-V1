@@ -1,0 +1,11 @@
+Module ID,Module Name,Category,Total Attempts,Unique Students,Average Score (%),Highest Score (%),Lowest Score (%),Pass Rate (%),Target Time,Status
+gf,Fluid Intelligence (Gf),Abstract Logic & Reasoning,17,3,14.8,39.9,0.0,0.0,120s,Calibrated
+gc,Crystallized Intelligence (Gc),Knowledge & Domain Synthesis,8,2,18.8,75.0,0.0,25.0,120s,Calibrated
+gq,Quantitative Ability (Gq),Numerical & Estimation Logic,8,2,17.5,40.0,0.0,0.0,150s,Calibrated
+gv,Visual Processing (Gv),Spatial & Mental Rotation,9,3,50.0,83.0,0.0,44.4,120s,Calibrated
+gsm,Working Memory (Gsm),Executive Span & Retention,1,1,0.0,0.0,0.0,0.0,120s,Calibrated
+gs,Processing Speed (Gs),Perceptual Speed & Visual Scan,8,2,32.4,66.0,15.0,12.5,120s,Calibrated
+attention,Attention & Inhibitory Control (ASAT),Selective Focus & Distractor Rejection,7,2,36.7,68.3,0.0,28.6,120s,Calibrated
+riasec,Career Interest (RIASEC),Vocational Psychometrics,6,1,50.0,75.0,0.0,66.7,180s,Calibrated
+emotional_regulation,Emotional Regulation,Stress Stability & Crisis Control,7,1,35.4,75.0,0.0,28.6,150s,Calibrated
+auditory_verbal,Auditory & Verbal Assessment,Auditory Memory & Verbal Fluency,24,1,72.0,72.0,72.0,100.0,180s,Calibrated

@@ -28,9 +28,9 @@ app.use(staticFiles);
 // Mount version 1 api routes
 app.use("/api/v1", apiV1Router);
 
-// Proxy Processing Speed, Fluid Intelligence, Visual Processing & Sessions API requests to the Python backend
+// Proxy Processing Speed, Fluid Intelligence, Visual Processing, Sessions & Admin API requests to the Python backend
 const BACKEND_URL = process.env.BACKEND_URL || "http://127.0.0.1:8000";
-app.all(["/api/auth*", "/api/modules/*", "/api/quantitative*", "/api/sessions*"], async (req, res) => {
+app.all(["/api/auth*", "/api/modules/*", "/api/quantitative*", "/api/sessions*", "/api/admin*"], async (req, res) => {
   const targetUrl = `${BACKEND_URL}${req.originalUrl}`;
   try {
     const headers: Record<string, string> = {};

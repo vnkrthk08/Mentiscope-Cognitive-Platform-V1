@@ -89,3 +89,24 @@ class UserRecord(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
+
+class StudentExamScoreRecord(Base):
+    __tablename__ = "student_exam_scores"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    attempt_id: Mapped[str] = mapped_column(String(64), unique=True, index=True)
+    session_id: Mapped[str] = mapped_column(String(64), index=True)
+    student_id: Mapped[str] = mapped_column(String(64), index=True)
+    student_name: Mapped[str] = mapped_column(String(128))
+    student_email: Mapped[str] = mapped_column(String(128))
+    module_id: Mapped[str] = mapped_column(String(64), index=True)
+    module_name: Mapped[str] = mapped_column(String(128))
+    score_percentage: Mapped[float] = mapped_column(Float)
+    accuracy_percentage: Mapped[float] = mapped_column(Float, default=0.0)
+    questions_attempted: Mapped[int] = mapped_column(Integer, default=0)
+    time_spent_seconds: Mapped[int] = mapped_column(Integer, default=0)
+    status: Mapped[str] = mapped_column(String(32), default="completed")
+    metrics_json: Mapped[str] = mapped_column(String, default="{}")
+    completed_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, index=True)
+
+

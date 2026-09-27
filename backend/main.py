@@ -12,19 +12,36 @@ if str(PARENT_DIR) not in sys.path:
     sys.path.insert(0, str(PARENT_DIR))
 
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 try:
-    from .core_models import Base, SavedAssessmentSession
+    from .core_models import Base, SavedAssessmentSession, StudentExamScoreRecord
     from .database import engine, get_db
     from .auth_router import router as auth_router
     from .modules.processing_speed.api.router import router as processing_speed_router
+    from .admin_csv_service import (
+        record_student_score,
+        get_dashboard_summary_data,
+        create_all_datasets_zip,
+        STUDENT_SCORES_CSV_PATH,
+        QUESTIONS_BANK_CSV_PATH,
+        MODULE_BENCHMARKS_CSV_PATH
+    )
 except (ImportError, ValueError):
-    from core_models import Base, SavedAssessmentSession
+    from core_models import Base, SavedAssessmentSession, StudentExamScoreRecord
     from database import engine, get_db
     from auth_router import router as auth_router
     from modules.processing_speed.api.router import router as processing_speed_router
+    from admin_csv_service import (
+        record_student_score,
+        get_dashboard_summary_data,
+        create_all_datasets_zip,
+        STUDENT_SCORES_CSV_PATH,
+        QUESTIONS_BANK_CSV_PATH,
+        MODULE_BENCHMARKS_CSV_PATH
+    )
 
 try:
     from .modules.fluid_intelligence.api.router import router as fluid_intelligence_router
@@ -189,6 +206,24 @@ def save_session(payload: dict[str, Any], db: Session = Depends(get_db)):
         db.add(record)
     
     db.commit()
+
+    # Real-time CSV sync for any completed module scores in the saved payload
+    try:
+        mod_scores = payload.get("moduleScores", {})
+        mod_metrics = payload.get("moduleMetrics", {})
+        for mid, sc in mod_scores.items():
+            if sc is not None:
+                record_student_score(
+                    db=db,
+                    session_id=session_id,
+                    student_id=student_id,
+                    module_id=mid,
+                    score=float(sc),
+                    metrics=mod_metrics.get(mid) if isinstance(mod_metrics, dict) else None
+                )
+    except Exception as e:
+        print("[Real-time CSV session save sync warning]", e)
+
     return {"status": "success", "sessionId": session_id}
 
 @app.post("/api/sessions/score")
@@ -213,6 +248,19 @@ def update_session_score(payload: dict[str, Any], db: Session = Depends(get_db))
 
     score = float(raw_score)
     existing = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.session_id == session_id).first()
+
+    # Real-time CSV sync and database scoring
+    try:
+        record_student_score(
+            db=db,
+            session_id=session_id,
+            student_id=student_id,
+            module_id=module_id,
+            score=score,
+            metrics=metrics
+        )
+    except Exception as e:
+        print("[Real-time CSV score sync warning]", e)
 
     if existing and existing.payload:
         data = dict(existing.payload)
@@ -241,6 +289,115 @@ def update_session_score(payload: dict[str, Any], db: Session = Depends(get_db))
         db.add(rec)
         db.commit()
         return {"status": "success", "sessionId": session_id, "moduleScores": new_payload["moduleScores"], "session": new_payload}
+
+
+# -------------------------------------------------------------
+# Admin Real-time CSV Dashboard & Export Endpoints
+# -------------------------------------------------------------
+
+@app.get("/api/admin/csv/dashboard-data")
+def get_admin_csv_dashboard_data(db: Session = Depends(get_db)):
+    """
+    Returns live synchronized datasets for all 3 CSVs (Student Scores,
+    Question Bank, Module Benchmarks) and real summary KPIs.
+    Strictly populated with genuine student attempts — zero dummy data.
+    """
+    return get_dashboard_summary_data(db)
+
+
+@app.get("/api/admin/csv/download/{dataset_type}")
+def download_admin_csv(dataset_type: str):
+    """
+    Directly streams genuine CSV datasets as downloadable files.
+    Options: 'student-scores', 'questions-bank', 'module-benchmarks', 'all-datasets'.
+    """
+    if dataset_type == "student-scores":
+        if not STUDENT_SCORES_CSV_PATH.exists():
+            raise HTTPException(status_code=404, detail="Student scores CSV not generated yet.")
+        return FileResponse(
+            path=str(STUDENT_SCORES_CSV_PATH),
+            media_type="text/csv",
+            filename="student_performance_records.csv",
+            headers={"Content-Disposition": "attachment; filename=student_performance_records.csv"}
+        )
+    elif dataset_type == "questions-bank":
+        if not QUESTIONS_BANK_CSV_PATH.exists():
+            raise HTTPException(status_code=404, detail="Questions bank CSV not generated yet.")
+        return FileResponse(
+            path=str(QUESTIONS_BANK_CSV_PATH),
+            media_type="text/csv",
+            filename="cognitive_questions_bank.csv",
+            headers={"Content-Disposition": "attachment; filename=cognitive_questions_bank.csv"}
+        )
+    elif dataset_type == "module-benchmarks":
+        if not MODULE_BENCHMARKS_CSV_PATH.exists():
+            raise HTTPException(status_code=404, detail="Module benchmarks CSV not generated yet.")
+        return FileResponse(
+            path=str(MODULE_BENCHMARKS_CSV_PATH),
+            media_type="text/csv",
+            filename="module_benchmarks_analytics.csv",
+            headers={"Content-Disposition": "attachment; filename=module_benchmarks_analytics.csv"}
+        )
+    elif dataset_type in ("all-datasets", "all", "zip"):
+        zip_buffer = create_all_datasets_zip()
+        return StreamingResponse(
+            zip_buffer,
+            media_type="application/zip",
+            headers={"Content-Disposition": "attachment; filename=mentiscope_all_cognitive_datasets.zip"}
+        )
+    else:
+        raise HTTPException(status_code=400, detail=f"Invalid dataset_type '{dataset_type}'. Choose 'student-scores', 'questions-bank', 'module-benchmarks', or 'all-datasets'.")
+
+
+@app.post("/api/admin/csv/record-attempt")
+def admin_record_attempt(payload: dict[str, Any], db: Session = Depends(get_db)):
+    """
+    Explicit endpoint for frontend or external modules to append a real test attempt in real-time.
+    """
+    import os
+    session_id = payload.get("sessionId") or payload.get("session_id") or f"sess_{os.urandom(4).hex()}"
+    student_id = payload.get("studentId") or payload.get("student_id") or "candidate_guest"
+    module_id = payload.get("moduleId") or payload.get("module_id")
+    raw_score = payload.get("score") if payload.get("score") is not None else payload.get("scorePercentage", 0.0)
+    metrics = payload.get("metrics")
+
+    if not module_id:
+        raise HTTPException(status_code=400, detail="Missing moduleId")
+
+    record = record_student_score(
+        db=db,
+        session_id=session_id,
+        student_id=student_id,
+        module_id=module_id,
+        score=float(raw_score),
+        metrics=metrics,
+        questions_attempted=payload.get("questionsAttempted"),
+        time_spent_seconds=payload.get("timeSpentSec")
+    )
+    return {
+        "status": "success",
+        "attemptId": record.attempt_id,
+        "sessionId": record.session_id,
+        "score": record.score_percentage,
+        "moduleName": record.module_name
+    }
+
+
+@app.post("/api/admin/csv/clear-records")
+def clear_admin_records(db: Session = Depends(get_db)):
+    """
+    Clears all score attempts for clean test runs.
+    """
+    import csv
+    from admin_csv_service import recompute_benchmarks_csv, STUDENT_SCORES_CSV_PATH, STUDENT_SCORES_HEADERS
+    db.query(StudentExamScoreRecord).delete()
+    db.commit()
+    with open(STUDENT_SCORES_CSV_PATH, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(STUDENT_SCORES_HEADERS)
+    recompute_benchmarks_csv(db)
+    return {"status": "success", "message": "All student exam records cleared successfully."}
+
 
 @app.get("/api/sessions/sync-external")
 def sync_external_scores(session_id: str = None, student_id: str = None, db: Session = Depends(get_db)):
