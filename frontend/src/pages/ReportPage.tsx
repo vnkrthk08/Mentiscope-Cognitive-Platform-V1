@@ -319,7 +319,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
   const normInfo = getNormativeDetails(overallScoreInt);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8 font-sans text-slate-850 dark:text-slate-100 print:p-0 print:m-0 print:max-w-none">
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8 font-sans text-slate-900 dark:text-slate-100 print:p-0 print:m-0 print:max-w-none">
       
       {/* Real-time sync feedback banner */}
       {syncMessage && (
@@ -362,7 +362,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
             onClick={handleManualSyncCheck}
             disabled={syncing}
             title="Re-check score sync from all completed modules"
-            className="flex items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-850 hover:bg-slate-50 dark:hover:bg-slate-800 px-3.5 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 transition-all cursor-pointer active:scale-95 disabled:opacity-50"
+            className="flex items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 px-3.5 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-100 transition-all cursor-pointer active:scale-95 disabled:opacity-50 shadow-xs"
           >
             <RefreshCw className={`h-3.5 w-3.5 ${syncing ? "animate-spin" : ""}`} />
             <span>{syncing ? "Checking..." : "Refresh Sync"}</span>
@@ -370,7 +370,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
           <button
             onClick={() => navigate("/dashboard")}
-            className="flex items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-850 px-4 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer active:scale-95"
+            className="flex items-center gap-1.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700/80 transition-all cursor-pointer active:scale-95 shadow-xs"
           >
             <Home className="h-4 w-4 text-blue-500" />
             <span>Candidate Portal</span>
@@ -402,11 +402,11 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
           
           {/* Institutional Logos & Affiliation */}
           <div className="flex items-center gap-4">
-            <div className="h-14 w-14 rounded-2xl bg-blue-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-700 p-2 flex items-center justify-center shrink-0">
+            <div className="h-14 w-14 rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center shrink-0">
               <img 
                 src="/logo_mentiscope.png" 
                 alt="Mentiscope Logo" 
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = "none";
                 }}
@@ -435,9 +435,9 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
           <div className="flex items-center gap-3 sm:border-l sm:border-slate-200 sm:dark:border-slate-800 sm:pl-6">
             <div className="h-12 w-28 flex items-center justify-center">
               <img 
-                src="/NIRMAAN_transparent.svg" 
+                src="/NIRMAAN_transparent.png" 
                 alt="NIRMAAN IIT Madras" 
-                className="h-full w-full object-contain filter dark:brightness-200"
+                className="h-full w-full object-contain"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = "none";
                 }}
@@ -517,15 +517,15 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
               </div>
 
               {/* Match Percentage Dial */}
-              <div className="flex items-center gap-3 bg-white dark:bg-slate-850 p-4 rounded-2xl border border-blue-200 dark:border-blue-900/60 shadow-sm shrink-0 self-start md:self-auto">
+              <div className="flex items-center gap-3 bg-blue-50/70 dark:bg-slate-800/90 p-4 rounded-2xl border border-blue-200/80 dark:border-slate-700/80 shadow-sm shrink-0 self-start md:self-auto">
                 <div className="text-center">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block tracking-wider">
+                  <span className="text-[10px] font-mono font-bold uppercase text-slate-500 dark:text-slate-400 block tracking-wider">
                     Cognitive Match
                   </span>
                   <span className="text-4xl font-black text-blue-600 dark:text-blue-400 font-mono">
                     {primaryStream.matchPercentage}%
                   </span>
-                  <span className="text-[10px] font-extrabold text-slate-500 dark:text-slate-400 block uppercase">
+                  <span className="text-[10px] font-extrabold text-slate-600 dark:text-slate-300 block uppercase">
                     High Compatibility
                   </span>
                 </div>
@@ -558,7 +558,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
             {/* Degree Pathways & Target Careers Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-              <div className="rounded-2xl bg-white dark:bg-slate-850/80 p-5 border border-slate-200 dark:border-slate-800 space-y-3">
+              <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-800/50 p-5 border border-slate-200/80 dark:border-slate-700/70 space-y-3 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-blue-600 dark:text-blue-400">
                   <GraduationCap className="h-4 w-4" />
                   <span>Recommended Degree Programs (Post-Class 12)</span>
@@ -567,7 +567,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
                   {primaryStream.degreePathways.map((deg, idx) => (
                     <span 
                       key={idx} 
-                      className="text-xs font-medium text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800"
+                      className="text-xs font-medium text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-slate-700/80 shadow-2xs"
                     >
                       {deg}
                     </span>
@@ -575,7 +575,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-white dark:bg-slate-850/80 p-5 border border-slate-200 dark:border-slate-800 space-y-3">
+              <div className="rounded-2xl bg-slate-50/80 dark:bg-slate-800/50 p-5 border border-slate-200/80 dark:border-slate-700/70 space-y-3 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400">
                   <Briefcase className="h-4 w-4" />
                   <span>High-Alignment Career Vectors</span>
@@ -584,7 +584,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
                   {primaryStream.targetCareers.map((car, idx) => (
                     <span 
                       key={idx} 
-                      className="text-xs font-medium text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800"
+                      className="text-xs font-medium text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-slate-700/80 shadow-2xs"
                     >
                       {car}
                     </span>
@@ -911,7 +911,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
           <div className="space-y-3.5 pt-1">
             {(report.examReadiness || []).map((exam, idx) => (
-              <div key={idx} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-1.5">
+              <div key={idx} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 space-y-1.5">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-slate-900 dark:text-white text-xs">{exam.examName}</span>
                   <span className="text-[10px] font-mono text-blue-600 dark:text-blue-400 font-semibold">{exam.stream}</span>
@@ -938,7 +938,7 @@ export default function ReportPage({ user, onNavigate }: ReportPageProps) {
 
           <div className="space-y-3 pt-1">
             {(report.parentTips || []).map((tip, idx) => (
-              <div key={idx} className="flex gap-3 text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-850 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800">
+              <div key={idx} className="flex gap-3 text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700/80">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-950 font-mono font-bold text-indigo-700 dark:text-indigo-300 text-[11px]">
                   {idx + 1}
                 </span>

@@ -518,7 +518,7 @@ export default function LandingPage({ user, onNavigate }: LandingPageProps) {
                 {/* Incubator Partnership Card */}
                 <div className="flex flex-wrap items-center gap-4 pt-2 animate-fade-up delay-300">
                   <div className="flex items-center gap-3 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-200/60 dark:border-slate-800/80 shadow-sm hover:border-blue-300 dark:hover:border-blue-900/80 hover:shadow-md hover:shadow-blue-500/5 transition-all">
-                    <img src="/logo.svg" alt="NIRMAAN Logo" className="h-10 w-auto object-contain filter dark:brightness-110" />
+                    <img src="/NIRMAAN_transparent.png" alt="NIRMAAN IIT Madras" className="h-10 w-auto object-contain" />
                     <div>
                       <p className="text-[9px] uppercase tracking-wider text-slate-400 font-bold leading-none">Incubated At</p>
                       <p className="text-xs font-extrabold text-slate-700 dark:text-slate-200 mt-1">The Pre-Incubator, NIRMAAN, IIT Madras</p>

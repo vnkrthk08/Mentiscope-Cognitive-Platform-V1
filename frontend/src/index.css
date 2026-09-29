@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-slate-850: #131d2e;
+  --color-slate-650: #3b4d66;
+  --color-slate-350: #9baec4;
+  --color-slate-150: #eaeff5;
+}
+
 /* ============================================================
    MENTISCOPE — Global Animation & Interaction Layer
    ============================================================ */
