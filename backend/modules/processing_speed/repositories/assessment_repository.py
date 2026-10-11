@@ -28,16 +28,44 @@ class ProcessingSpeedRepository:
         self.db.commit()
 
     def responses(self, session_id: str) -> list[ResponseRecord]:
-        return self.db.query(ResponseRecord).filter_by(session_id=session_id).all()
+        return self.db.query(ResponseRecord).filter(
+            ResponseRecord.session_id == session_id,
+            (ResponseRecord.item_id.like("processing-speed-%") | ResponseRecord.item_id.like("ps-%"))
+        ).all()
 
     def save_result(self, session_id: str, score: float, analytics: dict) -> None:
-        self.db.query(ResultRecord).filter_by(session_id=session_id).delete()
-        self.db.query(AnalyticsRecord).filter_by(session_id=session_id).delete()
+        self.db.query(ResultRecord).filter_by(session_id=session_id, module_id=MODULE_ID).delete()
+        self.db.query(AnalyticsRecord).filter_by(session_id=session_id, module_id=MODULE_ID).delete()
         self.db.add(ResultRecord(session_id=session_id, module_id=MODULE_ID, score_percentage=score, payload=analytics))
         self.db.add(AnalyticsRecord(session_id=session_id, module_id=MODULE_ID, payload=analytics))
         session = self.db.get(SessionRecord, session_id)
         if session:
             session.end_time = datetime.utcnow()
+        
+        try:
+            try:
+                from core_models import SavedAssessmentSession
+            except ImportError:
+                from backend.core_models import SavedAssessmentSession
+            from sqlalchemy.orm.attributes import flag_modified
+            saved = self.db.get(SavedAssessmentSession, session_id)
+            if saved and saved.payload:
+                p = dict(saved.payload)
+                mod_scores = dict(p.get("moduleScores", {}))
+                mod_scores["gs"] = score
+                mod_scores["processing-speed"] = score
+                p["moduleScores"] = mod_scores
+                mod_metrics = dict(p.get("moduleMetrics", {}))
+                mod_metrics["gs"] = analytics
+                mod_metrics["processing-speed"] = analytics
+                p["moduleMetrics"] = mod_metrics
+                if len(mod_scores) > 0:
+                    p["overallScore"] = round(sum(mod_scores.values()) / len(mod_scores))
+                saved.payload = p
+                flag_modified(saved, "payload")
+        except Exception as e:
+            print("[ProcessingSpeed save_result sync warning]", e)
+
         self.db.commit()
 
     def result(self, session_id: str) -> ResultRecord | None:

@@ -688,47 +688,47 @@ export const QUESTIONS_DATA: { [moduleId: string]: Question[] } = {
   gq: [
     {
       id: "gq-1",
-      text: "Which of the figures should logically complete the pattern?",
-      story: "Logical Sequence: You are presented with a grid pattern. Each row follows a rule: circles increase in size, triangles rotate 90 degrees clockwise.",
-      options: ["Large Circle with rotated triangle", "Medium Circle with normal triangle", "Small Square with rotated triangle", "None of the above"],
-      correctAnswer: "Large Circle with rotated triangle",
-      hint: "Rotate the triangle 90 degrees and look at the progression of circle sizes.",
+      text: "If a train travels 360 km in 4 hours, and then increases its speed by 25% for the next 3 hours, what is the total distance covered?",
+      story: "Speed, Distance & Acceleration Rates: Compute composite kinematics across piecewise velocity stages.",
+      options: ["630 km", "675 km", "697.5 km", "720 km"],
+      correctAnswer: "697.5 km",
+      hint: "Initial speed = 360 / 4 = 90 km/h. Increased speed = 90 × 1.25 = 112.5 km/h. Distance in next 3 hours = 112.5 × 3 = 337.5 km. Total = 360 + 337.5 = 697.5 km.",
       type: "choice"
     },
     {
       id: "gq-2",
-      text: "All prompt-readers are learners. Some learners are coders. Therefore, some prompt-readers are coders.",
-      story: "Syllogistic Reasoning: Determine if the conclusion logically follows from the premises.",
-      options: ["Definitely True", "Definitely False", "Cannot be determined from the premises", "None of the above"],
-      correctAnswer: "Cannot be determined from the premises",
-      hint: "Being a learner is the link. But prompt-readers and coders might be separate sets of learners.",
+      text: "A merchant marks an item 40% above its cost price and subsequently offers a 20% discount on the marked price. What is the net profit percentage?",
+      story: "Proportional Calculus & Pricing Margins: Evaluate multi-stage percentage transformations.",
+      options: ["10%", "12%", "16%", "20%"],
+      correctAnswer: "12%",
+      hint: "Assume cost is 100. Marked price = 140. Selling price = 140 × 0.80 = 112. Net gain = 12%.",
       type: "choice"
     },
     {
       id: "gq-3",
-      text: "If 5 machines take 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?",
-      story: "System Rate Problem: Calculate the time needed for scaling operations.",
+      text: "If 5 automated units take 5 minutes to manufacture 5 microchips, how many minutes will it take 100 automated units to manufacture 100 microchips?",
+      story: "Parallel Work Rate & Scaling: Deduce single-worker throughput invariant under parallel scale.",
       options: ["100 minutes", "50 minutes", "5 minutes", "25 minutes"],
       correctAnswer: "5 minutes",
-      hint: "Each machine takes 5 minutes to make 1 widget.",
+      hint: "Each unit independently produces 1 microchip every 5 minutes. 100 units operating simultaneously produce 100 chips in the exact same 5 minutes.",
       type: "choice"
     },
     {
       id: "gq-4",
-      text: "A clock shows 3:15. What is the angle between the hour hand and the minute hand?",
-      story: "Spatial & Analog Tracking: Calculate exact rotational differences.",
+      text: "A precision clock shows 3:15. What is the acute angle between the hour hand and the minute hand?",
+      story: "Rotational Kinematics & Angular Velocity: Track differential clock hand velocities.",
       options: ["0 degrees", "7.5 degrees", "15 degrees", "22.5 degrees"],
       correctAnswer: "7.5 degrees",
-      hint: "Remember that the hour hand moves slightly as the minute hand moves to 15 minutes.",
+      hint: "At 15 minutes, the minute hand points directly at 3 (90°). The hour hand advances 0.5° per minute, so at 15 min it is at 90° + (15 × 0.5°) = 97.5°. Angle = 97.5° - 90° = 7.5°.",
       type: "choice"
     },
     {
       id: "gq-5",
-      text: "Which word does not belong with the others?",
-      story: "Category Exclusion: Select the semantic outlier.",
-      options: ["Ocular", "Olfactory", "Tactile", "Cognitive"],
-      correctAnswer: "Cognitive",
-      hint: "Three of these correspond directly to primary sensory organs, while one is a central mental process.",
+      text: "In a container of 24 components, the ratio of blue to green components is 3:5. How many blue components must be added so the ratio becomes 1:1?",
+      story: "Ratio Invariants & Mixture Adjustment: Balance discrete component ratios.",
+      options: ["4", "6", "8", "10"],
+      correctAnswer: "6",
+      hint: "8 parts = 24, so each part is 3. Blue = 9, Green = 15. To achieve parity (1:1), Blue must equal Green (15). Added blue = 15 - 9 = 6.",
       type: "choice"
     }
   ],
@@ -942,6 +942,63 @@ export const QUESTIONS_DATA: { [moduleId: string]: Question[] } = {
       options: ["Eagerness", "Apathy", "Speed", "Agility"],
       correctAnswer: "Apathy",
       hint: "Alacrity means brisk, cheerful readiness. Its antonym is sluggish indifference or apathy.",
+      type: "choice"
+    }
+  ],
+  gc: [
+    {
+      id: "gc-1",
+      text: "Identify the precise synonym of: ERUDITE",
+      story: "Lexical Knowledge & High-Tier Vocabulary: Discriminate sophisticated semantic nuances.",
+      options: ["Scholarly", "Ignorant", "Evasive", "Articulate"],
+      correctAnswer: "Scholarly",
+      hint: "An erudite individual is someone who demonstrates deep, systematic academic learning.",
+      type: "choice"
+    },
+    {
+      id: "gc-2",
+      text: "Complete the semantic analogy: EPHEMERAL : ETERNAL :: TRANSIENT : ______",
+      story: "Conceptual Analogies: Infer relational polarities across temporal continuity concepts.",
+      options: ["Permanent", "Fleeting", "Fragile", "Immediate"],
+      correctAnswer: "Permanent",
+      hint: "Ephemeral and eternal are antonyms (short-lived vs everlasting). Transient is short-lived; its antonym is Permanent.",
+      type: "choice"
+    },
+    {
+      id: "gc-3",
+      text: "Complete the sentence logically: 'The researcher's empirical arguments were so ______ that even opposing skeptics had to ______ the validity of the hypothesis.'",
+      story: "Contextual Syntax & Argumentative Deduction: Infer tone, consistency, and academic discourse relations.",
+      options: [
+        "cogent ... acknowledge",
+        "flawed ... dismiss",
+        "convoluted ... applaud",
+        "banal ... ignore"
+      ],
+      correctAnswer: "cogent ... acknowledge",
+      hint: "Because 'even opposing skeptics' agreed, the arguments must have been powerful (cogent) and forced them to accept (acknowledge) it.",
+      type: "choice"
+    },
+    {
+      id: "gc-4",
+      text: "Which principle explains why an increase in atmospheric carbon dioxide leads to oceanic acidification?",
+      story: "Domain Knowledge Application (Chemical & Environmental Systems): Connect fundamental chemistry to global dynamics.",
+      options: [
+        "Formation of carbonic acid when CO2 dissolves in seawater",
+        "Thermal expansion reducing ocean water density",
+        "Depletion of nitrogen fixing marine bacteria",
+        "Increased salinity through polar ice melting"
+      ],
+      correctAnswer: "Formation of carbonic acid when CO2 dissolves in seawater",
+      hint: "CO2 + H2O <-> H2CO3 (carbonic acid), which dissociates and releases H+ ions, lowering ocean pH.",
+      type: "choice"
+    },
+    {
+      id: "gc-5",
+      text: "Which term describes the economic scenario where stagnant growth, high unemployment, and high inflation occur simultaneously?",
+      story: "Social Science & Applied Economic Frameworks: Identify macro-system equilibrium anomalies.",
+      options: ["Stagflation", "Hyperinflation", "Deflationary Spiral", "Recessionary Gap"],
+      correctAnswer: "Stagflation",
+      hint: "A portmanteau of stagnation and inflation.",
       type: "choice"
     }
   ],
@@ -1308,6 +1365,78 @@ export const QUESTIONS_DATA: { [moduleId: string]: Question[] } = {
       options: [],
       correctAnswer: "GV_MM_003_SOLVED",
       hint: "Remember the 3x3 layout by grouping the water features first."
+    }
+  ],
+  auditory_verbal: [
+    {
+      id: "av-1",
+      text: "Based on the operations audio briefing, what was the primary cause of the shipment delay at the terminal?",
+      story: "Auditory Working Memory (Verbatim Delay Recall): Listen/read the operational briefing and identify the primary causal factor.",
+      options: [
+        "Port labor strike",
+        "Severe weather condition",
+        "Engine component failure",
+        "Customs paperwork error"
+      ],
+      correctAnswer: "Severe weather condition",
+      hint: "Recall the weather event specifically mentioned during the morning port advisory.",
+      type: "choice"
+    },
+    {
+      id: "av-2",
+      text: "Which cargo category was designated for emergency prioritized re-routing?",
+      story: "Selective Auditory Attention (Critical Detail Extraction): Isolate high-priority cargo specifications amidst background communications.",
+      options: [
+        "Perishable medical supplies",
+        "Commercial electronics",
+        "Automotive replacement parts",
+        "Construction steel beams"
+      ],
+      correctAnswer: "Perishable medical supplies",
+      hint: "Emergency protocols were activated exclusively for essential clinical and healthcare shipments.",
+      type: "choice"
+    },
+    {
+      id: "av-3",
+      text: "What primary strategic trade-off must the logistics operations team resolve during this disruption?",
+      story: "Listening Comprehension & Synthesis: Synthesize multi-variable logistical trade-offs under operational pressure.",
+      options: [
+        "Balancing emergency medical shipment deadlines against commercial delay penalties",
+        "Replacing the entire port staff with temporary volunteers",
+        "Selling all container inventory at discounted rates",
+        "Building a new cargo terminal by the end of the day"
+      ],
+      correctAnswer: "Balancing emergency medical shipment deadlines against commercial delay penalties",
+      hint: "Identify the ethical and financial balance between urgent life-saving supplies and vendor breach fees.",
+      type: "choice"
+    },
+    {
+      id: "av-4",
+      text: "What downstream consequence is projected if secondary container inspections are skipped to save time?",
+      story: "Verbal Inference & Risk Analysis: Track procedural causality from shortcut actions to compliance risks.",
+      options: [
+        "Processing speed increases initially, but customs hold risks remain higher later",
+        "All port operations automatically shut down",
+        "Vessels are forced to return to international waters immediately",
+        "Commercial penalties are canceled by the shipping line"
+      ],
+      correctAnswer: "Processing speed increases initially, but customs hold risks remain higher later",
+      hint: "Short-term expediting creates heightened regulatory exposure at final customs checkpoints.",
+      type: "choice"
+    },
+    {
+      id: "av-5",
+      text: "When delivering the crisis briefing to the field team, which verbal strategy optimizes both compliance and morale?",
+      story: "Verbal Delivery & Metacognitive Communication: Select clear, transparent instructional delivery under crisis conditions.",
+      options: [
+        "Clearly state safety protocols first, explain priority trade-offs, and establish verified checkpoints",
+        "Instruct team members to bypass standard checks to avoid delays",
+        "Withhold information about port penalties until all shipments depart",
+        "Delegate critical decisions to individual drivers without central coordination"
+      ],
+      correctAnswer: "Clearly state safety protocols first, explain priority trade-offs, and establish verified checkpoints",
+      hint: "High-integrity leadership balances transparent protocol clarity with structured team verification.",
+      type: "choice"
     }
   ]
 };

@@ -196,6 +196,9 @@ export class ReportService {
     if (moduleScores["auditory_verbal"] !== undefined && moduleScores["auditory_verbal"] >= 75) {
       strengths.push("Auditory & Verbal Fluency (Ga): Rapid comprehension of spoken instructions and precise verbal formulation during complex tasks.");
     }
+    if (moduleScores["gc"] !== undefined && moduleScores["gc"] >= 75) {
+      strengths.push("Rich Crystallized Knowledge (Gc): Demonstrates expansive domain vocabulary, precise lexical discrimination, and contextual synthesis.");
+    }
 
     if (strengths.length === 0) {
       if (keys.length > 0) {
@@ -220,6 +223,9 @@ export class ReportService {
     }
     if (moduleScores["gq"] !== undefined && moduleScores["gq"] < 70) {
       weaknesses.push("Mental Calculation Speed: Tendency to rely on pencil-and-paper verification for basic numerical steps; estimation heuristics will boost pacing.");
+    }
+    if (moduleScores["gc"] !== undefined && moduleScores["gc"] < 70) {
+      weaknesses.push("Domain Vocabulary Expansion: Opportunity to enrich advanced academic terminology and contextual semantic reasoning through active reading.");
     }
     if (moduleScores["emotional_regulation"] !== undefined && moduleScores["emotional_regulation"] < 70) {
       weaknesses.push("Pressure Escalation: Susceptibility to second-order mistakes following initial errors; deliberate pacing recovery drills recommended.");

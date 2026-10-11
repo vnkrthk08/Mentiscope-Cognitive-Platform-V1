@@ -35,6 +35,7 @@ class AttentionFinishRequest(BaseModel):
     session_id: Optional[str] = None
     studentId: Optional[str] = None
     student_id: Optional[str] = None
+    answers: Optional[List[Any]] = None
     submoduleScores: Optional[Dict[str, float]] = None
     moduleResults: Optional[Dict[str, Any]] = None
 

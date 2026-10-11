@@ -21,7 +21,7 @@ def answer(payload: AnswerRequest, assessment: FluidIntelligenceAssessmentServic
 
 @router.post("/finish")
 def finish(payload: FinishRequest, assessment: FluidIntelligenceAssessmentService = Depends(service)):
-    return assessment.finish(payload.session_id)
+    return assessment.finish(payload.session_id, payload.answers)
 
 @router.get("/result")
 def result(session_id: str, assessment: FluidIntelligenceAssessmentService = Depends(service)):

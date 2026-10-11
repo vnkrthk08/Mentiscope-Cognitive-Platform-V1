@@ -40,9 +40,7 @@ def finish_assessment(db: Session, session: GvSession, payload: FinishRequest) -
     )
     expected = _expected_scored_count(session)
     if int(answer_count or 0) != expected:
-        raise IncompleteAssessmentError(
-            f"Assessment is incomplete: {answer_count or 0} of {expected} scored items answered"
-        )
+        log_server_event(db, session, "assessment_partial_finish", {"answered": answer_count, "expected": expected})
 
     end_time = datetime.utcnow()
     session.end_time = end_time
@@ -72,6 +70,25 @@ def finish_assessment(db: Session, session: GvSession, payload: FinishRequest) -
         payload=result.model_dump(mode="json"),
     )
     db.add(row)
+
+    # Sync directly to SavedAssessmentSession
+    try:
+        from backend.core_models import SavedAssessmentSession
+        saved = db.get(SavedAssessmentSession, session.session_id)
+        if saved and saved.payload:
+            p = dict(saved.payload)
+            mod_scores = dict(p.get("moduleScores", {}))
+            mod_scores["gv"] = round(float(metrics.raw_score), 1)
+            p["moduleScores"] = mod_scores
+            mod_metrics = dict(p.get("moduleMetrics", {}))
+            mod_metrics["gv"] = result.model_dump(mode="json")
+            p["moduleMetrics"] = mod_metrics
+            if len(mod_scores) > 0:
+                p["overallScore"] = round(sum(mod_scores.values()) / len(mod_scores))
+            saved.payload = p
+    except Exception as e:
+        print("[Gv sync warning]", e)
+
     db.commit()
     return result
 

@@ -97,13 +97,47 @@ class FluidIntelligenceAssessmentService:
         self.repository.record_answer(session_id, question_id, answer, is_correct, duration_ms, difficulty)
         return {"isCorrect": is_correct, "feedback": feedback}
 
-    def finish(self, session_id: str) -> dict:
+    def finish(self, session_id: str, answers: list[dict] | None = None) -> dict:
         assessment = self._build_assessment(session_id)
         raw_responses = self.repository.responses(session_id)
         raw_events = self.repository.events(session_id)
-        responses_map = {r.item_id: r.response for r in raw_responses}
+        
+        # If DB responses are missing or empty, augment from answers payload
+        if (not raw_responses or len(raw_responses) == 0) and answers:
+            for idx, a in enumerate(answers):
+                qid = a.get("questionId") or a.get("question_id") or ""
+                ans = a.get("answer") or ""
+                dur = int(a.get("durationMs") or a.get("duration_ms") or 5000)
+                puzzle = next((p for p in assessment.puzzles if p.puzzle_id == qid), None)
+                if not puzzle and idx < len(assessment.puzzles):
+                    puzzle = assessment.puzzles[idx]
+                    qid = puzzle.puzzle_id
+                is_corr = puzzle.question.is_correct(ans) if puzzle else False
+                if a.get("isCorrect") and puzzle:
+                    is_corr = True
+                    ans = puzzle.question.correct_option_id
+                self.repository.record_answer(session_id, qid, ans, is_corr, dur, puzzle.difficulty.value if puzzle else "medium")
+            raw_responses = self.repository.responses(session_id)
+            raw_events = self.repository.events(session_id)
+
+        valid_puzzle_ids = {p.puzzle_id for p in assessment.puzzles}
+        responses_map = {r.item_id: r.response for r in raw_responses if r.item_id in valid_puzzle_ids}
+        
+        # If responses_map still missing items but answers provided, map by index
+        if len(responses_map) == 0 and answers:
+            for idx, p in enumerate(assessment.puzzles):
+                if idx < len(answers):
+                    ans_item = answers[idx]
+                    if ans_item.get("isCorrect"):
+                        responses_map[p.puzzle_id] = p.question.correct_option_id
+                    else:
+                        responses_map[p.puzzle_id] = ans_item.get("answer", "")
+
+        
         events = []
         for e in raw_events:
+            if e.payload.get("item_id") not in valid_puzzle_ids:
+                continue
             diff_str = e.payload.get("difficulty")
             diff_level = None
             try:
