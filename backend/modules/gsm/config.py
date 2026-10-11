@@ -1,9 +1,10 @@
-﻿"""
-ASAT â€“ Application Configuration
+"""
+GSM – Application Configuration
 Loads all settings from environment variables (.env file).
 No credentials are hardcoded. See .env.example for required variables.
 """
 
+import os
 from pydantic_settings import BaseSettings
 from typing import List
 
@@ -15,32 +16,46 @@ class Settings(BaseSettings):
     so they can be aligned with the official MentiScope shared schema later.
     """
 
-    # â”€â”€ Database (PostgreSQL) â”€â”€
+    # -- Database (PostgreSQL) --
     db_host: str = "127.0.0.1"
     db_port: int = 5432
-    db_name: str = "asat"
+    db_name: str = "mentiscope_db"
     db_user: str = "postgres"
     db_password: str = ""
 
-    # â”€â”€ Application â”€â”€
+    # -- Application --
     app_port: int = 8000
     app_secret_key: str = "change-me-in-production"
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
 
-    # â”€â”€ Module Identity (MentiScope Integration) â”€â”€
+    # -- Module Identity (MentiScope Integration) --
     module_id: str = "asat_attention"
     module_name: str = "Adaptive Shape Attention Task"
     construct: str = "Attention"
 
     @property
     def database_url(self) -> str:
-        """Async SQLite connection string for SQLAlchemy."""
-        return "sqlite+aiosqlite:///./mentiscope.db"
+        """Async connection string. DATABASE_URL wins; else compose from db_* fields."""
+        url = os.getenv("DATABASE_URL", "")
+        if url:
+            if url.startswith("postgresql+psycopg://"):
+                url = url.replace("postgresql+psycopg://", "postgresql+asyncpg://", 1)
+            elif url.startswith("postgresql://"):
+                url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+            elif url.startswith("sqlite:///"):
+                url = url.replace("sqlite:///", "sqlite+aiosqlite:///", 1)
+            return url
+        return (f"postgresql+asyncpg://{self.db_user}:{self.db_password}"
+                f"@{self.db_host}:{self.db_port}/{self.db_name}")
 
     @property
     def database_url_sync(self) -> str:
-        """Sync SQLite connection string (for migrations/scripts)."""
-        return "sqlite:///./mentiscope.db"
+        """Sync connection string, for migrations and scripts."""
+        url = os.getenv("DATABASE_URL", "")
+        if url:
+            return url
+        return (f"postgresql+psycopg://{self.db_user}:{self.db_password}"
+                f"@{self.db_host}:{self.db_port}/{self.db_name}")
 
     @property
     def cors_origin_list(self) -> List[str]:

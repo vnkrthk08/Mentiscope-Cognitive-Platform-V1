@@ -96,3 +96,819 @@ att_auditory_verbal_20260927090845_665dae,2026-09-27 09:08:45,sess_b67x4hyh9,stu
 att_gf_20260927090845_207ec9,2026-09-27 09:08:45,sess_b67x4hyh9,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
 att_auditory_verbal_20260927093101_9b37ee,2026-09-27 09:31:01,sess_b67x4hyh9,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
 att_gf_20260927093101_f4a62f,2026-09-27 09:31:01,sess_b67x4hyh9,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929072129_63910a,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gf_20260929072129_399175,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gf_20260929072129_1383b1,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072129_7b1a31,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929072129_b689e6,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929072129_ba6bdf,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929072129_c07069,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929072129_55e438,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929072129_696bc6,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929072129_fc866f,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gv_20260929072129_4fb47b,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gv_20260929072129_6dfd9a,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_auditory_verbal_20260929072129_ed38d3,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929072129_b295cc,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gc_20260929072129_477320,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_auditory_verbal_20260929072129_d6508d,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072129_2e90e0,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929072129_e3216c,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_gq_20260929072129_187edd,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gs_20260929072129_62b4c0,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_attention_20260929072129_a3d8be,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_gv_20260929072129_8c475f,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gs_20260929072129_4fbf3e,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_riasec_20260929072129_9b7094,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_attention_20260929072129_326f48,2026-09-29 07:21:29,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_attention_20260929072130_9b4b10,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_auditory_verbal_20260929072130_2cc2a0,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_riasec_20260929072130_b3aabe,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_riasec_20260929072130_59e8f6,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072130_37ac4f,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_gs_20260929072130_48d575,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_emotional_regulation_20260929072130_b0f033,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_emotional_regulation_20260929072130_26a2c7,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_attention_20260929072130_ed20d6,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_riasec_20260929072130_fa1ad4,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072130_55b438,2026-09-29 07:21:30,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_auditory_verbal_20260929072144_617b27,2026-09-29 07:21:44,sess_a28d1660a,admin_demo_999,Admin Demo 999,admin_demo_999@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072144_ec6a6c,2026-09-29 07:21:44,sess_a28d1660a,admin_demo_999,Admin Demo 999,admin_demo_999@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072144_123809,2026-09-29 07:21:44,sess_a28d1660a,admin_demo_999,Admin Demo 999,admin_demo_999@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072144_660655,2026-09-29 07:21:44,sess_a28d1660a,admin_demo_999,Admin Demo 999,admin_demo_999@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072144_8c3da7,2026-09-29 07:21:44,sess_a28d1660a,admin_demo_999,Admin Demo 999,admin_demo_999@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929072153_af86f0,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gf_20260929072153_6ac2b9,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072153_9334a4,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929072153_1694b7,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929072153_c57b8b,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929072153_a10fe2,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929072153_c8c41d,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gv_20260929072153_49bf6a,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_auditory_verbal_20260929072153_07b016,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072153_eed00e,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929072153_b08aa8,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_gs_20260929072153_244220,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_attention_20260929072153_c56f04,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_attention_20260929072153_d06c16,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_riasec_20260929072153_aaa71a,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_riasec_20260929072153_b08f93,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072153_21bfd8,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_emotional_regulation_20260929072153_5357e0,2026-09-29 07:21:53,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_gf_20260929072217_519bbe,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gf_20260929072217_8400b5,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072217_0096dd,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929072217_03da69,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072217_bd3db1,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929072217_771a04,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gq_20260929072217_0f1f02,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929072218_e64209,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929072217_493243,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929072217_5409ab,2026-09-29 07:22:17,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929072218_1e4f6e,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929072218_3845d6,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gv_20260929072218_781a14,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gq_20260929072218_753fee,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_auditory_verbal_20260929072218_fb821e,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929072218_1c5ffc,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_auditory_verbal_20260929072218_9b6a0c,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072218_59ad8d,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929072218_888c4e,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gs_20260929072218_deeb59,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_gs_20260929072218_620615,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_gs_20260929072218_1756ce,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_attention_20260929072218_904097,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_auditory_verbal_20260929072218_e4b1d9,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_attention_20260929072218_a5de78,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_attention_20260929072218_d025cb,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_riasec_20260929072218_50f095,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_gs_20260929072218_1b2d5f,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_riasec_20260929072218_0c452f,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_riasec_20260929072218_eefa92,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072218_5b669a,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_attention_20260929072218_340cd7,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_emotional_regulation_20260929072218_df0034,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_emotional_regulation_20260929072218_1be5a7,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_riasec_20260929072218_669545,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072218_040d18,2026-09-29 07:22:18,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_gf_20260929072303_aea58a,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gf_20260929072303_2be2b6,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072303_a9af8d,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929072303_78cad3,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072303_874f70,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929072303_0231e0,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929072303_427889,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072303_f981ea,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929072303_b9b24f,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929072303_322525,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gc_20260929072303_d74a99,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gv_20260929072303_5d9a40,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gq_20260929072303_fa2949,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_auditory_verbal_20260929072303_e9ef67,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929072304_c4953b,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929072304_c5911a,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_gs_20260929072304_69e8fd,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_gq_20260929072303_1ff5a3,2026-09-29 07:23:03,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gs_20260929072304_6e2c6c,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_attention_20260929072304_41b0a4,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_auditory_verbal_20260929072304_487295,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_attention_20260929072304_948cd2,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_gv_20260929072304_ef3f74,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_riasec_20260929072304_65bdc9,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_gs_20260929072304_c164f5,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_auditory_verbal_20260929072304_c0f602,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_emotional_regulation_20260929072304_86e161,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_attention_20260929072304_ee8340,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_riasec_20260929072304_94e89e,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_gs_20260929072304_9baf14,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_riasec_20260929072304_d6ceab,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072304_c431a1,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_attention_20260929072304_4470e7,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_emotional_regulation_20260929072304_c07242,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_riasec_20260929072304_a766da,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072304_bf37b9,2026-09-29 07:23:04,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_gf_20260929072401_f9bd5a,2026-09-29 07:24:01,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),39.9,39.9,5,115,Completed
+att_gc_20260929072402_05db87,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929072402_17bec2,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929072402_759f9f,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),83.0,83.0,5,115,Passed
+att_auditory_verbal_20260929072402_21cb80,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929072402_442539,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),20.0,20.0,5,115,Completed
+att_attention_20260929072402_6dce29,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,attention,Attention & Inhibitory Control (ASAT),68.3,68.3,5,115,Passed
+att_riasec_20260929072402_2ca5e6,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),75.0,75.0,5,115,Passed
+att_emotional_regulation_20260929072402_5f15e7,2026-09-29 07:24:02,sess_m359yin6z,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,49.0,49.0,5,115,Completed
+att_gf_20260929072659_38ebd6,2026-09-29 07:26:59,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929072700_4b0945,2026-09-29 07:27:00,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929072700_68ce65,2026-09-29 07:27:00,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929072700_cb9d1c,2026-09-29 07:27:00,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929072700_10940b,2026-09-29 07:27:00,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929072700_7d3d55,2026-09-29 07:27:00,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135410_c96160,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135410_d9e9ac,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135410_f4b299,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_auditory_verbal_20260929135410_e61ad1,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929135410_ec32d0,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929135410_a874cd,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135410_e27190,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_auditory_verbal_20260929135410_df4548,2026-09-29 13:54:10,sess_rgjf6s0s0,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135558_7f892a,2026-09-29 13:55:58,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135558_84a0a1,2026-09-29 13:55:58,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135558_2661b6,2026-09-29 13:55:58,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135558_0a5946,2026-09-29 13:55:58,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135608_93ee16,2026-09-29 13:56:08,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135608_0bfdcf,2026-09-29 13:56:08,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_gf_20260929135608_229ea8,2026-09-29 13:56:08,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_auditory_verbal_20260929135608_37905b,2026-09-29 13:56:08,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135608_3115ee,2026-09-29 13:56:08,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),0.0,0.0,5,115,Completed
+att_auditory_verbal_20260929135608_11ae13,2026-09-29 13:56:08,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929135608_b93481,2026-09-29 13:56:08,sess_1iix358bz,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135813_59482a,2026-09-29 13:58:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135813_1447ca,2026-09-29 13:58:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135818_b743bd,2026-09-29 13:58:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135818_73f887,2026-09-29 13:58:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135844_55f4a4,2026-09-29 13:58:44,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135844_d28e95,2026-09-29 13:58:44,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135849_392b0a,2026-09-29 13:58:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135849_561d8c,2026-09-29 13:58:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135851_3c1f8c,2026-09-29 13:58:51,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135851_8b81ae,2026-09-29 13:58:51,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135912_a542c2,2026-09-29 13:59:12,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135912_57c6e2,2026-09-29 13:59:12,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135912_297f61,2026-09-29 13:59:12,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135912_b7d863,2026-09-29 13:59:12,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135913_cb4287,2026-09-29 13:59:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135913_6b48b9,2026-09-29 13:59:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135918_464293,2026-09-29 13:59:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135918_3b2f15,2026-09-29 13:59:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135918_3ae147,2026-09-29 13:59:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929135918_348923,2026-09-29 13:59:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135918_2e9aff,2026-09-29 13:59:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929135918_d3a375,2026-09-29 13:59:18,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135922_560220,2026-09-29 13:59:22,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135923_a23206,2026-09-29 13:59:23,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135923_3b0c39,2026-09-29 13:59:23,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135924_32c161,2026-09-29 13:59:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929135924_83e07f,2026-09-29 13:59:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135924_7c6922,2026-09-29 13:59:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929135924_e6cdf9,2026-09-29 13:59:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929135925_ed8759,2026-09-29 13:59:25,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135928_e5a996,2026-09-29 13:59:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929135928_4af395,2026-09-29 13:59:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140055_075f98,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140055_4ccdd6,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140055_44ed51,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140055_20c368,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140055_1975cd,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140055_08fbe5,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140055_7b979a,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140055_8063d8,2026-09-29 14:00:55,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140056_074fcb,2026-09-29 14:00:56,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140056_aa4db6,2026-09-29 14:00:56,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140104_b59b3a,2026-09-29 14:01:04,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140104_027573,2026-09-29 14:01:04,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140105_a9efdd,2026-09-29 14:01:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140105_c2f693,2026-09-29 14:01:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140105_31a18b,2026-09-29 14:01:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140105_3b30e5,2026-09-29 14:01:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140105_96de8b,2026-09-29 14:01:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140105_a362ac,2026-09-29 14:01:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140111_296fc7,2026-09-29 14:01:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140111_253a14,2026-09-29 14:01:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140111_8d9a9b,2026-09-29 14:01:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140111_c04eaa,2026-09-29 14:01:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140113_5a04e6,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140113_2cca0d,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140113_3c2f11,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140113_dfced2,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140113_cea412,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140113_70e0fa,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140113_665d97,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140113_bb66eb,2026-09-29 14:01:13,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140114_1622ad,2026-09-29 14:01:14,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140114_526c5b,2026-09-29 14:01:14,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140117_b02baf,2026-09-29 14:01:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140117_72ce48,2026-09-29 14:01:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140117_f78ffb,2026-09-29 14:01:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140117_767eb7,2026-09-29 14:01:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140120_839fce,2026-09-29 14:01:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140121_a73887,2026-09-29 14:01:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140121_3e574c,2026-09-29 14:01:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140121_8b205f,2026-09-29 14:01:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140121_173c13,2026-09-29 14:01:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140121_68483a,2026-09-29 14:01:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140121_ac4552,2026-09-29 14:01:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140121_321ea5,2026-09-29 14:01:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140122_d8a92a,2026-09-29 14:01:22,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140122_07b996,2026-09-29 14:01:22,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140125_f9db99,2026-09-29 14:01:25,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140125_34d1b4,2026-09-29 14:01:25,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140125_c9be03,2026-09-29 14:01:25,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140125_728b6b,2026-09-29 14:01:25,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140128_e1f95d,2026-09-29 14:01:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140128_cd9793,2026-09-29 14:01:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140128_558f74,2026-09-29 14:01:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140128_0f1e82,2026-09-29 14:01:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140132_f286d0,2026-09-29 14:01:32,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140132_289718,2026-09-29 14:01:32,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140132_341891,2026-09-29 14:01:32,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140132_545b46,2026-09-29 14:01:32,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140132_6763eb,2026-09-29 14:01:32,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140132_fded08,2026-09-29 14:01:32,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140132_de4c8f,2026-09-29 14:01:32,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140133_35fa3d,2026-09-29 14:01:33,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140133_2683a0,2026-09-29 14:01:33,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140133_940657,2026-09-29 14:01:33,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140134_b173cf,2026-09-29 14:01:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140134_7bb725,2026-09-29 14:01:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140143_a7afce,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140143_363b5b,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140143_0e6b2e,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140143_fe9b9f,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140143_1ab39c,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140143_b89023,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140143_b5876c,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140143_82a226,2026-09-29 14:01:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140147_12a56e,2026-09-29 14:01:47,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140147_2ab2c9,2026-09-29 14:01:47,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140148_7808e0,2026-09-29 14:01:48,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140148_f0bfef,2026-09-29 14:01:48,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140148_121cb1,2026-09-29 14:01:48,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140148_cc182a,2026-09-29 14:01:48,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140150_41419d,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140150_fff77b,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140150_0199bd,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140150_792b23,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140150_e70816,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140150_6d5150,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140150_ed466b,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140150_7bc4f7,2026-09-29 14:01:50,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140151_bfc904,2026-09-29 14:01:51,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140151_2c1508,2026-09-29 14:01:51,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140156_3b041f,2026-09-29 14:01:56,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140156_cfaed0,2026-09-29 14:01:56,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140158_c1a672,2026-09-29 14:01:58,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140159_02262b,2026-09-29 14:01:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140203_22fd1c,2026-09-29 14:02:03,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140203_feb6e8,2026-09-29 14:02:03,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140206_42adc1,2026-09-29 14:02:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140206_805121,2026-09-29 14:02:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140215_e53cfc,2026-09-29 14:02:15,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140215_22a884,2026-09-29 14:02:15,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140221_7d238b,2026-09-29 14:02:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140221_cc48eb,2026-09-29 14:02:21,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140225_8bfc71,2026-09-29 14:02:25,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140225_ec85ce,2026-09-29 14:02:25,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140229_c456e1,2026-09-29 14:02:29,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140229_d9210d,2026-09-29 14:02:29,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140235_bfd198,2026-09-29 14:02:35,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140235_b59fee,2026-09-29 14:02:35,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140239_5c84ca,2026-09-29 14:02:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140239_7040bc,2026-09-29 14:02:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140247_725158,2026-09-29 14:02:47,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140247_00f11f,2026-09-29 14:02:47,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140253_0e6363,2026-09-29 14:02:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140253_176657,2026-09-29 14:02:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140256_d2747a,2026-09-29 14:02:56,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140256_5d1a3d,2026-09-29 14:02:56,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140302_03d63d,2026-09-29 14:03:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140302_3bd8cd,2026-09-29 14:03:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140307_7ffa37,2026-09-29 14:03:07,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140307_c69393,2026-09-29 14:03:07,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140314_0b4ed3,2026-09-29 14:03:14,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140314_b04274,2026-09-29 14:03:14,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140322_a27056,2026-09-29 14:03:22,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140322_d19b89,2026-09-29 14:03:22,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140329_6a972e,2026-09-29 14:03:29,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140329_c88398,2026-09-29 14:03:29,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140334_fa63d3,2026-09-29 14:03:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140334_a0df9d,2026-09-29 14:03:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140339_32db29,2026-09-29 14:03:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140339_0bab6d,2026-09-29 14:03:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140341_7b9b89,2026-09-29 14:03:41,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gs_20260929140341_ad6ace,2026-09-29 14:03:41,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140341_9a5a68,2026-09-29 14:03:41,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140341_9a5f42,2026-09-29 14:03:41,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140341_a656ce,2026-09-29 14:03:41,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140341_5c7f6f,2026-09-29 14:03:41,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gs_20260929140341_2e9fb7,2026-09-29 14:03:41,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140342_0c7bb5,2026-09-29 14:03:42,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140342_ea6bca,2026-09-29 14:03:42,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140343_04f925,2026-09-29 14:03:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140343_084c15,2026-09-29 14:03:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140343_5b0125,2026-09-29 14:03:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140343_9c4fb2,2026-09-29 14:03:43,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140349_afa8e9,2026-09-29 14:03:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140349_524501,2026-09-29 14:03:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140349_2ee5b8,2026-09-29 14:03:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140349_ebcfad,2026-09-29 14:03:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140349_28bd24,2026-09-29 14:03:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140349_dbbf01,2026-09-29 14:03:49,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140352_0f8e4b,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gs_20260929140352_8b69a9,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140352_d0c39b,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140352_d7433a,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140352_408be8,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140352_8daca0,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gs_20260929140352_7ea47a,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140352_044391,2026-09-29 14:03:52,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140353_0c716f,2026-09-29 14:03:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140353_b5ea86,2026-09-29 14:03:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140353_b0061b,2026-09-29 14:03:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140353_2af8fd,2026-09-29 14:03:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gs_20260929140353_0b3784,2026-09-29 14:03:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gs_20260929140353_4c1601,2026-09-29 14:03:53,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140411_d31d9f,2026-09-29 14:04:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140411_42bc06,2026-09-29 14:04:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140411_1f2e7c,2026-09-29 14:04:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140411_d06be6,2026-09-29 14:04:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140411_b6d9c7,2026-09-29 14:04:11,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140412_69d55b,2026-09-29 14:04:12,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140416_93c0db,2026-09-29 14:04:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140416_1ddeba,2026-09-29 14:04:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140416_b265af,2026-09-29 14:04:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140500_dabe77,2026-09-29 14:05:00,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140500_0f6a04,2026-09-29 14:05:00,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140500_32c971,2026-09-29 14:05:00,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gs_20260929140500_20b521,2026-09-29 14:05:00,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_auditory_verbal_20260929140500_410148,2026-09-29 14:05:00,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140500_4d1d16,2026-09-29 14:05:00,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140523_9e7510,2026-09-29 14:05:23,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140523_897d3c,2026-09-29 14:05:23,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_riasec_20260929140523_8b8a7c,2026-09-29 14:05:23,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_auditory_verbal_20260929140523_488dba,2026-09-29 14:05:23,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140524_b92aca,2026-09-29 14:05:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140524_0a899a,2026-09-29 14:05:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gs_20260929140524_4be350,2026-09-29 14:05:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140524_ed1725,2026-09-29 14:05:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_riasec_20260929140524_595a4b,2026-09-29 14:05:24,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gf_20260929140527_0eeff2,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140527_6252c4,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140527_761c6d,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140527_4a3848,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gf_20260929140527_ab25de,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140527_293e2a,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140527_1fa5f9,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140527_52ec23,2026-09-29 14:05:27,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gf_20260929140534_6cc511,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140534_11ffb7,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140534_d92567,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140534_107a02,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gf_20260929140534_b6cf94,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140534_2db6dc,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140534_667236,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140534_b3f9ea,2026-09-29 14:05:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gf_20260929140559_b10fc7,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_emotional_regulation_20260929140559_66969b,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_auditory_verbal_20260929140559_4ec0f8,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140559_fb559f,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gf_20260929140559_891a44,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_riasec_20260929140559_dbaed9,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140559_8ddc2c,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_auditory_verbal_20260929140559_b21541,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140559_98a6b6,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140559_0cdbb8,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140559_24efe9,2026-09-29 14:05:59,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140605_f4c13f,2026-09-29 14:06:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140605_31995e,2026-09-29 14:06:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140605_e22beb,2026-09-29 14:06:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140605_04e336,2026-09-29 14:06:05,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gf_20260929140606_fa4685,2026-09-29 14:06:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_emotional_regulation_20260929140606_827c15,2026-09-29 14:06:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_auditory_verbal_20260929140606_3ec5ed,2026-09-29 14:06:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140606_314679,2026-09-29 14:06:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140606_14ce32,2026-09-29 14:06:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140606_4d433c,2026-09-29 14:06:06,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140616_165118,2026-09-29 14:06:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140616_94e5cc,2026-09-29 14:06:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140616_3db7f9,2026-09-29 14:06:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140616_7b658d,2026-09-29 14:06:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140616_96f4f5,2026-09-29 14:06:16,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_auditory_verbal_20260929140617_eaa006,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,82.0,82.0,5,115,Passed
+att_gf_20260929140617_10dfc9,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140617_0d539f,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140617_71e429,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,0.0,0.0,5,115,Completed
+att_auditory_verbal_20260929140617_db36a5,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,0.0,0.0,5,115,Completed
+att_gs_20260929140617_3b4642,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_auditory_verbal_20260929140617_414ff8,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,0.0,0.0,5,115,Completed
+att_riasec_20260929140617_580aca,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gs_20260929140617_dbdd26,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_emotional_regulation_20260929140617_f4f73b,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_riasec_20260929140617_87b570,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140617_98714b,2026-09-29 14:06:17,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140620_acc1f3,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140620_faf6a0,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,0.0,0.0,5,115,Completed
+att_gs_20260929140620_42f2b0,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140620_7f45a8,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140620_2fe205,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140620_b0193e,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140620_919ecb,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,0.0,0.0,5,115,Completed
+att_gs_20260929140620_1be57a,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140620_fdbee4,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140620_479c47,2026-09-29 14:06:20,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140639_c0870e,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140639_e096e6,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,0.0,0.0,5,115,Completed
+att_gs_20260929140639_86e7b3,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140639_d7ce87,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140639_573844,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140639_b69eae,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140639_b9f200,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140639_98cd75,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140639_635f95,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140639_bea482,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gs_20260929140639_529f45,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140639_25f745,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_riasec_20260929140639_ba6a5d,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140639_91bf44,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_emotional_regulation_20260929140639_d4a918,2026-09-29 14:06:39,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140701_cb69bf,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140701_53eb41,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_gf_20260929140701_d3bcd4,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140701_4bbd61,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140701_f5350b,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140701_2978c3,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140701_c62fdb,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140701_79e5a0,2026-09-29 14:07:01,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_auditory_verbal_20260929140702_f7c3e9,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140702_6bf576,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_gs_20260929140702_53806e,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140702_77b94d,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_riasec_20260929140702_2678ef,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_gs_20260929140702_0dda47,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_emotional_regulation_20260929140702_e88bd6,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_emotional_regulation_20260929140702_2fe716,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_riasec_20260929140702_74aed5,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_riasec_20260929140702_de1788,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140702_68ea6f,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_emotional_regulation_20260929140702_f71578,2026-09-29 14:07:02,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_gf_20260929140728_f2081a,2026-09-29 14:07:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140728_f49453,2026-09-29 14:07:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140728_271ae1,2026-09-29 14:07:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140728_30ab5c,2026-09-29 14:07:28,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140729_f85522,2026-09-29 14:07:29,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_auditory_verbal_20260929140734_672fbd,2026-09-29 14:07:34,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140734_90f375,2026-09-29 14:07:34,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140734_d48dfd,2026-09-29 14:07:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),5.7,5.7,5,115,Completed
+att_auditory_verbal_20260929140734_d438b5,2026-09-29 14:07:34,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140734_35dd20,2026-09-29 14:07:34,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140734_ef899f,2026-09-29 14:07:34,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140734_8c8c27,2026-09-29 14:07:34,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gs_20260929140735_f7d976,2026-09-29 14:07:35,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gs,Processing Speed (Gs),44.0,44.0,5,115,Completed
+att_riasec_20260929140735_e26a3b,2026-09-29 14:07:35,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,riasec,Career Interest (RIASEC),76.0,76.0,5,115,Passed
+att_emotional_regulation_20260929140735_424a95,2026-09-29 14:07:35,sess_ase6mmkej,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,emotional_regulation,Emotional Regulation,51.0,51.0,5,115,Completed
+att_auditory_verbal_20260929140735_539440,2026-09-29 14:07:35,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140739_ca7847,2026-09-29 14:07:39,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140739_e92ca2,2026-09-29 14:07:39,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140743_47e924,2026-09-29 14:07:43,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140744_d6d443,2026-09-29 14:07:44,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140744_0d5273,2026-09-29 14:07:44,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140744_374a99,2026-09-29 14:07:44,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140744_4e33dc,2026-09-29 14:07:44,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140745_c16ea9,2026-09-29 14:07:45,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140747_10dcd4,2026-09-29 14:07:47,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140747_7c66a7,2026-09-29 14:07:47,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140751_d89de1,2026-09-29 14:07:51,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140751_38c728,2026-09-29 14:07:51,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140751_7c5631,2026-09-29 14:07:51,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140751_6d8e8e,2026-09-29 14:07:51,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140752_2d5cdd,2026-09-29 14:07:52,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140759_41adea,2026-09-29 14:07:59,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140759_363a1e,2026-09-29 14:07:59,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140759_e4ad35,2026-09-29 14:07:59,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929140800_53a863,2026-09-29 14:08:00,sess_e9gcyik30,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929140902_ddd13a,2026-09-29 14:09:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929140902_bfc1c1,2026-09-29 14:09:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929140909_b59596,2026-09-29 14:09:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929140910_02a672,2026-09-29 14:09:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929140910_56f73c,2026-09-29 14:09:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140910_b80abc,2026-09-29 14:09:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929140910_2e5b76,2026-09-29 14:09:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929140910_f1316c,2026-09-29 14:09:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140912_6e5db3,2026-09-29 14:09:12,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140912_0b1f2f,2026-09-29 14:09:12,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140912_c3dcb9,2026-09-29 14:09:12,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140912_f796e5,2026-09-29 14:09:12,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140921_072d5b,2026-09-29 14:09:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140921_185f4b,2026-09-29 14:09:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140921_a36dda,2026-09-29 14:09:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140921_5ca496,2026-09-29 14:09:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140935_edaa3b,2026-09-29 14:09:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140935_4cbc77,2026-09-29 14:09:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140935_bf4f25,2026-09-29 14:09:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140935_2a2768,2026-09-29 14:09:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140948_ad09ba,2026-09-29 14:09:48,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140948_2b9a62,2026-09-29 14:09:48,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140949_e7c0f0,2026-09-29 14:09:49,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140949_2cf0fc,2026-09-29 14:09:49,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140951_a30e65,2026-09-29 14:09:51,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140951_2387c8,2026-09-29 14:09:51,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140953_8cdeb8,2026-09-29 14:09:53,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140953_c538e9,2026-09-29 14:09:53,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140955_2fbaf0,2026-09-29 14:09:55,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140955_d3d71a,2026-09-29 14:09:55,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140957_61e87d,2026-09-29 14:09:57,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gq_20260929140957_9e4f83,2026-09-29 14:09:57,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929140957_7b9541,2026-09-29 14:09:57,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929140957_481d8d,2026-09-29 14:09:57,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929140957_eb178e,2026-09-29 14:09:57,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929140957_e4203d,2026-09-29 14:09:57,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929140957_0a0dd3,2026-09-29 14:09:57,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141004_67e6be,2026-09-29 14:10:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141004_ffc372,2026-09-29 14:10:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141004_9d5b12,2026-09-29 14:10:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141007_e89a3a,2026-09-29 14:10:07,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141007_ef7117,2026-09-29 14:10:07,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141007_94c2a6,2026-09-29 14:10:07,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141009_a549d1,2026-09-29 14:10:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141009_9be4ae,2026-09-29 14:10:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141009_6efc37,2026-09-29 14:10:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141011_a9387a,2026-09-29 14:10:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141011_dbb7f9,2026-09-29 14:10:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141011_fa7d79,2026-09-29 14:10:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141014_9becca,2026-09-29 14:10:14,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141014_31ea3e,2026-09-29 14:10:14,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141014_54eb09,2026-09-29 14:10:14,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141016_0cbb87,2026-09-29 14:10:16,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141016_17f09f,2026-09-29 14:10:16,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141016_1fcf90,2026-09-29 14:10:16,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141018_54f60c,2026-09-29 14:10:18,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141018_969ac2,2026-09-29 14:10:18,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141018_9dadaf,2026-09-29 14:10:18,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141021_b6ee1b,2026-09-29 14:10:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141021_a532b1,2026-09-29 14:10:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141021_97f334,2026-09-29 14:10:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141023_1a39fa,2026-09-29 14:10:23,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141023_386feb,2026-09-29 14:10:23,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141024_13db93,2026-09-29 14:10:24,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141026_30e837,2026-09-29 14:10:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141026_fc8347,2026-09-29 14:10:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141026_2bb289,2026-09-29 14:10:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141026_f0662d,2026-09-29 14:10:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141026_1ca931,2026-09-29 14:10:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141026_7eb0ea,2026-09-29 14:10:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141028_22bb44,2026-09-29 14:10:28,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141029_0277a2,2026-09-29 14:10:29,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141029_83dc8d,2026-09-29 14:10:29,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141029_8fa9e7,2026-09-29 14:10:29,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141029_0f913a,2026-09-29 14:10:29,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141029_e8e0ce,2026-09-29 14:10:29,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141103_3947a9,2026-09-29 14:11:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141103_1b53a8,2026-09-29 14:11:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141103_ea61e9,2026-09-29 14:11:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141142_ac0aa8,2026-09-29 14:11:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141142_a379f7,2026-09-29 14:11:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141143_8af26b,2026-09-29 14:11:43,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141146_790177,2026-09-29 14:11:46,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141146_9e5d9c,2026-09-29 14:11:46,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141146_9d6cb9,2026-09-29 14:11:46,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141146_94f792,2026-09-29 14:11:46,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141146_5dfbc9,2026-09-29 14:11:46,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141146_149512,2026-09-29 14:11:46,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141219_cff398,2026-09-29 14:12:19,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141219_0c9ad8,2026-09-29 14:12:19,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141219_453a85,2026-09-29 14:12:19,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141221_df09aa,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141221_309b61,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gv_20260929141221_d9b43e,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gc_20260929141221_17f7f2,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141221_f0f337,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141221_114e76,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141221_4438d5,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141221_74f254,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141221_5dabfd,2026-09-29 14:12:21,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gf_20260929141222_68e1ac,2026-09-29 14:12:22,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141222_7a9e74,2026-09-29 14:12:22,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929141222_643ebb,2026-09-29 14:12:22,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gq_20260929141222_098073,2026-09-29 14:12:22,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929141222_ee23d4,2026-09-29 14:12:22,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gv_20260929141222_f4d40d,2026-09-29 14:12:22,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gq_20260929141222_cb02f9,2026-09-29 14:12:22,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141223_e5fda1,2026-09-29 14:12:23,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gf_20260929141226_232455,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141226_e541fb,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141226_a8aff1,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141226_4a072f,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gv_20260929141226_a08408,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gc_20260929141226_a98185,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141226_c21924,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141226_1565de,2026-09-29 14:12:26,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gf_20260929141241_b1bdc5,2026-09-29 14:12:41,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141241_7f7b34,2026-09-29 14:12:41,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141241_26129b,2026-09-29 14:12:41,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gf_20260929141242_5ed5d5,2026-09-29 14:12:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gv_20260929141242_4351ac,2026-09-29 14:12:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gc_20260929141242_4dd2f6,2026-09-29 14:12:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141242_6357b6,2026-09-29 14:12:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141242_3ca23c,2026-09-29 14:12:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gf_20260929141302_40344c,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141302_a671f8,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141302_666009,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141302_501efc,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gf_20260929141302_c289bf,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141302_38c115,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141302_95f43a,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141302_ecff24,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929141302_d8870b,2026-09-29 14:13:02,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141303_ed1ea7,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141303_60adba,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141303_06a3ff,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141303_82c971,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141303_af760b,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141303_b503e9,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141303_888ea3,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141303_f22d1f,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141303_f4a518,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141303_30a3f9,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141303_c73ecf,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141303_e28a3b,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141303_43a2d9,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141303_b91705,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141303_6e535c,2026-09-29 14:13:03,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141304_0bff7d,2026-09-29 14:13:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141304_029deb,2026-09-29 14:13:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141304_2d2ff8,2026-09-29 14:13:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141304_dccc97,2026-09-29 14:13:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141304_01c1be,2026-09-29 14:13:04,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141309_3e0a76,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141309_5fc193,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141309_328806,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141309_e22f38,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141309_263a06,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141309_314cd1,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141309_348c36,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141309_574895,2026-09-29 14:13:09,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141310_e036dd,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141310_edfe71,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141310_6cbe58,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141310_d35740,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929141310_82d434,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141310_64939d,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gv_20260929141310_28b6f3,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gq_20260929141310_da803d,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141310_4bc55b,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_auditory_verbal_20260929141310_8ce23d,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929141310_357a76,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gq_20260929141310_a0e6be,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141310_cb0589,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141310_450eeb,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929141310_313f0e,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141310_d91e39,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141310_9d4fac,2026-09-29 14:13:10,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141311_2c4aa5,2026-09-29 14:13:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141311_e40fb5,2026-09-29 14:13:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141311_658417,2026-09-29 14:13:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141311_4917bf,2026-09-29 14:13:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141311_9ec8e8,2026-09-29 14:13:11,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141312_275c9c,2026-09-29 14:13:12,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141312_e3f48c,2026-09-29 14:13:12,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141313_8ce3c0,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141313_103fff,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gf_20260929141313_f56adc,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_auditory_verbal_20260929141313_d583a7,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gc_20260929141313_8d8e2d,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141313_834aba,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141313_8fa62c,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141313_4030ba,2026-09-29 14:13:13,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141335_8d85a0,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141335_96f218,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141335_682eb7,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141335_21d465,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141335_09175d,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141335_cdd567,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141335_a26e17,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141335_d22ec2,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gf_20260929141335_59924d,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141335_12ff27,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141335_a826c7,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141335_8c3c4b,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929141335_e11ca3,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gv_20260929141335_189992,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141335_caf7fc,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gf_20260929141335_1c4316,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_auditory_verbal_20260929141335_0fb3ad,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gq_20260929141335_ae230d,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929141335_681f8e,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_auditory_verbal_20260929141335_185b61,2026-09-29 14:13:35,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929141336_b1619e,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gq_20260929141336_8002a4,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_auditory_verbal_20260929141336_c6d8cd,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929141336_e37038,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141336_8621ec,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141336_1ea551,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141336_c01603,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141336_d957d3,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141336_a5286b,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141336_5c6543,2026-09-29 14:13:36,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141338_013024,2026-09-29 14:13:38,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141338_ccf2e5,2026-09-29 14:13:38,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141338_6aefdb,2026-09-29 14:13:38,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141338_e77395,2026-09-29 14:13:38,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141338_ad90bc,2026-09-29 14:13:38,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141338_b42f72,2026-09-29 14:13:38,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141339_5aa697,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141339_ea44a0,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929141339_e238df,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141339_a45989,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141339_270592,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141339_bbc1a3,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141339_0bae7c,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141339_3adcca,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141339_63d5fa,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141339_047d44,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141339_2f9d79,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gv_20260929141339_1d208a,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141339_e63ae4,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141339_9f0421,2026-09-29 14:13:39,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141340_e0946d,2026-09-29 14:13:40,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141340_201434,2026-09-29 14:13:40,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141340_a6cb29,2026-09-29 14:13:40,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141340_f7d5d3,2026-09-29 14:13:40,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141340_2bf817,2026-09-29 14:13:40,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141342_706e91,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141342_fdbca0,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141342_5eeda0,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gf_20260929141342_70a65c,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_gc_20260929141342_4cdc7a,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141342_bdaf1b,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gc_20260929141342_6763cf,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141342_702e05,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gq_20260929141342_e9f1da,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gc_20260929141342_8438d3,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141342_ae5aa8,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141342_d7638a,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141342_8c9f7c,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gq_20260929141342_9742b3,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141342_21e7f3,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_gv_20260929141343_8f19be,2026-09-29 14:13:43,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141342_8028e8,2026-09-29 14:13:42,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141343_28479c,2026-09-29 14:13:43,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141343_26592c,2026-09-29 14:13:43,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141343_6b795f,2026-09-29 14:13:43,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141348_005d99,2026-09-29 14:13:48,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141348_aa91a4,2026-09-29 14:13:48,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141348_824833,2026-09-29 14:13:48,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gf_20260929141348_ecbca1,2026-09-29 14:13:48,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gf,Fluid Intelligence (Gf),31.9,31.9,5,115,Completed
+att_auditory_verbal_20260929141348_a89e32,2026-09-29 14:13:48,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141349_2550cd,2026-09-29 14:13:49,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gc_20260929141349_85ed18,2026-09-29 14:13:49,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gc,Crystallized Intelligence (Gc),0.0,0.0,5,115,Completed
+att_gq_20260929141349_a4c073,2026-09-29 14:13:49,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gq,Quantitative Ability (Gq),20.0,20.0,5,115,Completed
+att_gv_20260929141349_b285f4,2026-09-29 14:13:49,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,gv,Visual Processing (Gv),33.0,33.0,5,115,Completed
+att_auditory_verbal_20260929141349_939d81,2026-09-29 14:13:49,sess_xnxo52sjl,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141349_de7539,2026-09-29 14:13:49,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141455_e8444d,2026-09-29 14:14:55,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929141455_0a7af2,2026-09-29 14:14:55,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929144741_84e217,2026-09-29 14:47:41,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929144741_bd58f3,2026-09-29 14:47:41,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929144741_832bf9,2026-09-29 14:47:41,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20260929144741_89eb7f,2026-09-29 14:47:41,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gc_20260929181043_685016,2026-09-29 18:10:43,test_e2e_1790705443,test_student_verification,Test Student Verification,test_student_verification@candidate.edu,gc,Crystallized Intelligence (Gc),100.0,100.0,5,115,Passed
+att_gc_20260929182113_10c600,2026-09-29 18:21:13,test_e2e_1790706073,test_student_verification,Test Student Verification,test_student_verification@candidate.edu,gc,Crystallized Intelligence (Gc),100.0,100.0,5,115,Passed
+att_auditory_verbal_20261003130435_5fb23a,2026-10-03 13:04:35,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20261003130435_94638b,2026-10-03 13:04:35,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20261003130435_08ac47,2026-10-03 13:04:35,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20261003130435_35e2b0,2026-10-03 13:04:35,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20261003130442_57f3e7,2026-10-03 13:04:42,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_auditory_verbal_20261003130442_db95cf,2026-10-03 13:04:42,sess_5q4lm62ee,stud_alex_mercer,Alex Mercer,alex.mercer@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,72.0,72.0,5,115,Passed
+att_gc_20261010182333_40222d,2026-10-10 18:23:33,test_e2e_1791656612,test_student_verification,Test Student Verification,test_student_verification@candidate.edu,gc,Crystallized Intelligence (Gc),100.0,100.0,5,115,Passed
+att_gc_20261010182428_aad367,2026-10-10 18:24:28,test_e2e_1791656668,test_student_verification,Test Student Verification,test_student_verification@candidate.edu,gc,Crystallized Intelligence (Gc),100.0,100.0,5,115,Passed
+att_gq_20261010182429_37a22d,2026-10-10 18:24:29,test_e2e_1791656668,test_student_verification,Test Student Verification,test_student_verification@candidate.edu,gq,Quantitative Ability (Gq),100.0,100.0,5,115,Passed
+att_gsm_20261010182429_0f3733,2026-10-10 18:24:29,test_e2e_1791656668,test_student_verification,Test Student Verification,test_student_verification@candidate.edu,gsm,Working Memory (Gsm),100.0,100.0,5,115,Passed
+att_auditory_verbal_20261010182429_d1ba9c,2026-10-10 18:24:29,test_e2e_1791656668,test_student_verification,Test Student Verification,test_student_verification@candidate.edu,auditory_verbal,Auditory & Verbal Assessment,100.0,100.0,5,115,Passed

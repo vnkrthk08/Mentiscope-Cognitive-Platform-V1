@@ -20,7 +20,6 @@ from modules.quantitative.schemas.answer import (
 from modules.quantitative.services.answer_service import AnswerService
 
 router = APIRouter(
-    prefix="/api",
     tags=["Assessment"],
 )
 

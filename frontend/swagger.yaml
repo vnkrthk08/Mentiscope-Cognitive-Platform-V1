@@ -4,7 +4,7 @@ info:
   description: API Documentation for the Mentiscope Live Integration service, including cognitive assessment, authentication, user, feature toggles, i18n, and analytics endpoints.
   version: 1.0.0
 servers:
-  - url: http://localhost:5173/api/v1
+  - url: /api/v1
     description: V1 API Server
 paths:
   /health/health:

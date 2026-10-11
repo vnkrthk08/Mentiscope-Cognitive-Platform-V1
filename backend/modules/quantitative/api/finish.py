@@ -8,7 +8,6 @@ from modules.quantitative.services.finish_service import FinishService
 from modules.quantitative.schemas.finish import FinishRequest
 
 router = APIRouter(
-    prefix="/api",
     tags=["Assessment"],
 )
 

@@ -7,7 +7,6 @@ from modules.quantitative.database.database import get_db
 from modules.quantitative.services.result_service import ResultService
 
 router = APIRouter(
-    prefix="/api",
     tags=["Assessment"],
 )
 

@@ -1665,6 +1665,122 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
                 })}
               </div>
             )}
+
+            {/* Working Memory: Memory Span Task */}
+            {currentQuestion.type === "memory-span" && (
+              <div className="pt-2">
+                {showSequence ? (
+                  <div className="py-8 flex flex-col items-center justify-center space-y-4">
+                    <span className="text-xs font-mono uppercase tracking-wider text-teal-400 font-bold animate-pulse">
+                      Memorize Sequence ({sequenceIndex + 1} of {currentQuestion.sequence?.length || 5})
+                    </span>
+                    <div className="w-28 h-28 rounded-3xl bg-teal-950/80 border-2 border-teal-500/80 shadow-xl shadow-teal-500/20 flex items-center justify-center">
+                      <span className="text-5xl font-black font-mono text-teal-200">
+                        {currentQuestion.sequence?.[sequenceIndex]}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-400">Keep each item active in your working memory.</p>
+                  </div>
+                ) : (
+                  <div className="py-3 space-y-4">
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-300">
+                        Enter Recalled Sequence:
+                      </label>
+                      <input
+                        type="text"
+                        value={userSequenceInput}
+                        onChange={(e) => setUserSequenceInput(e.target.value.toUpperCase())}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" && userSequenceInput.trim().length > 0 && !isAnswering) {
+                            handleSubmit();
+                          }
+                        }}
+                        autoFocus
+                        placeholder="Type sequence here (e.g. 48291)..."
+                        className="w-full rounded-2xl border border-slate-700 bg-slate-900/90 px-5 py-4 text-xl font-mono font-bold text-teal-300 placeholder-slate-600 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/30"
+                      />
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C"].map((char) => (
+                        <button
+                          key={char}
+                          type="button"
+                          onClick={() => setUserSequenceInput((prev) => prev + char)}
+                          className="h-10 w-10 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-95 border border-slate-700 text-sm font-mono font-bold text-slate-200 transition-all cursor-pointer"
+                        >
+                          {char}
+                        </button>
+                      ))}
+                      <button
+                        type="button"
+                        onClick={() => setUserSequenceInput((prev) => prev.slice(0, -1))}
+                        className="h-10 px-3 rounded-xl bg-rose-950/50 hover:bg-rose-900/50 border border-rose-800 text-xs font-bold text-rose-300 transition-all cursor-pointer"
+                      >
+                        Backspace
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setUserSequenceInput("")}
+                        className="h-10 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-slate-400 transition-all cursor-pointer"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Working Memory: Spatial Grid Pattern Task */}
+            {currentQuestion.type === "grid-pattern" && (
+              <div className="py-4 space-y-4">
+                <div className="text-center">
+                  <span className="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">
+                    {showGridTarget 
+                      ? "Memorizing Active Target Cells (Flashes for 2 seconds)..." 
+                      : `Click to Select Target Cells (${gridSelectedCells.length} selected)`}
+                  </span>
+                </div>
+                <div className="grid grid-cols-4 gap-3 max-w-xs mx-auto p-4 rounded-3xl bg-slate-950/80 border border-slate-800">
+                  {Array.from({ length: (currentQuestion.gridSize || 4) * (currentQuestion.gridSize || 4) }).map((_, cellIdx) => {
+                    const isTargetFlashing = showGridTarget && currentQuestion.activeGridCells?.includes(cellIdx);
+                    const isUserSelected = !showGridTarget && gridSelectedCells.includes(cellIdx);
+
+                    let cellStyle = "bg-slate-900 border-slate-800 text-slate-500 hover:border-slate-700";
+                    if (isTargetFlashing) {
+                      cellStyle = "bg-emerald-500 border-emerald-400 shadow-lg shadow-emerald-500/50 scale-105";
+                    } else if (isUserSelected) {
+                      cellStyle = "bg-blue-600 border-blue-400 text-white shadow-lg shadow-blue-500/40 ring-2 ring-blue-400/50";
+                    }
+
+                    return (
+                      <button
+                        key={cellIdx}
+                        type="button"
+                        disabled={showGridTarget || isAnswering}
+                        onClick={() => handleGridCellClick(cellIdx)}
+                        className={`h-14 w-14 rounded-2xl border transition-all flex items-center justify-center font-mono text-xs font-bold cursor-pointer ${cellStyle}`}
+                      >
+                        {isUserSelected ? "✓" : isTargetFlashing ? "●" : ""}
+                      </button>
+                    );
+                  })}
+                </div>
+                {!showGridTarget && gridSelectedCells.length > 0 && (
+                  <div className="text-center">
+                    <button
+                      type="button"
+                      onClick={() => setGridSelectedCells([])}
+                      className="text-xs text-slate-400 hover:text-slate-200 underline cursor-pointer"
+                    >
+                      Clear Selection
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="flex items-center justify-between pt-2">
@@ -1677,9 +1793,21 @@ export default function AssessmentRunner({ user, soundEnabled, onNavigate }: Ass
 
             <button
               onClick={handleSubmit}
-              disabled={isAnswering || !selectedAnswer}
+              disabled={
+                isAnswering ||
+                (currentQuestion.options && !selectedAnswer) ||
+                (currentQuestion.type === "memory-span" && (showSequence || userSequenceInput.trim().length === 0)) ||
+                (currentQuestion.type === "grid-pattern" && (showGridTarget || gridSelectedCells.length === 0)) ||
+                (!currentQuestion.options && currentQuestion.type !== "memory-span" && currentQuestion.type !== "grid-pattern" && !selectedAnswer)
+              }
               className={`flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-xs font-extrabold text-white transition-all hover:bg-blue-500 active:scale-95 shadow-lg shadow-blue-500/25 ${
-                (!selectedAnswer || isAnswering) ? "opacity-40 cursor-not-allowed" : ""
+                (isAnswering ||
+                (currentQuestion.options && !selectedAnswer) ||
+                (currentQuestion.type === "memory-span" && (showSequence || userSequenceInput.trim().length === 0)) ||
+                (currentQuestion.type === "grid-pattern" && (showGridTarget || gridSelectedCells.length === 0)) ||
+                (!currentQuestion.options && currentQuestion.type !== "memory-span" && currentQuestion.type !== "grid-pattern" && !selectedAnswer))
+                  ? "opacity-40 cursor-not-allowed"
+                  : "cursor-pointer"
               }`}
             >
               <span>Submit Response</span>

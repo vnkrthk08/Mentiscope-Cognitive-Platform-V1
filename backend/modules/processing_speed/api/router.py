@@ -28,7 +28,7 @@ def answer(payload: AnswerRequest, assessment: ProcessingSpeedAssessmentService 
 
 @router.post("/finish")
 def finish(payload: FinishRequest, assessment: ProcessingSpeedAssessmentService = Depends(service)):
-    return assessment.finish(payload.session_id)
+    return assessment.finish(payload.session_id, payload.answers)
 
 
 @router.get("/result")

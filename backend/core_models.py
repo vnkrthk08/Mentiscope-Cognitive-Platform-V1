@@ -45,7 +45,7 @@ class ResultRecord(Base):
     __tablename__ = "results"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    session_id: Mapped[str] = mapped_column(ForeignKey("sessions.session_id"), unique=True)
+    session_id: Mapped[str] = mapped_column(ForeignKey("sessions.session_id"), index=True)
     module_id: Mapped[str] = mapped_column(String(64), index=True)
     score_percentage: Mapped[float] = mapped_column(Float)
     payload: Mapped[dict] = mapped_column(JSON, default=dict)
@@ -55,7 +55,7 @@ class AnalyticsRecord(Base):
     __tablename__ = "analytics"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    session_id: Mapped[str] = mapped_column(ForeignKey("sessions.session_id"), unique=True)
+    session_id: Mapped[str] = mapped_column(ForeignKey("sessions.session_id"), index=True)
     module_id: Mapped[str] = mapped_column(String(64), index=True)
     payload: Mapped[dict] = mapped_column(JSON, default=dict)
 

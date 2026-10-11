@@ -285,7 +285,7 @@ export default function SuperAdminDashboard({ user, onNavigate }: SuperAdminDash
             Question Bank Manager
           </button>
           <a
-            href="http://localhost:8000/docs#/processing-speed/start_api_modules_processing_speed_start_post"
+            href="/docs#/processing-speed/start_api_modules_processing_speed_start_post"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -356,7 +356,7 @@ export default function SuperAdminDashboard({ user, onNavigate }: SuperAdminDash
                     <h2 className="text-base font-bold text-slate-900 dark:text-white">API Gateway Router configurations</h2>
                     <div className="flex items-center gap-2">
                       <a
-                        href="http://localhost:8000/docs#/processing-speed/start_api_modules_processing_speed_start_post"
+                        href="/docs#/processing-speed/start_api_modules_processing_speed_start_post"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 hover:bg-blue-100 dark:hover:bg-blue-900/60 px-2.5 py-1 rounded-lg border border-blue-200 dark:border-blue-800 transition-colors"

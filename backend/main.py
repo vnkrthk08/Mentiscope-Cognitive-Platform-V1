@@ -113,6 +113,14 @@ except Exception:
     except Exception:
         quantitative_answer_router = None
 
+try:
+    from .modules.gc.router import router as gc_router
+except Exception:
+    try:
+        from modules.gc.router import router as gc_router
+    except Exception:
+        gc_router = None
+
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Mentiscope API - Multi-Module Cognitive Platform")
@@ -130,6 +138,7 @@ app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
 
 # 1. Processing Speed (Gs)
 app.include_router(processing_speed_router, prefix="/api/modules/processing-speed", tags=["processing-speed"])
+app.include_router(processing_speed_router, prefix="/api/modules/gs", tags=["gs-alias"])
 
 # 2. Fluid Intelligence (Gf)
 if fluid_intelligence_router:
@@ -165,19 +174,31 @@ if quantitative_answer_router:
     app.include_router(quantitative_start_router, prefix="/api/quantitative", tags=["quantitative"])
     app.include_router(quantitative_finish_router, prefix="/api/quantitative", tags=["quantitative"])
     app.include_router(quantitative_result_router, prefix="/api/quantitative", tags=["quantitative"])
+    # Also mount at /api/modules/gq so standard AssessmentRunner works directly
+    app.include_router(quantitative_answer_router, prefix="/api/modules/gq", tags=["gq-module"])
+    app.include_router(quantitative_start_router, prefix="/api/modules/gq", tags=["gq-module"])
+    app.include_router(quantitative_finish_router, prefix="/api/modules/gq", tags=["gq-module"])
+    app.include_router(quantitative_result_router, prefix="/api/modules/gq", tags=["gq-module"])
+
+# 9. Crystallized Intelligence (Gc)
+if gc_router:
+    app.include_router(gc_router, prefix="/api/modules/gc", tags=["gc"])
 
 
 @app.on_event("startup")
 async def startup_event():
     try:
-        from .modules.gsm.database import init_db as init_gsm_db
+        from modules.gsm.database import init_db as init_gsm_db
         await init_gsm_db()
     except Exception as e:
         print("[Startup Warning] GSM DB Init:", e)
 
     try:
-        from .modules.quantitative.database.base import Base as QuantBase
-        from .modules.quantitative.database.database import engine as quant_engine
+        from modules.quantitative.models.session import AssessmentSession
+        from modules.quantitative.models.question_instance import QuestionInstance
+        from modules.quantitative.models.student_response import StudentResponse
+        from modules.quantitative.database.base import Base as QuantBase
+        from modules.quantitative.database.database import engine as quant_engine
         QuantBase.metadata.create_all(bind=quant_engine)
     except Exception as e:
         print("[Startup Warning] Quantitative DB Init:", e)
@@ -197,6 +218,8 @@ def save_session(payload: dict[str, Any], db: Session = Depends(get_db)):
     if existing:
         existing.student_id = student_id
         existing.payload = payload
+        from sqlalchemy.orm.attributes import flag_modified
+        flag_modified(existing, "payload")
     else:
         record = SavedAssessmentSession(
             session_id=session_id,
@@ -274,6 +297,8 @@ def update_session_score(payload: dict[str, Any], db: Session = Depends(get_db))
         if len(mod_scores) > 0:
             data["overallScore"] = round(sum(mod_scores.values()) / len(mod_scores))
         existing.payload = data
+        from sqlalchemy.orm.attributes import flag_modified
+        flag_modified(existing, "payload")
         db.commit()
         return {"status": "success", "sessionId": session_id, "moduleScores": mod_scores, "session": data}
     else:
@@ -505,20 +530,167 @@ def sync_external_scores(session_id: str = None, student_id: str = None, db: Ses
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
+AV_QUESTIONS_LIST = [
+    {
+        "id": "av-1",
+        "text": "Based on the operations audio briefing, what was the primary cause of the shipment delay at the terminal?",
+        "story": "Auditory Working Memory (Verbatim Delay Recall): Listen/read the operational briefing and identify the primary causal factor.",
+        "options": [
+            "Port labor strike",
+            "Severe weather condition",
+            "Engine component failure",
+            "Customs paperwork error"
+        ],
+        "type": "choice"
+    },
+    {
+        "id": "av-2",
+        "text": "Which cargo category was designated for emergency prioritized re-routing?",
+        "story": "Selective Auditory Attention (Critical Detail Extraction): Isolate high-priority cargo specifications amidst background communications.",
+        "options": [
+            "Perishable medical supplies",
+            "Commercial electronics",
+            "Automotive replacement parts",
+            "Construction steel beams"
+        ],
+        "type": "choice"
+    },
+    {
+        "id": "av-3",
+        "text": "What primary strategic trade-off must the logistics operations team resolve during this disruption?",
+        "story": "Listening Comprehension & Synthesis: Synthesize multi-variable logistical trade-offs under operational pressure.",
+        "options": [
+            "Balancing emergency medical shipment deadlines against commercial delay penalties",
+            "Replacing the entire port staff with temporary volunteers",
+            "Selling all container inventory at discounted rates",
+            "Building a new cargo terminal by the end of the day"
+        ],
+        "type": "choice"
+    },
+    {
+        "id": "av-4",
+        "text": "What downstream consequence is projected if secondary container inspections are skipped to save time?",
+        "story": "Verbal Inference & Risk Analysis: Track procedural causality from shortcut actions to compliance risks.",
+        "options": [
+            "Processing speed increases initially, but customs hold risks remain higher later",
+            "All port operations automatically shut down",
+            "Vessels are forced to return to international waters immediately",
+            "Commercial penalties are canceled by the shipping line"
+        ],
+        "type": "choice"
+    },
+    {
+        "id": "av-5",
+        "text": "When delivering the crisis briefing to the field team, which verbal strategy optimizes both compliance and morale?",
+        "story": "Verbal Delivery & Metacognitive Communication: Select clear, transparent instructional delivery under crisis conditions.",
+        "options": [
+            "Clearly state safety protocols first, explain priority trade-offs, and establish verified checkpoints",
+            "Instruct team members to bypass standard checks to avoid delays",
+            "Withhold information about port penalties until all shipments depart",
+            "Delegate critical decisions to individual drivers without central coordination"
+        ],
+        "type": "choice"
+    }
+]
+
+AV_ANSWER_KEY = {
+    "av-1": "Severe weather condition",
+    "av-2": "Perishable medical supplies",
+    "av-3": "Balancing emergency medical shipment deadlines against commercial delay penalties",
+    "av-4": "Processing speed increases initially, but customs hold risks remain higher later",
+    "av-5": "Clearly state safety protocols first, explain priority trade-offs, and establish verified checkpoints"
+}
+_av_answers: dict[str, dict[str, Any]] = {}
+
+@app.post("/api/modules/auditory_verbal/start")
+def start_auditory_verbal(payload: dict[str, Any], db: Session = Depends(get_db)):
+    import time
+    session_id = payload.get("sessionId") or payload.get("session_id") or f"sess_av_{int(time.time()*1000)}"
+    _av_answers[session_id] = {}
+    return {
+        "status": "success",
+        "sessionId": session_id,
+        "moduleId": "auditory_verbal",
+        "moduleName": "Auditory & Verbal Cognitive Assessment",
+        "totalQuestions": len(AV_QUESTIONS_LIST),
+        "questions": AV_QUESTIONS_LIST
+    }
+
+@app.post("/api/modules/auditory_verbal/answer")
+def answer_auditory_verbal(payload: dict[str, Any], db: Session = Depends(get_db)):
+    session_id = payload.get("sessionId") or payload.get("session_id")
+    qid = payload.get("questionId") or payload.get("question_id") or ""
+    ans = str(payload.get("answer", "")).strip().lower()
+    expected = AV_ANSWER_KEY.get(qid, "").strip().lower()
+    is_correct = bool(expected and ans == expected)
+    if session_id:
+        if session_id not in _av_answers:
+            _av_answers[session_id] = {}
+        _av_answers[session_id][qid] = {
+            "answer": payload.get("answer"),
+            "isCorrect": is_correct,
+            "durationMs": payload.get("durationMs", 0)
+        }
+    return {
+        "status": "success",
+        "isCorrect": is_correct,
+        "feedback": "Correct! Accurate auditory-verbal comprehension." if is_correct else "Response recorded."
+    }
+
 @app.post("/api/modules/auditory_verbal/finish")
 def finish_auditory_verbal(payload: dict[str, Any], db: Session = Depends(get_db)):
     session_id = payload.get("sessionId") or payload.get("session_id")
-    student_id = payload.get("studentId") or payload.get("student_id") or "stud_alex_mercer"
-    raw_score = payload.get("scorePercentage") or payload.get("score") or payload.get("overall_cognitive_index") or 82.0
-    metrics = payload.get("metrics") or payload.get("analytics") or {}
-    score = float(raw_score)
-    return update_session_score({
+    student_id = payload.get("studentId") or payload.get("student_id") or "stud_candidate"
+    answers = payload.get("answers") or []
+    
+    recorded = _av_answers.get(session_id, {})
+    for a in answers:
+        qid = a.get("questionId") or a.get("question_id") or ""
+        ans = str(a.get("answer", "")).strip().lower()
+        expected = AV_ANSWER_KEY.get(qid, "").strip().lower()
+        is_corr = a.get("isCorrect")
+        if is_corr is None:
+            is_corr = bool(expected and ans == expected)
+        recorded[qid] = {
+            "answer": a.get("answer"),
+            "isCorrect": is_corr,
+            "durationMs": a.get("durationMs", 0)
+        }
+    
+    total_q = len(AV_ANSWER_KEY)
+    correct_count = sum(1 for item in recorded.values() if item.get("isCorrect"))
+    accuracy = round((correct_count / total_q) * 100.0, 1) if total_q > 0 else 0.0
+
+    # Fallback to explicit external score if passed without answers
+    if payload.get("scorePercentage") is not None and not answers:
+        accuracy = float(payload.get("scorePercentage"))
+    elif payload.get("overall_cognitive_index") is not None and not answers:
+        accuracy = float(payload.get("overall_cognitive_index"))
+        if 0 < accuracy < 10:
+            accuracy *= 10.0
+
+    metrics = {
+        "raw_score": correct_count,
+        "total_questions": total_q,
+        "accuracy": accuracy,
+        "listening_comprehension_score": accuracy,
+        "verbal_reasoning_index": round(accuracy * 0.96, 1),
+        "status": "Completed"
+    }
+
+    update_session_score({
         "sessionId": session_id,
         "studentId": student_id,
         "moduleId": "auditory_verbal",
-        "score": score,
+        "score": accuracy,
         "metrics": metrics
     }, db=db)
+
+    return {
+        "status": "success",
+        "scorePercentage": accuracy,
+        "metrics": metrics
+    }
 
 @app.get("/api/sessions/history")
 def get_session_history(student_id: str, db: Session = Depends(get_db)):

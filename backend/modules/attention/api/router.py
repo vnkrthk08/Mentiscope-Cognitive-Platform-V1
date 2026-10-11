@@ -96,71 +96,104 @@ def finish_attention(payload: AttentionFinishRequest, db: Session = Depends(get_
     divided_score = client_subscores.get("divided")
     executive_score = client_subscores.get("executive")
 
+    ATTENTION_ANSWER_KEY = {
+        "attn-1": "green",
+        "attn-2": "yellow",
+        "attn-3": "6",
+        "attn-4": "blue",
+        "attn-5": "right"
+    }
+
+    answers_score = None
+    if payload.answers and len(payload.answers) > 0:
+        correct_count = 0
+        total_q = len(payload.answers)
+        for a in payload.answers:
+            qid = str(a.get("questionId") or a.get("question_id") or "").lower()
+            ans_val = str(a.get("answer") or "").strip().lower()
+            expected = ATTENTION_ANSWER_KEY.get(qid)
+            if expected and ans_val == expected:
+                correct_count += 1
+            elif a.get("isCorrect"):
+                correct_count += 1
+        answers_score = round((correct_count / max(1, total_q)) * 100.0, 1)
+
     if sustained_score is None or selective_score is None or divided_score is None or executive_score is None:
-        # Calculate from logged events
-        sub_events: Dict[str, list] = {"sustained": [], "selective": [], "divided": [], "executive": []}
-        for ev in events:
-            if ev.submodule in sub_events:
-                sub_events[ev.submodule].append(ev)
+        if events:
+            # Calculate from logged events
+            sub_events: Dict[str, list] = {"sustained": [], "selective": [], "divided": [], "executive": []}
+            for ev in events:
+                if ev.submodule in sub_events:
+                    sub_events[ev.submodule].append(ev)
 
-        # Sustained
-        sust = sub_events["sustained"]
-        sust_hits = sum(1 for e in sust if e.is_correct and e.response == "SPACE")
-        sust_rts = [e.reaction_time_ms for e in sust if e.reaction_time_ms > 0]
-        sust_res = score_sustained(
-            hits=sust_hits,
-            total_targets=max(1, len(sust) // 3),
-            rt_list=sust_rts,
-            total_distractors=max(1, len(sust) - (len(sust) // 3)),
-            false_alarms=sum(1 for e in sust if not e.is_correct)
+            # Sustained
+            sust = sub_events["sustained"]
+            if sust:
+                sust_hits = sum(1 for e in sust if e.is_correct and e.response == "SPACE")
+                sust_rts = [e.reaction_time_ms for e in sust if e.reaction_time_ms > 0]
+                sust_res = score_sustained(
+                    hits=sust_hits,
+                    total_targets=max(1, len(sust) // 3),
+                    rt_list=sust_rts,
+                    total_distractors=max(1, len(sust) - (len(sust) // 3)),
+                    false_alarms=sum(1 for e in sust if not e.is_correct)
+                )
+                sustained_score = sustained_score or sust_res["score"]
+
+            # Selective
+            sel = sub_events["selective"]
+            if sel:
+                sel_hits = sum(1 for e in sel if e.is_correct)
+                sel_rts = [e.reaction_time_ms for e in sel if e.reaction_time_ms > 0]
+                sel_res = score_selective(
+                    correct_clicks=sel_hits,
+                    total_targets=max(1, len(sel)),
+                    wrong_clicks=sum(1 for e in sel if not e.is_correct),
+                    total_distractors=max(1, len(sel) * 4),
+                    rt_list=sel_rts
+                )
+                selective_score = selective_score or sel_res["score"]
+
+            # Divided
+            div = sub_events["divided"]
+            if div:
+                div_hits = sum(1 for e in div if e.is_correct)
+                div_rts = [e.reaction_time_ms for e in div if e.reaction_time_ms > 0]
+                div_res = score_divided(
+                    correct_presses=div_hits,
+                    total_targets=max(1, len(div) // 4),
+                    false_presses=sum(1 for e in div if not e.is_correct),
+                    total_non_targets=max(1, len(div) - (len(div) // 4)),
+                    rt_list=div_rts
+                )
+                divided_score = divided_score or div_res["score"]
+
+            # Executive
+            exec_ev = sub_events["executive"]
+            if exec_ev:
+                exec_hits = sum(1 for e in exec_ev if e.is_correct)
+                exec_rts = [e.reaction_time_ms for e in exec_ev if e.reaction_time_ms > 0]
+                exec_res = score_executive(
+                    rt_before_switch=exec_rts[0] if exec_rts else 400.0,
+                    rt_after_switch=exec_rts[-1] if len(exec_rts) > 1 else 450.0,
+                    switch_errors=sum(1 for e in exec_ev if not e.is_correct),
+                    total_after_switch=max(1, len(exec_ev) // 2),
+                    rt_list=exec_rts
+                )
+                executive_score = executive_score or exec_res["score"]
+
+    valid_sub = [s for s in [sustained_score, selective_score, divided_score, executive_score] if s is not None]
+    if valid_sub:
+        overall = score_overall(
+            sustained=sustained_score if sustained_score is not None else 0.0,
+            selective=selective_score if selective_score is not None else 0.0,
+            divided=divided_score if divided_score is not None else 0.0,
+            executive=executive_score if executive_score is not None else 0.0
         )
-        sustained_score = sustained_score or sust_res["score"]
-
-        # Selective
-        sel = sub_events["selective"]
-        sel_hits = sum(1 for e in sel if e.is_correct)
-        sel_rts = [e.reaction_time_ms for e in sel if e.reaction_time_ms > 0]
-        sel_res = score_selective(
-            correct_clicks=sel_hits,
-            total_targets=max(1, len(sel)),
-            wrong_clicks=sum(1 for e in sel if not e.is_correct),
-            total_distractors=max(1, len(sel) * 4),
-            rt_list=sel_rts
-        )
-        selective_score = selective_score or sel_res["score"]
-
-        # Divided
-        div = sub_events["divided"]
-        div_hits = sum(1 for e in div if e.is_correct)
-        div_rts = [e.reaction_time_ms for e in div if e.reaction_time_ms > 0]
-        div_res = score_divided(
-            correct_presses=div_hits,
-            total_targets=max(1, len(div) // 4),
-            false_presses=sum(1 for e in div if not e.is_correct),
-            total_non_targets=max(1, len(div) - (len(div) // 4)),
-            rt_list=div_rts
-        )
-        divided_score = divided_score or div_res["score"]
-
-        # Executive
-        exec_ev = sub_events["executive"]
-        exec_hits = sum(1 for e in exec_ev if e.is_correct)
-        exec_rts = [e.reaction_time_ms for e in exec_ev if e.reaction_time_ms > 0]
-        exec_res = score_executive(
-            rt_before_switch=exec_rts[0] if exec_rts else 400.0,
-            rt_after_switch=exec_rts[-1] if len(exec_rts) > 1 else 450.0,
-            switch_errors=sum(1 for e in exec_ev if not e.is_correct),
-            total_after_switch=max(1, len(exec_ev) // 2),
-            rt_list=exec_rts
-        )
-        executive_score = executive_score or exec_res["score"]
-
-    overall = score_overall(
-        sustained=sustained_score or 75.0,
-        selective=selective_score or 75.0,
-        divided=divided_score or 75.0,
-        executive=executive_score or 75.0
-    )
+    elif answers_score is not None:
+        overall = answers_score
+    else:
+        overall = 0.0
     percentile = estimate_percentile(overall)
 
     metrics_payload = {

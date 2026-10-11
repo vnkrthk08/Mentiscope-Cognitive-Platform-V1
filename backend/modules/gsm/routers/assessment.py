@@ -1,349 +1,263 @@
-"""
-ASAT â€“ MentiScope Standard Assessment Endpoints
-
-These are the NEW endpoints required by the MentiScope platform specification:
-  - POST /api/start
-  - POST /api/answer
-  - POST /api/finish
-  - GET  /api/result/{session_id}
-
-They coexist alongside the existing endpoints for backward compatibility.
-The existing frontend continues to use the original endpoints.
-The MentiScope platform will use these standardized endpoints.
-"""
-
-import logging
-from datetime import datetime, timezone
+import time
+import json
+from typing import Dict, Any, List, Optional
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, desc
+from pydantic import BaseModel, Field
+from sqlalchemy.orm import Session
 
-from modules.gsm.database import get_db
-from modules.gsm.config import settings
-from modules.gsm.schemas import Session as SessionModel, Score, Event, Student
-from modules.gsm.models import (
-    AssessmentStartRequest, AssessmentStartResponse,
-    AssessmentAnswerRequest, AssessmentAnswerResponse,
-    AssessmentFinishRequest, AssessmentResultResponse,
-    AssessmentMetrics, MessageResponse,
-)
+try:
+    from ....database import get_db
+    from ....core_models import SavedAssessmentSession
+    from ....admin_csv_service import record_student_score
+except (ImportError, ValueError):
+    from database import get_db
+    from core_models import SavedAssessmentSession
+    from admin_csv_service import record_student_score
 
-logger = logging.getLogger("asat.assessment")
-router = APIRouter(tags=["MentiScope Assessment"])
+router = APIRouter()
 
+GSM_QUESTIONS = [
+    {
+        "id": "gsm-1",
+        "text": "Repeat the sequence in the correct order.",
+        "story": "Working Memory (Digit Span Forward): Listen or watch carefully. Remember this sequence of digits.",
+        "sequence": [4, 8, 2, 9, 1],
+        "type": "memory-span",
+        "correct_answer": "48291",
+        "hint": "Type the numbers exactly as they appeared: Four, Eight, Two, Nine, One."
+    },
+    {
+        "id": "gsm-2",
+        "text": "Repeat the sequence in REVERSE order.",
+        "story": "Working Memory (Digit Span Backward): Reverse processing forces active storage manipulation.",
+        "sequence": [3, 7, 5, 1, 8],
+        "type": "memory-span",
+        "correct_answer": "81573",
+        "hint": "Take the sequence 3, 7, 5, 1, 8 and type it backwards."
+    },
+    {
+        "id": "gsm-3",
+        "text": "Remember and repeat this mixed alpha-numeric span in ascending order.",
+        "story": "Alpha-Numeric Span Sort: Sort numbers first, then letters in alphabetical order.",
+        "sequence": ["B", 5, "A", 2, "C", 8],
+        "type": "memory-span",
+        "correct_answer": "258ABC",
+        "hint": "Order numbers first (2, 5, 8) then letters (A, B, C)."
+    },
+    {
+        "id": "gsm-4",
+        "text": "Look at the pattern grid. Which coordinates contained the highlighted cells?",
+        "story": "Visual-Spatial Working Memory: Remember active cells on a 4x4 matrix.",
+        "gridSize": 4,
+        "activeGridCells": [2, 7, 13],
+        "type": "grid-pattern",
+        "correct_answer": "2,7,13",
+        "hint": "Remember the row/column indices (zero-indexed: top-left is 0, bottom-right is 15)."
+    },
+    {
+        "id": "gsm-5",
+        "text": "Enter the sum of the first digit and the last digit from this sequence: 7, 2, 9, 4, 3",
+        "story": "Active Arithmetic Memory: Hold the sequence while performing an arithmetic operation.",
+        "sequence": [7, 2, 9, 4, 3],
+        "options": ["9", "10", "11", "12"],
+        "type": "choice",
+        "correct_answer": "10",
+        "hint": "Add the first digit (7) and the last digit (3)."
+    }
+]
 
-@router.post("/start", response_model=AssessmentStartResponse)
-async def start_assessment(
-    payload: AssessmentStartRequest,
-    db: AsyncSession = Depends(get_db),
-):
-    """
-    Start an assessment session.
-    Called by the MentiScope platform with student/session metadata.
-    As specified in Section 4 & 8 of the MentiScope instructions.
+class GsmStartRequest(BaseModel):
+    sessionId: Optional[str] = None
+    session_id: Optional[str] = None
+    studentId: Optional[str] = None
+    student_id: Optional[str] = None
 
-    This endpoint:
-    1. Receives student_id, session_id from the platform (no personal details)
-    2. Creates/finds the student record
-    3. Creates a new session
-    4. Returns assessment configuration
-    """
-    now = datetime.now(timezone.utc)
+class GsmAnswerRequest(BaseModel):
+    sessionId: Optional[str] = None
+    session_id: Optional[str] = None
+    questionId: Optional[str] = None
+    question_id: Optional[str] = None
+    answer: str
+    durationMs: Optional[int] = 0
+    duration_ms: Optional[int] = 0
 
-    # Find or create student by platform student_id
-    result = await db.execute(
-        select(Student).where(Student.student_id_number == payload.student_id)
-    )
-    student = result.scalar_one_or_none()
+class GsmFinishRequest(BaseModel):
+    sessionId: Optional[str] = None
+    session_id: Optional[str] = None
+    studentId: Optional[str] = None
+    student_id: Optional[str] = None
+    answers: Optional[List[Dict[str, Any]]] = None
 
-    if not student:
-        # Create a minimal student record from platform data
-        student = Student(
-            full_name=f"Student {payload.student_id}",
-            student_id_number=payload.student_id,
-        )
-        db.add(student)
-        await db.commit()
-        await db.refresh(student)
-        logger.info(f"[assessment/start] Created student for platform id={payload.student_id}")
+_gsm_cache: Dict[str, Dict[str, Any]] = {}
 
-    # Create session with the platform-provided session_id as UUID
-    session = SessionModel(
-        student_id=student.student_id,
-        session_uuid=payload.session_id,
-        status="in_progress",
-    )
-    db.add(session)
-    await db.commit()
-    await db.refresh(session)
+@router.post("/start")
+def start_gsm(payload: GsmStartRequest, db: Session = Depends(get_db)):
+    sess_id = payload.sessionId or payload.session_id or f"sess_gsm_{int(time.time()*1000)}"
+    _gsm_cache[sess_id] = {}
+    
+    clean_questions = []
+    for q in GSM_QUESTIONS:
+        item = dict(q)
+        item.pop("correct_answer", None)
+        clean_questions.append(item)
 
-    logger.info(
-        f"[assessment/start] Session created: session_id={session.session_id} "
-        f"student_id={payload.student_id} platform_session={payload.session_id}"
-    )
+    return {
+        "status": "success",
+        "sessionId": sess_id,
+        "moduleId": "gsm",
+        "moduleName": "Working Memory (Gsm)",
+        "construct": "Executive Working Memory & Span Retention",
+        "totalQuestions": len(clean_questions),
+        "questions": clean_questions
+    }
 
-    return AssessmentStartResponse(
-        status="started",
-        session_id=payload.session_id,
-        module_id=payload.module_id or settings.module_id,
-        module_name=settings.module_name,
-        construct=payload.construct or settings.construct,
-        total_trials=112,
-        modules=["Sustained", "Selective", "Divided", "Executive"],
-        start_time=now.isoformat(),
-    )
+@router.post("/answer")
+def answer_gsm(payload: GsmAnswerRequest, db: Session = Depends(get_db)):
+    sess_id = payload.sessionId or payload.session_id
+    if not sess_id:
+        raise HTTPException(status_code=400, detail="Missing sessionId")
 
+    qid = payload.questionId or payload.question_id or ""
+    q_data = next((q for q in GSM_QUESTIONS if q["id"] == qid), None)
 
-@router.post("/answer", response_model=AssessmentAnswerResponse)
-async def submit_answer(
-    payload: AssessmentAnswerRequest,
-    db: AsyncSession = Depends(get_db),
-):
-    """
-    Log a single trial answer/event.
-    As specified in Section 7 & 8 of the MentiScope instructions.
-    """
-    # Find the session by platform session_id (stored as session_uuid)
-    result = await db.execute(
-        select(SessionModel).where(SessionModel.session_uuid == payload.session_id)
-    )
-    session = result.scalar_one_or_none()
-    if not session:
-        raise HTTPException(status_code=404, detail=f"Session {payload.session_id} not found.")
+    is_correct = False
+    ans_clean = str(payload.answer).replace(" ", "").replace("-", "").strip().upper()
+    
+    if q_data:
+        target_clean = str(q_data["correct_answer"]).replace(" ", "").replace("-", "").strip().upper()
+        is_correct = ans_clean == target_clean
 
-    # Find the student
-    student_result = await db.execute(
-        select(Student).where(Student.student_id_number == payload.student_id)
-    )
-    student = student_result.scalar_one_or_none()
-    if not student:
-        raise HTTPException(status_code=404, detail=f"Student {payload.student_id} not found.")
+    feedback = "Correct! Target memory chunk recalled accurately." if is_correct else "Response recorded."
 
-    # Log the event â€” same fields as existing event logging
-    event = Event(
-        student_id=student.student_id,
-        session_id=session.session_id,
-        construct=settings.construct,
-        task_id=payload.task_id or settings.module_name,
-        item_id=payload.item_id,
-        stimulus=payload.stimulus or "",
-        event_type=payload.event_type or "TRIAL",
-        response=payload.response or "",
-        correct=payload.correct,
-        reaction_time_ms=payload.reaction_time_ms or 0,
-        error_type=payload.error_type or "",
-        difficulty_level=payload.difficulty_level or 1,
-    )
-    db.add(event)
-    await db.commit()
+    if sess_id not in _gsm_cache:
+        _gsm_cache[sess_id] = {}
 
-    logger.info(
-        f"[assessment/answer] Event logged: session={payload.session_id} "
-        f"item={payload.item_id} correct={payload.correct} rt={payload.reaction_time_ms}ms"
-    )
-    return AssessmentAnswerResponse(status="recorded", item_id=payload.item_id)
+    _gsm_cache[sess_id][qid] = {
+        "answer": payload.answer,
+        "isCorrect": is_correct,
+        "durationMs": payload.durationMs or payload.duration_ms or 0
+    }
 
+    return {
+        "status": "success",
+        "isCorrect": is_correct,
+        "feedback": feedback
+    }
 
-@router.post("/finish", response_model=AssessmentResultResponse)
-async def finish_assessment(
-    payload: AssessmentFinishRequest,
-    db: AsyncSession = Depends(get_db),
-):
-    """
-    Complete the assessment and return MentiScope-standard results.
-    As specified in Sections 5, 6, & 8 of the MentiScope instructions.
-    """
-    now = datetime.now(timezone.utc)
+@router.post("/finish")
+def finish_gsm(payload: GsmFinishRequest, db: Session = Depends(get_db)):
+    sess_id = payload.sessionId or payload.session_id
+    stu_id = payload.studentId or payload.student_id or "stud_candidate"
+    if not sess_id:
+        raise HTTPException(status_code=400, detail="Missing sessionId")
 
-    # Find session
-    result = await db.execute(
-        select(SessionModel).where(SessionModel.session_uuid == payload.session_id)
-    )
-    session = result.scalar_one_or_none()
-    if not session:
-        raise HTTPException(status_code=404, detail=f"Session {payload.session_id} not found.")
+    recorded = _gsm_cache.get(sess_id, {})
 
-    # Find student
-    student_result = await db.execute(
-        select(Student).where(Student.student_id_number == payload.student_id)
-    )
-    student = student_result.scalar_one_or_none()
-    if not student:
-        raise HTTPException(status_code=404, detail=f"Student {payload.student_id} not found.")
-
-    # Mark session completed
-    session.status = "completed"
-    session.end_time = now
-
-    # Save scores â€” same upsert logic as sessions.py
-    if payload.scores:
-        score_result = await db.execute(
-            select(Score)
-            .where(Score.student_id == student.student_id)
-            .order_by(desc(Score.created_at))
-            .limit(1)
-        )
-        existing_score = score_result.scalar_one_or_none()
-
-        mr = payload.module_results or {}
-
-        if existing_score:
-            existing_score.sustained_score = payload.scores.sustained
-            existing_score.selective_score = payload.scores.selective
-            existing_score.divided_score = payload.scores.divided
-            existing_score.executive_score = payload.scores.executive
-            existing_score.overall_score = payload.scores.overall
-            existing_score.percentile = payload.scores.percentile or 0
-            existing_score.module_results = mr
-            existing_score.raw_score = payload.scores.overall
-            existing_score.normalized_score = (payload.scores.overall or 0) / 100
-            existing_score.sub_scores = {
-                "sustained": payload.scores.sustained,
-                "selective": payload.scores.selective,
-                "divided": payload.scores.divided,
-                "executive": payload.scores.executive,
+    if payload.answers:
+        for a in payload.answers:
+            qid = str(a.get("questionId") or a.get("question_id") or "")
+            ans = str(a.get("answer") or "")
+            q_data = next((q for q in GSM_QUESTIONS if q["id"] == qid), None)
+            is_corr = a.get("isCorrect")
+            if is_corr is None and q_data:
+                c1 = ans.replace(" ", "").replace("-", "").strip().upper()
+                c2 = str(q_data["correct_answer"]).replace(" ", "").replace("-", "").strip().upper()
+                is_corr = c1 == c2
+            recorded[qid] = {
+                "answer": ans,
+                "isCorrect": bool(is_corr),
+                "durationMs": a.get("durationMs") or a.get("duration_ms") or 0
             }
-            existing_score.confidence_score = 0.95
-        else:
-            new_score = Score(
-                student_id=student.student_id,
-                sustained_score=payload.scores.sustained,
-                selective_score=payload.scores.selective,
-                divided_score=payload.scores.divided,
-                executive_score=payload.scores.executive,
-                overall_score=payload.scores.overall,
-                percentile=payload.scores.percentile or 0,
-                module_results=mr,
-                raw_score=payload.scores.overall,
-                normalized_score=(payload.scores.overall or 0) / 100,
-                sub_scores={
-                    "sustained": payload.scores.sustained,
-                    "selective": payload.scores.selective,
-                    "divided": payload.scores.divided,
-                    "executive": payload.scores.executive,
-                },
-                confidence_score=0.95,
-            )
-            db.add(new_score)
 
-    await db.commit()
+    total_q = len(GSM_QUESTIONS)
+    correct_count = sum(1 for item in recorded.values() if item.get("isCorrect"))
+    accuracy = round((correct_count / total_q) * 100.0, 1) if total_q > 0 else 0.0
 
-    # Calculate completion time
-    completion_time = None
-    if session.start_time:
-        delta = now - session.start_time.replace(tzinfo=timezone.utc)
-        completion_time = int(delta.total_seconds())
+    span_capacity = "High Span (7-9 Items)" if accuracy >= 80 else ("Moderate Span (5-6 Items)" if accuracy >= 60 else "Developing Span (3-4 Items)")
 
-    # Extract metrics from module_results for the standard response
-    mr = payload.module_results or {}
-    sustained_mr = mr.get("sustained", {}) or {}
-    selective_mr = mr.get("selective", {}) or {}
-    executive_mr = mr.get("executive", {}) or {}
+    metrics = {
+        "raw_score": correct_count,
+        "total_questions": total_q,
+        "accuracy": accuracy,
+        "span_capacity": span_capacity,
+        "forward_span": recorded.get("gsm-1", {}).get("isCorrect", False),
+        "backward_span": recorded.get("gsm-2", {}).get("isCorrect", False),
+        "alphanumeric_sort": recorded.get("gsm-3", {}).get("isCorrect", False),
+        "spatial_grid_recall": recorded.get("gsm-4", {}).get("isCorrect", False),
+        "dual_task_arithmetic": recorded.get("gsm-5", {}).get("isCorrect", False),
+        "status": "Completed"
+    }
 
-    metrics = AssessmentMetrics(
-        sustained_score=payload.scores.sustained if payload.scores else None,
-        selective_score=payload.scores.selective if payload.scores else None,
-        divided_score=payload.scores.divided if payload.scores else None,
-        executive_score=payload.scores.executive if payload.scores else None,
-        overall_score=payload.scores.overall if payload.scores else None,
-        percentile=payload.scores.percentile if payload.scores else None,
-        rt_variability=sustained_mr.get("rtVariabilityScore"),
-        fatigue_slope=sustained_mr.get("fatigueScore"),
-        adaptation_speed=executive_mr.get("adaptationSpeed"),
-        impulsivity_index=sustained_mr.get("impulsivityIndex"),
-        attention_stability=sustained_mr.get("attentionStability"),
-        recovery_after_errors=sustained_mr.get("recoveryTrials"),
-    )
+    # Sync to SavedAssessmentSession
+    existing_sess = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.session_id == sess_id).first()
+    if existing_sess and existing_sess.payload:
+        data = dict(existing_sess.payload)
+        mod_scores = dict(data.get("moduleScores", {}))
+        mod_scores["gsm"] = accuracy
+        data["moduleScores"] = mod_scores
+        mod_metrics = dict(data.get("moduleMetrics", {}))
+        mod_metrics["gsm"] = metrics
+        data["moduleMetrics"] = mod_metrics
+        if len(mod_scores) > 0:
+            data["overallScore"] = round(sum(mod_scores.values()) / len(mod_scores))
+        existing_sess.payload = data
+        db.commit()
+    elif existing_sess:
+        existing_sess.payload = {
+            "sessionId": sess_id,
+            "studentId": stu_id,
+            "moduleScores": {"gsm": accuracy},
+            "moduleMetrics": {"gsm": metrics},
+            "overallScore": round(accuracy),
+            "status": "completed"
+        }
+        db.commit()
+    else:
+        new_sess = SavedAssessmentSession(
+            session_id=sess_id,
+            student_id=stu_id,
+            payload={
+                "sessionId": sess_id,
+                "studentId": stu_id,
+                "moduleScores": {"gsm": accuracy},
+                "moduleMetrics": {"gsm": metrics},
+                "overallScore": round(accuracy),
+                "status": "completed"
+            }
+        )
+        db.add(new_sess)
+        db.commit()
 
-    logger.info(
-        f"[assessment/finish] Assessment completed: session={payload.session_id} "
-        f"overall={payload.scores.overall if payload.scores else 'N/A'}"
-    )
+    # Record to CSV
+    try:
+        record_student_score(
+            db=db,
+            session_id=sess_id,
+            student_id=stu_id,
+            module_id="gsm",
+            score=accuracy,
+            metrics=metrics
+        )
+    except Exception as e:
+        print("[GSM record_student_score warning]", e)
 
-    return AssessmentResultResponse(
-        student_id=payload.student_id,
-        session_id=payload.session_id,
-        module_id=settings.module_id,
-        module_name=settings.module_name,
-        construct=settings.construct,
-        status="Completed",
-        start_time=session.start_time.isoformat() if session.start_time else None,
-        end_time=now.isoformat(),
-        completion_time=completion_time,
-        timestamp=now.isoformat(),
-        metrics=metrics,
-    )
+    return {
+        "status": "completed",
+        "sessionId": sess_id,
+        "scorePercentage": accuracy,
+        "metrics": metrics
+    }
 
-
-@router.get("/result/{session_id}", response_model=AssessmentResultResponse)
-async def get_result(
-    session_id: str,
-    db: AsyncSession = Depends(get_db),
-):
-    """
-    Retrieve assessment results by session ID.
-    As specified in Section 8 of the MentiScope instructions.
-    Returns the standard output format with mandatory metadata + metrics.
-    """
-    # Find session by UUID
-    result = await db.execute(
-        select(SessionModel).where(SessionModel.session_uuid == session_id)
-    )
-    session = result.scalar_one_or_none()
-    if not session:
-        raise HTTPException(status_code=404, detail=f"Session {session_id} not found.")
-
-    # Get student
-    student_result = await db.execute(
-        select(Student).where(Student.student_id == session.student_id)
-    )
-    student = student_result.scalar_one_or_none()
-
-    # Get latest score
-    score_result = await db.execute(
-        select(Score)
-        .where(Score.student_id == session.student_id)
-        .order_by(desc(Score.created_at))
-        .limit(1)
-    )
-    score = score_result.scalar_one_or_none()
-
-    # Calculate completion time
-    completion_time = None
-    if session.start_time and session.end_time:
-        delta = session.end_time - session.start_time
-        completion_time = int(delta.total_seconds())
-
-    # Extract metrics from module_results
-    mr = score.module_results if score and score.module_results else {}
-    sustained_mr = mr.get("sustained", {}) or {}
-    executive_mr = mr.get("executive", {}) or {}
-
-    metrics = AssessmentMetrics(
-        sustained_score=score.sustained_score if score else None,
-        selective_score=score.selective_score if score else None,
-        divided_score=score.divided_score if score else None,
-        executive_score=score.executive_score if score else None,
-        overall_score=score.overall_score if score else None,
-        percentile=score.percentile if score else None,
-        rt_variability=sustained_mr.get("rtVariabilityScore"),
-        fatigue_slope=sustained_mr.get("fatigueScore"),
-        adaptation_speed=executive_mr.get("adaptationSpeed"),
-        impulsivity_index=sustained_mr.get("impulsivityIndex"),
-        attention_stability=sustained_mr.get("attentionStability"),
-        recovery_after_errors=sustained_mr.get("recoveryTrials"),
-    )
-
-    return AssessmentResultResponse(
-        student_id=student.student_id_number or str(student.student_id) if student else "unknown",
-        session_id=session_id,
-        module_id=settings.module_id,
-        module_name=settings.module_name,
-        construct=settings.construct,
-        status=session.status or "unknown",
-        start_time=session.start_time.isoformat() if session.start_time else None,
-        end_time=session.end_time.isoformat() if session.end_time else None,
-        completion_time=completion_time,
-        timestamp=session.end_time.isoformat() if session.end_time else None,
-        metrics=metrics,
-    )
+@router.get("/result/{session_id}")
+def get_gsm_result(session_id: str, db: Session = Depends(get_db)):
+    sess = db.query(SavedAssessmentSession).filter(SavedAssessmentSession.session_id == session_id).first()
+    if not sess or not sess.payload:
+        raise HTTPException(status_code=404, detail="Session not found")
+    
+    score = sess.payload.get("moduleScores", {}).get("gsm", 0)
+    metrics = sess.payload.get("moduleMetrics", {}).get("gsm", {})
+    return {
+        "moduleId": "gsm",
+        "score": score,
+        "metrics": metrics
+    }
